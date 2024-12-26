@@ -8,6 +8,8 @@ import { toast, ToastContainer } from "react-toastify";
 import PhoneInput from 'react-phone-number-input';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-phone-number-input/style.css';
+import { countries, arabicCountries } from "../utils/countriesData";
+import FullPageLoader from "../fullPageLoader.js/FullPageLoader";
 
 export default function SignIn() {
   const router = useRouter();
@@ -16,43 +18,76 @@ export default function SignIn() {
   const currentPath = usePathname();
   const [language, setLanguage] = useState("");
   const [otpCode, setOtpCode] = useState("");
+  const [isOtpVerify, setIsOtpVerify] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [isOtpSent, setIsOtpSent] = useState(false);
   const [errorVerifyMessage, setErrorVerifyMessage] = useState("");
   const [otpGenerated, setOtpGenerated] = useState(false);
+  const [loader, setLoader] = useState(false);
+  const [firstLoader, setFirstLoader] = useState(true);
   const [disabledPhoneOTP, setDisabledPhoneOTP] = useState(false);
   const [OtpMessage, setOtpMessage] = useState("");
 
+  const [selectedCountryCode, setSelectedCountryCode] = useState("+968");
+  const fullPhoneNumber = `${selectedCountryCode}${phoneNumber.trim()}`;
+  
   // fetched
-  useEffect(() => {
+useEffect(() => {
     const lang = currentPath.split("/")[1] || "en";
     setLanguage(lang);
-  }, [currentPath]);
+
+    // Check if token exists in localStorage, redirect to home page if not
+    const token = localStorage.getItem("authToken");
+
+    if (!token) {
+      toast.error("Your session has expired. Please log in again.", {
+        autoClose: 1000,  // Toast will automatically close after 5 seconds
+      });
+
+      // Redirect to the home page after 5 seconds
+      setTimeout(() => {
+        router.push("/"); // Redirect to home page
+      }, 1000);
+    } else {
+      setFirstLoader(false); // If token exists, stop loader
+    }
+  }, [currentPath, router]);
 
   const handleSendOTP = async () => {
     if (!phoneNumber) {
       setErrorMessage(t("phone_number_is_required"));
       return;
     }
+   // Validate the phone number length (between 8 and 16 digits)
+   if (phoneNumber.length < 8 || phoneNumber.length > 16) {
+    setErrorMessage(t("phone_number_must_be_between_8_and_16_digits"));
+    return; // Stop execution if validation fails
+  }
+  setIsOtpSent(true);
     try {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/auth/generate-otp`,
         {
-          phoneNumber,
+          phoneNumber:fullPhoneNumber,
           userExist: 1, 
         }
       );
+
+      console.log("response",response);
 
       // OTP generated successfully
       if (response?.data.success) {
         setOtpGenerated(true); // Show OTP input field
         setOtpMessage(response.data.message || "");
-        toast.success(response.data.message);
+        toast.success(language === "en" ? response.data.message : response.data.message_ar );
         setErrorMessage("");
       } else {
-        toast.error(response.data.message);
+        toast.error(language === "en" ? response.data.message : response.data.message_ar );
+        setIsOtpSent(false);
       }
     } catch (error) {
       console.error("Error generating OTP:", error);
+      setIsOtpSent(false);
     }
   };
 
@@ -60,59 +95,93 @@ export default function SignIn() {
     if (!otpCode) {
       setErrorVerifyMessage(t("OTP_is_required"));
       return;
-    }
-    try {
+  }
+  setIsOtpVerify(true)
+   try {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/auth/verify-otp`,
         {
-          phoneNumber,
+          phoneNumber:fullPhoneNumber,
           otpCode, // Add userExist here as part of the request body
         }
       );
       // OTP Verified successfully
+      console.log("response evrify",response);
       if (response?.data?.success) {
-        toast.success(response.data.message);
+        toast.success(language === "en" ? response.data.message : response.data.message_ar );
         setErrorVerifyMessage("");
         setDisabledPhoneOTP(true);
+        setIsOtpVerify(false)
       } else {
-        toast.error(response?.data?.message);
+        toast.error(language === "en" ? response.data.message : response.data.message_ar );
+        setIsOtpVerify(false)
       }
     } catch (error) {
       toast.error(t("failed_to_Verify_OTP"));
+      setIsOtpVerify(false)
     }
   };
 
   const handleSubmit = async () => {
-    if (!phoneNumber) {
-      setErrorMessage(t("phone_number_is_required"));
-      return;
-    }
+    setLoader(true)
     if (!otpCode) {
       setErrorVerifyMessage(t("OTP_is_required"));
       return;
-    }
- 
+  }
+   // Validate phone number
+    if (!phoneNumber || phoneNumber.trim() === "") {
+      setErrorMessage(t("phone_number_is_required"));
+      return;
+  }
+  // Validate the phone number length (between 8 and 16 digits)
+  if (phoneNumber.length < 8 || phoneNumber.length > 16) {
+    setErrorMessage(t("phone_number_must_be_between_8_and_16_digits"));
+    return; // Stop execution if validation fails
+  }
+   
     try {
       const formData = new FormData();   
-      formData.append("phoneNumber", phoneNumber);
+      formData.append("phoneNumber", fullPhoneNumber);
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/auth/login`,
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
-      
+      setLoader(false)
+      console.log("response",response);
       if (response?.data?.status === 1) {
-        window.localStorage.setItem('accessToken', response.data.data.accessToken);
-        router.push(`/${language}/thank-you`);
+        localStorage.setItem("authToken", response.data.data.accessToken);
+        router.push(`/${language}/event`);
+       setLoader(false)
       } else {
         toast.error(
           language === "en" ? response.data.message : response.data.message_ar
         );
+       setLoader(false)
       }
     } catch (error) {
       toast.error(error.message || "An error occurred");
+      setLoader(false)
     }
   };
+
+  const handlePhoneNumberChange = (e) => {
+    const input = e.target.value;
+      setErrorMessage('');
+    // Ensure the input always starts with the selected country code
+    if (!input.startsWith(selectedCountryCode)) {
+      return; // Prevent any update if the user tries to remove the country code
+    }
+    // Extract the phone number (part after the country code)
+    const numberWithoutCode = input.slice(selectedCountryCode.length);
+    // Update the phone number state without affecting the country code
+    setPhoneNumber(numberWithoutCode);
+  };
+
+  if (loader || firstLoader){
+    return <FullPageLoader/>
+  }
+  
 
   return (
     <div>
@@ -125,32 +194,64 @@ export default function SignIn() {
             </p>
           </div>
           <div>
-            <div className="lg:grid lg:grid-cols-2  gap-6">
-              <div className="form-group lg:mb-0 mb-4">
-                <div className="btn-icon relative">
-                  <PhoneInput
-                    international
-                    defaultCountry="US" // Default country code
-                    value={phoneNumber}
-                    onChange={setPhoneNumber}
-                    disabled={disabledPhoneOTP || OtpMessage}
-                    className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white  border-solid border-2 border-[#DEDEDE]   outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg  text-[#11171F]   focus:outline-none sm:text-sm/6"
-                    placeholder={t("phone_number")}
-                  />
-                  <button
-                    disabled={disabledPhoneOTP || OtpMessage}
-                    onClick={handleSendOTP}
-                    className="px-4 py-2 font-semibold lg:text-lg rounded-[3px] bg-[#1796D8] text-white absolute lg:w-[149px] w-[100px] lg:top-2 top-[2px] lg:right-2 right-[2px] lg:min-h-[calc(100%-16px)] min-h-[calc(100%-4px)] shadow-shadow-color"
+            <div className="lg:grid lg:grid-cols-2 ">
+            <div className="form-group lg:mb-0 mb-4">
+              <div className="btn-icon select_country relative flex align-baseline">
+                {
+                  language ==="en" ? <div>
+                  <select
+                    value={selectedCountryCode}
+                    onChange={(e) => setSelectedCountryCode(e.target.value)}
+                    className="max-w-[154px] placeholder:text-[#11171F] w-full items-center dir_left-t-right rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
                   >
-                    {t("send_OTP")}
-                  </button>
+                    {countries.map((country, index) => (
+                      <option key={index} value={country.code}>
+                        {country.name} ({country.code})
+                      </option>
+                    ))}
+                  </select>
+                </div> : <div>
+                  <select
+                    value={selectedCountryCode}
+                    onChange={(e) => setSelectedCountryCode(e.target.value)}
+                    className=" max-w-[154px] placeholder:text-[#11171F] w-full items-center dir_left-t-right rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
+                  >
+                    {arabicCountries.map((country, index) => (
+                      <option key={index} value={country.code}>
+                        {country.name} ({country.code})
+                      </option>
+                    ))}
+                  </select>
                 </div>
-                {errorMessage && (
-                  <span className="text-red-500 text-sm mt-2">
-                    {errorMessage}
-                  </span>
-                )}
+                }
+             
+              <div className="relative w-[80%]">
+            <input
+              type="text"
+              name="PhoneNumber"
+              id="PhoneNumber"
+              value={`${selectedCountryCode}${phoneNumber}`} // Always shows country code + phone number
+              onChange={handlePhoneNumberChange} // Handles updates without breaking country code
+              className="pr-[165px] placeholder:text-[#11171F] w-full items-center dir_left-t-right rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
+              placeholder="Enter phone number"
+            />
+             </div>
+             <button
+              disabled={isOtpSent || disabledPhoneOTP || OtpMessage} // Disable immediately on click
+              onClick={handleSendOTP}
+              className="px-4 py-2 font-semibold lg:text-lg rounded-[3px] bg-[#1796D8] text-white absolute rtl:xl:text-[30px] lg:w-[149px] w-[100px] lg:top-2 top-[2px] lg:right-2 right-[2px] lg:min-h-[calc(100%-35px)] min-h-[calc(100%-4px)] shadow-shadow-color"
+            >
+              {t("send_OTP")}
+            </button>
               </div>
+              {
+                  errorMessage && (
+                <span className="text-red-500 text-sm mt-2">
+                  {errorMessage}
+                </span>
+              )
+            }
+            </div>
               {otpGenerated && (
                 <div class="form-group lg:mb-0 mb-4">
                   <div className="btn-icon relative">
@@ -158,20 +259,20 @@ export default function SignIn() {
                       type="text"
                       name="otp"
                       id="otp"
-                      disabled={disabledPhoneOTP}
-                      onChange={(e) => setOtpCode(e.target.value)}
+                      // disabled={disabledPhoneOTP}
+                      onChange={(e) => setOtpCode(e.target.value.trim())}
                       className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white  border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg  text-[#11171F]   focus:outline-none sm:text-sm/6"
                       placeholder="OTP"
                     />
                     <button
-                      disabled={disabledPhoneOTP}
+                      disabled={isOtpVerify}
                       onClick={handleVerifyOTP}
                       class="px-4 py-2 font-semibold lg:text-lg rounded-[3px] bg-[#1796D8] text-white absolute w-[101px] lg:top-2 top-[2px] lg:right-2 right-[2px] lg:min-h-[calc(100%-16px)] min-h-[calc(100%-4px)] shadow-shadow-color"
                     >
                       {t("verify")}
                     </button>
                   </div>
-                  {errorVerifyMessage && (
+                  { !otpCode &&  errorVerifyMessage && (
                     <span className="text-red-500 text-sm mt-2">
                       {errorVerifyMessage}
                     </span>
@@ -191,17 +292,17 @@ export default function SignIn() {
               </Link>
 
             </p>
-            <button
-              // disabled={!disabledPhoneOTP}
+            {
+              disabledPhoneOTP &&   <button
               onClick={handleSubmit}
+              disabled={!disabledPhoneOTP}
               className={
-                !disabledPhoneOTP
-                  ? "lg:order-none order-1 py-2.5 px-6 text-white rounded-3xl font-medium xl:text-xl text-sm bg-btn-gradient "
-                  : "lg:text-lg block lg:w-[181px] w-full lg:order-none order-1 py-2.5 px-6 text-white rounded-3xl font-medium xl:text-xl text-sm bg-btn-gradient hover:bg-btn-gradient-hover"
-              }
+                "lg:order-none order-1 py-2.5 px-6 text-white rounded-3xl font-medium xl:text-xl text-sm bg-btn-gradient "}
             >
-              {t("login")}
+              {t("sign_in")}
             </button>
+            }
+          
           </div>
         </div>
       </section>

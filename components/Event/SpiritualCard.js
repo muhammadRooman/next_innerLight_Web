@@ -81,8 +81,13 @@ export default function SpiritualCard({ webinarEvenData }) {
                 />
                 <div className="date-wrap w-[100px] h-[100px] bg-white rounded-10 flex justify-center items-center shadow-shadow-color3 xl:hidden lg:flex absolute top-3 left-3">
                   <h1 className="xl:text-40 lg:text-[20px] text-[18px] font-bold lg:leading-[25px] leading-6  text-center text-[#0C0101]">
-                    {event.date.split(" ")[0]}
-                    <span className="block">{event.date.split(" ")[1]}</span>
+                  
+                       {new Date(event.date).getDate()}
+                    <span className="block"> {new Date(event.date)
+                      .toLocaleString(language === "en" ? "en-US" : "ar", {
+                        month: "short",
+                      })
+                      .toUpperCase()}</span>
                   </h1>
                 </div>
               </div>

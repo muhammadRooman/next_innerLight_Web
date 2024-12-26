@@ -42,10 +42,10 @@ export default function SignUpNow() {
     phoneNumber: "",
     otpCode: "",
   });
-  //  const token = localStorage.getItem('authToken');
-  // const [phoneNumber, setPhoneNumber] = useState("");
-  const [selectedCountryCode, setSelectedCountryCode] = useState("+1");
-
+  const [selectedCountryCode, setSelectedCountryCode] = useState("+968");
+  const fullPhoneNumber = `${selectedCountryCode}${phoneNumber.trim()}`;
+  const [isOtpSent, setIsOtpSent] = useState(false);
+  const [isOtpVerify, setIsOtpVerify] = useState(false);
   
   // fetched cmsWeb
   useEffect(() => {
@@ -53,46 +53,52 @@ export default function SignUpNow() {
     setLanguage(lang);
   }, [currentPath]);
 
-  const [isOtpSent, setIsOtpSent] = useState(false);
-  const [isOtpVerify, setIsOtpVerify] = useState(false);
   const handleSendOTP = async () => {
+    // Validate if the phone number is provided
     if (!phoneNumber || phoneNumber.trim() === "") {
       setErrorMessage(t("phone_number_is_required"));
-      return errors;
-  }
+      return;
+    }
+  
     // Validate the phone number length (between 8 and 16 digits)
     if (phoneNumber.length < 8 || phoneNumber.length > 16) {
       setErrorMessage(t("phone_number_must_be_between_8_and_16_digits"));
-      return; // Stop execution if validation fails
+      return;
     }
+  
+    // Start the OTP generation process
     setIsOtpSent(true);
-    const fullPhoneNumber = `${selectedCountryCode}${phoneNumber.trim()}`;
+  
     try {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/auth/generate-otp`,
         {
-          phoneNumber:fullPhoneNumber,
-          userExist: 0, // Add userExist here as part of the request body
+          phoneNumber: fullPhoneNumber,
+          userExist: 0, // Indicating whether the user exists
         }
       );
-
-      // OTP generated successfully
-      if (response?.data.success) {
+  
+      // Handle the response based on status
+      if (response?.data?.status === 1) {
+        console.log("OTP Response:", response.data);
         setOtpGenerated(true); // Show OTP input field
         setOtpMessage(response.data.message || "");
-        toast.success(language === "en" ? response.data.message : response.data.message_ar );
+        toast.success(language === "en" ? response.data.message : response.data.message_ar);
         setErrorMessage("");
-      } else {
-        toast.error(language === "en" ? response.data.message : response.data.message_ar );
+      } else if (response?.data?.status === 0) {
+        toast.error(language === "en" ? `Failed to send WhatsApp message: The 'To' number ${fullPhoneNumber} is not a valid phone number` : `فشل إرسال رسالة WhatsApp: الرقم "إلى" ${fullPhoneNumber} ليس رقم هاتف صالحًا`);
         setIsOtpSent(false);
-
+      } else {
+        toast.error(language === "en" ? response.data.message : response.data.message_ar);
+        setIsOtpSent(false);
       }
     } catch (error) {
       console.error("Error generating OTP:", error);
+      toast.error(t("unable_to_generate_otp"));
       setIsOtpSent(false);
-
     }
   };
+  
 
   const handleVerifyOTP = async () => {
     if (!otpCode) {
@@ -100,7 +106,6 @@ export default function SignUpNow() {
         return;
     }
     setIsOtpVerify(true)
-    const fullPhoneNumber = `${selectedCountryCode}${phoneNumber.trim()}`;
     try {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/auth/verify-otp`,
@@ -116,7 +121,7 @@ export default function SignUpNow() {
         setDisabledPhoneOTP(true);
       } else {
         toast.error(language === "en" ? response.data.message : response.data.message_ar );
-    setIsOtpVerify(false)
+       setIsOtpVerify(false)
 
       }
     } catch (error) {
@@ -197,10 +202,11 @@ export default function SignUpNow() {
       setValidationErrors(errors);
       return;
     }
+   
     try {
       const formData = new FormData();
       formData.append("fullName", signUpData?.fullName);
-      formData.append("phoneNumber", phoneNumber);
+      formData.append("phoneNumber", fullPhoneNumber);
       formData.append("email", signUpData?.email);
       formData.append("profileImage", profileImage || "");
       const response = await axios.post(
@@ -221,9 +227,14 @@ export default function SignUpNow() {
     }
   };
   const signin = ()=>{
-   router.push(`/${language}/signin`);
+   const token = localStorage.getItem("authToken");
+    if (!token) {
+      router.push(`/${language}/signin`);
+    } else {
+      setLoader(false); // If token exists, stop loader
+    }
   }
-
+  
   const handlePhoneChange = (value) => {
   setPhoneNumber(value); // Set the full phone number with the country code
   };
@@ -349,6 +360,7 @@ export default function SignUpNow() {
               type="text"
               name="PhoneNumber"
               id="PhoneNumber"
+              disabled={isOtpSent || disabledPhoneOTP || OtpMessage} 
               value={`${selectedCountryCode}${phoneNumber}`} // Always shows country code + phone number
               onChange={handlePhoneNumberChange} // Handles updates without breaking country code
               className="pr-[165px] placeholder:text-[#11171F] w-full items-center dir_left-t-right rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
@@ -411,6 +423,7 @@ export default function SignUpNow() {
                     type="text"
                     name="otp"
                     id="otp"
+                    disabled={isOtpVerify}
                     // disabled={disabledPhoneOTP}
                     onChange={(e) => setOtpCode(e.target.value.trim())}
                     className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"

@@ -1,4 +1,4 @@
-export  const countries = [
+export const countries = [
     { code: "+93", name: "Afghanistan" },
     { code: "+355", name: "Albania" },
     { code: "+213", name: "Algeria" },
@@ -63,8 +63,9 @@ export  const countries = [
     { code: "+58", name: "Venezuela" },
     { code: "+84", name: "Vietnam" },
     { code: "+260", name: "Zambia" },
-    { code: "+263", name: "Zimbabwe" }
-];
+    { code: "+263", name: "Zimbabwe" },
+    { code: "+973", name: "Bahrain" } // Added Bahrain
+].sort((a, b) => a.name.localeCompare(b.name));
 
 export  const arabicCountries = [
         { code: "+93", name: "أفغانستان" },
@@ -83,7 +84,7 @@ export  const arabicCountries = [
         { code: "+49", name: "ألمانيا" },
         { code: "+30", name: "اليونان" },
         { code: "+852", name: "هونغ كونغ" },
-        { code: "+36", name: "المجر" },
+        { code: "+36", name: "هنغاريا" },
         { code: "+91", name: "الهند" },
         { code: "+62", name: "إندونيسيا" },
         { code: "+98", name: "إيران" },
@@ -131,6 +132,7 @@ export  const arabicCountries = [
         { code: "+58", name: "فنزويلا" },
         { code: "+84", name: "فيتنام" },
         { code: "+260", name: "زامبيا" },
-        { code: "+263", name: "زيمبابوي" }
-    ];
+        { code: "+263", name: "زيمبابوي" },
+        { code: "+973", name: "البحرين" } // Added Bahrain
+    ].sort((a, b) => a.name.localeCompare(b.name));
     
