@@ -148,7 +148,7 @@ body {
       margin-inline-end: 0px;
   }
 }
-@media (min-width: 991px) {
+@media (max-width: 991px) {
   .lg\:text-black {
       --tw-text-opacity: 1;
       color: rgb(0 0 0 / var(--tw-text-opacity, 1));
@@ -197,6 +197,10 @@ body {
 
 /* new css */
 
+.custom_client {
+  object-fit: cover;
+  object-position: top !important;
+}
 
 .contact-hero {
   position: relative;

@@ -6,31 +6,30 @@ export default function OurStories() {
     const t = useTranslations("OurStories");
     return (
         <>
-            <section className="our-stories bg-SubscriptionPlan-bg bg-cover  pb-20">
+            <section className="our-stories bg-SubscriptionPlan-bg bg-cover md:pb-20 xs:pb-14 small:pb-10">
                 <div className="2xl:container xl:container lg:container mx-auto px-5">
-
-                    <div className='book-you-button md:flex md:justify-between items-center mt-8 justify-center text-center pt-16'>
+                    <div className='book-you-button flex justify-between mb-5 items-center mt-8 text-center md:pt-16 xs:pt-10 small:pt-5'>
                         <div className="heading-box text-left">
-                            <h5 className="text-info-color 2xl:text-2xl font-black rtl:text-right rtl:2xl:text-[56px] rtl:xl:text-[40px] rtl:text-[30px] leading-[70px]">{t("our_stories")}</h5>
-                            <h2 className="xl:text-40 lg:text-[30px] text-[25px] rtl:text-right font-bold rtl:2xl:text-[72px] rtl:xl:text-[50px] rtl:text-[40px] leading-[88px]">{t("real_stories")}</h2>
+                            <h5 className="text-info-color 2xl:text-[22px] xl:text-[20px] lg:text-[18px] sm:text-[16px] text-[14px] 2xl:leading-[30px] font-black rtl:2xl:text-[56px] rtl:xl:text-[40px] rtl:text-[30px]">{t("our_stories")}</h5>
+                            <h2 className="2xl:text-[40px] xl:text-[35px] lg:text-[30px] sm:text-[25px] text-[14px] 2xl:leading-[50px] font-bold rtl:2xl:text-[72px] rtl:xl:text-[50px] rtl:text-[40px] md:max-w-[583px] xs:max-w-[450px]">{t("real_stories")}</h2>
                         </div>
-                        <Link href="#" className="pt-[10px] pb-[10px] pl-[52px] pr-[52px] text-white rounded-3xl font-medium rtl:xl:text-[30px] xl:text-xl text-sm bg-btn-gradient hover:bg-btn-gradient-hover lg:mr-20 lg:text-lg block">{t("see_all")}</Link>
+                        <Link href="#" className="px-4 py-1.5 sm:px-6 sm:py-2 md:px-8 md:py-3 text-white rounded-3xl font-medium rtl:xl:text-[24px] xl:text-lg lg:text-base sm:text-sm text-xs bg-btn-gradient hover:bg-btn-gradient-hover lg:mr-20 md:mr-10 sm:mr-6 mr-4 block">{t("see_all")}</Link>
                     </div>
 
-                    <div className="w-full lg:w-full lg:pt-[60px] lg:pb-[60px] lg:pl-[60px] lg:pr-[60px] 2xl:pl-[112px] 2xl:pr-[112px] 2xl:pt-[84px] 2xl:pb-[84px] bg-white rounded-lg  space-y-8 pt-10 sm:pt-[50px] md:pt-[60px] pb-10 sm:pb-[50px] md:pb-[60px] px-5 sm:px-[40px] md:px-[60px]">
+                    <div className="w-full lg:w-full lg:pt-[60px] lg:pb-[60px] lg:pl-[60px] lg:pr-[60px] 2xl:pl-[112px] 2xl:pr-[112px] 2xl:pt-[84px] 2xl:pb-[84px] bg-white rounded-lg space-y-8 pt-10 sm:pt-[50px] small:pt-[20px] md:pt-[60px] pb-10 sm:pb-[50px] small:pb-[20px] md:pb-[60px] px-5 sm:px-[40px] md:px-[60px]">
                         <div className="flex md:flex-row items-start md:items-start xl:justify-between justify-end border-solid border-b-2 border-[#B8E7FF] pb-6 flex-wrap">
                             <div className="md:flex">
-                                <h3 className="text-info-color 2xl:text-2xl rtl:2xl:text-[40px] text-xl font-bold max-w-[142px] rtl:text-right">{t("journey")}</h3>
+                                <h3 className="text-info-color 2xl:text-2xl rtl:2xl:text-[40px] md:text-xl small:text[16px] font-bold md:max-w-[142px] rtl:text-right">{t("journey")}</h3>
                                 <div className="singnature-text md:pl-6 rtl:md:pr-[56px]">
-                                    <p className="lg:text-lg text-sm xl:text-lg rtl:2xl:text-[30px] rtl:md:text-[28px] font-normal text-[#343434] text-[18px] leading-9 md:max-w-[900px]">
+                                    <p className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] rtl:2xl:text-[30px] rtl:md:text-[28px] font-normal text-[#343434] leading-6 sm:leading-7 md:leading-8 lg:leading-9 max-w-full md:max-w-[900px]">
                                         {t("journey_details")}
                                     </p>
                                     <p className="text-[#1796D8] text-[24px] font-handwriting mt-4 font-brittany">{t("sophia")}</p>
                                 </div>
 
                             </div>
-                            <div className="xl:mt-0 md:mt-0 pr-8">
-                                <button className="bg-bgBlue rounded-full p-3 h-16 w-16 flex items-center justify-center">
+                            <div className="xl:mt-0 md:mt-0 md:pr-8 small:pr-0">
+                                <button className="bg-bgBlue rounded-full md:p-3 small:p-2 md:h-16 md:w-16 xs:h-10 xs:w-10 small:h-8 small:w-8 flex items-center justify-center">
                                     <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M6 4l15 8-15 8V4z" /></svg>
                                 </button>
                             </div>
@@ -39,17 +38,17 @@ export default function OurStories() {
 
                         <div className="flex md:flex-row items-start md:items-start xl:justify-between justify-end border-solid border-b-2 border-[#B8E7FF] pb-6 flex-wrap">
                             <div className="md:flex">
-                                <h3 className="text-info-color 2xl:text-2xl rtl:2xl:text-[40px] text-xl font-bold max-w-[142px] rtl:text-right">{t("reconnecting")}</h3>
+                                <h3 className="text-info-color 2xl:text-2xl rtl:2xl:text-[40px] md:text-xl small:text[16px] font-bold md:max-w-[142px] rtl:text-right">{t("reconnecting")}</h3>
                                 <div className="singnature-text md:pl-6 rtl:md:pr-[56px]">
-                                    <p className="lg:text-lg text-sm xl:text-lg rtl:2xl:text-[30px] rtl:md:text-[28px] font-normal text-[#343434] text-[18px] leading-9 md:max-w-[900px]">
+                                    <p className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] rtl:2xl:text-[30px] rtl:md:text-[28px] font-normal text-[#343434] leading-6 sm:leading-7 md:leading-8 lg:leading-9 max-w-full md:max-w-[900px]">
                                         {t("reconnecting_details")}
                                     </p>
                                     <p className="text-[#1796D8] text-[24px] font-handwriting mt-4 font-brittany">{t("micheal")}</p>
                                 </div>
 
                             </div>
-                            <div className="xl:mt-0 md:mt-0 pr-8">
-                                <button className="bg-bgBlue rounded-full p-3 h-16 w-16 flex items-center justify-center">
+                            <div className="xl:mt-0 md:mt-0 md:pr-8 small:pr-0">
+                                <button className="bg-bgBlue rounded-full md:p-3 small:p-2 md:h-16 md:w-16 xs:h-10 xs:w-10 small:h-8 small:w-8 flex items-center justify-center">
                                     <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M6 4l15 8-15 8V4z" /></svg>
                                 </button>
                             </div>
@@ -57,17 +56,17 @@ export default function OurStories() {
 
                         <div className="flex md:flex-row items-start md:items-start xl:justify-between justify-end flex-wrap">
                             <div className="md:flex">
-                                <h3 className="text-info-color 2xl:text-2xl rtl:2xl:text-[40px] text-xl font-bold max-w-[142px] rtl:text-right">{t("healing")}</h3>
+                                <h3 className="text-info-color 2xl:text-2xl rtl:2xl:text-[40px] md:text-xl small:text[16px] font-bold md:max-w-[142px] rtl:text-right">{t("healing")}</h3>
                                 <div className="singnature-text md:pl-6 rtl:md:pr-[56px]">
-                                    <p className="lg:text-lg text-sm xl:text-lg rtl:2xl:text-[30px] rtl:md:text-[28px] font-normal text-[#343434] text-[18px] leading-9 md:max-w-[900px]">
+                                    <p className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] rtl:2xl:text-[30px] rtl:md:text-[28px] font-normal text-[#343434] leading-6 sm:leading-7 md:leading-8 lg:leading-9 max-w-full md:max-w-[900px]">
                                         {t("healing_details")}
                                     </p>
                                     <p className="text-[#1796D8] text-[24px] font-handwriting mt-4 font-brittany">{t("sophia")}</p>
                                 </div>
 
                             </div>
-                            <div className="xl:mt-0 md:mt-0 pr-8">
-                                <button className="bg-bgBlue rounded-full p-3 h-16 w-16 flex items-center justify-center">
+                            <div className="xl:mt-0 md:mt-0 md:pr-8 small:pr-0">
+                                <button className="bg-bgBlue rounded-full md:p-3 small:p-2 md:h-16 md:w-16 xs:h-10 xs:w-10 small:h-8 small:w-8 flex items-center justify-center">
                                     <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M6 4l15 8-15 8V4z" /></svg>
                                 </button>
                             </div>

@@ -97,14 +97,33 @@ const Header = ({ locale }) => {
 
             <div className="flex items-center">
               {/* Language Selector */}
-              <select
-                value={locale}
-                onChange={handleLanguageChange}
-                className="rounded-md px-4 py-2 bg-transparent md:text-[14px] sm:text-[12px] text-[10px] md:text-black font-medium rtl:font-black xl:text-xl rtl:xl:text-[32px] rtl:ml-5 cursor-pointer"
-              >
-                <option value="en">English</option>
-                <option value="ar">{t("ar")}</option>
-              </select>
+              <div className="relative inline-block"> {/* Added a relative wrapper for positioning if needed */}
+      <select
+        value={locale}
+        onChange={handleLanguageChange}
+        className="
+          rounded-md
+          px-4 py-2
+          bg-white dark:bg-gray-800  {/* White background on light mode, dark gray on dark mode */}
+          border border-gray-300 dark:border-gray-600 {/* Subtle border */}
+          text-gray-700 dark:text-gray-300 {/* Text color */}
+          focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 {/* Focus styles */}
+          shadow-sm {/* Subtle shadow */}
+          cursor-pointer
+          text-sm md:text-base lg:text-lg {/* Responsive font sizes */}
+          w-auto {/* Adjust width as needed - consider 'w-full' for full width in a container */}
+          appearance-none  {/* Remove default select arrow styling */}
+          pr-10 {/* Add right padding for custom arrow */}
+          rtl:ml-5 rtl:pr-4 rtl:pl-10 {/* RTL adjustments */}
+        "
+      >
+        <option value="en">English</option>
+        <option value="ar">{t("ar")}</option>
+      </select>
+      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300">
+          <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+        </div>
+    </div>
 
               {/* Join Now */}
               <Link

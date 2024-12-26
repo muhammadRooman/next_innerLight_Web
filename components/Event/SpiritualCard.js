@@ -28,12 +28,12 @@ export default function SpiritualCard({ webinarEvenData }) {
   
   useEffect(() => {
     // Calculate data to display based on current page
-    const reversedData = webinarEvenData.slice().reverse();
+    const reversedData = webinarEvenData?.slice()?.reverse();
     const startIndex = currentPage * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     
     // setVisibleData(webinarEvenData.slice(0, endIndex));
-    setVisibleData(reversedData.slice(0, endIndex));
+    setVisibleData(reversedData?.slice(0, endIndex));
   }, [currentPage, webinarEvenData]);
 
   if (loading) {
@@ -49,8 +49,8 @@ export default function SpiritualCard({ webinarEvenData }) {
   return (
     <>
       <section className="bg-[#EFEFEF] relative flex items-center justify-start lg:pt-4 lg:pb-14 ">
-        <div className="2xl:container xl:container lg:container mx-auto lg:max-0  ">
-          {visibleData.map((event, index) => (
+        <div className="2xl:container xl:container lg:container md:container xs:container mx-auto lg:max-0 px-5">
+          {visibleData?.map((event, index) => (
             <div
               key={index}
               className="blog-wrap flex flex-wrap gap-5 pt-10 pb-10 border-b-2 border-[#D0D0D0] last:border-0 first:pt-0"
@@ -87,8 +87,8 @@ export default function SpiritualCard({ webinarEvenData }) {
                 </div>
               </div>
               {/* Content Card */}
-              <div className="blog-card-content flex-1 xl:max-w-[calc(100%-541px)] lg:max-w-[calc(100%-400px)]  max-w-[100%] shadow-color bg-white rounded-10  py-8 xl:px-12 p-6">
-                <h4 className="text-[#343434] 2xl:text-2xl rtl:2xl:text-[40px] text-xl font-bold max-w-[727px] rtl:text-right">
+              <div className="blog-card-content flex-1 xl:max-w-[calc(100%-541px)] lg:max-w-[calc(100%-400px)]  max-w-[100%] shadow-color bg-white rounded-10 py-8 xl:px-12 p-6">
+                <h4 className="text-[#343434] md:text-[32px] xs:text-[24px] small:text-[18px] rtl:2xl:text-[40px] font-bold max-w-[727px] rtl:text-right">
                   {language === "en" ? event?.name : event?.name_ar}
                 </h4>
                 <div className="shap bg-shap-bg max-w-[262.97px] bg-no-repeat rtl:rotate-[180deg] min-h-[42px] text-center flex items-center justify-center xl:my-7 my-5">
@@ -96,7 +96,7 @@ export default function SpiritualCard({ webinarEvenData }) {
                   {t(event.type)}
                   </p>
                 </div>
-                <p className="lg:text-lg text-sm xl:text-lg rtl:2xl:text-[32px] rtl:max-w-[750px] rtl:md:text-[28px] font-normal">
+                <p className="md:text-lg text-sm md:leading-[28px] rtl:2xl:text-[32px] rtl:max-w-[750px] rtl:md:text-[28px] font-normal">
                   {" "}
                   {language === "en"
                     ? truncateText(event?.shortDescription)
@@ -116,8 +116,8 @@ export default function SpiritualCard({ webinarEvenData }) {
             </div>
           ))}
           {/* Show "More" button only if data is more than current visible data */}
-          {webinarEvenData.length > visibleData.length && (
-            <div className="flex justify-center mt-4 hover:text-blue-500">
+          {webinarEvenData?.length > visibleData?.length && (
+            <div className="flex justify-center md:text-[18px] xs:text-[16px] small:text-[14px] mt-4 hover:text-blue-500">
               <button
                 className="bg-primary text-black py-2 px-4 rtl:xl:text-[32px] rtl:md:[26px] rounded text-center hover:text-blue-500"
                 onClick={() => setCurrentPage(currentPage + 1)}
