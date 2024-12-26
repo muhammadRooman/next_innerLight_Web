@@ -56,21 +56,22 @@ export default function SignUpNow() {
   const [isOtpSent, setIsOtpSent] = useState(false);
   const [isOtpVerify, setIsOtpVerify] = useState(false);
   const handleSendOTP = async () => {
-    if (!phoneNumber) {
+    if (!phoneNumber || phoneNumber.trim() === "") {
       setErrorMessage(t("phone_number_is_required"));
-      return; // Stop execution if phone number is not provided
-    }
+      return errors;
+  }
     // Validate the phone number length (between 8 and 16 digits)
     if (phoneNumber.length < 8 || phoneNumber.length > 16) {
       setErrorMessage(t("phone_number_must_be_between_8_and_16_digits"));
       return; // Stop execution if validation fails
     }
     setIsOtpSent(true);
+    const fullPhoneNumber = `${selectedCountryCode}${phoneNumber.trim()}`;
     try {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/auth/generate-otp`,
         {
-          phoneNumber,
+          phoneNumber:fullPhoneNumber,
           userExist: 0, // Add userExist here as part of the request body
         }
       );
@@ -99,11 +100,12 @@ export default function SignUpNow() {
         return;
     }
     setIsOtpVerify(true)
+    const fullPhoneNumber = `${selectedCountryCode}${phoneNumber.trim()}`;
     try {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/auth/verify-otp`,
         {
-          phoneNumber,
+          phoneNumber:fullPhoneNumber,
           otpCode, // Add userExist here as part of the request body
         }
       );
@@ -265,6 +267,7 @@ export default function SignUpNow() {
 
   const handlePhoneNumberChange = (e) => {
     const input = e.target.value;
+      setErrorMessage('');
     // Ensure the input always starts with the selected country code
     if (!input.startsWith(selectedCountryCode)) {
       return; // Prevent any update if the user tries to remove the country code
@@ -394,7 +397,7 @@ export default function SignUpNow() {
             </button>
               </div>
               {
-               errorMessage && (
+                  errorMessage && (
                 <span className="text-red-500 text-sm mt-2">
                   {errorMessage}
                 </span>
