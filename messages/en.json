@@ -138,7 +138,10 @@
   "SubscribeUs": {
     "subscribeUs": "Subscribe Us",
     "enter_email_address": "Enter Email Address",
-    "follow_us": "Follow Us"
+    "follow_us": "Follow Us",
+    "subscription_successful":"Subscription successful! Check your email for updates",
+     "already_subscribed":"This email is already subscribed."
+
   },
   "UpComingWorkShop": {
     "discuss_how_support_groups": "Discuss how support groups and community connections can enhance the healing process.",
@@ -202,7 +205,10 @@
     "please_upload_a_valid_image_file": "Please upload a valid image file",
     "file_size_exceeds_5MB": "File size exceeds 5MB",
     "failed_to_Verify_OTP": "Failed to verify OTP",
-    "OTP_is_required": "OTP is required"
+    "OTP_is_required": "OTP is required",
+    "phone_number_must_be_between_8_and_16_digits":"Phone number must be between 8 and  16 digits",
+    "invalid_email":"Invalid email",
+    "full_name_can_not":"Full Name cannot exceed 150 characters"
   },
   "SpiritualCard": {
     "price":"Price",

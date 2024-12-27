@@ -13,7 +13,7 @@ export default function OurStories() {
                             <h5 className="text-info-color 2xl:text-[22px] xl:text-[20px] lg:text-[18px] sm:text-[16px] text-[14px] 2xl:leading-[30px] font-black rtl:2xl:text-[56px] rtl:xl:text-[40px] rtl:text-[30px]">{t("our_stories")}</h5>
                             <h2 className="2xl:text-[40px] xl:text-[35px] lg:text-[30px] sm:text-[25px] text-[14px] 2xl:leading-[50px] font-bold rtl:2xl:text-[72px] rtl:xl:text-[50px] rtl:text-[40px] md:max-w-[583px] xs:max-w-[450px]">{t("real_stories")}</h2>
                         </div>
-                        <Link href="#" className="px-4 py-1.5 sm:px-6 sm:py-2 md:px-8 md:py-3 text-white rounded-3xl font-medium rtl:xl:text-[24px] xl:text-lg lg:text-base sm:text-sm text-xs bg-btn-gradient hover:bg-btn-gradient-hover lg:mr-20 md:mr-10 sm:mr-6 mr-4 block">{t("see_all")}</Link>
+                        {/* <Link href="#" className="px-4 py-1.5 sm:px-6 sm:py-2 md:px-8 md:py-3 text-white rounded-3xl font-medium rtl:xl:text-[24px] xl:text-lg lg:text-base sm:text-sm text-xs bg-btn-gradient hover:bg-btn-gradient-hover lg:mr-20 md:mr-10 sm:mr-6 mr-4 block">{t("see_all")}</Link> */}
                     </div>
 
                     <div className="w-full lg:w-full lg:pt-[60px] lg:pb-[60px] lg:pl-[60px] lg:pr-[60px] 2xl:pl-[112px] 2xl:pr-[112px] 2xl:pt-[84px] 2xl:pb-[84px] bg-white rounded-lg space-y-8 pt-10 sm:pt-[50px] small:pt-[20px] md:pt-[60px] pb-10 sm:pb-[50px] small:pb-[20px] md:pb-[60px] px-5 sm:px-[40px] md:px-[60px]">

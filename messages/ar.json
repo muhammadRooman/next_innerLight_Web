@@ -139,7 +139,9 @@
   "SubscribeUs": {
     "subscribeUs": "اشترك معنا",
     "enter_email_address": "أدخل عنوان البريد الإلكتروني",
-    "follow_us": "تابعنا"
+    "follow_us": "تابعنا",
+    "subscription_successful":"تم الاشتراك بنجاح! تحقق من بريدك الإلكتروني للتحديثات",
+    "already_subscribed":"هذا البريد الإلكتروني مشترك بالفعل."
   },
   "UpComingWorkShop": {
     "discuss_how_support_groups": "ناقش كيف يمكن لمجموعات الدعم والاتصالات المجتمعية أن تعزز عملية الشفاء.",
@@ -219,14 +221,19 @@
     "verify": "يؤكد",
     "phone_number_is_required": "رقم الهاتف مطلوب.",
     "please_upload_your_profile_picture": "يرجى تحميل صورة الملف الشخصي",
-    "please_upload_your_profile_picture": "صورة الملف الشخصي مطلوبة",
     "email_is_required": "البريد الإلكتروني مطلوب",
     "last_name_is_required": "الاسم الأخير مطلوب",
     "full_name_is_required": "الاسم الكامل مطلوب",
     "please_upload_a_valid_image_file": "يرجى تحميل ملف صورة صالح (JPG، PNG).",
     "file_size_exceeds_5MB": "حجم الملف يتجاوز 5 ميغابايت. يرجى تحميل صورة أصغر.",
     "failed_to_Verify_OTP": "فشل التحقق من OTP. يرجى المحاولة مرة أخرى.",
-    "OTP_is_required": "مطلوب مكتب المدعي العام"
+    "OTP_is_required": "مطلوب مكتب المدعي العام",
+    "phone_number_must_be_between_8_and_16_digits":"يجب أن يتراوح رقم الهاتف بين 8 و16 رقمًا",
+    "invalid_email":"البريد الإلكتروني غير صالح",
+    "full_name_can_not":"لا يمكن أن يتجاوز الاسم الكامل 150 حرفً "
+  },
+  "SignInNow":{
+
   },
   "Contact": {
     "contact_us": "اتصل بنا",

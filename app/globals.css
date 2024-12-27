@@ -188,6 +188,10 @@ body {
   .our-value-inner .nurturing-img{
     margin-bottom: 25px;
   }
+  .object-cover {
+    object-fit: cover;
+    object-position: top;
+}
 } 
 @media (max-width: 480px) {
   .WhatWeOffer-card .WhatWeOffer-img img { 
@@ -252,6 +256,9 @@ body {
   background-repeat: no-repeat;
 }
 
+.dir_left-t-right{
+  direction: ltr;
+}
 
 html[lang="ar"] .event-banner::before,
 html[lang="ar"] .contact-banner::before,
@@ -261,6 +268,9 @@ html[lang="ar"] .nurturing-img::before {
   transform: scaleX(-1);
 }
 
+html[lang="ar"] .btn-icon.select_country {
+  flex-direction: row-reverse;
+}
 
 .fullpage-loader-holder {
   position: fixed;

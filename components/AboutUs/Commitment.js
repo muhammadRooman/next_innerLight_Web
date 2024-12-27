@@ -32,8 +32,8 @@ export default function Commitment(){
                             </div>
                             <p  className="2xl:text-2xl rtl:2xl:text-[40px] max-w-[600px] rtl:leading-[36px] font-semibold md:text-[18px] text-[16px] text-[#753892] my-5" >{t("connect_with_compassionate")}</p>
                             <div className='btn-download flex'>
-                                    <Link href="https://play.google.com/store/apps/details?id=com.arhamsoft.innerlight.innerlights&hl=en" target="_blank" className="mr-3"><Image src="/AppStore.png" width={180} height={55} alt="AppStore" className=''/></Link> 
-                                    <Link href="https://apps.apple.com/au/app/innerlight-academy/id6670317150" target="_blank" className="rtl:mr-5 block"><Image src="/GooglePlay.png" width={180} height={55} alt="AppStore" className=''/></Link> 
+                                    <Link href="https://apps.apple.com/au/app/innerlight-academy/id6670317150 " target="_blank" className="mr-3"><Image src="/AppStore.png" width={180} height={55} alt="AppStore" className=''/></Link> 
+                                    <Link href="https://play.google.com/store/apps/details?id=com.arhamsoft.innerlight.innerlights&hl=en" target="_blank" className="rtl:mr-5 block"><Image src="/GooglePlay.png" width={180} height={55} alt="AppStore" className=''/></Link> 
                             </div>
                         </div>
                     </div>

@@ -20,6 +20,8 @@ const WebInarDeatilPage = () => {
   const currentPath = usePathname();
   const [language, setLanguage] = useState('')
   const [webinarDetailPage, setWebinarDetailPage] = useState(null)
+  const [loading,setLoading]=useState(false);
+  const [isSend,setIsSend]=useState(false);
   const token = localStorage.getItem("authToken");
   const [isImageLoading, setIsImageLoading] = useState(true);
 
@@ -28,7 +30,6 @@ const WebInarDeatilPage = () => {
     `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/webinars/event/${detaiId}`,
     fetcher
   );
-
 
 useEffect(() => {
   if (data) {
@@ -42,6 +43,8 @@ if (isLoading) return <FullPageLoader />;
 if (error) return <div>Error: {error.message}</div>;
 
 const handleSubmit = async (id) => {
+  setLoading(true)
+  setIsSend(true)
   try {
     const response = await axios.post(
       `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/webinars/join-webinar/${id}`,
@@ -52,13 +55,9 @@ const handleSubmit = async (id) => {
         },
       }
     );
-
+    setLoading(false)
+    console.log(response.data)
    if (response.data.success === 1) {
-      toast.success(
-        language === "en"
-          ? "Webinar joined successfully"
-          : "الانضمام إلى الندوة عبر الإنترنت بنجاح"
-      );
       router.push(`/${language}/thank-you`);
     } else if (response.data.status === 0) {
       // Token expired or invalid
@@ -67,6 +66,7 @@ const handleSubmit = async (id) => {
           ? "Your session has expired. Please sign up again."
           : "انتهت صلاحية الجلسة. الرجاء التسجيل مرة أخرى."
       );
+      setLoading(false)
       setTimeout(() => {
         router.push(`/${language}/signup`);
       }, 4000); 
@@ -76,6 +76,7 @@ const handleSubmit = async (id) => {
           ? response.data.message
           : "لم يتم العثور على الرمز المميز"
       );
+      setLoading(false)
     }
   } catch (error) {
     console.error("Error in joining webinar:", error);
@@ -104,79 +105,93 @@ const handleImageLoadingComplete = () => {
 };
     return (
         <div>
-          {/* Section 1: Banner Image */}
-          <section className="relative w-full h-[300px] md:h-[400px] lg:h-[500px]">
-          {isImageLoading && <FullPageLoader />}
-            <Image
-             src={`${process.env.NEXT_PUBLIC_IMAGE_API}/${webinarDetailPage?.bannerPic}`}
-              alt="Banner"
-              layout="fill"
-              objectFit="cover"
-              priority
-              className="w-full"
-              onLoadingComplete={handleImageLoadingComplete}
-            />
-            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40">
-            </div>
-          </section>
-    
-          {/* Section 2: Product Details */}
-          <section className="container mx-auto px-4 py-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              {/* Product Image */}
-              <div className="flex justify-center">
-          {isImageLoading && <FullPageLoader />}
+          {
+            loading ? (<FullPageLoader/>):(
+              <>
+              <section className="relative w-full h-[300px] md:h-[400px] lg:h-[500px]">
+              {isImageLoading && <FullPageLoader />}
                 <Image
-                   src={`${process.env.NEXT_PUBLIC_IMAGE_API}/${webinarDetailPage?.thumbnailPic}`}
-                  alt="Product"
-                  width={400}
-                  height={400}
-                  className="rounded-lg shadow-lg"
+                 src={`${process.env.NEXT_PUBLIC_IMAGE_API}/${webinarDetailPage?.bannerPic}`}
+                  alt="Banner"
+                  layout="fill"
+                  objectFit="cover"
+                  priority
+                  className="w-full"
                   onLoadingComplete={handleImageLoadingComplete}
                 />
-              </div>
-    
-              {/* Product Info */}
-              <div>
-                <h2 className="text-3xl font-bold mb-4"> {language === "en" ? webinarDetailPage?.name : webinarDetailPage?.name_ar}</h2>
-                <p className="text-gray-600 mb-4">
-                {/* {webinarDetailPage?.shortDescription} */}
-                {language === "en" ? webinarDetailPage?.shortDescription : webinarDetailPage?.shortDescription_ar}
-                </p>
-                <div className="mb-3">
-                  <span className="text-xl font-semibold">{t("price")}:</span>{" "}
-                  <span className="text-xl text-black-600">$199.99</span>
+                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40">
                 </div>
-                <div className="mb-3">
-                  <span className="text-xl font-semibold">{t("date")}</span>{" "}
-                  <span className="text-xl text-black-600">
-                {new Date(webinarDetailPage?.date).toLocaleDateString(language, {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </span>
+              </section>
+              <section className="container mx-auto px-4 py-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                  {/* Product Image */}
+                  <div className="flex justify-center">
+              {isImageLoading && <FullPageLoader />}
+                    <Image
+                       src={`${process.env.NEXT_PUBLIC_IMAGE_API}/${webinarDetailPage?.thumbnailPic}`}
+                      alt="Product"
+                      width={400}
+                      height={400}
+                      className="rounded-lg shadow-lg"
+                      onLoadingComplete={handleImageLoadingComplete}
+                    />
+                  </div>
+        
+                  {/* Product Info */}
+                  <div>
+                    <h2 className="text-3xl font-bold mb-4"> {language === "en" ? webinarDetailPage?.name : webinarDetailPage?.name_ar}</h2>
+                    <p className="text-gray-600 mb-4">
+                    {/* {webinarDetailPage?.shortDescription} */}
+                    {language === "en" ? webinarDetailPage?.shortDescription : webinarDetailPage?.shortDescription_ar}
+                    </p>
+                    {
+                      webinarDetailPage?.type &&  <div className="mb-3">
+                      <span className="text-xl font-semibold">{t("price")}:</span>{" "}
+                      <span className="text-xl text-black-600">$0.00</span>
+                    </div>
+                    }            
+                    {
+                      webinarDetailPage?.date && <div className="mb-3">
+                      <span className="text-xl font-semibold">{t("date")}:</span>{" "}
+                      <span className="text-xl text-black-600">
+                    {new Date(webinarDetailPage?.date).toLocaleDateString(language, {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </span>
+                    </div>
+                    }     
+                    {
+                      webinarDetailPage?.time &&  <div className="mb-3">
+                      <span className="text-xl font-semibold">{t("time")}:</span>{" "}
+                      <span className="text-xl text-black-600">{webinarDetailPage?.time}</span>
+                    </div>
+                    }    
+                    {
+                      webinarDetailPage?.description &&  <div className="mb-3">
+                      <span className="text-xl font-semibold">{t("outline")}:</span>
+                      <div
+                        className="text-xl text-black-600"
+                        dangerouslySetInnerHTML={{ __html: webinarDetailPage?.description }}
+                      />
+                    </div>
+                    }              
+                   <button
+                   disabled={isSend}
+                      onClick={()=>handleSubmit(webinarDetailPage._id)}
+                        className="py-2.5 px-6 text-white rounded-3xl font-medium xl:text-xl text-sm bg-btn-gradient hover:bg-btn-gradient-hover lg:mr-8 lg:text-lg"
+                      >
+                        {t("enrollnow")}
+                        </button>
+                  </div>
                 </div>
-                <div className="mb-3">
-                  <span className="text-xl font-semibold">Time</span>{" "}
-                  <span className="text-xl text-black-600">{webinarDetailPage?.time}</span>
-                </div>
-                <div className="mb-3">
-              <span className="text-xl font-semibold">Outline:</span>
-              <div
-                className="text-xl text-black-600"
-                dangerouslySetInnerHTML={{ __html: webinarDetailPage?.description }}
-              />
-            </div>
-               <button
-                  onClick={()=>handleSubmit(webinarDetailPage._id)}
-                    className="py-2.5 px-6 text-white rounded-3xl font-medium xl:text-xl text-sm bg-btn-gradient hover:bg-btn-gradient-hover lg:mr-8 lg:text-lg"
-                  >
-                    {t("enrollnow")}
-                    </button>
-              </div>
-            </div>
-          </section>
+              </section>
+              </>
+
+            )
+          }
+        
       <ToastContainer />
 
         </div>

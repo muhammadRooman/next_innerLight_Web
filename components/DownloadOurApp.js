@@ -19,8 +19,8 @@ export default function DownloadOurApp() {
               <p className='text-lg xl:text-2xl mt-10'>{t('personalizedSupport')}</p>
               <div className='QR-box mt-9 flex justify-between items-center max-w-[420px]'>
                 <div className='btn-download'>
-                  <Link href="#" className=""><Image src="/AppStore.png" width={180} height={55} alt="AppStore" className=''/></Link> 
-                  <Link href="#" className="mt-9 block"><Image src="/GooglePlay.png" width={180} height={55} alt="AppStore" className=''/></Link> 
+                  <Link href="https://apps.apple.com/au/app/innerlight-academy/id6670317150" target='_blank' className=""><Image src="/AppStore.png" width={180} height={55} alt="AppStore" className=''/></Link> 
+                  <Link href="https://play.google.com/store/apps/details?id=com.arhamsoft.innerlight.innerlights&hl=en" target='_blank'  className="mt-9 block"><Image src="/GooglePlay.png" width={180} height={55} alt="GoogleStore" className=''/></Link> 
                 </div>
                 <div className='QR'>
                   <Image src="/QR-Code.png" width={128} height={128} alt="AppStore" className=''/>

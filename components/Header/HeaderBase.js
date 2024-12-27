@@ -11,6 +11,8 @@ const Header = ({ locale }) => {
   const [activeLink, setActiveLink] = useState("home"); // Default active link
 
   useEffect(() => {
+    const language = pathname?.split('/')[1];
+    localStorage.setItem('language', JSON.stringify(language));
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
