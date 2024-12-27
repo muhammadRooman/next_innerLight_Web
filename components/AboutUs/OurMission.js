@@ -29,7 +29,7 @@ export default function OurMission(){
                     </div>
                     <div  className="col-span-4">
                         <div className='relative xl:max-w-[371px] max-w-full min-h-[469px] shadow-shadow-color bg-white p-2 mx-auto rounded-10 my-7'>
-                            <Image src="/assets/images/about/owner.png" alt="logo white" layout="fill"  className="rounded-30 object-cover p-2" />
+                            <Image src="/assets/images/about/owner.png" alt="logo white" layout="fill"  className="rounded-30 object-cover p-2 custom_client" />
                         </div> 
                     </div>
                 </div>

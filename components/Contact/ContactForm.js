@@ -49,9 +49,9 @@ export default function ContactUs() {
     };
     return (
         <>
-            <section className="bg-[#F7F7F7] lg:p-24 md:p-12 p-6">
-                <div className="2xl:container xl:container lg:container mx-auto flex justify-center">
-                    <div className="form-wrapper bg-yoga bg-cover xl:p-16 p-8 rtl:rounded-r-lg ltr:rounded-l-lg lg:flex hidden">
+            <section className="bg-[#F7F7F7] lg:p-24 md:p-10 p-6">
+                <div className="2xl:container xl:container lg:container mx-auto md:flex justify-center">
+                    <div className="form-wrapper bg-yoga bg-cover xl:p-16 p-8 rtl:rounded-r-lg ltr:rounded-l-lg md:flex hidden">
                         <div className="box-overlay shadow-shadow-color2 rounded-10 bg-[#F9F9F9] xl:px-24 xl:py-11 px-6 py-6 flex items-center flex-col justify-center">
                             <img src="/mobileimg.png" alt="mobile img" />
                             <h3 className="text-[32px] text-[#343434] font-bold">{t("download")}</h3>
@@ -72,11 +72,11 @@ export default function ContactUs() {
                            
                         </div>
                     </div>
-                    <div className="bg-white shadow-lg rounded-lg p-8 xl:w-1/2 lg:w-1/2 w-full">
-                        <h2 className="xl:text-40 lg:text-[30px] text-[25px]  font-bold rtl:2xl:text-[72px] rtl:lg:text-right rtl:xl:text-[50px] rtl:text-[40px] leading-[80px] text-[#1796D8] lg:text-left text-center">
+                    <div className="bg-white shadow-lg rounded-lg md:p-8 xs:p-6 small:p-4 xl:w-1/2 lg:w-1/2 w-full">
+                        <h2 className="xl:text-40 md:text-[30px] xs:text-[20px] small:text-[18px] md:leading-[100px] xs:leading-[50px] small:leading-[30px] font-bold rtl:2xl:text-[72px] rtl:lg:text-right rtl:xl:text-[50px] rtl:text-[40px] leading-[80px] text-[#1796D8] md:text-left text-center">
                             {t("contact_us")}
                         </h2>
-                        <p className="mb-6 text-[#000000] rtl:2xl:text-[32px] text-[18px] leading-[30px] font-normal lg:text-left text-center rtl:lg:text-right">
+                        <p className="mb-6 text-[#000000] md:text-[18px] small:text-[14px] md:leading-[23px] font-normal md:text-left text-center rtl:lg:text-right">
                             {t("form")}
                         </p>
 
@@ -98,7 +98,7 @@ export default function ContactUs() {
                                 onChange={handleChange}
                                 placeholder={t("email")}
                                 required
-                                className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
+                                className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] md:min-h-[70px] min-h-[45px] block min-w-0 grow py-1.5 pr-5 pl-5 md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
                             />
                             <input
                             type="text"
@@ -119,7 +119,7 @@ export default function ContactUs() {
                                 onChange={handleChange}
                                 required
                                 placeholder={t("message")}
-                                className="placeholder:text-[#11171F] w-full p-4 border border-[#DEDEDE] focus:outline-none rounded-lg min-h-[180px] rtl:xl:text-[32px] text-[18px] resize-none"
+                                className="placeholder:text-[#11171F] w-full p-4 border border-[#DEDEDE] focus:outline-none rounded-lg min-h-[180px] rtl:xl:text-[32px] md:text-lg xs:text-[16px] small:text-[14px] resize-none"
                             ></textarea>
                             <div className="btn-wrap text-right rtl:text-left lg:mt-14 mt-10">
                                 <button
