@@ -34,13 +34,32 @@ const WebInarDeatilPage = () => {
 useEffect(() => {
   if (data) {
     setWebinarDetailPage(data?.event);
+    setLoading(false); 
   }
   const lang = currentPath.split('/')[1] || 'en';
   setLanguage(lang);
 }, [data, currentPath]);
 
+  // Check for invalid detaiId and handle redirection
+  // useEffect(() => {
+  //   if (!detaiId || detaiId.length !== 24) {
+  //     router.push(`/${language}/not-found`);
+  //   }
+  // }, [detaiId, language]);
+
+
 if (isLoading) return <FullPageLoader />;
 if (error) return <div>Error: {error.message}</div>;
+// if (isLoading) return <FullPageLoader />;
+  // if (error || !webinarDetailPage) {
+  //   return (
+  //     <div className="text-center">
+  //       <h2 className="text-3xl font-bold">Event Not Found</h2>
+  //       <p className="mt-4 text-xl">Sorry, we couldn't find the event you are looking for.</p>
+  //     </div>
+  //   );
+  // }
+  
 
 const handleSubmit = async (id) => {
   setLoading(true)
@@ -80,6 +99,7 @@ const handleSubmit = async (id) => {
     }
   } catch (error) {
     console.error("Error in joining webinar:", error);
+    setLoading(false)
 
     // Handle token expiry or other errors
     if (error.response?.status === 401 || error.response?.status === 403) {
@@ -89,12 +109,16 @@ const handleSubmit = async (id) => {
           : "انتهت صلاحية الجلسة. الرجاء التسجيل مرة أخرى."
       );
       router.push(`/${language}/signup`);
+    setLoading(false)
+
     } else {
       toast.error(
         language === "en"
           ? "An unexpected error occurred. Please try again."
           : "حدث خطأ غير متوقع. حاول مرة اخرى."
       );
+    setLoading(false)
+
     }
   }
 };

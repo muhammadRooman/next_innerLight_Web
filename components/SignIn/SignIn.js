@@ -285,7 +285,7 @@ useEffect(() => {
             <p className="text-black lg:order-none order-2  text-lg mb-3 lg:mt-0 mt-2 ">
               {t("dont_have_account")}
               <Link
-                href={`/${language}/signin`}
+                href={`/${language}/signup`}
                 className="text-info-color font-bold ml-4"
               >
                 {t("register")}
