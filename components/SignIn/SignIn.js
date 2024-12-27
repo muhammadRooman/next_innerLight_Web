@@ -30,28 +30,23 @@ export default function SignIn() {
 
   const [selectedCountryCode, setSelectedCountryCode] = useState("+968");
   const fullPhoneNumber = `${selectedCountryCode}${phoneNumber.trim()}`;
-  
+  const token = localStorage.getItem("authToken");
+
   // fetched
-useEffect(() => {
-    const lang = currentPath.split("/")[1] || "en";
+  useEffect(() => {
+    const lang = currentPath.split("/")[1] || "en"; // Get language from the path
     setLanguage(lang);
 
-    // Check if token exists in localStorage, redirect to home page if not
-    const token = localStorage.getItem("authToken");
-
+    // Check if token exists
     if (token) {
-      toast.error("Your session has expired. Please log in again.", {
-        autoClose: 1000,  // Toast will automatically close after 5 seconds
-      });
-
-      // Redirect to the home page after 5 seconds
+      setFirstLoader(false); // If token exists, stop the loader
       setTimeout(() => {
-        router.push("/"); // Redirect to home page
+        router.push("/");
       }, 1000);
     } else {
-      setFirstLoader(false); // If token exists, stop loader
+      setLoader(false);
     }
-  }, [currentPath, router]);
+  }, [currentPath, router, token]);
 
   const handleSendOTP = async () => {
     if (!phoneNumber) {
@@ -285,7 +280,7 @@ useEffect(() => {
             <p className="text-black lg:order-none order-2  text-lg mb-3 lg:mt-0 mt-2 ">
               {t("dont_have_account")}
               <Link
-                href={`/${language}/signin`}
+                href={`/${language}/signup`}
                 className="text-info-color font-bold ml-4"
               >
                 {t("register")}
