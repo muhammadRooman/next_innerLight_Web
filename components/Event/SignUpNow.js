@@ -6,14 +6,9 @@ import { usePathname, useRouter } from "next/navigation";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-// import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
-// import i18nIsoCountries from 'i18n-iso-countries';
 import { jwtDecode } from "jwt-decode";
 import { countries, arabicCountries } from "../utils/countriesData";
-
-// Register the Arabic locale
-// i18nIsoCountries.registerLocale(require('i18n-iso-countries/langs/ar.json'));
 
 export default function SignUpNow() {
   const router = useRouter();
@@ -39,15 +34,13 @@ export default function SignUpNow() {
   const [validationErrors, setValidationErrors] = useState({
    fullName: "",
     email: "",
-    phoneNumber: "",
-    otpCode: "",
   });
   const [selectedCountryCode, setSelectedCountryCode] = useState("+968");
   const fullPhoneNumber = `${selectedCountryCode}${phoneNumber.trim()}`;
   const [isOtpSent, setIsOtpSent] = useState(false);
   const [isOtpVerify, setIsOtpVerify] = useState(false);
   
-  // fetched cmsWeb
+  // for language rout get
   useEffect(() => {
     const lang = currentPath.split("/")[1] || "en";
     setLanguage(lang);
@@ -74,14 +67,14 @@ export default function SignUpNow() {
         `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/auth/generate-otp`,
         {
           phoneNumber: fullPhoneNumber,
-          userExist: 0, // Indicating whether the user exists
+          userExist: 0, 
         }
       );
   
       // Handle the response based on status
       if (response?.data?.status === 1) {
         console.log("OTP Response:", response.data);
-        setOtpGenerated(true); // Show OTP input field
+        setOtpGenerated(true); 
         setOtpMessage(response.data.message || "");
         toast.success(language === "en" ? response.data.message : response.data.message_ar);
         setErrorMessage("");
@@ -99,7 +92,6 @@ export default function SignUpNow() {
     }
   };
   
-
   const handleVerifyOTP = async () => {
     if (!otpCode) {
         setErrorVerifyMessage(t("OTP_is_required"));
@@ -111,7 +103,7 @@ export default function SignUpNow() {
         `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/auth/verify-otp`,
         {
           phoneNumber:fullPhoneNumber,
-          otpCode, // Add userExist here as part of the request body
+          otpCode, 
         }
       );
       // OTP Verified successfully
@@ -121,8 +113,7 @@ export default function SignUpNow() {
         setDisabledPhoneOTP(true);
       } else {
         toast.error(language === "en" ? response.data.message : response.data.message_ar );
-       setIsOtpVerify(false)
-
+        setIsOtpVerify(false)
       }
     } catch (error) {
       toast.error(t("failed_to_Verify_OTP"));
@@ -197,6 +188,7 @@ export default function SignUpNow() {
         setErrorVerifyMessage(t("OTP_is_required"));
         return;
     }
+
     // If there are validation errors, show them and stop the form submission
     if (Object.keys(errors).length > 0) {
       setValidationErrors(errors);
@@ -226,6 +218,7 @@ export default function SignUpNow() {
       toast.error(error.message || "An error occurred");
     }
   };
+
   const signin = ()=>{
    const token = localStorage.getItem("authToken");
     if (!token) {
@@ -235,47 +228,6 @@ export default function SignUpNow() {
     }
   }
   
-  const handlePhoneChange = (value) => {
-  setPhoneNumber(value); // Set the full phone number with the country code
-  };
-
-  // Function to check if the token is expired
-  const isTokenExpired = () => {
-    const token = localStorage.getItem("authToken");
-
-    if (!token) {
-       return true;
-    }
-
-    try {
-      const decoded = jwtDecode(token);
-      const currentTime = Date.now() / 1000; // Convert milliseconds to seconds
-      if (currentTime > decoded.exp) {
-         localStorage.removeItem("authToken"); // Remove when expired token
-        return true;
-      } else if (decoded.exp > currentTime) {
-        return false;
-      }
-    } catch (error) {
-      localStorage.removeItem("authToken"); // Remove invalid token
-      return true;
-    }
-  };
-
-  useEffect(() => {
-    const checkToken = () => {
-      if (isTokenExpired()) {
-        setShowSignUp(true); // Show sign-up if token is expired or invalid
-      } else {
-        setShowSignUp(false); // Hide sign-up if token is valid
-      }
-    };
-    checkToken(); // Initial check
-    const interval = setInterval(checkToken, 5000); // Check every 5 seconds
-    return () => clearInterval(interval); // Clean up the interval on unmount
-  }, []);
-
-
   const handlePhoneNumberChange = (e) => {
     const input = e.target.value;
       setErrorMessage('');
@@ -289,22 +241,58 @@ export default function SignUpNow() {
     setPhoneNumber(numberWithoutCode);
   };
 
+    // Function to check if the token is expired
+    const isTokenExpired = () => {
+      const token = localStorage.getItem("authToken");
+  
+      if (!token) {
+         return true;
+      }
+  
+      try {
+        const decoded = jwtDecode(token);
+        const currentTime = Date.now() / 1000; // Convert milliseconds to seconds
+        if (currentTime > decoded.exp) {
+           localStorage.removeItem("authToken"); // Remove when expired token
+          return true;
+        } else if (decoded.exp > currentTime) {
+          return false;
+        }
+      } catch (error) {
+        localStorage.removeItem("authToken"); // Remove invalid token
+        return true;
+      }
+    };
+  
+    useEffect(() => {
+      const checkToken = () => {
+        if (isTokenExpired()) {
+          setShowSignUp(true); // Show sign-up if token is expired or invalid
+        } else {
+          setShowSignUp(false); // Hide sign-up if token is valid
+        }
+      };
+      checkToken(); // Initial check
+      const interval = setInterval(checkToken, 5000); // Check every 5 seconds
+      return () => clearInterval(interval); // Clean up the interval on unmount
+    }, []);
+
   return (
     <>{
-      showSignUp &&    <section className=" bg-gray-light  relative flex items-center justify-start py-16 ">
-      <div className="2xl:container xl:container lg:container mx-auto lg:max-0  px-5">
-        <div className="heading-box text-center xl:mb-11 mb-8">
-          <h5 className="text-info-color 2xl:text-2xl rtl:2xl:text-[40px] text-xl font-bold">
-            {t("moments_of_serenity")}
-          </h5>
-          <h2 className="xl:text-40 lg:text-[30px] text-[25px] font-bold rtl:2xl:text-[72px] rtl:xl:text-[28px] rtl:text-[24px]">{t("sign_up_now")}</h2>
-          <p className="lg:text-lg text-sm xl:text-lg rtl:2xl:text-[30px] rtl:md:text-[28px] font-normal">
-            {t("fill_the_form_below_our_representatives_respond_you")}
-          </p>
-        </div>
+      showSignUp && <section className="bg-gray-light relative flex items-center justify-start py-16">
+      <div className="2xl:container xl:container lg:container md:container xs:container mx-auto lg:max-0 px-5">
+      <div className="heading-box text-center xl:mb-11 mb-8">
+            <h5 className="text-info-color 2xl:text-2xl rtl:2xl:text-[40px] text-xl font-bold">
+              {t("moments_of_serenity")}
+            </h5>
+            <h2 className="xl:text-40 lg:text-[30px] text-[25px] font-bold rtl:2xl:text-[72px] rtl:xl:text-[28px] rtl:text-[24px]">{t("sign_up_now")}</h2>
+            <p className="md:text-[18px] xs:text-[16px] md:max-w-[510px] max-w-[100%] m-auto small:text-[14px] rtl:2xl:text-[30px] rtl:md:text-[28px] font-normal">
+              {t("fill_the_form_below_our_representatives_respond_you")}
+            </p>
+          </div>
         <div>
           <div className="lg:grid lg:grid-cols-2  gap-6">
-            <div class="form-group lg:mb-0 mb-4">
+            <div class="form-group md:mb-0 mb-0">
               <input
                 type="text"
                 name="FullName"
@@ -318,106 +306,73 @@ export default function SignUpNow() {
                     fullName: "", // Clear fullName error message
                   }));
                 }}
-                className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
+                className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] md:min-h-[70px] min-h-[45px] block min-w-0 grow py-1.5 pr-5 pl-5 md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 md:mb-0 lg:mb-5 mb-3"
                 placeholder={t("full_name")}
               />
              {validationErrors?.fullName && (
             <p style={{ color: "red" }}>{validationErrors?.fullName}</p>
              )}
             </div>
-            <div className="form-group lg:mb-0 mb-4">
-              <div className="btn-icon select_country relative flex align-baseline">
-                {
-                  language ==="en" ? <div>
-                  <select
-                    value={selectedCountryCode}
-                    onChange={(e) => setSelectedCountryCode(e.target.value)}
-                    className="max-w-[154px] placeholder:text-[#11171F] w-full items-center dir_left-t-right rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
-                  >
-                    {countries.map((country, index) => (
-                      <option key={index} value={country.code}>
-                        {country.name} ({country.code})
-                      </option>
-                    ))}
-                  </select>
-                </div> : <div>
-                  <select
-                    value={selectedCountryCode}
-                    onChange={(e) => setSelectedCountryCode(e.target.value)}
-                    className=" max-w-[154px] placeholder:text-[#11171F] w-full items-center dir_left-t-right rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
-                  >
-                    {arabicCountries.map((country, index) => (
-                      <option key={index} value={country.code}>
-                        {country.name} ({country.code})
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                }
-             
-              <div className="relative w-[80%]">
+          <div className="form-group lg:mb-0 mb-4">
+            <div className="btn-icon select_country relative flex align-baseline">
+              {
+                language ==="en" ? <div>
+                <select
+                  value={selectedCountryCode}
+                  onChange={(e) => setSelectedCountryCode(e.target.value)}
+                  className="max-w-[154px] placeholder:text-[#11171F] w-full items-center dir_left-t-right rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
+                >
+                  {countries.map((country, index) => (
+                    <option key={index} value={country.code}>
+                      {country.name} ({country.code})
+                    </option>
+                  ))}
+                </select>
+              </div> : <div>
+                <select
+                  value={selectedCountryCode}
+                  onChange={(e) => setSelectedCountryCode(e.target.value)}
+                  className=" max-w-[154px] placeholder:text-[#11171F] w-full items-center dir_left-t-right rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
+                >
+                  {arabicCountries.map((country, index) => (
+                    <option key={index} value={country.code}>
+                      {country.name} ({country.code})
+                    </option>
+                  ))}
+                </select>
+              </div>
+              }
+            
+            <div className="relative w-[80%]">
             <input
               type="text"
               name="PhoneNumber"
               id="PhoneNumber"
               disabled={isOtpSent || disabledPhoneOTP || OtpMessage} 
               value={`${selectedCountryCode}${phoneNumber}`} // Always shows country code + phone number
-              onChange={handlePhoneNumberChange} // Handles updates without breaking country code
-              className="pr-[165px] placeholder:text-[#11171F] w-full items-center dir_left-t-right rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
+              onChange={handlePhoneNumberChange}
+              className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] md:min-h-[70px] min-h-[45px] block min-w-0 grow py-1.5 pr-5 pl-5 md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 md:mb-0 lg:mb-5 mb-3"
               placeholder="Enter phone number"
             />
-             </div>
-              {/* <input
-                    type="text"
-                    name="PhoneNumber"
-                    id="PhoneNumber"
-                    disabled={disabledPhoneOTP || OtpMessage}
-                    onChange={(e) => setPhoneNumber(e.target.value)}
-                    className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white  border-solid border-2 border-[#DEDEDE]   outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg  text-[#11171F]   focus:outline-none sm:text-sm/6"
-                    placeholder={t("phone_number")}
-                  /> */}
-
-              {/* <PhoneInput
-              international
-              defaultCountry="OM"
-              value={phoneNumber}
-              onChange={handlePhoneChange}
-              disabled={disabledPhoneOTP || OtpMessage}
-              className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
-              placeholder={t("phone_number")}
-              pattern="^\d{8,16}$" // Enforces a minimum of 8 digits and a maximum of 16 digits
-              /> */}
-
-            {/* <select
-              onChange={(e) => handlePhoneChange(e.target.value, phoneNumber)}
-              value={phoneNumber}
-              className="bg-white border-solid border-2 border-[#DEDEDE] focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none sm:text-sm/6 mb-5"
-            >
-              {countryOptions.map((country) => (
-                <option key={country.value} value={country.value}>
-                  {country.label}
-                </option>
-              ))}
-            </select> */}
-
-            <button
-              disabled={isOtpSent || disabledPhoneOTP || OtpMessage} // Disable immediately on click
-              onClick={handleSendOTP}
-              className="px-4 py-2 font-semibold lg:text-lg rounded-[3px] bg-[#1796D8] text-white absolute rtl:xl:text-[30px] lg:w-[149px] w-[100px] lg:top-2 top-[2px] lg:right-2 right-[2px] lg:min-h-[calc(100%-35px)] min-h-[calc(100%-4px)] shadow-shadow-color"
-            >
-              {t("send_OTP")}
-            </button>
-              </div>
-              {
-                  errorMessage && (
-                <span className="text-red-500 text-sm mt-2">
-                  {errorMessage}
-                </span>
-              )
-            }
             </div>
+          <button
+            disabled={isOtpSent || disabledPhoneOTP || OtpMessage}
+            onClick={handleSendOTP}
+            className="px-4 py-2 font-semibold lg:text-lg rounded-[3px] bg-[#1796D8] text-white absolute rtl:xl:text-[30px] lg:w-[149px] w-[100px] lg:top-2 top-[2px] lg:right-2 right-[2px] lg:min-h-[calc(100%-16px)] min-h-[calc(100%-4px)] shadow-shadow-color"
+          >
+            {t("send_OTP")}
+          </button>
+            </div>
+            {
+                errorMessage && (
+              <span className="text-red-500 text-sm mt-2">
+                {errorMessage}
+              </span>
+            )
+          }
+          </div>
             {otpGenerated && (
-              <div class="form-group lg:mb-0 mb-4">
+              <div className="form-group md:mb-0 mb-0">
                 <div className="btn-icon relative">
                   <input
                     type="text"
@@ -426,7 +381,7 @@ export default function SignUpNow() {
                     disabled={isOtpVerify}
                     // disabled={disabledPhoneOTP}
                     onChange={(e) => setOtpCode(e.target.value.trim())}
-                    className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
+                    className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 md:mb-0 lg:mb-5 mb-3"
                     placeholder="OTP"
                   />
                   <button
@@ -444,7 +399,7 @@ export default function SignUpNow() {
                 )}
               </div>
             )}
-            <div class="form-group lg:mb-0 mb-4">
+            <div className="form-group md:mb-0 mb-0">
               <input
                 type="email"
                 name="email"
@@ -459,7 +414,7 @@ export default function SignUpNow() {
                     email: "", 
                   }));
                 }}
-                className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
+                className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] md:min-h-[70px] min-h-[45px] block min-w-0 grow py-1.5 pr-5 pl-5 md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 md:mb-0 lg:mb-5 mb-3"
                 placeholder={t("email")}
               />
               {validationErrors?.email && (
@@ -467,7 +422,7 @@ export default function SignUpNow() {
               )}
             </div>
             {otpGenerated && (
-              <div className="form-group lg:mb-0 mb-4">
+              <div className="form-group md:mb-0 mb-0">
                 <div className="flex items-center cursor-pointer placeholder:text-[#11171F]  relative  rounded-[4px] bg-white  border-solid border-2 border-[#DEDEDE]   outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px]   min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg  text-[#11171F]   focus:outline-none sm:text-sm/6">
                   {/* <!-- Label wraps everything --> */}
                   <label
@@ -524,12 +479,12 @@ export default function SignUpNow() {
             )}
           </div>
         </div>
-        <div className="book-you-button flex-wrap  flex lg:justify-between items-center mt-10 justify-center text-center ">
-          <p className="text-black lg:order-none order-2 text-lg mb-3 lg:mt-0 mt-2 rtl:xl:text-[30px] ">
+        <div className="book-you-button flex md:justify-between items-center mt-10 justify-between text-center">
+          <p className="text-black lg:order-none order-2 text-lg mb-3 lg:mt-0 mt-2 rtl:xl:text-[30px]">
             {t("already_have_an_account")}{" "}
             <button
              onClick={signin}
-             className="text-info-color font-bold ml-3">
+             className="py-2 lg:px-8 px-3 text-[#0000FF] rounded-3xl font-medium rtl:font-black xl:text-xl rtl:xl:text-[32px] text-[12px]">
               {t("sign_in")}
             </button>
           </p>
