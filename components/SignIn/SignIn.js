@@ -39,7 +39,7 @@ useEffect(() => {
     // Check if token exists in localStorage, redirect to home page if not
     const token = localStorage.getItem("authToken");
 
-    if (!token) {
+    if (token) {
       toast.error("Your session has expired. Please log in again.", {
         autoClose: 1000,  // Toast will automatically close after 5 seconds
       });

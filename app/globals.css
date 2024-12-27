@@ -201,6 +201,10 @@ body {
 
 /* new css */
 
+.custom_client {
+  object-fit: cover;
+  object-position: top !important;
+}
 
 .contact-hero {
   position: relative;
