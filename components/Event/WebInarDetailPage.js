@@ -34,7 +34,7 @@ const WebInarDeatilPage = () => {
 useEffect(() => {
   if (data) {
     setWebinarDetailPage(data?.event);
-    setLoading(false); 
+    // setLoading(false); 
   }
   const lang = currentPath.split('/')[1] || 'en';
   setLanguage(lang);
@@ -62,7 +62,7 @@ if (error) return <div>Error: {error.message}</div>;
   
 
 const handleSubmit = async (id) => {
-  setLoading(true)
+  // setLoading(true)
   setIsSend(true)
   try {
     const response = await axios.post(
@@ -74,21 +74,23 @@ const handleSubmit = async (id) => {
         },
       }
     );
-    setLoading(false)
+    // setLoading(true)
     console.log(response.data)
    if (response.data.success === 1) {
       router.push(`/${language}/thank-you`);
     } else if (response.data.status === 0) {
       // Token expired or invalid
-      toast.error(
-        language === "en"
-          ? "Your session has expired. Please sign up again."
-          : "انتهت صلاحية الجلسة. الرجاء التسجيل مرة أخرى."
-      );
+      // toast.error(
+      //   language === "en"
+      //     ? "Your session has expired. Please sign up again."
+      //     : "انتهت صلاحية الجلسة. الرجاء التسجيل مرة أخرى."
+      // );
+      router.push(`/${language}/signup`);
+
       setLoading(false)
-      setTimeout(() => {
-        router.push(`/${language}/signup`);
-      }, 4000); 
+      // setTimeout(() => {
+      //   router.push(`/${language}/signup`);
+      // }, 4000); 
     } else {
       toast.error(
         language === "en"

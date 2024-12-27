@@ -36,6 +36,7 @@ export default function SignUpNow() {
   const [imageError, setImageError] = useState("");
   const [OtpMessage, setOtpMessage] = useState("");
   const [showSignUp, setShowSignUp] = useState(true);
+  const [loader, setLoader] = useState(true);
   const [validationErrors, setValidationErrors] = useState({
    fullName: "",
     email: "",
@@ -283,6 +284,7 @@ export default function SignUpNow() {
     const interval = setInterval(checkToken, 5000); // Check every 5 seconds
     return () => clearInterval(interval); // Clean up the interval on unmount
   }, []);
+  
 
   return (
     <>{
