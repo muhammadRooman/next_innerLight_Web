@@ -122,7 +122,7 @@ export default function LandingPage() {
       {/* Hero Banner Section */}
       <section className="site-banner bg-site-banner bg-cover 2xl:min-h-[calc(997px-100px)] lg:min-h-[calc(997px-400px)] sm:min-h-[calc(997px-600px)] min-h-[calc(350px)] relative flex items-end justify-center md:pb-10 pb-5 lg:bg-center bg-center">
         <div className="2xl:container xl:container lg:container mx-auto px-5">
-          <div className="inner-container relative">
+          <div className="inner-container relative sm:pt-4 md:pt0">
             <div className="site-banner-content max-w-[965px] mx-auto">
               <h5 className="xl:text-40 rtl:xl:text-[100px] lg:text-[30px] text-[22px] text-white font-bold text-center xl:leading-normal">{language === "en" ? cmsWebHeadingData?.heading_en : cmsWebHeadingData?.heading_ar} </h5>
               <div className="relative banner-img 2xl:min-h-[148px] sm:min-h-[80px] lg:min-h-[120px] min-h-[60px] max-w-full">
@@ -330,7 +330,7 @@ export default function LandingPage() {
                     </div>
                   </div>
                   <div className='col-span-1'>
-                    <div className='static-img-wrap relative min-h-[200px] md:min-h-[380px] small:min-h-[250px] rounded-10 overflow-hidden'>
+                    <div className='static-img-wrap relative min-h-[200px] sm:min-h-[300px] xs:min-h-[250px] rounded-10 overflow-hidden'>
                       <Image src="/MmeditationImg2.png" alt="logo white" layout="fill" className="rounded-30 object-cover p-2.5" />
                     </div>
                   </div>
@@ -415,7 +415,7 @@ export default function LandingPage() {
       </div>
 
       <div className='2xl:container xl:container md:container mx-auto'>
-        <section className="benefits-holistic bg-gray-light lg:pt-0 pt-8 pb-[40px] small:pb-0 sm:pb-[10px]">
+        <section className="benefits-holistic bg-gray-light lg:pt-0 xs:pt-8 small:pt-0 pb-[40px] small:pb-0 sm:pb-[10px]">
           <div className="2xl:container xl:container lg:container mx-auto px-5">
             <div className="heading-box text-center md:mb-20 mb-5">
               <h5 className="text-info-color 2xl:text-3xl xl:text-2xl lg:text-xl text-[16px] sm:text-md font-black rtl:2xl:text-[56px] rtl:xl:text-[40px] rtl:text-[30px] sm:text-[20px]">
@@ -425,7 +425,7 @@ export default function LandingPage() {
                 {t("benefits_of_holistic")}
               </h2>
             </div>
-            <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-2 small:grid-cols-1 gap-7">
+            <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-2 small:grid-cols-1 md:gap-7 small:gap-3">
               {benefits.map(benefit => (
                 <div key={benefit.id} className="benefits-card-wrap xl:mb-3 mb-6">
                   <div className="benefits-card text-center">

@@ -18,7 +18,7 @@ export default function SiteBanner({SiteBannerHeader}) {
   return (
     <section className="site-banner bg-site-banner bg-cover 2xl:min-h-[calc(997px-100px)] min-h-[697px] relative flex items-end justify-center pb-10 lg:bg-center bg-center">
       <div className="2xl:container xl:container lg:container mx-auto px-5">
-        <div className="inner-container relative">
+        <div className="inner-container relative sm:pt-4 md:pt0">
           <div className="site-banner-content max-w-[929px] mx-auto">
             <h5 className="xl:text-40 lg:text-[30px] text-[22px] text-white font-bold text-center">{language === "en" ? SiteBannerHeader.heading_en: SiteBannerHeader.heading_ar }</h5>
             <div className="relative banner-img 2xl:min-h-[148px] sm:min-h-[120px] min-h-[60px] max-w-full">
