@@ -235,12 +235,21 @@ export default function SignUpNow() {
     }
   }
   
-  const handlePhoneChange = (value) => {
-  setPhoneNumber(value); // Set the full phone number with the country code
+  const handlePhoneNumberChange = (e) => {
+    const input = e.target.value;
+      setErrorMessage('');
+    // Ensure the input always starts with the selected country code
+    if (!input.startsWith(selectedCountryCode)) {
+      return; // Prevent any update if the user tries to remove the country code
+    }
+    // Extract the phone number (part after the country code)
+    const numberWithoutCode = input.slice(selectedCountryCode.length);
+    // Update the phone number state without affecting the country code
+    setPhoneNumber(numberWithoutCode);
   };
 
-  // Function to check if the token is expired
-  const isTokenExpired = () => {
+   // Function to check if the token is expired
+   const isTokenExpired = () => {
     const token = localStorage.getItem("authToken");
 
     if (!token) {
@@ -274,20 +283,6 @@ export default function SignUpNow() {
     const interval = setInterval(checkToken, 5000); // Check every 5 seconds
     return () => clearInterval(interval); // Clean up the interval on unmount
   }, []);
-
-
-  const handlePhoneNumberChange = (e) => {
-    const input = e.target.value;
-      setErrorMessage('');
-    // Ensure the input always starts with the selected country code
-    if (!input.startsWith(selectedCountryCode)) {
-      return; // Prevent any update if the user tries to remove the country code
-    }
-    // Extract the phone number (part after the country code)
-    const numberWithoutCode = input.slice(selectedCountryCode.length);
-    // Update the phone number state without affecting the country code
-    setPhoneNumber(numberWithoutCode);
-  };
 
   return (
     <>{
@@ -367,40 +362,7 @@ export default function SignUpNow() {
               placeholder="Enter phone number"
             />
              </div>
-              {/* <input
-                    type="text"
-                    name="PhoneNumber"
-                    id="PhoneNumber"
-                    disabled={disabledPhoneOTP || OtpMessage}
-                    onChange={(e) => setPhoneNumber(e.target.value)}
-                    className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white  border-solid border-2 border-[#DEDEDE]   outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg  text-[#11171F]   focus:outline-none sm:text-sm/6"
-                    placeholder={t("phone_number")}
-                  /> */}
-
-              {/* <PhoneInput
-              international
-              defaultCountry="OM"
-              value={phoneNumber}
-              onChange={handlePhoneChange}
-              disabled={disabledPhoneOTP || OtpMessage}
-              className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
-              placeholder={t("phone_number")}
-              pattern="^\d{8,16}$" // Enforces a minimum of 8 digits and a maximum of 16 digits
-              /> */}
-
-            {/* <select
-              onChange={(e) => handlePhoneChange(e.target.value, phoneNumber)}
-              value={phoneNumber}
-              className="bg-white border-solid border-2 border-[#DEDEDE] focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none sm:text-sm/6 mb-5"
-            >
-              {countryOptions.map((country) => (
-                <option key={country.value} value={country.value}>
-                  {country.label}
-                </option>
-              ))}
-            </select> */}
-
-            <button
+              <button
               disabled={isOtpSent || disabledPhoneOTP || OtpMessage} // Disable immediately on click
               onClick={handleSendOTP}
               className="px-4 py-2 font-semibold lg:text-lg rounded-[3px] bg-[#1796D8] text-white absolute rtl:xl:text-[30px] lg:w-[149px] w-[100px] lg:top-2 top-[2px] lg:right-2 right-[2px] lg:min-h-[calc(100%-35px)] min-h-[calc(100%-4px)] shadow-shadow-color"

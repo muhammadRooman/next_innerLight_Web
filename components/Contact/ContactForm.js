@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function ContactUs() {
     const t = useTranslations("Contact");
+    const [flag, setFlag] = useState(false)
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -17,11 +18,13 @@ export default function ContactUs() {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
+        console.log("Captured Value:", value);
         setFormData({ ...formData, [name]: value });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setFlag(true)
         try {
             const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/contact`, {
                 method: "POST",
@@ -30,13 +33,15 @@ export default function ContactUs() {
                 },
                 body: JSON.stringify(formData),
             });
-
+            setFlag(false)
             const data = await res.json();
             if (res.ok) {
                 toast.success(t("alert"))
+                setFlag(false)
                 setFormData({ name: "", email: "", phone: "", message: "" });
             } else {
                 alert("Something went wrong.PLease try again")
+               setFlag(false)
             }
         } catch (error) {
             console.log(error)
@@ -83,6 +88,7 @@ export default function ContactUs() {
                                 onChange={handleChange}
                                 placeholder={t("your_name")}
                                 required
+                                 maxLength="150"
                                 className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
                             />
                             <input
@@ -95,14 +101,17 @@ export default function ContactUs() {
                                 className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
                             />
                             <input
-                                type="number"
-                                name="phone"
-                                value={formData.phone}
-                                onChange={handleChange}
-                                required
-                                placeholder={t("contact_no")}
-                                className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
-                            />
+                            type="text"
+                            name="phone"
+                            inputMode="tel"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            placeholder={t("contact_no")}
+                            required
+                            maxLength="17" 
+                            // pattern="^[+]?[\d]+$" 
+                            className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
+                           />
                             <textarea
                                 maxlength="1000"
                                 name="message"
@@ -114,6 +123,7 @@ export default function ContactUs() {
                             ></textarea>
                             <div className="btn-wrap text-right rtl:text-left lg:mt-14 mt-10">
                                 <button
+                                   disabled={flag}
                                     type="submit"
                                     className="py-2 lg:px-8 px-3 text-white rounded-3xl font-medium rtl:font-black xl:text-xl rtl:xl:text-[32px] text-[12px] bg-btn-gradient hover:bg-btn-gradient-hover lg:ml-4 rtl:text-[12px]"
                                 >
