@@ -44,7 +44,7 @@ export default function SignIn() {
         router.push("/");
       }, 1000);
     } else {
-      setLoader(false);
+      setFirstLoader(false);
     }
   }, [currentPath, router, token]);
 
