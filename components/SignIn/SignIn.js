@@ -68,7 +68,6 @@ export default function SignIn() {
         }
       );
 
-      console.log("response",response);
 
       // OTP generated successfully
       if (response?.data.success) {
@@ -101,7 +100,6 @@ export default function SignIn() {
         }
       );
       // OTP Verified successfully
-      console.log("response evrify",response);
       if (response?.data?.success) {
         toast.success(language === "en" ? response.data.message : response.data.message_ar );
         setErrorVerifyMessage("");
@@ -143,7 +141,6 @@ export default function SignIn() {
         { headers: { "Content-Type": "multipart/form-data" } }
       );
       setLoader(false)
-      console.log("response",response);
       if (response?.data?.status === 1) {
         localStorage.setItem("authToken", response.data.data.accessToken);
         router.push(`/${language}/event`);
@@ -168,7 +165,8 @@ export default function SignIn() {
       return; // Prevent any update if the user tries to remove the country code
     }
     // Extract the phone number (part after the country code)
-    const numberWithoutCode = input.slice(selectedCountryCode.length);
+    let numberWithoutCode = input.slice(selectedCountryCode.length);
+    numberWithoutCode = numberWithoutCode.replace(/\D/g, '')
     // Update the phone number state without affecting the country code
     setPhoneNumber(numberWithoutCode);
   };
@@ -229,6 +227,8 @@ export default function SignIn() {
               onChange={handlePhoneNumberChange} // Handles updates without breaking country code
               className="pr-[165px] placeholder:text-[#11171F] w-full items-center dir_left-t-right rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
               placeholder="Enter phone number"
+              inputMode="numeric"
+              disabled={isOtpSent || disabledPhoneOTP || OtpMessage} 
             />
              </div>
              <button
@@ -254,7 +254,7 @@ export default function SignIn() {
                       type="text"
                       name="otp"
                       id="otp"
-                      // disabled={disabledPhoneOTP}
+                      disabled={disabledPhoneOTP}
                       onChange={(e) => setOtpCode(e.target.value.trim())}
                       className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white  border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg  text-[#11171F]   focus:outline-none sm:text-sm/6"
                       placeholder="OTP"
