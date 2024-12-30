@@ -116,7 +116,7 @@ const Header = ({ locale }) => {
           w-auto 
           appearance-none 
           pr-10
-          rtl:ml-5 rtl:pr-4 rtl:pl-10 
+          rtl:ml-5 rtl:pr-4 rtl:pl-10 custom_select
         "
       >
         <option value="en">English</option>

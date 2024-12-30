@@ -234,26 +234,20 @@ export default function LandingPage() {
       <div className='2xl:container xl:container md:container mx-auto'>
         <section className="commitment-wrap bg-gray-light lg:pt-[80px] xl:pb-[90px] lg:pb-[80px] md:pt-[50px] pt-[30px] md:pb-[60px] pb-[40]">
           <div className="2xl:container xl:container lg:container mx-auto px-5">
-            <div className="heading-box text-center md:mb-16 mb-5">
-              <h5 className="text-info-color 2xl:text-[32px] 2xl:leading-[40px] font-black rtl:2xl:text-[56px] rtl:xl:text-[40px] rtl:text-[30px]">
+            <div className="heading-box text-center lg:pb-6 md:pb-0 pb-5">
+              <h5 className="text-info-color 2xl:text-3xl xl:text-2xl lg:text-xl text-[16px] sm:text-md font-black rtl:2xl:text-[56px] rtl:xl:text-[40px] rtl:text-[30px] sm:text-[20px]">
                 {t("innerLight")}
               </h5>
-              <h2 className="
-                2xl:text-[32px] 2xl:leading-[40px] xl:text-[28px] xl:leading-[36px] lg:text-[22px] lg:leading-[28px] md:text-[20px] md:leading-[26px]
-                sm:text-[16px] sm:leading-[22px] small:text-[16px] small:leading-[18px] text-[14px] leading-[20px] font-bold
-                rtl:2xl:text-[30px] rtl:2xl:leading-[38px] rtl:xl:text-[26px] rtl:xl:leading-[34px] rtl:lg:text-[20px] rtl:lg:leading-[26px]
-                rtl:md:text-[18px] rtl:md:leading-[24px] rtl:sm:text-[14px] rtl:sm:leading-[20px] rtl:small:text-[10px] rtl:small:leading-[16px]
-                rtl:text-[12px] rtl:leading-[18px]
-              ">
+              <h2 className="xl:text-[40px] lg:text-[30px] text-[18px] font-bold rtl:2xl:text-[72px] rtl:xl:text-[50px] rtl:text-[40px] sm:text-[22px]">
                 {language === "en" ? cmsWebCommitmentData?.heading_en : cmsWebCommitmentData?.heading_ar}
               </h2>
             </div>
 
-            <div className="grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-2 small:grid-cols-1 items-center">
+            <div className="grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-2 small:grid-cols-1 items-center blog-card-content">
               {/* First Column */}
               <div className="lg:col-span-1 md:col-span-1 small:col-span-2 col-span-1">
                 <div className="commitment-content text-center lg:mb-36 mb-4 lg:max-w-[395px] max-w-full">
-                  <p className="xl:text-lg md:text-base sm:text-sm text-[14px] rtl:2xl:text-[32px] rtl:md:text-[28px] font-normal">
+                  <p className="md:text-lg text-sm md:leading-[28px] rtl:2xl:text-[32px] rtl:max-w-[750px] rtl:md:text-[28px] font-normal">
                     {language === "en" ? cmsWebCommitmentData?.point1_en : cmsWebCommitmentData?.point1_ar}
                   </p>
                 </div>
