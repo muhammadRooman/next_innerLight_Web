@@ -365,7 +365,7 @@ export default function SignUpNow() {
               <button
               disabled={isOtpSent || disabledPhoneOTP || OtpMessage} // Disable immediately on click
               onClick={handleSendOTP}
-              className="px-4 py-2 font-semibold lg:text-lg rounded-[3px] bg-[#1796D8] text-white absolute rtl:xl:text-[30px] lg:w-[149px] w-[100px] md:top-2 md:right-2 top-[2px] right-[2px] xs:right-[4px] xs:top-[4px] lg:min-h-[calc(100%-35px)] md:min-h-[calc(100%-16px)] xs:min-h-[calc(100%-24px)] small:min-h-[calc(100%-16px)] shadow-shadow-color"
+              className="px-4 py-2 font-semibold lg:text-lg rounded-[3px] bg-[#1796D8] text-white absolute rtl:xl:text-[30px] lg:w-[149px] w-[100px] md:top-2 md:right-2 top-[2px] right-[2px] xs:right-[4px] rtl:left-[0px] xs:top-[4px] lg:min-h-[calc(100%-35px)] md:min-h-[calc(100%-16px)] xs:min-h-[calc(100%-24px)] small:min-h-[calc(100%-16px)] shadow-shadow-color custom_select_button"
             >
               {t("send_OTP")}
             </button>
@@ -449,7 +449,7 @@ export default function SignUpNow() {
                       className="hidden"
                     />
                     {/* <!-- Upload Icon/Button --> */}
-                    <span className="cursor-pointer bg-[#1796D8]   text-white flex items-center justify-center  rounded-[4px] w-[74px] absolute  lg:top-2 top-0  right-0 lg:min-h-[calc(100%-16px)] min-h-[100%] lg:right-[6px]">
+                    <span className="cursor-pointer bg-[#1796D8]   text-white flex items-center justify-center  rounded-[4px] w-[74px] absolute  lg:top-2 top-0  right-0 lg:min-h-[calc(100%-16px)] min-h-[100%] lg:right-[6px] upload_icon">
                       {/* <!-- Icon --> */}
                       <svg
                         class="feather feather-upload"
@@ -486,7 +486,7 @@ export default function SignUpNow() {
             )}
           </div>
         </div>
-        <div className="book-you-button md:flex flex-wrap md:justify-between items-center mt-10 justify-center text-center ">
+        <div className="book-you-button md:flex flex-wrap md:justify-between items-center mt-10 justify-center text-center btn-wrap">
           <p className="text-black text-lg mb-3 lg:mt-0 mt-2 rtl:xl:text-[30px] ">
             {t("already_have_an_account")}{" "}
             <button

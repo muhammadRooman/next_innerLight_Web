@@ -132,6 +132,33 @@ body {
 html[lang="ar"][dir="rtl"] .bnenfits_banner p {
   max-width: 582px;
 }
+  /* html[lang="ar"][dir="rtl"] .custom_select_button{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 7px;
+    height: 55px;
+    right: -18%;
+  } */
+html[lang="ar"][dir="rtl"] .upload_icon{
+  position: relative;
+    height: 55px;
+    width: 100px;
+    top: 0px;
+    right: 13px;
+}
+.upload_icon{
+  position: relative;
+    height: 55px;
+    width: 100px;
+    top: 0px !important;
+    left: 13px;
+}
+html[lang="ar"][dir="rtl"] .btn-icon button{
+  right: auto;
+  left: 10px;
+}
 
 
 @media (min-width: 1536px) {
@@ -139,6 +166,19 @@ html[lang="ar"][dir="rtl"] .bnenfits_banner p {
     margin-inline-end: 0px;
     margin-inline-start: 88px;
   }
+
+  html[lang="ar"][dir="rtl"] .custom_select {
+    padding: 5px 40px 5px 20px;
+  }
+  /* html[lang="ar"][dir="rtl"] .custom_select_button{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 7px;
+    height: 55px;
+    right: -18%;
+  } */
 }
 
 
@@ -148,6 +188,10 @@ html[lang="ar"][dir="rtl"] .bnenfits_banner p {
     margin-inline-start: 88px;
   }
 
+  html[lang="ar"][dir="rtl"] .custom_select {
+    padding: 5px 40px 5px 20px;
+  }
+
   html[lang="ar"][dir="rtl"] .bnenfits_banner p {
     max-width: 440px;
   }
@@ -155,6 +199,18 @@ html[lang="ar"][dir="rtl"] .bnenfits_banner p {
   html[lang="ar"][dir="rtl"] .site-banner-content h5 {
     font-size: 65px;
     line-height: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner-content p {
+    font-size: 34px;
+    max-width: 828px;
+    margin: 0 auto;
+    padding-top: 16px;
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner-content img {
+    height: 130px;
+    width: 400px;
   }
 }
 
@@ -166,11 +222,13 @@ html[lang="ar"][dir="rtl"] .bnenfits_banner p {
   html[lang="ar"][dir="rtl"] .bnenfits_banner p {
     max-width: 440px;
   }
-  html[lang="ar"][dir="rtl"] .btn-wrap a{
+
+  html[lang="ar"][dir="rtl"] .btn-wrap a {
     font-size: 20px;
     line-height: normal;
   }
-  html[lang="ar"][dir="rtl"] .benefits-content h5{
+
+  html[lang="ar"][dir="rtl"] .benefits-content h5 {
     font-size: 30px;
   }
 }
@@ -198,12 +256,14 @@ html[lang="ar"][dir="rtl"] .bnenfits_banner p {
     font-size: 50px;
     line-height: normal;
     margin: 0;
-}
-html[lang="ar"][dir="rtl"] .bnenfits_banner p {
-  max-width: 350px;
-  font-size: 24px;
-  line-height: 24px;
-}
+  }
+
+  html[lang="ar"][dir="rtl"] .bnenfits_banner p {
+    max-width: 350px;
+    font-size: 24px;
+    line-height: 24px;
+  }
+
   html[lang="ar"][dir="rtl"] .heading-box {
     line-height: normal;
   }
@@ -235,7 +295,8 @@ html[lang="ar"][dir="rtl"] .bnenfits_banner p {
   html[lang="ar"][dir="rtl"] .contact_us h2 {
     line-height: 45px;
   }
-  html[lang="ar"][dir="rtl"] .site-banner{
+
+  html[lang="ar"][dir="rtl"] .site-banner {
     min-height: 400px;
   }
 }
@@ -319,33 +380,36 @@ html[lang="ar"][dir="rtl"] .bnenfits_banner p {
 
   html[lang="ar"][dir="rtl"] .site-banner p {
     line-height: normal;
-        max-width: 290px;
-        font-size: 20px;
-        margin-top: 5px;
+    max-width: 290px;
+    font-size: 20px;
+    margin-top: 5px;
   }
 
   html[lang="ar"][dir="rtl"] .slider-content h4 {
     font-size: 26px;
     line-height: normal;
   }
+
   html[lang="ar"][dir="rtl"] .btn-wrap a {
     font-size: 18px;
     line-height: normal;
-}
+  }
 
   html[lang="ar"][dir="rtl"] .slider-content p {
     font-size: 22px;
     line-height: normal;
   }
+
   html[lang="ar"][dir="rtl"] .site-banner-content h5 {
     font-size: 50px;
     line-height: normal;
     max-width: 500px;
-}
-html[lang="ar"][dir="rtl"] .site-banner {
-  min-height: 400px;
-  padding-bottom: 0;
-}
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner {
+    min-height: 400px;
+    padding-bottom: 0;
+  }
 
   html[lang="ar"][dir="rtl"] .slider-content small {
     font-size: 22px;
@@ -359,6 +423,22 @@ html[lang="ar"][dir="rtl"] .site-banner {
   html[lang="ar"][dir="rtl"] .contact_us h2 {
     line-height: normal;
   }
+
+  html[lang="ar"][dir="rtl"] .site-banner-content img {
+    height: 90px;
+    width: 290px;
+}
+html[lang="ar"][dir="rtl"] .site-banner-content p {
+  font-size: 24px !important;
+  max-width: 510px !important;
+  margin: 0 auto;
+  padding-top: 16px;
+
+}
+html[lang="ar"][dir="rtl"] .site-banner {
+  min-height: 370px;
+  padding-bottom: 20px;
+}
 
 }
 
@@ -375,6 +455,26 @@ html[lang="ar"][dir="rtl"] .site-banner {
     line-height: normal;
     max-width: 400px;
   }
+
+  html[lang="ar"][dir="rtl"] .custom_select {
+    padding: 5px 28px 5px 8px;
+  }
+  html[lang="ar"][dir="rtl"] .site-banner-content p {
+    font-size: 22px !important;
+    max-width: 390px !important;
+    margin: 0 auto;
+    padding-top: 10px;
+    line-height: normal;
+}
+html[lang="ar"][dir="rtl"] .site-banner {
+  min-height: 150px;
+  padding-bottom: 20px;
+  padding-top: 40px;
+}
+html[lang="ar"][dir="rtl"] .site-banner-content img {
+  height: 70px;
+  width: 180px;
+}
 }
 
 @media (max-width: 480px) {
@@ -396,19 +496,32 @@ html[lang="ar"][dir="rtl"] .site-banner {
     line-height: normal;
     max-width: 290px;
   }
+
   html[lang="ar"][dir="rtl"] .benefits_banner h5 {
     font-size: 30px;
     line-height: normal;
     max-width: 400px;
     margin-bottom: 5px;
   }
+
   html[lang="ar"][dir="rtl"] .benefits_banner p {
     margin-top: 0px;
   }
 
   html[lang="ar"][dir="rtl"] .blog-card-content p {
-    font-size: 23px !important;
+    font-size: 20px !important;
     max-width: 700px;
+  }
+
+  html[lang="ar"][dir="rtl"] .btn-wrap button {
+    font-size: 18px;
+    padding: 4px 20px;
+  }
+
+  html[lang="ar"][dir="rtl"] .custom-prev,
+  .custom-next img {
+    height: 35px;
+    width: 35px;
   }
 
   html[lang="ar"][dir="rtl"] .blog-card-content h4 {
@@ -426,8 +539,19 @@ html[lang="ar"][dir="rtl"] .site-banner {
   html[lang="ar"][dir="rtl"] .date-wrap {
     font-size: 20px;
     line-height: normal;
-    height: 70px;
+    height: 60px;
     width: 70px;
+  }
+
+  html[lang="ar"][dir="rtl"] .date-wrap h1 {
+    line-height: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .bg-shap-bg {
+    min-height: 30px;
+    margin: 10px 0;
+    max-width: 130px;
+    background-position: right;
   }
 
   html[lang="ar"][dir="rtl"] .contact-banner {
@@ -512,9 +636,9 @@ html[lang="ar"] .nurturing-img::before {
   transform: scaleX(-1);
 }
 
-html[lang="ar"] .btn-icon.select_country {
+/* html[lang="ar"] .btn-icon.select_country {
   flex-direction: row-reverse;
-}
+} */
 
 .fullpage-loader-holder {
   position: fixed;
