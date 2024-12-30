@@ -5,7 +5,7 @@
 @font-face {
   font-family: 'AGA Rasheeq V.2';
   src: url('../public/fonts/AGARasheeqV2.woff2') format('woff2'),
-      url('../public/fonts/AGARasheeqV2.woff') format('woff');
+    url('../public/fonts/AGARasheeqV2.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -14,7 +14,7 @@
 @font-face {
   font-family: 'AGA Rasheeq V.2';
   src: url('../public/fonts/AGARasheeqV2-Bold.woff2') format('woff2'),
-      url('../public/fonts/AGARasheeqV2-Bold.woff') format('woff');
+    url('../public/fonts/AGARasheeqV2-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -27,7 +27,7 @@
 @font-face {
   font-family: 'BrittanySignature';
   src: url('/fonts/BrittanySignatureRegular.woff') format('truetype'),
-       url('/fonts/BrittanySignatureRegular.woff') format('truetype');
+    url('/fonts/BrittanySignatureRegular.woff') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -64,24 +64,26 @@ body {
   .theme-blue-btn {
     @apply uppercase rounded-md bg-primary-300 text-white py-4 px-9 self-start
   }
-  .swiper.servicesSwiper{
+
+  .swiper.servicesSwiper {
     @apply pb-36 static
   }
 }
- 
+
 .rtl {
   /* RTL-specific styles */
   direction: rtl;
-  text-align: right; 
+  text-align: right;
 }
 
-.arabic body{
+.arabic body {
   font-family: 'AGA Rasheeq V.2';
 }
- 
-.direction{
+
+.direction {
   direction: rtl;
 }
+
 .wellness-text {
   font-size: 8rem;
   font-weight: bold;
@@ -97,21 +99,23 @@ body {
 
 
 /* WhatWeOffer-card */
-.WhatWeOffer-card .WhatWeOffer-img { 
+.WhatWeOffer-card .WhatWeOffer-img {
   margin: -60px 25px 0;
   animation: .3s ease-in-out;
   transition: all 0.3s;
 }
+
 .WhatWeOffer-card .WhatWeOffer-img img {
   position: relative !important;
   width: 100% !important;
   height: 292px !important;
 }
-.WhatWeOffer-card:hover .WhatWeOffer-img{
+
+.WhatWeOffer-card:hover .WhatWeOffer-img {
   margin: -60px 0px 0;
   animation: .3s ease-in;
-} 
- 
+}
+
 
 
 
@@ -125,39 +129,237 @@ body {
 .rtl .DownloadOurApp .heading-box {
   text-align: right;
 } */
+html[lang="ar"][dir="rtl"] .bnenfits_banner p {
+  max-width: 582px;
+}
 
- 
 
 @media (min-width: 1536px) {
   .rtl .\32xl\:me-\[88px\] {
-      margin-inline-end: 0px;
-      margin-inline-start: 88px;
+    margin-inline-end: 0px;
+    margin-inline-start: 88px;
+  }
+}
+
+
+@media (max-width: 1536px) {
+  .rtl .\32xl\:me-\[88px\] {
+    margin-inline-end: 0px;
+    margin-inline-start: 88px;
+  }
+
+  html[lang="ar"][dir="rtl"] .bnenfits_banner p {
+    max-width: 440px;
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner-content h5 {
+    font-size: 65px;
+    line-height: normal;
+  }
+}
+
+@media (max-width: 1367px) {
+  html[lang="ar"][dir="rtl"] .site-banner-content h5 {
+    font-size: 55px;
+  }
+
+  html[lang="ar"][dir="rtl"] .bnenfits_banner p {
+    max-width: 440px;
+  }
+  html[lang="ar"][dir="rtl"] .btn-wrap a{
+    font-size: 20px;
+    line-height: normal;
+  }
+  html[lang="ar"][dir="rtl"] .benefits-content h5{
+    font-size: 30px;
   }
 }
 
 @media (min-width: 1280px) {
   .rtl .xl\:text-lg {
-      font-size: 1.125rem;
-      line-height: 1.75rem;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .rtl .xl\:me-\[60px\] {
+    margin-inline-start: 60px;
+    margin-inline-end: 0px;
   }
 }
 
-@media (min-width: 1280px) {
-  .rtl .xl\:me-\[60px\] {
-      margin-inline-start: 60px;
-      margin-inline-end: 0px;
+@media (max-width: 1280px) {
+
+  html[lang="ar"][dir="rtl"] .site-banner h1,
+  .site-banner h5 {
+    line-height: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner-content h5 {
+    font-size: 50px;
+    line-height: normal;
+    margin: 0;
+}
+html[lang="ar"][dir="rtl"] .bnenfits_banner p {
+  max-width: 350px;
+  font-size: 24px;
+  line-height: 24px;
+}
+  html[lang="ar"][dir="rtl"] .heading-box {
+    line-height: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .blog-card-content .shap p {
+    font-size: 24px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .btn-wrap button {
+    font-size: 18px;
+  }
+
+  html[lang="ar"][dir="rtl"] .date-wrap {
+    font-size: 20px;
+    line-height: normal;
+    height: 80px;
+    width: 80px;
+  }
+
+  html[lang="ar"][dir="rtl"] .submit_btn button {
+    padding: 2px 20px;
+  }
+
+  html[lang="ar"][dir="rtl"] .form_control input,
+  textarea {
+    font-size: 22px;
+  }
+
+  html[lang="ar"][dir="rtl"] .contact_us h2 {
+    line-height: 45px;
+  }
+  html[lang="ar"][dir="rtl"] .site-banner{
+    min-height: 400px;
   }
 }
+
 @media (max-width: 991px) {
   .lg\:text-black {
-      --tw-text-opacity: 1;
-      color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+    --tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity, 1));
   }
+
   .WhatWeOffer-card .WhatWeOffer-img img {
     position: relative !important;
     width: 100% !important;
     height: 190px !important;
   }
+
+  html[lang="ar"][dir="rtl"] .events_blogs .\32 xl\:container.xl\:container.lg\:container.md\:container.xs\:container.mx-auto.lg\:max-0.px-5 {
+    max-width: 100%;
+  }
+
+  html[lang="ar"][dir="rtl"] .blog-image img {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner-content h5 {
+    font-size: 50px;
+    line-height: normal;
+    max-width: 400px;
+  }
+
+  html[lang="ar"][dir="rtl"] .blog-card-content p {
+    font-size: 26px !important;
+    max-width: 700px;
+  }
+
+  html[lang="ar"][dir="rtl"] .blog-card-content h4 {
+    font-size: 26px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .f26 {
+    font-size: 26px !important;
+  }
+
+  .w-\[80\%\] {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 991px) {
+  .WhatWeOffer-card .WhatWeOffer-img {
+    margin: 15px 15px 0;
+  }
+
+  .WhatWeOffer-card:hover .WhatWeOffer-img {
+    margin: 0;
+    animation: .3s ease-in;
+  }
+
+  .our-value-inner,
+  .aboutUs {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .our-value-inner .nurturing-img {
+    margin-bottom: 25px;
+  }
+
+  .object-cover {
+    object-fit: cover;
+    object-position: top;
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner h1,
+  .site-banner h5 {
+    line-height: normal;
+    max-width: 280px;
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner p {
+    line-height: normal;
+        max-width: 290px;
+        font-size: 20px;
+        margin-top: 5px;
+  }
+
+  html[lang="ar"][dir="rtl"] .slider-content h4 {
+    font-size: 26px;
+    line-height: normal;
+  }
+  html[lang="ar"][dir="rtl"] .btn-wrap a {
+    font-size: 18px;
+    line-height: normal;
+}
+
+  html[lang="ar"][dir="rtl"] .slider-content p {
+    font-size: 22px;
+    line-height: normal;
+  }
+  html[lang="ar"][dir="rtl"] .site-banner-content h5 {
+    font-size: 50px;
+    line-height: normal;
+    max-width: 500px;
+}
+html[lang="ar"][dir="rtl"] .site-banner {
+  min-height: 400px;
+  padding-bottom: 0;
+}
+
+  html[lang="ar"][dir="rtl"] .slider-content small {
+    font-size: 22px;
+    line-height: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .submit_btn button {
+    padding: 2px 20px;
+  }
+
+  html[lang="ar"][dir="rtl"] .contact_us h2 {
+    line-height: normal;
+  }
+
 }
 
 @media (max-width: 776px) {
@@ -167,36 +369,74 @@ body {
     width: 100% !important;
     height: 190px !important;
   }
+
+  html[lang="ar"][dir="rtl"] .site-banner-content h5 {
+    font-size: 40px;
+    line-height: normal;
+    max-width: 400px;
+  }
 }
 
-
-
-
-@media (max-width: 991px) { 
-  .WhatWeOffer-card .WhatWeOffer-img { 
-    margin:  15px 15px 0;
-  } 
-  .WhatWeOffer-card:hover .WhatWeOffer-img{
-    margin: 0;
-    animation: .3s ease-in;
-  } 
-  .our-value-inner,
-  .aboutUs{
-    display: flex;
-    flex-direction: column-reverse;
-  }
-  .our-value-inner .nurturing-img{
-    margin-bottom: 25px;
-  }
-  .object-cover {
-    object-fit: cover;
-    object-position: top;
-}
-} 
 @media (max-width: 480px) {
-  .WhatWeOffer-card .WhatWeOffer-img img { 
-      height: 217px !important;
-  } 
+  .WhatWeOffer-card .WhatWeOffer-img img {
+    height: 217px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner h1,
+  .site-banner h5 {
+    line-height: normal;
+    max-width: 300px;
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner {
+    min-height: 300px;
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner p {
+    line-height: normal;
+    max-width: 290px;
+  }
+  html[lang="ar"][dir="rtl"] .benefits_banner h5 {
+    font-size: 30px;
+    line-height: normal;
+    max-width: 400px;
+    margin-bottom: 5px;
+  }
+  html[lang="ar"][dir="rtl"] .benefits_banner p {
+    margin-top: 0px;
+  }
+
+  html[lang="ar"][dir="rtl"] .blog-card-content p {
+    font-size: 23px !important;
+    max-width: 700px;
+  }
+
+  html[lang="ar"][dir="rtl"] .blog-card-content h4 {
+    font-size: 25px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .rtl\:text-\[30px\]:where([dir="rtl"], [dir="rtl"] *) {
+    font-size: 26px;
+  }
+
+  html[lang="ar"][dir="rtl"] .rtl\:text-\[40px\]:where([dir="rtl"], [dir="rtl"] *) {
+    font-size: 32px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .date-wrap {
+    font-size: 20px;
+    line-height: normal;
+    height: 70px;
+    width: 70px;
+  }
+
+  html[lang="ar"][dir="rtl"] .contact-banner {
+    min-height: 320px;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-content p {
+    font-size: 16px;
+  }
 }
 
 /* new css */
@@ -219,7 +459,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
-.event-banner::before{
+
+.event-banner::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -228,7 +469,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
-.about-banner::before{
+
+.about-banner::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -237,7 +479,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
-.benefits-banner::before{
+
+.benefits-banner::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -246,7 +489,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
-.nurturing-img::before{
+
+.nurturing-img::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -256,7 +500,7 @@ body {
   background-repeat: no-repeat;
 }
 
-.dir_left-t-right{
+.dir_left-t-right {
   direction: ltr;
 }
 
@@ -300,7 +544,7 @@ html[lang="ar"] .btn-icon.select_country {
   height: 20px;
   position: absolute;
   border-radius: 50%;
-  background: linear-gradient(71deg, rgba(73,145,214,1) 0%, rgba(125,49,138,1) 70%);
+  background: linear-gradient(71deg, rgba(73, 145, 214, 1) 0%, rgba(125, 49, 138, 1) 70%);
   left: 15%;
   transform-origin: 50%;
   animation: circle .5s alternate infinite ease;
@@ -308,18 +552,20 @@ html[lang="ar"] .btn-icon.select_country {
 
 @keyframes circle {
   0% {
-      top: 60px;
-      height: 5px;
-      border-radius: 50px 50px 25px 25px;
-      transform: scaleX(1.7);
+    top: 60px;
+    height: 5px;
+    border-radius: 50px 50px 25px 25px;
+    transform: scaleX(1.7);
   }
+
   40% {
-      height: 20px;
-      border-radius: 50%;
-      transform: scaleX(1);
+    height: 20px;
+    border-radius: 50%;
+    transform: scaleX(1);
   }
+
   100% {
-      top: 0%;
+    top: 0%;
   }
 }
 
@@ -350,15 +596,17 @@ html[lang="ar"] .btn-icon.select_country {
 
 @keyframes shadow {
   0% {
-      transform: scaleX(1.5);
+    transform: scaleX(1.5);
   }
+
   40% {
-      transform: scaleX(1);
-      opacity: .7;
+    transform: scaleX(1);
+    opacity: .7;
   }
+
   100% {
-      transform: scaleX(.2);
-      opacity: .4;
+    transform: scaleX(.2);
+    opacity: .4;
   }
 }
 
@@ -382,4 +630,3 @@ html[lang="ar"] .btn-icon.select_country {
   color: #11bfe3;
   left: 15%;
 }
-

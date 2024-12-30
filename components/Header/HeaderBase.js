@@ -56,7 +56,7 @@ const Header = ({ locale }) => {
                   width={108}
                   height={86}
                   alt="logo white"
-                  className="brand-logo sm:w-[60px] md:w-[90px] xl:w-[106px] w-[50px] rtl:ml-28"
+                  className="brand-logo sm:w-[60px] md:w-[90px] xl:w-[106px] w-[50px] rtl:2xl:ml-28 rtl:xl:ml-24 rtl:md:ml-17"
                 />
               </Link>
             </div>
@@ -86,7 +86,7 @@ const Header = ({ locale }) => {
                <Link
                key={index}
                href={`/${locale}/${link}`}
-               className={`${activeNavbarName === link ? 'active text-[#1796D8]' : 'md:text-black text-white'} py-1.5 md:py-1 2xl:me-[88px] xl:me-[60px] md:me-[40px] sm:text-[12px] md:text-[14px] xl:text-xl rtl:xl:text-[32px] hover:text-[#1796D8] font-medium rtl:font-black rtl:xl:me-28 rtl:md:me-20`}
+               className={`${activeNavbarName === link ? 'active text-[#1796D8]' : 'md:text-black text-white'} py-1.5 md:py-1 2xl:me-[88px] xl:me-[60px] md:me-[40px] sm:text-[12px] md:text-[14px] xl:text-xl rtl:lg:text-[32px] rtl:md:text-[24px] rtl:xs:text-[18px] rtl:small:text-[16px] hover:text-[#1796D8] font-medium rtl:font-black rtl:2xl:me-28 rtl:xl:me-20 rtl:lg:me-17 rtl:md:me-16`}
                onClick={() => setIsMenuOpen(false)}
                prefetch={true}
              >
@@ -106,17 +106,17 @@ const Header = ({ locale }) => {
         className="
           rounded-md
           px-4 py-2
-          bg-white dark:bg-gray-800  {/* White background on light mode, dark gray on dark mode */}
-          border border-gray-300 dark:border-gray-600 {/* Subtle border */}
-          text-gray-700 dark:text-gray-300 {/* Text color */}
-          focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 {/* Focus styles */}
-          shadow-sm {/* Subtle shadow */}
+          bg-white dark:bg-gray-800
+          border border-gray-300 dark:border-gray-600 
+          text-gray-700 dark:text-gray-300 
+          focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400
+          shadow-sm 
           cursor-pointer
-          text-sm md:text-base lg:text-lg {/* Responsive font sizes */}
-          w-auto {/* Adjust width as needed - consider 'w-full' for full width in a container */}
-          appearance-none  {/* Remove default select arrow styling */}
-          pr-10 {/* Add right padding for custom arrow */}
-          rtl:ml-5 rtl:pr-4 rtl:pl-10 {/* RTL adjustments */}
+          text-sm md:text-base lg:text-lg
+          w-auto 
+          appearance-none 
+          pr-10
+          rtl:ml-5 rtl:pr-4 rtl:pl-10 
         "
       >
         <option value="en">English</option>

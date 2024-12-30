@@ -72,15 +72,15 @@ export default function ContactUs() {
                            
                         </div>
                     </div>
-                    <div className="bg-white shadow-lg rounded-lg md:p-8 xs:p-6 small:p-4 xl:w-1/2 lg:w-1/2 w-full">
-                        <h2 className="xl:text-40 md:text-[30px] xs:text-[20px] small:text-[18px] md:leading-[100px] xs:leading-[50px] small:leading-[30px] font-bold rtl:2xl:text-[72px] rtl:lg:text-right rtl:xl:text-[50px] rtl:text-[40px] leading-[80px] text-[#1796D8] md:text-left text-center">
+                    <div className="bg-white shadow-lg rounded-lg md:p-8 xs:p-6 small:p-4 xl:w-1/2 lg:w-1/2 w-full contact_us">
+                        <h2 className="xl:text-40 md:text-[30px] xs:text-[20px] small:text-[18px] md:leading-[100px] xs:leading-[50px] small:leading-[30px] font-bold rtl:2xl:text-[72px] rtl:md:text-right rtl:xl:text-[50px] rtl:text-[40px] leading-[80px] text-[#1796D8] md:text-left text-center">
                             {t("contact_us")}
                         </h2>
-                        <p className="mb-6 text-[#000000] md:text-[18px] small:text-[14px] md:leading-[23px] font-normal md:text-left text-center rtl:lg:text-right">
+                        <p className="mb-6 text-[#000000] md:text-[22px] small:text-[16px] md:leading-[23px] font-normal md:text-left text-center rtl:md:text-right">
                             {t("form")}
                         </p>
 
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={handleSubmit} className="form_control">
                             <input
                                 type="text"
                                 name="name"
@@ -98,7 +98,7 @@ export default function ContactUs() {
                                 onChange={handleChange}
                                 placeholder={t("email")}
                                 required
-                                className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] md:min-h-[70px] min-h-[45px] block min-w-0 grow py-1.5 pr-5 pl-5 md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
+                                className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
                             />
                             <input
                             type="text"
@@ -121,7 +121,7 @@ export default function ContactUs() {
                                 placeholder={t("message")}
                                 className="placeholder:text-[#11171F] w-full p-4 border border-[#DEDEDE] focus:outline-none rounded-lg min-h-[180px] rtl:xl:text-[32px] md:text-lg xs:text-[16px] small:text-[14px] resize-none"
                             ></textarea>
-                            <div className="btn-wrap text-right rtl:text-left lg:mt-14 mt-10">
+                            <div className="btn-wrap text-right rtl:text-left lg:mt-14 mt-10 submit_btn">
                                 <button
                                    disabled={flag}
                                     type="submit"
