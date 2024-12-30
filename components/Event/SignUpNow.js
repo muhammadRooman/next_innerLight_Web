@@ -81,13 +81,12 @@ export default function SignUpNow() {
   
       // Handle the response based on status
       if (response?.data?.status === 1) {
-        console.log("OTP Response:", response.data);
         setOtpGenerated(true); // Show OTP input field
         setOtpMessage(response.data.message || "");
         toast.success(language === "en" ? response.data.message : response.data.message_ar);
         setErrorMessage("");
       } else if (response?.data?.status === 0) {
-        toast.error(language === "en" ? `Failed to send WhatsApp message: The 'To' number ${fullPhoneNumber} is not a valid phone number` : `فشل إرسال رسالة WhatsApp: الرقم "إلى" ${fullPhoneNumber} ليس رقم هاتف صالحًا`);
+        toast.error(language === "en" ? response.data.message : response.data.message_ar);
         setIsOtpSent(false);
       } else {
         toast.error(language === "en" ? response.data.message : response.data.message_ar);
@@ -244,7 +243,8 @@ export default function SignUpNow() {
       return; // Prevent any update if the user tries to remove the country code
     }
     // Extract the phone number (part after the country code)
-    const numberWithoutCode = input.slice(selectedCountryCode.length);
+    let numberWithoutCode = input.slice(selectedCountryCode.length);
+    numberWithoutCode = numberWithoutCode.replace(/\D/g, '')
     // Update the phone number state without affecting the country code
     setPhoneNumber(numberWithoutCode);
   };
@@ -362,6 +362,7 @@ export default function SignUpNow() {
               onChange={handlePhoneNumberChange} // Handles updates without breaking country code
               className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[45px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 md:mb-0 lg:mb-5 xs:mb-3 small:mb-0"
               placeholder="Enter phone number"
+               inputMode="numeric"
             />
              </div>
               <button

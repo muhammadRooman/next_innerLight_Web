@@ -206,10 +206,13 @@
   "SignUpNow": {
     "moments_of_serenity": "لحظات من الصفاء",
     "sign_up_now": "سجل الآن",
+    "register": "تسجيل الحساب",
+    "dont_have_account": "ليس لديك حساب؟",
     "fill_the_form_below_our_representatives_respond_you": "املأ النموذج أدناه، وسيقوم ممثلونا بالرد عليك خلال 24 ساعة.",
     "sign_in": "تسجيل الدخول",
     "already_have_an_account": "هل لديك حساب بالفعل؟",
     "sign_up": "اشتراك",
+    "sign_in_now": "تسجيل الدخول الآن",
     "full_name": "الاسم الكامل",
     "phone_number": "رقم التليفون",
     "password": "كلمة المرور",
