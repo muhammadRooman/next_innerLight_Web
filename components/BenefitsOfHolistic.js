@@ -31,10 +31,9 @@ export default function BenefitsOfHolistic() {
     ];
 
     return (
-      <div className='2xl:container xl:container md:container mx-auto'>
-        <section className="benefits-holistic bg-gray-light lg:pt-0 xs:pt-8 small:pt-0 pb-[40px] small:pb-0 sm:pb-[10px]">
+      <section className="benefits-holistic bg-gray-light lg:pt-0 xs:pt-8 small:pt-0 pb-[40px] small:pb-0 sm:pb-[10px]">
           <div className="2xl:container xl:container lg:container mx-auto px-5">
-            <div className="heading-box text-center md:mb-20 mb-5">
+            <div className="heading-box text-center lg:pb-6 md:pb-0 pb-5">
               <h5 className="text-info-color 2xl:text-3xl xl:text-2xl lg:text-xl text-[16px] sm:text-md font-black rtl:2xl:text-[56px] rtl:xl:text-[40px] rtl:text-[30px] sm:text-[20px]">
                 {t("discoverThe")}
               </h5>
@@ -55,7 +54,7 @@ export default function BenefitsOfHolistic() {
                       />
                     </div>
                     <div className="benefits-content xl:max-w-[307px] mx-auto">
-                      <h5 className="2xl:text-2xl rtl:2xl:text-[32px] text-xl font-bold text-info-color lg:py-5 py-3 sm:text-[18px]">
+                      <h5 className="text-info-color 2xl:text-3xl xl:text-2xl lg:text-xl text-[16px] sm:text-md font-black rtl:2xl:text-[56px] rtl:xl:text-[40px] rtl:text-[30px] sm:text-[20px]">
                         {benefit.title}
                       </h5>
                       <p className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] rtl:2xl:text-[30px] rtl:md:text-[28px] font-normal text-[#343434] leading-6 sm:leading-7 md:leading-8 lg:leading-9 max-w-full md:max-w-[900px]">
@@ -68,6 +67,5 @@ export default function BenefitsOfHolistic() {
             </div>
           </div>
         </section>
-      </div>
     );
 }

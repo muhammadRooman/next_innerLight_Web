@@ -48,15 +48,15 @@ export default function SpiritualCard({ webinarEvenData }) {
 
   return (
     <>
-      <section className="bg-[#EFEFEF] relative flex items-center justify-start lg:pt-4 lg:pb-14 ">
+      <section className="bg-[#EFEFEF] relative flex items-center justify-start lg:pt-4 lg:pb-14 events_blogs">
         <div className="2xl:container xl:container lg:container md:container xs:container mx-auto lg:max-0 px-5">
           {visibleData?.map((event, index) => (
             <div
               key={index}
-              className="blog-wrap flex flex-wrap gap-5 pt-10 pb-10 border-b-2 border-[#D0D0D0] last:border-0 first:pt-0"
+              className="blog-wrap flex-col md:flex-row flex gap-5 pt-10 pb-10 border-b-2 border-[#D0D0D0] last:border-0 first:pt-0"
             >
               {/* Date Card */}
-              <div className="date-wrap w-[161px] h-[188px] bg-white rounded-10 flex justify-center items-center shadow-shadow-color3 xl:flex hidden">
+              <div className="date-wrap flex-wrap md:flex-nowrap w-[161px] h-[188px] bg-white rounded-10 flex justify-center items-center shadow-shadow-color3 xl:flex hidden">
                 <h1 className="xl:text-40 lg:text-[30px] text-[25px] font-bold leading-[46px] text-center text-[#0C0101]">
                   {new Date(event.date).getDate()}
                   <span className="block">
@@ -71,7 +71,7 @@ export default function SpiritualCard({ webinarEvenData }) {
               </div>
               {/* Image Card */}
               <div
-                className={`bg-center blog-image lg:w-[375px] lg:h-[400px] h-[280px] w-full flex justify-center items-end rounded-10 overflow-hidden p-5 ${event.image} bg-cover relative before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-gradient-to-b before:from-[#FFFFFF00] before:via-[#00000019] before:to-[#000000C6] before:opacity-100 before:content-['']`}
+                className={`bg-center blog-image h-[280px] md:h-auto md:min-h-full md:flex-1 flex justify-center items-end rounded-10 overflow-hidden p-5 ${event.image} bg-cover relative before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-gradient-to-b before:from-[#FFFFFF00] before:via-[#00000019] before:to-[#000000C6] before:opacity-100 before:content-['']`}
               >
                 <Image
                   src={`${process.env.NEXT_PUBLIC_IMAGE_API}/${event?.thumbnailPic}`}
@@ -107,12 +107,12 @@ export default function SpiritualCard({ webinarEvenData }) {
                     ? truncateText(event?.shortDescription)
                     : truncateText(event?.shortDescription_ar)}
                 </p>
-                <div className="btn-wrap mt-10">
+                <div className="btn-wrap md:mt-[60px] xs:mt-[40px] small:mt-[20px]">
                   <button
                     onClick={() =>
                       router.push(`/${language}/event/${event._id}`)
                     }
-                    className="py-2 lg:px-8 px-3 text-white rounded-3xl font-medium rtl:font-black xl:text-xl rtl:xl:text-[32px] text-[12px] bg-btn-gradient hover:bg-btn-gradient-hover lg:ml-4 rtl:text-[12px]"
+                    className="py-2 md:px-10 xs:px-6 small:px-5 text-white rounded-3xl font-medium rtl:font-black xl:text-xl rtl:xl:text-[32px] text-[12px] bg-btn-gradient hover:bg-btn-gradient-hover lg:ml-4 rtl:text-[12px]"
                   >
                     {t("detail")}
                   </button>

@@ -12,7 +12,7 @@ export default function Benefits() {
         <>
         <Head/>
             <BenefitsBanner />
-            <div className='lg:pt-20 pt-8 pb-0 bg-grey-light'>
+            <div className='lg:pt-20 pt-4 pb-0 bg-grey-light'>
               <BenefitsOfHolistic  />
             </div>
             <OurStories />
