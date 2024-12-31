@@ -11,6 +11,7 @@ import 'react-phone-number-input/style.css';
 // import i18nIsoCountries from 'i18n-iso-countries';
 import { jwtDecode } from "jwt-decode";
 import { countries, arabicCountries } from "../utils/countriesData";
+import FullPageLoader from "../fullPageLoader.js/FullPageLoader";
 
 // Register the Arabic locale
 // i18nIsoCountries.registerLocale(require('i18n-iso-countries/langs/ar.json'));
@@ -36,7 +37,7 @@ export default function SignUpNow() {
   const [imageError, setImageError] = useState("");
   const [OtpMessage, setOtpMessage] = useState("");
   const [showSignUp, setShowSignUp] = useState(true);
-  const [loader, setLoader] = useState(true);
+  const [loader, setLoader] = useState(false);
   const [validationErrors, setValidationErrors] = useState({
    fullName: "",
     email: "",
@@ -202,6 +203,7 @@ export default function SignUpNow() {
       setValidationErrors(errors);
       return;
     }
+    // setLoader(true); // If token exists, stop loader
    
     try {
       const formData = new FormData();
@@ -209,23 +211,45 @@ export default function SignUpNow() {
       formData.append("phoneNumber", fullPhoneNumber);
       formData.append("email", signUpData?.email);
       formData.append("profileImage", profileImage || "");
+    
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/auth/signup`,
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
+    
+      console.log("response", response.data);
+    
+      // Check for successful response (status 1)
       if (response?.data?.status === 1) {
         router.push(`/${language}/thank-you`);
         localStorage.setItem("authToken", response.data.token);
+        setLoader(false);
       } else {
+        // Log the response for debugging
+        console.log("Error response:", response.data.message);  // Log the error message
+    
+        // Trigger toast error with the appropriate message based on language
         toast.error(
           language === "en" ? response.data.message : response.data.message_ar
         );
+    
+        // Delay the loader hide to let toast appear
+        setTimeout(() => {
+          setLoader(false);
+        }, 1500);  // Delay of 1.5 seconds (adjust as needed)
       }
     } catch (error) {
+      console.log("Error caught:", error.message);  // Log error message if any
       toast.error(error.message || "An error occurred");
+    
+      // Delay the loader hide to let toast appear
+      setTimeout(() => {
+        setLoader(false);
+      }, 1500);  // Delay of 1.5 seconds (adjust as needed)
     }
   };
+
   const signin = ()=>{
    const token = localStorage.getItem("authToken");
     if (!token) {
@@ -235,20 +259,29 @@ export default function SignUpNow() {
     }
   }
   
-  const handlePhoneNumberChange = (e) => {
-    const input = e.target.value;
-      setErrorMessage('');
-    // Ensure the input always starts with the selected country code
-    if (!input.startsWith(selectedCountryCode)) {
-      return; // Prevent any update if the user tries to remove the country code
-    }
-    // Extract the phone number (part after the country code)
-    let numberWithoutCode = input.slice(selectedCountryCode.length);
-    numberWithoutCode = numberWithoutCode.replace(/\D/g, '')
-    // Update the phone number state without affecting the country code
-    setPhoneNumber(numberWithoutCode);
-  };
+  // const handlePhoneNumberChange = (e) => {
+  //   const input = e.target.value;
+  //     setErrorMessage('');
+  //   // Ensure the input always starts with the selected country code
+  //   if (!input.startsWith(selectedCountryCode)) {
+  //     return; // Prevent any update if the user tries to remove the country code
+  //   }
+  //   // Extract the phone number (part after the country code)
+  //   let numberWithoutCode = input.slice(selectedCountryCode.length);
+  //   numberWithoutCode = numberWithoutCode.replace(/\D/g, '')
+  //   // Update the phone number state without affecting the country code
+  //   setPhoneNumber(numberWithoutCode);
+  // };
 
+
+  const handlePhoneNumberChange = (e) => {
+    const value = e.target.value;   
+    const cleanedValue = value.replace(/[^0-9]/g, ''); 
+    setPhoneNumber(cleanedValue);
+  };
+  
+ 
+  
    // Function to check if the token is expired
    const isTokenExpired = () => {
     const token = localStorage.getItem("authToken");
@@ -284,6 +317,10 @@ export default function SignUpNow() {
     const interval = setInterval(checkToken, 5000); // Check every 5 seconds
     return () => clearInterval(interval); // Clean up the interval on unmount
   }, []);
+
+  if(loader){
+    return <FullPageLoader/>
+  }
   
 
   return (
@@ -328,41 +365,47 @@ export default function SignUpNow() {
                   language ==="en" ? <div>
                   <select
                     value={selectedCountryCode}
+                    disabled={isOtpSent || disabledPhoneOTP || OtpMessage}
                     onChange={(e) => setSelectedCountryCode(e.target.value)}
                     className="md:max-w-[154px] xs:max-w-[140px] small:max-w-[110px] placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[45px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 md:mb-0 lg:mb-5 xs:mb-3 small:mb-0"
                   >
-                    {countries.map((country, index) => (
-                      <option key={index} value={country.code}>
-                        {country.name} ({country.code})
-                      </option>
-                    ))}
+                   {countries.map((country, index) => (
+                <option key={index} value={country.code}>
+                  {selectedCountryCode === country.code
+                    ? country.code
+                    : `${country.name} (${country.code})`}
+                  </option>
+                  ))}
                   </select>
                 </div> : <div>
                   <select
                     value={selectedCountryCode}
+                    disabled={isOtpSent || disabledPhoneOTP || OtpMessage}
                     onChange={(e) => setSelectedCountryCode(e.target.value)}
                     className="md:max-w-[154px] xs:max-w-[140px] small:max-w-[110px] placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[45px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 md:mb-0 lg:mb-5 xs:mb-3 small:mb-0"
                   >
                     {arabicCountries.map((country, index) => (
                       <option key={index} value={country.code}>
-                        {country.name} ({country.code})
+                      {selectedCountryCode === country.code
+                       ? country.code
+                       : `${country.name} (${country.code})`}
                       </option>
-                    ))}
+                       ))}
                   </select>
                 </div>
                 }
              
               <div className="relative w-[80%]">
             <input
-              type="text"
+              type="number"
               name="PhoneNumber"
+              inputMode="tel"
               id="PhoneNumber"
               disabled={isOtpSent || disabledPhoneOTP || OtpMessage} 
-              value={`${selectedCountryCode}${phoneNumber}`} // Always shows country code + phone number
+              value={phoneNumber} // Always shows country code + phone number
               onChange={handlePhoneNumberChange} // Handles updates without breaking country code
               className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[45px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 md:mb-0 lg:mb-5 xs:mb-3 small:mb-0"
               placeholder="Enter phone number"
-               inputMode="numeric"
             />
              </div>
               <button

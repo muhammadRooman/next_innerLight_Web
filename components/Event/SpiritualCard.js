@@ -43,7 +43,7 @@ export default function SpiritualCard({ webinarEvenData }) {
   const truncateText = (text) => {
     if (!text) return "";
     const words = text.split(" ");
-    return words.length > 30 ? words.slice(0, 30).join(" ") + "..." : text;
+    return words.length > 40 ? words.slice(0, 40).join(" ") + "..." : text;
   };
 
   return (

@@ -4,6 +4,8 @@ import DownloadOurApp from "@/components/DownloadOurApp";
 import { useTranslations } from "next-intl";
 import "react-toastify/dist/ReactToastify.css";
 import FullPageLoader from "@/components/fullPageLoader.js/FullPageLoader";
+import Head from "../thank-you/head";
+
 
 export default function ThankYou() {
   const t = useTranslations("ThankYou");
@@ -19,6 +21,7 @@ export default function ThankYou() {
 
   return (
     <>
+    <Head/>
       {isLoading ? (
        <FullPageLoader/>
       ) : (
