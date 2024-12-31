@@ -159,19 +159,26 @@ export default function SignIn() {
     }
   };
 
+  // const handlePhoneNumberChange = (e) => {
+  //   const input = e.target.value;
+  //     setErrorMessage('');
+  //   // Ensure the input always starts with the selected country code
+  //   if (!input.startsWith(selectedCountryCode)) {
+  //     return; // Prevent any update if the user tries to remove the country code
+  //   }
+  //   // Extract the phone number (part after the country code)
+  //   let numberWithoutCode = input.slice(selectedCountryCode.length);
+  //   numberWithoutCode = numberWithoutCode.replace(/\D/g, '')
+  //   // Update the phone number state without affecting the country code
+  //   setPhoneNumber(numberWithoutCode);
+  // };
+
   const handlePhoneNumberChange = (e) => {
-    const input = e.target.value;
-      setErrorMessage('');
-    // Ensure the input always starts with the selected country code
-    if (!input.startsWith(selectedCountryCode)) {
-      return; // Prevent any update if the user tries to remove the country code
-    }
-    // Extract the phone number (part after the country code)
-    let numberWithoutCode = input.slice(selectedCountryCode.length);
-    numberWithoutCode = numberWithoutCode.replace(/\D/g, '')
-    // Update the phone number state without affecting the country code
-    setPhoneNumber(numberWithoutCode);
+    const value = e.target.value;   
+    const cleanedValue = value.replace(/[^0-9]/g, ''); 
+    setPhoneNumber(cleanedValue);
   };
+  
 
   if (loader || firstLoader){
     return <FullPageLoader/>
@@ -195,41 +202,48 @@ export default function SignIn() {
                 {
                   language ==="en" ? <div>
                   <select
+                   disabled={isOtpSent || disabledPhoneOTP || OtpMessage} 
                     value={selectedCountryCode}
                     onChange={(e) => setSelectedCountryCode(e.target.value)}
                     className="max-w-[154px] placeholder:text-[#11171F] w-full items-center dir_left-t-right rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
                   >
                     {countries.map((country, index) => (
                       <option key={index} value={country.code}>
-                        {country.name} ({country.code})
+                      {selectedCountryCode === country.code
+                       ? country.code
+                       : `${country.name} (${country.code})`}
                       </option>
                     ))}
                   </select>
                 </div> : <div>
                   <select
+                   disabled={isOtpSent || disabledPhoneOTP || OtpMessage} 
                     value={selectedCountryCode}
                     onChange={(e) => setSelectedCountryCode(e.target.value)}
                     className=" max-w-[154px] placeholder:text-[#11171F] w-full items-center dir_left-t-right rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
                   >
                     {arabicCountries.map((country, index) => (
                       <option key={index} value={country.code}>
-                        {country.name} ({country.code})
+                      {selectedCountryCode === country.code
+                       ? country.code
+                       : `${country.name} (${country.code})`}
                       </option>
-                    ))}
+                       ))}
                   </select>
                 </div>
                 }
              
               <div className="relative w-[80%]">
             <input
-              type="text"
+              type="number"
+              inputMode="tel"
               name="PhoneNumber"
               id="PhoneNumber"
-              value={`${selectedCountryCode}${phoneNumber}`} // Always shows country code + phone number
+             value={phoneNumber}
+              // value={`${selectedCountryCode}${phoneNumber}`} // Always shows country code + phone number
               onChange={handlePhoneNumberChange} // Handles updates without breaking country code
               className="pr-[165px] placeholder:text-[#11171F] w-full items-center dir_left-t-right rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
               placeholder="Enter phone number"
-              inputMode="numeric"
               disabled={isOtpSent || disabledPhoneOTP || OtpMessage} 
             />
              </div>
@@ -262,7 +276,7 @@ export default function SignIn() {
                       placeholder="OTP"
                     />
                     <button
-                      disabled={isOtpVerify}
+                      disabled={disabledPhoneOTP || isOtpVerify}
                       onClick={handleVerifyOTP}
                       class="px-4 py-2 font-semibold lg:text-lg rounded-[3px] bg-[#1796D8] text-white absolute w-[101px] lg:top-2 top-[2px] lg:right-2 right-[2px] lg:min-h-[calc(100%-16px)] min-h-[calc(100%-4px)] shadow-shadow-color"
                     >

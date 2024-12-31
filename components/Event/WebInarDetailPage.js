@@ -62,12 +62,12 @@ if (error) return <div>Error: {error.message}</div>;
   
 
 const handleSubmit = async (id) => {
-  // setLoading(true)
+  setLoading(true)
   setIsSend(true)
   try {
     const response = await axios.post(
       `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/webinars/join-webinar/${id}`,
-      {language:language},
+      {},
       {
         headers: {
           "Authorization": `Bearer ${token}`,
@@ -111,7 +111,7 @@ const handleSubmit = async (id) => {
           : "انتهت صلاحية الجلسة. الرجاء التسجيل مرة أخرى."
       );
       router.push(`/${language}/signup`);
-    setLoading(false)
+      setLoading(false)
 
     } else {
       toast.error(
@@ -119,7 +119,7 @@ const handleSubmit = async (id) => {
           ? "An unexpected error occurred. Please try again."
           : "حدث خطأ غير متوقع. حاول مرة اخرى."
       );
-    setLoading(false)
+     setLoading(false)
 
     }
   }
@@ -194,17 +194,21 @@ const handleImageLoadingComplete = () => {
                       <span className="text-xl text-black-600">{webinarDetailPage?.time}</span>
                     </div>
                     }    
-                    {
-                      webinarDetailPage?.description &&  <div className="mb-3">
+                  {webinarDetailPage?.description && (
+                    <div className="mb-3">
                       <span className="text-xl font-semibold">{t("outline")}:</span>
                       <div
                         className="text-xl text-black-600"
-                        dangerouslySetInnerHTML={{ __html: webinarDetailPage?.description }}
+                        dangerouslySetInnerHTML={{
+                          __html: language === "en" 
+                            ? webinarDetailPage?.description 
+                            : webinarDetailPage?.description_ar,
+                        }}
                       />
                     </div>
-                    }              
+                  )}          
                    <button
-                   disabled={isSend}
+                   disabled={loading}
                       onClick={()=>handleSubmit(webinarDetailPage._id)}
                         className="py-2.5 px-6 text-white rounded-3xl font-medium xl:text-xl text-sm bg-btn-gradient hover:bg-btn-gradient-hover lg:mr-8 lg:text-lg"
                       >
