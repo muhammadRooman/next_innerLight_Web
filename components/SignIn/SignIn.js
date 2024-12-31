@@ -41,7 +41,7 @@ export default function SignIn() {
     if (token) {
       setFirstLoader(false); // If token exists, stop the loader
       setTimeout(() => {
-        router.push("/");
+        router.push(`/${language}/event`);
       }, 1000);
     } else {
       setFirstLoader(false);
@@ -143,7 +143,9 @@ export default function SignIn() {
       setLoader(false)
       if (response?.data?.status === 1) {
         localStorage.setItem("authToken", response.data.data.accessToken);
+        console.log("here")
         router.push(`/${language}/event`);
+        // return
        setLoader(false)
       } else {
         toast.error(
