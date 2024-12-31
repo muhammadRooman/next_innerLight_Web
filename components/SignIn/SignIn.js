@@ -68,7 +68,6 @@ export default function SignIn() {
         }
       );
 
-
       // OTP generated successfully
       if (response?.data.success) {
         setOtpGenerated(true); // Show OTP input field
@@ -76,7 +75,7 @@ export default function SignIn() {
         toast.success(language === "en" ? response.data.message : response.data.message_ar );
         setErrorMessage("");
       } else {
-        toast.error(language === "en" ? response.data.message : response.data.message_ar );
+        toast.error(language === "en" ? "invalid phone number" : "رقم الهاتف غير صالح")
         setIsOtpSent(false);
       }
     } catch (error) {

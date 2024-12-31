@@ -87,7 +87,7 @@ export default function SignUpNow() {
         toast.success(language === "en" ? response.data.message : response.data.message_ar);
         setErrorMessage("");
       } else if (response?.data?.status === 0) {
-        toast.error(language === "en" ? response.data.message : response.data.message_ar);
+        toast.error(language === "en" ? "invalid phone number" : "رقم الهاتف غير صالح");
         setIsOtpSent(false);
       } else {
         toast.error(language === "en" ? response.data.message : response.data.message_ar);
@@ -166,7 +166,6 @@ export default function SignUpNow() {
         errors.fullName = t("full_name_can_not");
     }
 
-    // Validate email with regex
     if (!signUpData?.email || signUpData.email.trim() === "") {
         errors.email = t("email_is_required");
     } else {
@@ -176,21 +175,19 @@ export default function SignUpNow() {
         }
     }
 
-    // Validate profile image
     if (!profileImage) {
         errors.profileImage = t("profile_image_is_required");
         setImageError(t("please_upload_your_profile_picture"));
     }
 
-    // Validate phone number
     if (!phoneNumber || phoneNumber.trim() === "") {
         setErrorMessage(t("phone_number_is_required"));
         return;
     }
-     // Validate the phone number length (between 8 and 16 digits)
+
      if (phoneNumber.length < 8 || phoneNumber.length > 16) {
       setErrorMessage(t("phone_number_must_be_between_8_and_16_digits"));
-      return; // Stop execution if validation fails
+      return; 
     }
 
     // Validate OTP
@@ -211,42 +208,28 @@ export default function SignUpNow() {
       formData.append("phoneNumber", fullPhoneNumber);
       formData.append("email", signUpData?.email);
       formData.append("profileImage", profileImage || "");
-    
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/auth/signup`,
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
-    
-      console.log("response", response.data);
-    
-      // Check for successful response (status 1)
       if (response?.data?.status === 1) {
         router.push(`/${language}/thank-you`);
         localStorage.setItem("authToken", response.data.token);
         setLoader(false);
       } else {
-        // Log the response for debugging
-        console.log("Error response:", response.data.message);  // Log the error message
-    
-        // Trigger toast error with the appropriate message based on language
-        toast.error(
-          language === "en" ? response.data.message : response.data.message_ar
-        );
-    
+        toast.error( language === "en" ? response.data.message : response.data.message_ar );
         // Delay the loader hide to let toast appear
         setTimeout(() => {
           setLoader(false);
-        }, 1500);  // Delay of 1.5 seconds (adjust as needed)
+        }, 1500); 
       }
     } catch (error) {
-      console.log("Error caught:", error.message);  // Log error message if any
       toast.error(error.message || "An error occurred");
-    
       // Delay the loader hide to let toast appear
       setTimeout(() => {
         setLoader(false);
-      }, 1500);  // Delay of 1.5 seconds (adjust as needed)
+      }, 1500);  
     }
   };
 
