@@ -120,7 +120,7 @@ export default function LandingPage() {
     <>
       <Head />
       {/* Hero Banner Section */}
-      <section className="site-banner bg-site-banner bg-cover 2xl:min-h-[calc(997px-100px)] lg:min-h-[calc(997px-400px)] sm:min-h-[calc(997px-600px)] min-h-[calc(350px)] relative flex items-end justify-center md:pb-10 pb-5 lg:bg-center bg-center">
+      <section className="site-banner home_banner bg-site-banner bg-cover 2xl:min-h-[calc(997px-100px)] lg:min-h-[calc(997px-400px)] sm:min-h-[calc(997px-600px)] min-h-[calc(350px)] relative flex items-end justify-center md:pb-10 pb-5 lg:bg-center bg-center">
         <div className="2xl:container xl:container lg:container mx-auto px-5">
           <div className="inner-container relative sm:pt-4 md:pt0">
             <div className="site-banner-content home_banner max-w-[965px] mx-auto">
@@ -357,7 +357,7 @@ export default function LandingPage() {
                     {t('downloadOurApp')}
                   </h2>
                 </div>
-                <p className="2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] xl:leading-[48px] rtl:xl:text-[48px] mb-2 font-bold text-[#753892]">
+                <p className="2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] rtl:xl:text-[48px] mb-2 font-bold text-[#753892]">
                   {t('connectWithExperts')}
                 </p>
                 <p className="2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] xl:leading-10 rtl:xl:text-[40px] rtl:max-w-[786px] font-normal mb-4">
