@@ -233,10 +233,10 @@
     "OTP_is_required": "مطلوب مكتب المدعي العام",
     "phone_number_must_be_between_8_and_16_digits":"يجب أن يتراوح رقم الهاتف بين 8 و16 رقمًا",
     "invalid_email":"البريد الإلكتروني غير صالح",
-    "full_name_can_not":"لا يمكن أن يتجاوز الاسم الكامل 150 حرفً "
-  },
-  "SignInNow":{
-
+    "full_name_can_not":"لا يمكن أن يتجاوز الاسم الكامل 150 حرفً ",
+    "sign_in_now": "تسجيل الدخول الآن",
+    "dont_have_account": "ليس لديك حساب؟",
+    "register": "تسجيل الحساب"
   },
   "Contact": {
     "contact_us": "اتصل بنا",
