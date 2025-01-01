@@ -54,6 +54,7 @@ export default function ContactUs() {
                     <div className="form-wrapper bg-yoga bg-cover xl:p-16 p-8 rtl:rounded-r-lg ltr:rounded-l-lg md:flex hidden">
                         <div className="box-overlay shadow-shadow-color2 rounded-10 bg-[#F9F9F9] xl:px-24 xl:py-11 px-6 py-6 flex items-center flex-col justify-center">
                             <img src="/mobileimg.png" alt="mobile img" />
+                                <div className="relative border_line"></div>
                             <h3 className="text-[32px] text-[#343434] font-bold">{t("download")}</h3>
                             <Link href="https://apps.apple.com/au/app/innerlight-academy/id6670317150" target="_blank">
                             <img

@@ -123,7 +123,7 @@ export default function LandingPage() {
       <section className="site-banner bg-site-banner bg-cover 2xl:min-h-[calc(997px-100px)] lg:min-h-[calc(997px-400px)] sm:min-h-[calc(997px-600px)] min-h-[calc(350px)] relative flex items-end justify-center md:pb-10 pb-5 lg:bg-center bg-center">
         <div className="2xl:container xl:container lg:container mx-auto px-5">
           <div className="inner-container relative sm:pt-4 md:pt0">
-            <div className="site-banner-content max-w-[965px] mx-auto">
+            <div className="site-banner-content home_banner max-w-[965px] mx-auto">
               <h5 className="xl:text-40 rtl:xl:text-[100px] lg:text-[30px] text-[22px] text-white font-bold text-center xl:leading-normal">{language === "en" ? cmsWebHeadingData?.heading_en : cmsWebHeadingData?.heading_ar} </h5>
               <div className="relative banner-img 2xl:min-h-[148px] sm:min-h-[80px] lg:min-h-[120px] min-h-[60px] max-w-full">
                 {
