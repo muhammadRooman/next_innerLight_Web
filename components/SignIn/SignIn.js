@@ -186,7 +186,7 @@ export default function SignIn() {
 
   return (
     <div>
-      <section className=" bg-gray-light  relative flex items-center justify-start py-16 ">
+      <section className="bg-gray-light relative flex items-center justify-start py-16 sign_in_page">
         <div className="2xl:container xl:container lg:container mx-auto lg:max-0  px-5">
           <div className="heading-box text-center xl:mb-11 mb-8">
             <h2 className="xl:text-40 lg:text-[30px] text-[25px] font-bold rtl:2xl:text-[72px] rtl:xl:text-[50px] rtl:text-[40px]">{t("sign_in_now")}</h2>
@@ -292,7 +292,7 @@ export default function SignIn() {
             </div>
           </div>
           <div className="book-you-button flex-wrap  flex lg:justify-between items-center mt-10 justify-center text-center ">
-            <p className="text-black lg:order-none order-2  text-lg mb-3 lg:mt-0 mt-2 ">
+            <p className="text-black text-lg mb-3 lg:mt-0 mt-2 ">
               {t("dont_have_account")}
               <Link
                 href={`/${language}/signup`}
@@ -307,7 +307,7 @@ export default function SignIn() {
               onClick={handleSubmit}
               disabled={!disabledPhoneOTP}
               className={
-                "lg:order-none order-1 py-2.5 px-6 text-white rounded-3xl font-medium xl:text-xl text-sm bg-btn-gradient "}
+                "py-2.5 px-6 text-white rounded-3xl font-medium xl:text-xl text-sm bg-btn-gradient hover:bg-btn-gradient-hover"}
             >
               {t("sign_in")}
             </button>
