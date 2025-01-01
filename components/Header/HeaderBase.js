@@ -46,7 +46,7 @@ const Header = ({ locale }) => {
         className={`sticky top-0 z-20 transition-colors duration-300 ${isScrolled ? "bg-[#EBEBEB] shadow-shadow-color" : "bg-[#F7F7F7]"
           }`}
       >
-        <div className="2xl:container xl:container md:container mx-auto">
+        <div className="2xl:container xl:container md:container mx-auto custom_container">
           <div className="header-inner flex justify-between items-center xl:px-5 px-3 xl:py-2 md:py-2 py-2">
             {/* Logo */}
             <div className="logo">

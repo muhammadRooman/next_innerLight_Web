@@ -39,94 +39,93 @@ export default function SubscribeUs(props) {
             </div>
           </form>
           {(props.cmsWeb.facebook || props.cmsWeb.linkedin || props.cmsWeb.twitter || props.cmsWeb.pinterest || props.cmsWeb.youtube) && (
-  <div className="follow-us flex items-center justify-between">
-    <h5 className="2xl:text-2xl rtl:2xl:text-[40px] text-[16px] mb-0 font-bold rtl:ml-4">
-      {t("follow_us")}
-    </h5>
-    <nav className="flex items-center justify-center ml-auto rtl:ml-0">
-      {props.cmsWeb.facebook && (
-        <Link
-          href={`${props.cmsWeb.facebook}`}
-          target="_blank"
-          className="lg:min-w-9 lg:min-h-9 min-w-7 min-h-7 rounded-full flex items-center justify-center shadow-shadow-color8 ease-in-out me-2"
-        >
-          <Image
-            src="/assets/images/social-icon/facebook.png"
-            width={17}
-            height={17}
-            alt="facebook"
-            className="lg:w-[17px] w-4"
-          />
-        </Link>
-      )}
+            <div className="follow-us flex items-center justify-between">
+              <h5 className="2xl:text-2xl rtl:2xl:text-[40px] text-[16px] mb-0 font-bold rtl:ml-4">
+                {t("follow_us")}
+              </h5>
+              <nav className="flex items-center justify-center ml-auto rtl:ml-0">
+                {props.cmsWeb.facebook && (
+                  <Link
+                    href={`${props.cmsWeb.facebook}`}
+                    target="_blank"
+                    className="lg:min-w-9 lg:min-h-9 min-w-7 min-h-7 rounded-full flex items-center justify-center shadow-shadow-color8 ease-in-out me-2"
+                  >
+                    <Image
+                      src="/assets/images/social-icon/facebook.png"
+                      width={17}
+                      height={17}
+                      alt="facebook"
+                      className="lg:w-[17px] w-4"
+                    />
+                  </Link>
+                )}
 
-      {props.cmsWeb.linkedin && (
-        <Link
-          href={`${props.cmsWeb.linkedin}`}
-          target="_blank"
-          className="lg:min-w-9 lg:min-h-9 min-w-7 min-h-7 rounded-full flex items-center justify-center shadow-shadow-color8 ease-in-out me-2"
-        >
-          <Image
-            src="/assets/images/social-icon/linkedin.png"
-            width={17}
-            height={17}
-            alt="linkedin"
-            className="lg:w-[17px] w-4"
-          />
-        </Link>
-      )}
+                {props.cmsWeb.linkedin && (
+                  <Link
+                    href={`${props.cmsWeb.linkedin}`}
+                    target="_blank"
+                    className="lg:min-w-9 lg:min-h-9 min-w-7 min-h-7 rounded-full flex items-center justify-center shadow-shadow-color8 ease-in-out me-2"
+                  >
+                    <Image
+                      src="/assets/images/social-icon/linkedin.png"
+                      width={17}
+                      height={17}
+                      alt="linkedin"
+                      className="lg:w-[17px] w-4"
+                    />
+                  </Link>
+                )}
 
-      {props.cmsWeb.twitter && (
-        <Link
-          href={`${props.cmsWeb.twitter}`}
-          target="_blank"
-          className="lg:min-w-9 lg:min-h-9 min-w-7 min-h-7 rounded-full flex items-center justify-center shadow-shadow-color8 ease-in-out me-2"
-        >
-          <Image
-            src="/assets/images/social-icon/twitter.png"
-            width={17}
-            height={17}
-            alt="twitter"
-            className="lg:w-[17px] w-4"
-          />
-        </Link>
-      )}
+                {props.cmsWeb.twitter && (
+                  <Link
+                    href={`${props.cmsWeb.twitter}`}
+                    target="_blank"
+                    className="lg:min-w-9 lg:min-h-9 min-w-7 min-h-7 rounded-full flex items-center justify-center shadow-shadow-color8 ease-in-out me-2"
+                  >
+                    <Image
+                      src="/assets/images/social-icon/twitter.png"
+                      width={17}
+                      height={17}
+                      alt="twitter"
+                      className="lg:w-[17px] w-4"
+                    />
+                  </Link>
+                )}
 
-      {props.cmsWeb.pinterest && (
-        <Link
-          href={`${props.cmsWeb.pinterest}`}
-          target="_blank"
-          className="lg:min-w-9 lg:min-h-9 min-w-7 min-h-7 rounded-full flex items-center justify-center shadow-shadow-color8 ease-in-out me-2"
-        >
-          <Image
-            src="/assets/images/social-icon/pinterest.png"
-            width={17}
-            height={17}
-            alt="pinterest"
-            className="lg:w-[17px] w-4"
-          />
-        </Link>
-      )}
+                {props.cmsWeb.pinterest && (
+                  <Link
+                    href={`${props.cmsWeb.pinterest}`}
+                    target="_blank"
+                    className="lg:min-w-9 lg:min-h-9 min-w-7 min-h-7 rounded-full flex items-center justify-center shadow-shadow-color8 ease-in-out me-2"
+                  >
+                    <Image
+                      src="/assets/images/social-icon/pinterest.png"
+                      width={17}
+                      height={17}
+                      alt="pinterest"
+                      className="lg:w-[17px] w-4"
+                    />
+                  </Link>
+                )}
 
-      {props.cmsWeb.youtube && (
-        <Link
-          href={`${props.cmsWeb.youtube}`}
-          target="_blank"
-          className="lg:min-w-9 lg:min-h-9 min-w-7 min-h-7 rounded-full flex items-center justify-center shadow-shadow-color8 ease-in-out"
-        >
-          <Image
-            src="/assets/images/social-icon/youtube.png"
-            width={17}
-            height={20}
-            alt="youtube"
-            className="lg:w-[17px] w-4"
-          />
-        </Link>
-      )}
-    </nav>
-  </div>
-)}
-
+                {props.cmsWeb.youtube && (
+                  <Link
+                    href={`${props.cmsWeb.youtube}`}
+                    target="_blank"
+                    className="lg:min-w-9 lg:min-h-9 min-w-7 min-h-7 rounded-full flex items-center justify-center shadow-shadow-color8 ease-in-out"
+                  >
+                    <Image
+                      src="/assets/images/social-icon/youtube.png"
+                      width={17}
+                      height={20}
+                      alt="youtube"
+                      className="lg:w-[17px] w-4"
+                    />
+                  </Link>
+                )}
+              </nav>
+            </div>
+          )}
         </div>
       </section>
       <ToastContainer />

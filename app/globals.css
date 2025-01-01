@@ -234,9 +234,10 @@ html[lang="ar"][dir="rtl"] .nurturing-img {
   min-height: 670px;
 }
 
-.our-value-content-box{
+.our-value-content-box {
   margin-top: 130px;
 }
+
 .nurturing-img::before {
   content: "";
   position: absolute;
@@ -398,6 +399,7 @@ html[lang="ar"] .nurturing-img::before {
 .yoga_img_wrapper {
   min-height: 910px !important;
 }
+
 .border_line::after {
   content: "";
   position: absolute;
@@ -408,51 +410,110 @@ html[lang="ar"] .nurturing-img::before {
   right: 0;
   top: -16px;
 }
-.SubscribeUs-card input{
+
+html[lang="ar"][dir="rtl"] .SubscribeUs-card input {
   padding: 10px 10px 10px 30px;
 }
+
 .Meditation-content-inner p:nth-of-type(2) {
   font-weight: 600;
 }
-.Meditation-content-inner h2{
+
+.Meditation-content-inner h2 {
   line-height: 50px;
 }
-.commitment-wrap h2{
+
+.commitment-wrap h2 {
   line-height: 50px;
 }
-.what_we_offer h2{
+
+.what_we_offer h2 {
   line-height: 50px;
 }
-.slider-content small{
+
+.slider-content small {
   font-size: 16px;
 }
-.slider-content h4{
+
+.slider-content h4 {
   font-size: 24px;
   padding-bottom: 10px;
 }
-.custom-pagination span{
+
+.custom-pagination span {
   font-size: 18px;
 }
-.form_wrap{
+
+.form_wrap {
   margin-top: 57px;
 }
-html[lang="ar"][dir="rtl"] .sign_in_page p{
+
+html[lang="ar"][dir="rtl"] .sign_in_page p {
   font-size: 32px;
 }
-.sign_in_page .btn-icon{
+
+.sign_in_page .btn-icon {
   margin-left: 15px;
 }
-html[lang="ar"][dir="rtl"] .sign_in_page .btn-icon{
+
+html[lang="ar"][dir="rtl"] .sign_in_page .btn-icon {
   margin-right: 15px;
 }
-html[lang="ar"][dir="rtl"] .sign_in_page input{
+
+html[lang="ar"][dir="rtl"] .sign_in_page input {
   text-align: right;
   padding-right: 25px;
 }
-.DownloadOurApp-content p {
+
+.thankYou-wrap .DownloadOurApp-content p:first-child {
   color: #753892;
 }
 
+.follow-us a {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  /* Smooth transition for hover effect */
+}
+
+.follow-us a:hover {
+  transform: scale(1.1);
+  /* Slight zoom on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Adding a soft shadow on hover */
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+.SubscribeUs-card .mediaObject img{
+  width: 103px;
+    flex: 0 0 auto;
+}
+
+.heading-box h5{
+  line-height: 30px;
+}
+.heading-box h2{
+  line-height: 50px;
+}
+.heading-box p{
+  line-height: 36px !important;
+}
+
+.blog-image{
+  max-width: 375px !important;
+    width: 100% !important;
+    height: 402px;
+}
 /* responsive */
 
 @media (min-width: 1536px) {
@@ -497,6 +558,9 @@ html[lang="ar"][dir="rtl"] .sign_in_page input{
     height: 130px;
     width: 400px;
   }
+  .DownloadOurApp-content .heading-box p{
+    line-height: 30px !important;
+  }
 }
 
 @media (max-width: 1367px) {
@@ -524,24 +588,24 @@ html[lang="ar"][dir="rtl"] .sign_in_page input{
   .yoga_img_wrapper {
     min-height: 790px !important;
   }
-  .site-banner-content p{
-    max-width: 750px;
-        margin: 0 auto;
-        padding-top: 15px;
+
+  .home_banner p {
+    max-width: 790px;
+    padding-top: 15px;
+    margin: 0 auto;
   }
+
   .WhatWeOffer-card .WhatWeOffer-img img {
     position: relative !important;
     width: 100% !important;
     height: 250px !important;
+  }
+  .benefits-content h5 {
+    padding: 10px 0 5px;
 }
 }
 
 @media (min-width: 1280px) {
-  .rtl .xl\:text-lg {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-  }
-
   .rtl .xl\:me-\[60px\] {
     margin-inline-start: 60px;
     margin-inline-end: 0px;
@@ -603,11 +667,11 @@ html[lang="ar"][dir="rtl"] .sign_in_page input{
     width: 225px;
     height: 62px;
   }
+
   .site-banner-content p {
     max-width: 520px;
-    margin: 0 auto;
     padding-top: 15px;
-}
+  }
 
   html[lang="ar"][dir="rtl"] .submit_btn button {
     padding: 2px 20px;
@@ -625,10 +689,14 @@ html[lang="ar"][dir="rtl"] .sign_in_page input{
   html[lang="ar"][dir="rtl"] .site-banner {
     min-height: 400px;
   }
+
   .WhatWeOffer-card .WhatWeOffer-img img {
     position: relative !important;
     width: 100% !important;
     height: 190px !important;
+  }
+  .heading-box h2 {
+    line-height: 30px;
 }
 }
 
@@ -642,7 +710,7 @@ html[lang="ar"][dir="rtl"] .sign_in_page input{
     position: relative !important;
     width: 100% !important;
     height: 260px !important;
-}
+  }
 
   .yoga_img_wrapper {
     min-height: 750px !important;
@@ -692,9 +760,15 @@ html[lang="ar"][dir="rtl"] .sign_in_page input{
   .w-\[80\%\] {
     width: 100%;
   }
-  .home_banner h5{
+
+  .home_banner h5 {
     max-width: 480px !important;
   }
+  .blog-image {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 402px;
+}
 }
 
 
@@ -783,7 +857,6 @@ html[lang="ar"][dir="rtl"] .sign_in_page input{
   html[lang="ar"][dir="rtl"] .site-banner-content p {
     font-size: 24px !important;
     max-width: 510px !important;
-    margin: 0 auto;
     padding-top: 16px;
 
   }
@@ -816,7 +889,6 @@ html[lang="ar"][dir="rtl"] .sign_in_page input{
   html[lang="ar"][dir="rtl"] .site-banner-content p {
     font-size: 22px !important;
     max-width: 390px !important;
-    margin: 0 auto;
     padding-top: 10px;
     line-height: normal;
   }
@@ -835,13 +907,19 @@ html[lang="ar"][dir="rtl"] .sign_in_page input{
   .yoga_img_wrapper {
     min-height: 540px !important;
   }
+
   .WhatWeOffer-card .WhatWeOffer-img img {
     position: relative !important;
     width: 100% !important;
     height: 150px !important;
-}
-.WhatWeOffer-content h5{
-  font-size: 16px;
+  }
+
+  .WhatWeOffer-content h5 {
+    font-size: 16px;
+  }
+  .benefits-content h5 {
+    padding: 10px 0 5px;
+    font-size: 18px;
 }
 }
 
@@ -938,21 +1016,41 @@ html[lang="ar"][dir="rtl"] .sign_in_page input{
     font-size: 16px;
     line-height: 30px;
   }
+
   .btn-download img {
     width: 160px !important;
     height: 50px !important;
-}
-.moment_of_senetry {
-  padding-top: 40px;
-}
-.form_wrap {
-  margin-top: 15px;
-}
-.Toastify__toast-container{
-  max-width: 320px;
+  }
+
+  .moment_of_senetry {
+    padding-top: 40px;
+  }
+
+  .form_wrap {
+    margin-top: 15px;
+  }
+
+  .Toastify__toast-container {
+    max-width: 320px;
     margin: 0 auto;
     width: 100%;
     position: fixed;
     right: 0px;
+  }
+  .commitment-wrap{
+    padding-top: 30px;
+  }
+  
+  .commitment-wrap .heading-box{
+    padding-bottom: 0;
+  }
+  .SubscribeUs-card input {
+    padding: 10px 40px 10px 10px;
+}
+.benefits-holistic .heading-box{
+  margin-top: 15px;
+}
+.heading-box h2 {
+  line-height: 15px;
 }
 }
