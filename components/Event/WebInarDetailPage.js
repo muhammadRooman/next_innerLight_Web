@@ -194,19 +194,29 @@ const handleImageLoadingComplete = () => {
                       <span className="text-xl text-black-600">{webinarDetailPage?.time}</span>
                     </div>
                     }    
-                  {webinarDetailPage?.description && (
-                    <div className="mb-3">
+                 {
+             (webinarDetailPage?.description?.length > 0 || webinarDetailPage?.description_ar?.length > 0) && (
+                <div className="mb-3">
+                  {language === "en" ? (
+                    webinarDetailPage?.description?.length > 0 ? (
                       <span className="text-xl font-semibold">{t("outline")}:</span>
-                      <div
-                        className="text-xl text-black-600"
-                        dangerouslySetInnerHTML={{
-                          __html: language === "en" 
-                            ? webinarDetailPage?.description 
-                            : webinarDetailPage?.description_ar,
-                        }}
-                      />
-                    </div>
-                  )}          
+                    ) : null
+                  ) : (
+                    webinarDetailPage?.description_ar?.length > 0 ? (
+                      <span className="text-xl font-semibold">{t("outline")}:</span>
+                    ) : null
+                  )}
+                    <div
+                      className="text-xl text-black-600"
+                      dangerouslySetInnerHTML={{
+                        __html: (language === "en" ? webinarDetailPage?.description : webinarDetailPage?.description_ar)
+                          .replace(/<ol>/g, '<ol style="list-style-type: decimal; margin-left: 20px;">')
+                          .replace(/<ul>/g, '<ul style="list-style-type: disc; margin-left: 20px;">'),
+                      }}
+                    />
+                  </div>
+                )
+                }        
                    <button
                    disabled={loading}
                       onClick={()=>handleSubmit(webinarDetailPage._id)}
