@@ -6,7 +6,7 @@ export default function BenefitsBanner() {
     const t = useTranslations("BenifitsBanner");
     return (
         <>
-            <section className="site-banner benefits-banner relative bg-cover xl:min-h-[800px] md:min-h-[500px] xs:min-h-[400px] small:min-h-[300px] flex items-center small:pb-0 xs:pb-10 lg:bg-center bg-center">
+            <section className="site-banner benefits-banner about-banner relative bg-cover xl:min-h-[800px] md:min-h-[500px] xs:min-h-[400px] small:min-h-[300px] flex items-center small:pb-0 xs:pb-10 lg:bg-center bg-center">
                 <div className="2xl:container xl:container lg:container md:container xs:container md:mx-auto lg:max-0 px-5">
                     <div className="inner-container relative sm:pt-4 md:pt0">
                         <div className="site-banner-content benefits_banner max-w-[582px] rtl:max-w-[725px] ml-0 rtl:text-right bnenfits_banner"> 

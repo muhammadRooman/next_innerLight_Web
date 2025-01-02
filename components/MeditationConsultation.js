@@ -25,7 +25,7 @@ export default function MeditationConsultation() {
                         <p className='text-lg xl:text-2xl font-bold text-[#753892]'>{t("connect_with_compassionate")}</p>
                       </div>
                           <div className='static-img relative lg:left-[-166px] rtl:lg:right-[-166px] mt-8 lg:w-[calc(100%+166px)] w-full '>
-                            <div class="md:grid md:grid-cols-3 items-center">
+                            <div className="md:grid md:grid-cols-3 items-center">
                                 <div className='col-span-1'> 
                                     <div className='static-img-wrap relative  min-h-[380px] rounded-10 overflow-hidden'>
                                        <Image src="/MmeditationImg1.png" alt="logo white" layout="fill"  className="rounded-30 object-cover p-2.5" />
