@@ -244,7 +244,8 @@
     "message": "Message",
     "download": "Download Our App",
     "submit": "Submit",
-    "alert": "You will be contacted shortly by admin."
+    "alert": "Message sent! We’ll contact you soon"
+
   },
   "ThankYou": {
     "thanks_joining_us": "THANKS FOR JOINING US",
