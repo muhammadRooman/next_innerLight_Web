@@ -9,7 +9,11 @@
     "download_app": "Download App",
     "en": "English",
     "ar": "العربية ",
-    "copyright_reserved_Innerlight": "Copyright Reserved Innerlight"
+    "copyright_reserved_Innerlight": "Copyright Reserved Innerlight",
+    "are_you_sure_you_want_to_logout":"Are you sure you want to logout?",
+    "cancel":"Cancel",
+    "signin":"Signin",
+    "logout":"Logout"
   },
   "SiteBanner": {
     "title": "BEGIN YOUR JOURNEY TO",
@@ -253,4 +257,5 @@
     "connectWithExperts" :"Connect with compassionate experts dedicated to nurturing your growth and well-being.",
     "personalizedSupport" :"Experience personalized support on your spiritual journey through tailored meditation sessions and one-on-one consultations with skilled practitioners."
   }
+  
 }

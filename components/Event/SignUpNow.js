@@ -216,6 +216,16 @@ export default function SignUpNow() {
 
       if (response?.data?.status === 1) {
         localStorage.setItem("authToken", response.data.token);
+        setSignUpData({ fullName: "", email: "" });
+        setProfileImage(null);
+        setProfileImagePreview(null)
+        setPhoneNumber("");
+        setImageName("")
+        setOtpCode("");
+        setImageError(null);
+        setErrorMessage(null);
+        setErrorVerifyMessage(null);
+        setValidationErrors({});
         router.push(`/${language}/thank-you`);
       } else {
         toast.error(language === "en" ? response.data.message : response.data.message_ar);
@@ -309,7 +319,6 @@ export default function SignUpNow() {
     return <FullPageLoader/>
   }
   
-
   return (
     <>{
       showSignUp &&    <section className="bg-gray-light relative py-16 moment_of_senetry">
