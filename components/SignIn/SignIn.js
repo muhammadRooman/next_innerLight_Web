@@ -281,7 +281,7 @@ export default function SignIn() {
             }
             </div>
               {otpGenerated && (
-                <div class="form-group lg:mb-0 mb-4">
+                <div className="form-group lg:mb-0 mb-4">
                   <div className="btn-icon relative">
                     <input
                       type="text"
@@ -295,7 +295,7 @@ export default function SignIn() {
                     <button
                       disabled={disabledPhoneOTP || isOtpVerify}
                       onClick={handleVerifyOTP}
-                      class="px-4 py-2 font-semibold lg:text-lg rounded-[3px] bg-[#1796D8] text-white absolute w-[101px] lg:top-2 top-[2px] lg:right-2 right-[2px] lg:min-h-[calc(100%-16px)] min-h-[calc(100%-4px)] shadow-shadow-color"
+                      className="px-4 py-2 font-semibold lg:text-lg rounded-[3px] bg-[#1796D8] text-white absolute w-[101px] lg:top-2 top-[2px] lg:right-2 right-[2px] lg:min-h-[calc(100%-16px)] min-h-[calc(100%-4px)] shadow-shadow-color"
                     >
                       {t("verify")}
                     </button>

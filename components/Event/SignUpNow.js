@@ -319,7 +319,7 @@ export default function SignUpNow() {
         </div>
         <div>
           <div className="grid md:grid-cols-2 gap-3 form_wrap">
-            <div class="form-group md:mb-0 mb-0">
+            <div className="form-group md:mb-0 mb-0">
               <input
                 type="text"
                 name="FullName"
@@ -406,7 +406,7 @@ export default function SignUpNow() {
             }
             </div>
             {otpGenerated && (
-              <div class="form-group md:mb-0 mb-0">
+              <div className="form-group md:mb-0 mb-0">
                 <div className="btn-icon relative">
                   <input
                     type="text"
@@ -421,7 +421,7 @@ export default function SignUpNow() {
                   <button
                     disabled={isOtpVerify}
                     onClick={handleVerifyOTP}
-                    class="px-4 py-2 font-semibold lg:text-lg rounded-[3px] bg-[#1796D8] text-white absolute w-[101px] lg:top-2 top-[2px] lg:right-2 right-[2px] lg:min-h-[calc(100%-16px)] min-h-[calc(100%-4px)] shadow-shadow-color"
+                    className="px-4 py-2 font-semibold lg:text-lg rounded-[3px] bg-[#1796D8] text-white absolute w-[101px] lg:top-2 top-[2px] lg:right-2 right-[2px] lg:min-h-[calc(100%-16px)] min-h-[calc(100%-4px)] shadow-shadow-color"
                   >
                     {t("verify")}
                   </button>
@@ -433,7 +433,7 @@ export default function SignUpNow() {
                 )}
               </div>
             )}
-            <div class="form-group md:mb-0 mb-0">
+            <div className="form-group md:mb-0 mb-0">
               <input
                 type="email"
                 name="email"
@@ -457,7 +457,7 @@ export default function SignUpNow() {
             </div>
             {otpGenerated && (
               <div className="form-group md:mb-0 mb-0">
-                <div className="flex cursor-pointer placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[45px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 md:mb-0 lg:mb-5 xs:mb-3 small:mb-0 mb-0">
+                <div className="flex cursor-pointer placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[45px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 md:mb-0 lg:mb-5 xs:mb-3 small:mb-0 mb-0 upload_feild">
                   {/* <!-- Label wraps everything --> */}
                   <label
                     for="upload_picture"
@@ -479,7 +479,7 @@ export default function SignUpNow() {
                     <span className="cursor-pointer bg-[#1796D8]   text-white flex items-center justify-center  rounded-[4px] w-[74px] absolute  lg:top-2 top-0  right-0 lg:min-h-[calc(100%-16px)] min-h-[100%] lg:right-[6px] upload_icon">
                       {/* <!-- Icon --> */}
                       <svg
-                        class="feather feather-upload"
+                        className="feather feather-upload"
                         fill="none"
                         height="24"
                         stroke="currentColor"
@@ -527,7 +527,7 @@ export default function SignUpNow() {
             onClick={handleSubmit}
             className={
               !disabledPhoneOTP
-                ? "py-2.5 px-6 text-white rounded-3xl font-medium xl:text-xl text-sm bg-btn-gradient hover:bg-btn-gradient-hover"
+                ? "py-2.5 px-6 text-white rounded-3xl font-medium xl:text-xl text-sm bg-btn-gradient hover:bg-btn-gradient-hover md:w-[181px]"
                 : "lg:text-lg block md:w-[181px] w-full py-2.5 px-6 text-white rounded-3xl font-medium xl:text-xl text-sm bg-btn-gradient hover:bg-btn-gradient-hover"
             }
           >

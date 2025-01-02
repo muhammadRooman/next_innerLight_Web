@@ -100,9 +100,10 @@ body {
 
 /* WhatWeOffer-card */
 .WhatWeOffer-card .WhatWeOffer-img {
-  margin: -60px 25px 0;
-  animation: .3s ease-in-out;
+  margin: -60px 0 0;
+  animation: all 0.3s;
   transition: all 0.3s;
+  transform: scale(0.9);
 }
 
 .WhatWeOffer-card .WhatWeOffer-img img {
@@ -111,9 +112,14 @@ body {
   height: 292px !important;
 }
 
-.WhatWeOffer-card:hover .WhatWeOffer-img {
+/* .WhatWeOffer-card:hover .WhatWeOffer-img {
   margin: -60px 0px 0;
   animation: .3s ease-in;
+} */
+
+.WhatWeOffer-card:hover .WhatWeOffer-img {
+  transform: scale(1);
+  
 }
 
 
@@ -166,12 +172,7 @@ html[lang="ar"][dir="rtl"] .upload_icon {
   margin-right: 30px;
 }
 
-.WhatWeOffer-card:hover .WhatWeOffer-img img {
-  transform: scale(1.05);
-  /* Zoom in slightly */
-  transition: transform 0.3s ease-in-out;
-  /* Smooth transition */
-}
+
 
 html[lang="ar"][dir="rtl"] .btn-icon button {
   right: auto;
@@ -514,6 +515,12 @@ input[type=number] {
     width: 100% !important;
     height: 402px;
 }
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
 /* responsive */
 
 @media (min-width: 1536px) {
@@ -602,6 +609,16 @@ input[type=number] {
   }
   .benefits-content h5 {
     padding: 10px 0 5px;
+}
+.about-banner{
+  min-height: 500px;
+}
+.about-banner h5{
+  max-width: 400px;
+}
+.border_line::after {
+  width: 300px;
+  left: -150px;
 }
 }
 
@@ -698,6 +715,25 @@ input[type=number] {
   .heading-box h2 {
     line-height: 30px;
 }
+.about-banner p{
+  padding: 0;
+}
+.about-banner h5{
+  max-width: 350px;
+}
+.about-banner {
+  min-height: 430px;
+}
+.our-value-content-box {
+  margin-top: 80px;
+}
+.benefits-holistic .heading-box{
+  padding-bottom: 45px;
+}
+.border_line::after {
+  width: 220px;
+  left: -110px;
+}
 }
 
 @media (max-width: 991px) {
@@ -768,6 +804,32 @@ input[type=number] {
     max-width: 100% !important;
     width: 100% !important;
     height: 402px;
+}
+.about-banner {
+  min-height: 330px;
+}
+.about-banner h5 {
+  max-width: 240px !important;
+}
+.about-banner p {
+  max-width: 400px;
+  padding-top: 0px;
+  font-size: 14px;
+  margin-top: 10px;
+}
+.our-value-content-box {
+  margin-top: 30px;
+}
+.about-us .heading-box{
+  margin-bottom: 15px;
+}
+.benefits-holistic .heading-box {
+  padding-bottom: 25px;
+}
+.what_we_offer .heading-box h2{
+line-height: 30px;
+max-width: 350px;
+margin-bottom: 20px;
 }
 }
 
@@ -921,6 +983,10 @@ input[type=number] {
     padding: 10px 0 5px;
     font-size: 18px;
 }
+.contact-banner p{
+  margin-top: 0;
+  padding-top: 5px;
+}
 }
 
 @media (max-width: 480px) {
@@ -966,12 +1032,6 @@ input[type=number] {
   html[lang="ar"][dir="rtl"] .btn-wrap button {
     font-size: 18px;
     padding: 4px 20px;
-  }
-
-  html[lang="ar"][dir="rtl"] .custom-prev,
-  .custom-next img {
-    height: 35px;
-    width: 35px;
   }
 
   html[lang="ar"][dir="rtl"] .blog-card-content h4 {
@@ -1052,5 +1112,25 @@ input[type=number] {
 }
 .heading-box h2 {
   line-height: 15px;
+}
+.custom-pagination span{
+  font-size: 14px;
+}
+.about-us {
+  padding: 40px 0;
+}
+.download_application .heading-box h2{
+  line-height: 30px;
+  font-size: 20px;
+}
+.upload_icon {
+  position: relative;
+  height: 40px;
+  width: 80px;
+  top: 0px !important;
+  left: 7px;
+}
+.upload_feild{
+  padding: 0 5px;
 }
 }

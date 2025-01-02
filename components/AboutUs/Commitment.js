@@ -9,9 +9,9 @@ export default function Commitment(){
 
     return(
         <>
-        <section className="our-value xl:pt:[132px] rtl:pt:[60px] pt-[70px] xl:pb-[94px] pb-[70px] bg-gray-light">
+        <section className="about-us our-value xl:pt:[132px] rtl:pt:[60px] pt-[70px] xl:pb-[94px] pb-[70px] bg-gray-light">
                 <div className="2xl:container xl:container lg:container md:container mx-auto lg:max-0 px-5"> 
-                    <div className="grid md:grid-cols-12 gap-10"> 
+                    <div className="grid md:grid-cols-12 gap-5"> 
                         <div  className="col-span-7 our-value-inner">
                             <div className="our-value-content-box">
                             <div className="heading-box text-left xl:mb-11 mb-8 rtl:text-right">
