@@ -41,7 +41,12 @@ export default function SignIn() {
     if (token) {
       // Redirect to the event page for the detected language
       const redirectTimeout = setTimeout(() => {
-        router.push(`/${lang}/event`);
+        if(process.env.NEXT_PUBLIC_NODE_ENV== "development"){
+          router.push(`/${lang}/event`);
+        }
+        else{
+          router.push(`https://innerlightacademy.co/${lang}/event`);
+        }
       }, 1000);
   
       // Cleanup timeout to avoid memory leaks
@@ -194,7 +199,14 @@ export default function SignIn() {
   const handlePhoneNumberChange = (e) => {
     const value = e.target.value;   
     const cleanedValue = value.replace(/[^0-9]/g, ''); 
+   
+    // Update the phone number state
     setPhoneNumber(cleanedValue);
+
+     // Clear the error message if any
+     if (errorMessage) {
+      setErrorMessage("");
+    }
   };
   
 
