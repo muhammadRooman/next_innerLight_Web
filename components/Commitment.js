@@ -15,7 +15,7 @@
 //                       <h5 className='text-info-color 2xl:text-2xl font-black  '>{t("innerLight")}</h5>
 //                       <h2 className='xl:text-40 lg:text-[30px]  text-[25px]  font-bold'>{t("commitment_to_your_spiritual_growth")}</h2>
 //                    </div>
-//                    <div class="lg:grid lg:grid-cols-4  items-center ">
+//                    <div className="lg:grid lg:grid-cols-4  items-center ">
 //                         <div className=' col-span-1  '>
 //                             <div className='commitment-content text-center lg:mb-36 mb-4 lg:max-w-[395px] max-w-full'>
 //                                <p className='xl:text-lg font-normal'>{t("we_are_dedicated_to_guiding")}</p>
