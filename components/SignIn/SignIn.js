@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
-import PhoneInput from 'react-phone-number-input';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-phone-number-input/style.css';
 import { countries, arabicCountries } from "../utils/countriesData";
@@ -14,6 +13,7 @@ import FullPageLoader from "../fullPageLoader.js/FullPageLoader";
 export default function SignIn() {
   const router = useRouter();
   const t = useTranslations("SignUpNow");
+  const token = localStorage.getItem("authToken");
   const [phoneNumber, setPhoneNumber] = useState("");
   const currentPath = usePathname();
   const [language, setLanguage] = useState("");
@@ -27,59 +27,78 @@ export default function SignIn() {
   const [firstLoader, setFirstLoader] = useState(true);
   const [disabledPhoneOTP, setDisabledPhoneOTP] = useState(false);
   const [OtpMessage, setOtpMessage] = useState("");
-
   const [selectedCountryCode, setSelectedCountryCode] = useState("+968");
   const fullPhoneNumber = `${selectedCountryCode}${phoneNumber.trim()}`;
-  const token = localStorage.getItem("authToken");
-
-  // fetched
+  
   useEffect(() => {
-    const lang = currentPath.split("/")[1] || "en"; // Get language from the path
+    // Extract the language from the URL path or default to "en"
+    const lang = currentPath.split("/")[1] || "en";
     setLanguage(lang);
-
-    // Check if token exists
+  
+    // Handle token existence for redirection
+    setFirstLoader(false); // Stop the loader irrespective of token presence
+  
     if (token) {
-      setFirstLoader(false); // If token exists, stop the loader
-      setTimeout(() => {
-        router.push(`/${language}/event`);
+      // Redirect to the event page for the detected language
+      const redirectTimeout = setTimeout(() => {
+        router.push(`/${lang}/event`);
       }, 1000);
-    } else {
-      setFirstLoader(false);
+  
+      // Cleanup timeout to avoid memory leaks
+      return () => clearTimeout(redirectTimeout);
     }
   }, [currentPath, router, token]);
 
   const handleSendOTP = async () => {
+    // Validate phone number presence
     if (!phoneNumber) {
       setErrorMessage(t("phone_number_is_required"));
       return;
     }
-   // Validate the phone number length (between 8 and 16 digits)
-   if (phoneNumber.length < 8 || phoneNumber.length > 16) {
-    setErrorMessage(t("phone_number_must_be_between_8_and_16_digits"));
-    return; // Stop execution if validation fails
-  }
-  setIsOtpSent(true);
+  
+    // Validate phone number length
+    if (phoneNumber.length < 8 || phoneNumber.length > 16) {
+      setErrorMessage(t("phone_number_must_be_between_8_and_16_digits"));
+      return;
+    }
+  
+    // Indicate OTP sending process has started
+    setIsOtpSent(true);
+  
     try {
+      // API call to generate OTP
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/auth/generate-otp`,
         {
-          phoneNumber:fullPhoneNumber,
-          userExist: 1, 
+          phoneNumber: fullPhoneNumber,
+          userExist: 1,
         }
       );
-
-      // OTP generated successfully
-      if (response?.data.success) {
+  
+      // Handle successful OTP generation
+      if (response?.data?.status === 1) {
         setOtpGenerated(true); // Show OTP input field
         setOtpMessage(response.data.message || "");
-        toast.success(language === "en" ? response.data.message : response.data.message_ar );
+        toast.success(
+          language === "en" ? response.data.message : response.data.message_ar
+        );
         setErrorMessage("");
-      } else {
-        toast.error(language === "en" ? "invalid phone number" : "رقم الهاتف غير صالح")
+      } 
+      // Handle specific error message related to WhatsApp
+      else if (response?.data?.message.includes("Failed to send WhatsApp message")) {
+        toast.error(
+          language === "en" ? "Invalid phone number" : "رقم الهاتف غير صالح"
+        );
+        setIsOtpSent(false);
+      } 
+      // Handle general errors
+      else {
+        toast.error(
+          language === "en" ? response.data.message : response.data.message_ar
+        );
         setIsOtpSent(false);
       }
     } catch (error) {
-      console.error("Error generating OTP:", error);
       setIsOtpSent(false);
     }
   };
@@ -95,7 +114,7 @@ export default function SignIn() {
         `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/auth/verify-otp`,
         {
           phoneNumber:fullPhoneNumber,
-          otpCode, // Add userExist here as part of the request body
+          otpCode, 
         }
       );
       // OTP Verified successfully
@@ -182,7 +201,6 @@ export default function SignIn() {
   if (loader || firstLoader){
     return <FullPageLoader/>
   }
-  
 
   return (
     <div>

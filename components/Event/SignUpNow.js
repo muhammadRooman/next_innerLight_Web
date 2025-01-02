@@ -56,6 +56,7 @@ export default function SignUpNow() {
   }, [currentPath]);
 
   const handleSendOTP = async () => {
+
     // Validate if the phone number is provided
     if (!phoneNumber || phoneNumber.trim() === "") {
       setErrorMessage(t("phone_number_is_required"));
@@ -76,17 +77,15 @@ export default function SignUpNow() {
         `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/auth/generate-otp`,
         {
           phoneNumber: fullPhoneNumber,
-          userExist: 0, // Indicating whether the user exists
+          userExist: 0, 
         }
       );
-  
-      // Handle the response based on status
-      if (response?.data?.status === 1) {
+    if (response?.data?.status === 1) {
         setOtpGenerated(true); // Show OTP input field
         setOtpMessage(response.data.message || "");
         toast.success(language === "en" ? response.data.message : response.data.message_ar);
         setErrorMessage("");
-      } else if (response?.data?.status === 0) {
+      } else if (response?.data?.message.includes("Failed to send WhatsApp message")) {
         toast.error(language === "en" ? "invalid phone number" : "رقم الهاتف غير صالح");
         setIsOtpSent(false);
       } else {
@@ -94,7 +93,6 @@ export default function SignUpNow() {
         setIsOtpSent(false);
       }
     } catch (error) {
-      console.error("Error generating OTP:", error);
       toast.error(t("unable_to_generate_otp"));
       setIsOtpSent(false);
     }
