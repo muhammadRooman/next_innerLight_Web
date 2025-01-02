@@ -190,9 +190,9 @@ export default function SignIn() {
         <div className="2xl:container xl:container lg:container mx-auto lg:max-0  px-5">
           <div className="heading-box text-center xl:mb-11 mb-8">
             <h2 className="xl:text-40 lg:text-[30px] text-[25px] font-bold rtl:2xl:text-[72px] rtl:xl:text-[50px] rtl:text-[40px]">{t("sign_in_now")}</h2>
-            <p className="2xl:text-2xl text-xl font-normal">
+            {/* <p className="2xl:text-2xl text-xl font-normal">
               {t("fill_the_form_below_our_representatives_respond_you")}
-            </p>
+            </p> */}
           </div>
           <div>
             <div className="lg:grid lg:grid-cols-2 ">

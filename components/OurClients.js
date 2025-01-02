@@ -62,6 +62,7 @@ export default function OurClients() {
                 prevEl: ".custom-prev",
               }}
               modules={[Pagination, Navigation]}
+              loop={true}
               className="SwiperSlder relative"
             >
               {testimonialData?.map((client, index) => (
