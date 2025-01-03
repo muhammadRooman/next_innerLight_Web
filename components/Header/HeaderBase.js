@@ -243,7 +243,7 @@ const Header = ({ locale }) => {
                 </div>
 
                 {isOpen && (
-                  <div ref={dropdownRef}  className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  <div ref={dropdownRef}  className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none sign_icon_wrapper">
                     <div
                       role="menu"
                       aria-orientation="vertical"
@@ -251,7 +251,8 @@ const Header = ({ locale }) => {
                     >
                       {/* Conditional rendering for Signin or Logout */}
                       {isAuthenticated ? (
-                        <button
+                        <button 
+                          style={{ display: "flex", alignItems: "center"}}
                           className="text-gray-700 hover:bg-gray-100"
                           role="menuitem"
                           onClick={() => handleMenuItemClick("logout")}
@@ -264,6 +265,7 @@ const Header = ({ locale }) => {
                          </button>
                       ) : (
                         <button
+                        style={{ display: "flex", alignItems: "center"}} 
                         className="text-gray-700 hover:bg-gray-100"
                           role="menuitem"
                           onClick={() => handleMenuItemClick("signin")}

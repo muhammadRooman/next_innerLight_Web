@@ -522,12 +522,6 @@ select {
   appearance: none;
 }
 
-.custom-prev img,
-.custom-next img {
-  height: 8px;
-  width: 16px;
-}
-
 .moment_of_senetry .heading-box h5,
 .moment_of_senetry .heading-box h2 {
   margin-bottom: 15px;
@@ -645,6 +639,21 @@ html[lang="ar"][dir="rtl"] .what_we_offer span {
   font-size: 40px;
   line-height: 40px;
   font-weight: 600;
+}
+
+.sign_icon_wrapper{
+  max-width: 100px;
+    padding: 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profile_active_unActive button{
+  margin-left: 10px;
+    border: 1px solid gray;
+    padding: 5px 20px;
+    font-size: 15px;
+    outline: none;
 }
 
 /* responsive */
