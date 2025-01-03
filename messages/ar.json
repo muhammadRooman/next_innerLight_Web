@@ -9,7 +9,11 @@
     "download_app": "تنزيل التطبيق",
     "en": "إنجليزي",
     "ar": "العربية ",
-    "copyright_reserved_Innerlight": "حقوق الطبع والنشر محفوظة إنرلايت"
+    "copyright_reserved_Innerlight": "حقوق الطبع والنشر محفوظة إنرلايت",
+    "are_you_sure_you_want_to_logout": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+    "cancel": "إلغاء",
+    "signin": "تسجيل الدخول",
+    "logout": "تسجيل الخروج"
   },
   "SiteBanner": {
     "title": "ابدأ رحلتك نحو",
@@ -259,4 +263,6 @@
   "Detail": {
     "enrollnow": "سجل الآن"
   }
+
+
 }
