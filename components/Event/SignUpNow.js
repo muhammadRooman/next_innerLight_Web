@@ -56,7 +56,6 @@ export default function SignUpNow() {
   }, [currentPath]);
 
   const handleSendOTP = async () => {
-
     // Validate if the phone number is provided
     if (!phoneNumber || phoneNumber.trim() === "") {
       setErrorMessage(t("phone_number_is_required"));
@@ -77,7 +76,7 @@ export default function SignUpNow() {
         `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/auth/generate-otp`,
         {
           phoneNumber: fullPhoneNumber,
-          userExist: 0, 
+          userExist: 0,
         }
       );
 
@@ -238,19 +237,6 @@ export default function SignUpNow() {
 
   const signin = () => {
     const token = localStorage.getItem("authToken");
-        setValidationErrors({ ...errors, email: "Email already exists" });
-      }
-    } catch (error) {
-      toast.error(error.message || "An error occurred");
-    } finally {
-      // Hide the loader after processing response
-      setLoader(false);
-    }
-  };
-
-
-  const signin = ()=>{
-   const token = localStorage.getItem("authToken");
     if (!token) {
       router.push(`/${language}/signin`);
     } else {
@@ -274,13 +260,13 @@ export default function SignUpNow() {
 
 
   const handlePhoneNumberChange = (e) => {
-    const value = e.target.value;   
-    const cleanedValue = value.replace(/[^0-9]/g, ''); 
+    const value = e.target.value;
+    const cleanedValue = value.replace(/[^0-9]/g, '');
 
     // Update the phone number state
     setPhoneNumber(cleanedValue);
 
-     // Clear the error message if any
+    // Clear the error message if any
     if (errorMessage) {
       setErrorMessage("");
     }
@@ -442,53 +428,6 @@ export default function SignUpNow() {
                     {t("send_OTP")}
                   </button>
                 </div>
-                {
-                  errorMessage && (
-                    <span className="text-red-500 text-sm mt-2">
-                      {errorMessage}
-                {  !otpCode && errorVerifyMessage && (
-                  <span className="text-red-500 text-sm mt-2">
-                    {errorVerifyMessage}
-                  </span>
-                )}
-              </div>
-            )}
-            <div class="form-group md:mb-0 mb-0">
-              <input
-                type="email"
-                name="email"
-                id="email"
-                value={signUpData?.email}
-               
-                onChange={(e) => {
-                  setSignUpData({ ...signUpData, email: e.target.value })
-                  // Clear the error message as the user starts typing
-                  setValidationErrors((prevErrors) => ({
-                    ...prevErrors,
-                    email: "", 
-                  }));
-                }}
-                className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[45px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 md:mb-0 lg:mb-5 xs:mb-3 small:mb-0 mb-0"
-                placeholder={t("email")}
-              />
-              {validationErrors?.email && (
-                <p style={{ color: "red" }}>{validationErrors?.email}</p>
-              )}
-            </div>
-            {otpGenerated && (
-              <div className="form-group md:mb-0 mb-0">
-                <div className="flex cursor-pointer placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[45px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 md:mb-0 lg:mb-5 xs:mb-3 small:mb-0 mb-0">
-                  {/* <!-- Label wraps everything --> */}
-                  <label
-                    for="upload_picture"
-                    className="flex items-center w-full cursor-pointer"
-                  >
-                    {/* <!-- Text Section --> */}
-                    <span className="flex-1 lg:text-lg text-[#11171F]">
-                      {imageName ? imageName : t("upload_picture")}
-                    </span>
-                  )
-                }
               </div>
               {otpGenerated && (
                 <div className="form-group md:mb-0 mb-0">
@@ -514,30 +453,11 @@ export default function SignUpNow() {
                   {!otpCode && errorVerifyMessage && (
                     <span className="text-red-500 text-sm mt-2">
                       {errorVerifyMessage}
-                    {/* <!-- Upload Icon/Button --> */}
-                    <span className="cursor-pointer bg-[#1796D8]   text-white flex items-center justify-center  rounded-[4px] w-[74px] absolute  lg:top-2 top-0  right-0 lg:min-h-[calc(100%-16px)] min-h-[100%] lg:right-[6px] upload_icon">
-                      {/* <!-- Icon --> */}
-                      <svg
-                        class="feather feather-upload"
-                        fill="none"
-                        height="24"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                        <polyline points="17 8 12 3 7 8" />
-                        <line x1="12" x2="12" y1="3" y2="15" />
-                      </svg>
                     </span>
                   )}
                 </div>
               )}
-              <div className="form-group md:mb-0 mb-0">
+              <div class="form-group md:mb-0 mb-0">
                 <input
                   type="email"
                   name="email"
@@ -616,27 +536,27 @@ export default function SignUpNow() {
                 </div>
               )}
             </div>
-          </div>
-          <div className="book-you-button md:flex flex-wrap md:justify-between items-center mt-10 justify-center text-center btn-wrap">
-            <p className="text-black text-lg mb-3 lg:mt-0 mt-2 rtl:xl:text-[30px] ">
-              {t("already_have_an_account")}{" "}
+            <div className="book-you-button md:flex flex-wrap md:justify-between items-center mt-10 justify-center text-center btn-wrap">
+              <p className="text-black text-lg mb-3 lg:mt-0 mt-2 rtl:xl:text-[30px] ">
+                {t("already_have_an_account")}{" "}
+                <button
+                  onClick={signin}
+                  className="text-info-color font-bold ml-3">
+                  {t("sign_in")}
+                </button>
+              </p>
               <button
-                onClick={signin}
-                className="text-info-color font-bold ml-3">
-                {t("sign_in")}
+                // disabled={!disabledPhoneOTP}
+                onClick={handleSubmit}
+                className={
+                  !disabledPhoneOTP
+                    ? "py-2.5 px-6 text-white rounded-3xl font-medium xl:text-xl text-sm bg-btn-gradient hover:bg-btn-gradient-hover md:w-[181px]"
+                    : "lg:text-lg block md:w-[181px] w-full py-2.5 px-6 text-white rounded-3xl font-medium xl:text-xl text-sm bg-btn-gradient hover:bg-btn-gradient-hover"
+                }
+              >
+                {t("sign_up")}
               </button>
-            </p>
-            <button
-              // disabled={!disabledPhoneOTP}
-              onClick={handleSubmit}
-              className={
-                !disabledPhoneOTP
-                  ? "py-2.5 px-6 text-white rounded-3xl font-medium xl:text-xl text-sm bg-btn-gradient hover:bg-btn-gradient-hover md:w-[181px]"
-                  : "lg:text-lg block md:w-[181px] w-full py-2.5 px-6 text-white rounded-3xl font-medium xl:text-xl text-sm bg-btn-gradient hover:bg-btn-gradient-hover"
-              }
-            >
-              {t("sign_up")}
-            </button>
+            </div>
           </div>
         </div>
       </section>
