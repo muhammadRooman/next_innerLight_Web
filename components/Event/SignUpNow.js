@@ -199,6 +199,7 @@ export default function SignUpNow() {
     // If there are validation errors, show them and stop the form submission
     if (Object.keys(errors).length > 0) {
       setValidationErrors(errors);
+      setLoader(false);
       return;
     }
     // setLoader(true); // If token exists, stop loader
@@ -207,7 +208,8 @@ export default function SignUpNow() {
       const formData = new FormData();
       formData.append("fullName", signUpData?.fullName);
       formData.append("phoneNumber", fullPhoneNumber);
-      formData.append("email", signUpData?.email);
+      formData.append("otp", otpCode);
+      formData.append("email", signUpData?.email.toLowerCase());
       formData.append("profileImage", profileImage || "");
 
       const response = await axios.post(
@@ -281,6 +283,10 @@ export default function SignUpNow() {
     if (errorMessage) {
       setErrorMessage("");
     }
+  };
+
+  const handleOtpChange = (e) => {
+    setOtpCode(e.target.value.trim());
   };
 
   // Function to check if the token is expired
@@ -450,9 +456,10 @@ export default function SignUpNow() {
                       type="text"
                       name="otp"
                       id="otp"
+                      value={otpCode}
                       disabled={isOtpVerify}
                       // disabled={disabledPhoneOTP}
-                      onChange={(e) => setOtpCode(e.target.value.trim())}
+                      onChange={handleOtpChange}
                       className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[45px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 md:mb-0 lg:mb-5 xs:mb-3 small:mb-0 mb-0"
                       placeholder="OTP"
                     />

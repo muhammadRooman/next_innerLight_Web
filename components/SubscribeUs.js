@@ -1,16 +1,26 @@
-"use client"
-import Image from 'next/image';
+"use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import axios from "axios"
-import { useState } from 'react';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import axios from "axios";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import FullPageLoader from "./fullPageLoader.js/FullPageLoader";
 
 export default function SubscribeUs(props) {
   const t = useTranslations("SubscribeUs");
-  const [email, setEmail] = useState("")
+  const currentPath = usePathname();
+  const [email, setEmail] = useState("");
   const [error, setError] = useState("");
+  const [language, setLanguage] = useState("");
+  const [loading, setLoading] = useState(false); // Track loading state to disable the button
+
+  useEffect(() => {
+      const lang = currentPath.split("/")[1] || "en";
+      setLanguage(lang);
+    }, [currentPath]);
 
   const validateEmail = (email) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -20,30 +30,44 @@ export default function SubscribeUs(props) {
   const onSubmit = async (e) => {
     e.preventDefault();
     setError("");
-     // Validate email
-     if (!email.trim()) {
+    setLoading(true); // Set loading state
+
+    // Validate email
+    if (!email.trim()) {
       setError(t("email_is_required"));
+      setLoading(false); // Reset loading on error
       return;
     }
     if (!validateEmail(email.trim())) {
       setError(t("invalid_email"));
+      setLoading(false); // Reset loading on error
       return;
     }
+
     try {
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_BASE_API_FRONT}/newsletter`, { email: email })
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/newsletter`,
+        { email: email.toLowerCase() }
+      );
       if (response.data.success) {
-        toast.success(t(response.data.message))
-        setEmail("")
+        toast.success(language === "en" ? response.data.message : response.data.message_ar);
+        setEmail(""); // Reset email on success
+      } else {
+        toast.error(language === "en" ? response.data.message : response.data.message_ar);
+        setEmail(""); // Reset email on error
       }
-      else {
-        toast.error(t(response.data.message))
-        setEmail("")
-      }
+    } catch (err) {
+      console.error(err);
+      toast.error(t("something_went_wrong"));
+    } finally {
+      setLoading(false); // Reset loading state after the API call
     }
-    catch (err) {
-      console.log(err)
-    }
+  };
+
+  if (loading) {
+    return <FullPageLoader />
   }
+
   return (
     <>
       <section className='SubscribeUs-wrap'>
