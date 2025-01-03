@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
-import PhoneInput from 'react-phone-number-input';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-phone-number-input/style.css';
 import { countries, arabicCountries } from "../utils/countriesData";
@@ -14,6 +13,7 @@ import FullPageLoader from "../fullPageLoader.js/FullPageLoader";
 export default function SignIn() {
   const router = useRouter();
   const t = useTranslations("SignUpNow");
+  const token = localStorage.getItem("authToken");
   const [phoneNumber, setPhoneNumber] = useState("");
   const currentPath = usePathname();
   const [language, setLanguage] = useState("");
@@ -27,59 +27,83 @@ export default function SignIn() {
   const [firstLoader, setFirstLoader] = useState(true);
   const [disabledPhoneOTP, setDisabledPhoneOTP] = useState(false);
   const [OtpMessage, setOtpMessage] = useState("");
-
   const [selectedCountryCode, setSelectedCountryCode] = useState("+968");
   const fullPhoneNumber = `${selectedCountryCode}${phoneNumber.trim()}`;
-  const token = localStorage.getItem("authToken");
-
-  // fetched
+  
   useEffect(() => {
-    const lang = currentPath.split("/")[1] || "en"; // Get language from the path
+    // Extract the language from the URL path or default to "en"
+    const lang = currentPath.split("/")[1] || "en";
     setLanguage(lang);
-
-    // Check if token exists
+  
+    // Handle token existence for redirection
+    setFirstLoader(false); // Stop the loader irrespective of token presence
+  
     if (token) {
-      setFirstLoader(false); // If token exists, stop the loader
-      setTimeout(() => {
-        router.push(`/${language}/event`);
+      // Redirect to the event page for the detected language
+      const redirectTimeout = setTimeout(() => {
+        if(process.env.NEXT_PUBLIC_NODE_ENV== "development"){
+          router.push(`/${lang}/event`);
+        }
+        else{
+          router.push(`https://innerlightacademy.co/${lang}/event`);
+        }
       }, 1000);
-    } else {
-      setFirstLoader(false);
+  
+      // Cleanup timeout to avoid memory leaks
+      return () => clearTimeout(redirectTimeout);
     }
   }, [currentPath, router, token]);
 
   const handleSendOTP = async () => {
+    // Validate phone number presence
     if (!phoneNumber) {
       setErrorMessage(t("phone_number_is_required"));
       return;
     }
-   // Validate the phone number length (between 8 and 16 digits)
-   if (phoneNumber.length < 8 || phoneNumber.length > 16) {
-    setErrorMessage(t("phone_number_must_be_between_8_and_16_digits"));
-    return; // Stop execution if validation fails
-  }
-  setIsOtpSent(true);
+  
+    // Validate phone number length
+    if (phoneNumber.length < 8 || phoneNumber.length > 16) {
+      setErrorMessage(t("phone_number_must_be_between_8_and_16_digits"));
+      return;
+    }
+  
+    // Indicate OTP sending process has started
+    setIsOtpSent(true);
+  
     try {
+      // API call to generate OTP
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/auth/generate-otp`,
         {
-          phoneNumber:fullPhoneNumber,
-          userExist: 1, 
+          phoneNumber: fullPhoneNumber,
+          userExist: 1,
         }
       );
-
-      // OTP generated successfully
-      if (response?.data.success) {
+  
+      // Handle successful OTP generation
+      if (response?.data?.status === 1) {
         setOtpGenerated(true); // Show OTP input field
         setOtpMessage(response.data.message || "");
-        toast.success(language === "en" ? response.data.message : response.data.message_ar );
+        toast.success(
+          language === "en" ? response.data.message : response.data.message_ar
+        );
         setErrorMessage("");
-      } else {
-        toast.error(language === "en" ? "invalid phone number" : "رقم الهاتف غير صالح")
+      } 
+      // Handle specific error message related to WhatsApp
+      else if (response?.data?.message.includes("Failed to send WhatsApp message")) {
+        toast.error(
+          language === "en" ? "Invalid phone number" : "رقم الهاتف غير صالح"
+        );
+        setIsOtpSent(false);
+      } 
+      // Handle general errors
+      else {
+        toast.error(
+          language === "en" ? response.data.message : response.data.message_ar
+        );
         setIsOtpSent(false);
       }
     } catch (error) {
-      console.error("Error generating OTP:", error);
       setIsOtpSent(false);
     }
   };
@@ -95,7 +119,7 @@ export default function SignIn() {
         `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/auth/verify-otp`,
         {
           phoneNumber:fullPhoneNumber,
-          otpCode, // Add userExist here as part of the request body
+          otpCode, 
         }
       );
       // OTP Verified successfully
@@ -175,14 +199,20 @@ export default function SignIn() {
   const handlePhoneNumberChange = (e) => {
     const value = e.target.value;   
     const cleanedValue = value.replace(/[^0-9]/g, ''); 
+   
+    // Update the phone number state
     setPhoneNumber(cleanedValue);
+
+     // Clear the error message if any
+     if (errorMessage) {
+      setErrorMessage("");
+    }
   };
   
 
   if (loader || firstLoader){
     return <FullPageLoader/>
   }
-  
 
   return (
     <div>
@@ -190,9 +220,9 @@ export default function SignIn() {
         <div className="2xl:container xl:container lg:container mx-auto lg:max-0  px-5">
           <div className="heading-box text-center xl:mb-11 mb-8">
             <h2 className="xl:text-40 lg:text-[30px] text-[25px] font-bold rtl:2xl:text-[72px] rtl:xl:text-[50px] rtl:text-[40px]">{t("sign_in_now")}</h2>
-            <p className="2xl:text-2xl text-xl font-normal">
+            {/* <p className="2xl:text-2xl text-xl font-normal">
               {t("fill_the_form_below_our_representatives_respond_you")}
-            </p>
+            </p> */}
           </div>
           <div>
             <div className="lg:grid lg:grid-cols-2 ">
@@ -200,20 +230,40 @@ export default function SignIn() {
               <div className="btn-icon select_country relative flex align-baseline">
                 {
                   language ==="en" ? <div>
-                  <select
-                   disabled={isOtpSent || disabledPhoneOTP || OtpMessage} 
-                    value={selectedCountryCode}
-                    onChange={(e) => setSelectedCountryCode(e.target.value)}
-                    className="max-w-[154px] placeholder:text-[#11171F] w-full items-center dir_left-t-right rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6"
-                  >
-                    {countries.map((country, index) => (
-                      <option key={index} value={country.code}>
-                      {selectedCountryCode === country.code
-                       ? country.code
-                       : `${country.name} (${country.code})`}
-                      </option>
-                    ))}
-                  </select>
+                 <div className="relative">
+                        {/* Overlay that covers the dropdown */}
+
+                        <div
+                          className="absolute left-0 top-0 z-10 bg-transparent text-[#11171F] flex items-center justify-center"
+                          style={{
+                            width: '100%',
+                            height: '100%',
+                            pointerEvents: 'none', 
+                            border: '2px solid #DEDEDE',
+                            borderRadius: '4px',
+                            fontSize: '24px', 
+                            lineHeight: '1.5', 
+                            backgroundColor: 'transparent',
+                          }}
+                        >
+                          {selectedCountryCode}
+                        </div>
+
+                        {/* Actual dropdown */}
+                        <select
+                          value={selectedCountryCode}
+                          disabled={isOtpSent || disabledPhoneOTP || OtpMessage}
+                          onChange={(e) => setSelectedCountryCode(e.target.value)}
+                          style={{ opacity: 0 }}
+                          className="max-w-[154px] placeholder:text-[#11171F] w-full items-center dir_left-t-right rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6"
+                        >
+                          {countries.map((country, index) => (
+                            <option key={index} value={country.code}>
+                              {`${country.name} (${country.code})`}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
                 </div> : <div>
                   <select
                    disabled={isOtpSent || disabledPhoneOTP || OtpMessage} 

@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function ContactUs() {
     const t = useTranslations("Contact");
     const [flag, setFlag] = useState(false)
+    const [errors, setErrors] = useState({});
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -20,11 +21,47 @@ export default function ContactUs() {
         const { name, value } = e.target;
         console.log("Captured Value:", value);
         setFormData({ ...formData, [name]: value });
+        setErrors({ ...errors, [name]: "" });
+    };
+
+    const validateForm = () => {
+        let errors = {};
+        if (!formData?.name?.trim()) {
+            errors.name = t("name_is_required");
+        } else if (formData.name.trim().length > 150) {
+            errors.name = t("name_can_not");
+        }
+
+        if (!formData?.email?.trim()) {
+            errors.email = t("email_is_required");
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+            errors.email = t("invalid_email");
+        }
+
+        if (!formData?.phone?.trim()) {
+            errors.phone = t("phone_is_required");
+        } else if (!/^[+]?[\d]+$/.test(formData.phone)) {
+            errors.phone = t("invalid_phone");
+        } else if (formData.phone.trim().length < 8 || formData.phone.trim().length > 16) {
+            errors.phone = t("phone_must_be_8_to_16_digits");
+        }
+        if (!formData?.message?.trim()) {
+            errors.message = t("message_is_required");
+        } else if (formData.message.trim().length > 1000) {
+            errors.message = t("message_too_long");
+        }
+
+        return errors;
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setFlag(true)
+        const validationErrors = validateForm();
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
+            return;
+        }
+        setFlag(true);
         try {
             const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/contact`, {
                 method: "POST",
@@ -33,20 +70,21 @@ export default function ContactUs() {
                 },
                 body: JSON.stringify(formData),
             });
-            setFlag(false)
             const data = await res.json();
             if (res.ok) {
-                toast.success(t("alert"))
-                setFlag(false)
+                toast.success(t("alert"));
                 setFormData({ name: "", email: "", phone: "", message: "" });
             } else {
-                alert("Something went wrong.PLease try again")
-               setFlag(false)
+                toast.error(t("something_went_wrong"));
             }
         } catch (error) {
-            console.log(error)
+            console.error(error);
+            toast.error(t("network_error"));
+        } finally {
+            setFlag(false);
         }
     };
+
     return (
         <>
             <section className="bg-[#F7F7F7] lg:p-24 md:p-10 p-6">
@@ -88,19 +126,19 @@ export default function ContactUs() {
                                 value={formData.name}
                                 onChange={handleChange}
                                 placeholder={t("your_name")}
-                                required
                                  maxLength="150"
                                 className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
                             />
+                           {errors.name && <p style={{ color: "red" }} className="error-text">{errors.name}</p>}
                             <input
                                 type="email"
                                 name="email"
                                 value={formData.email}
                                 onChange={handleChange}
                                 placeholder={t("email")}
-                                required
                                 className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
                             />
+                            {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
                             <input
                             type="number"
                             name="phone"
@@ -108,20 +146,20 @@ export default function ContactUs() {
                             value={formData.phone}
                             onChange={handleChange}
                             placeholder={t("contact_no")}
-                            required
                             maxLength="17" 
                             // pattern="^[+]?[\d]+$" 
                             className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
                            />
+                            {errors.phone && <p style={{ color: "red" }} className="error-text">{errors.phone}</p>}
                             <textarea
                                 maxlength="1000"
                                 name="message"
                                 value={formData.message}
                                 onChange={handleChange}
-                                required
                                 placeholder={t("message")}
                                 className="placeholder:text-[#11171F] w-full p-4 border border-[#DEDEDE] focus:outline-none rounded-lg min-h-[180px] rtl:xl:text-[32px] md:text-lg xs:text-[16px] small:text-[14px] resize-none"
                             ></textarea>
+                            {errors.message && <p style={{ color: "red" }} className="error-text">{errors.message}</p>}
                             <div className="btn-wrap text-right rtl:text-left lg:mt-14 mt-10 submit_btn">
                                 <button
                                    disabled={flag}

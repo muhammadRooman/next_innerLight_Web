@@ -9,7 +9,11 @@
     "download_app": "تنزيل التطبيق",
     "en": "إنجليزي",
     "ar": "العربية ",
-    "copyright_reserved_Innerlight": "حقوق الطبع والنشر محفوظة إنرلايت"
+    "copyright_reserved_Innerlight": "حقوق الطبع والنشر محفوظة إنرلايت",
+    "are_you_sure_you_want_to_logout": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+    "cancel": "إلغاء",
+    "signin": "تسجيل الدخول",
+    "logout": "تسجيل الخروج"
   },
   "SiteBanner": {
     "title": "ابدأ رحلتك نحو",
@@ -59,7 +63,7 @@
     "book_your_consultation": "احجز استشارتك",
     "contact_us": "اتصل بنا",
     "submit": "يُقدِّم",
-    "alert": "سيتم الاتصال بك قريبا من قبل المشرف.",
+    "alert": "تم إرسال الرسالة! سنتواصل معك قريبًا.",
     "upcoming_workshop": "ورشة العمل القادمة",
     "show_less": "تظهر أقل",
     "show_more": "أظهر المزيد...",
@@ -247,6 +251,15 @@
     "message": "رسالة",
     "download": "قم بتنزيل تطبيقنا",
     "submit": "يُقدِّم",
+    "name_is_required": "الاسم مطلوب",
+    "invalid_email": "البريد الإلكتروني غير صالح",
+    "invalid_phone": "رقم الهاتف غير صالح",
+    "phone_is_required": "رقم الهاتف مطلوب",
+    "message_is_required": "الرسالة مطلوبة",
+   "phone_must_be_8_to_16_digits": "يجب أن يتراوح رقم الهاتف بين 8 و16 رقمًا",
+    "message_too_long": "لا يمكن أن تتجاوز الرسالة 1000 حرف",
+    "email_is_required": "البريد الإلكتروني مطلوب",
+    "name_can_not": "لا يمكن أن يتجاوز الاسم 150 حرفًا",
     "alert": "سيتم التواصل معك قريبا من قبل المشرف."
   },
   "ThankYou": {
@@ -259,4 +272,6 @@
   "Detail": {
     "enrollnow": "سجل الآن"
   }
+
+
 }

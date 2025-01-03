@@ -9,7 +9,11 @@
     "download_app": "Download App",
     "en": "English",
     "ar": "العربية ",
-    "copyright_reserved_Innerlight": "Copyright Reserved Innerlight"
+    "copyright_reserved_Innerlight": "Copyright Reserved Innerlight",
+    "are_you_sure_you_want_to_logout":"Are you sure you want to logout?",
+    "cancel":"Cancel",
+    "signin":"Signin",
+    "logout":"Logout"
   },
   "SiteBanner": {
     "title": "BEGIN YOUR JOURNEY TO",
@@ -244,7 +248,17 @@
     "message": "Message",
     "download": "Download Our App",
     "submit": "Submit",
-    "alert": "You will be contacted shortly by admin."
+    "name_is_required":"Name is required",
+    "invalid_email":"Invalid Email",
+    "invalid_phone":"invalid Phone",
+    "phone_is_required":"Phone is required",
+    "message_is_required":"Message is required",
+    "message_too_long":"Message cannot exceed 1000 characters",
+    "email_is_required":"Email is required",
+    "phone_must_be_8_to_16_digits":"Phone number must be between 8 and  16 digits",
+    "name_can_not":"Name cannot exceed 150 characters",
+    "alert": "Message sent! We’ll contact you soon"
+
   },
   "ThankYou": {
     "thanks_joining_us": "THANKS FOR JOINING US",
@@ -253,4 +267,5 @@
     "connectWithExperts" :"Connect with compassionate experts dedicated to nurturing your growth and well-being.",
     "personalizedSupport" :"Experience personalized support on your spiritual journey through tailored meditation sessions and one-on-one consultations with skilled practitioners."
   }
+  
 }
