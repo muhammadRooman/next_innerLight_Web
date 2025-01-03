@@ -1663,4 +1663,11 @@ html[lang="ar"][dir="rtl"] .what_we_offer p {
   line-height: 20px;
   font-weight: normal;
 }
+.profile_active_unActive button {
+  margin-left: 10px;
+  border: 1px solid gray;
+  padding: 5px 10px;
+  font-size: 12px;
+  outline: none;
+}
 }
