@@ -8,7 +8,7 @@ export default function AboutBanner(){
 
     return(
         <>
-        <section className="site-banner about-banner bg-cover bg-center xl:min-h-[800px] min-h-[350px] relative flex items-center justify-start pb-10 ">
+        <section className="site-banner about-banner event-banner bg-cover bg-center xl:min-h-[800px] min-h-[350px] relative flex items-center justify-start pb-10 ">
             <div className="2xl:container xl:container lg:container md:container xs:container md:mx-auto lg:max-0 px-5">
                 <div className="inner-container relative sm:pt-4 md:pt0">
                     <div className="site-banner-content about_banner_content max-w-[582px] ml-0 rtl:text-right"> 
