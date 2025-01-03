@@ -251,6 +251,15 @@
     "message": "رسالة",
     "download": "قم بتنزيل تطبيقنا",
     "submit": "يُقدِّم",
+    "name_is_required": "الاسم مطلوب",
+    "invalid_email": "البريد الإلكتروني غير صالح",
+    "invalid_phone": "رقم الهاتف غير صالح",
+    "phone_is_required": "رقم الهاتف مطلوب",
+    "message_is_required": "الرسالة مطلوبة",
+   "phone_must_be_8_to_16_digits": "يجب أن يتراوح رقم الهاتف بين 8 و16 رقمًا",
+    "message_too_long": "لا يمكن أن تتجاوز الرسالة 1000 حرف",
+    "email_is_required": "البريد الإلكتروني مطلوب",
+    "name_can_not": "لا يمكن أن يتجاوز الاسم 150 حرفًا",
     "alert": "سيتم التواصل معك قريبا من قبل المشرف."
   },
   "ThankYou": {

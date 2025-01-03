@@ -7,6 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 import FullPageLoader from "../fullPageLoader.js/FullPageLoader";
 import { CgProfile } from "react-icons/cg";
 import { IoMdLogOut } from "react-icons/io";
+import { CiSettings } from "react-icons/ci";
 
 const Header = ({ locale }) => {
   const t = useTranslations("NavbarLinks");
@@ -222,17 +223,20 @@ const Header = ({ locale }) => {
               </button>
               {/* Profile */}
               <div className="relative inline-block text-left">
-                <div>
+                <div className="profile_active_unActive">
                   <button
                     onClick={toggleDropdown}
                     className="flex items-center justify-center bg-gray-200 rounded-full p-2 hover:bg-gray-300"
                   >
                     {isAuthenticated ? (
-                       <CgProfile style={{ color: "green" }} className="h-6 w-6 text-gray-700" />
+                      //  <CgProfile  className="h-6 w-6 text-gray-700" />
+                     <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      <CiSettings className="h-6 w-6 text-gray-700" />
+                    </div>
                     ) : (
-                      <IoMdLogOut style={{ color: "red" }} className="h-6 w-6 text-gray-700" />
+                      // <IoMdLogOut style={{ color: "red" }} className="h-6 w-6 text-gray-700" />
+                      <span style={{ color: "black" }}>Sign in</span>
                     )}
-                    {/* Settings icon */}
                   </button>
                 </div>
 

@@ -156,7 +156,7 @@ export default function SignUpNow() {
   };
 
   const handleSubmit = async () => {
-    setLoader(true);
+    setLoader(false);
     let errors = {};
 
     // Validate fullName (maximum length of 150 characters)
@@ -215,7 +215,7 @@ export default function SignUpNow() {
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
-
+      setLoader(true);
       if (response?.data?.status === 1) {
         localStorage.setItem("authToken", response.data.token);
         setSignUpData({ fullName: "", email: "" });
@@ -231,6 +231,7 @@ export default function SignUpNow() {
         router.push(`/${language}/thank-you`);
       } else {
         toast.error(language === "en" ? response.data.message : response.data.message_ar);
+        setValidationErrors({email:"email already exist"})
         // Delay the loader hide to let toast appear
         setTimeout(() => {
           setLoader(false);
@@ -281,8 +282,6 @@ export default function SignUpNow() {
       setErrorMessage("");
     }
   };
-
-
 
   // Function to check if the token is expired
   const isTokenExpired = () => {
@@ -436,7 +435,14 @@ export default function SignUpNow() {
                     {t("send_OTP")}
                   </button>
                 </div>
-              </div>
+                {
+                  errorMessage && (
+                <span className="text-red-500 text-sm mt-2">
+                  {errorMessage}
+                </span>
+              )
+            }
+              </div>           
               {otpGenerated && (
                 <div className="form-group md:mb-0 mb-0">
                   <div className="btn-icon relative">
