@@ -220,9 +220,9 @@ export default function SignIn() {
         <div className="2xl:container xl:container lg:container mx-auto lg:max-0  px-5">
           <div className="heading-box text-center xl:mb-11 mb-8">
             <h2 className="xl:text-40 lg:text-[30px] text-[25px] font-bold rtl:2xl:text-[72px] rtl:xl:text-[50px] rtl:text-[40px]">{t("sign_in_now")}</h2>
-            <p className="2xl:text-2xl text-xl font-normal">
+            {/* <p className="2xl:text-2xl text-xl font-normal">
               {t("fill_the_form_below_our_representatives_respond_you")}
-            </p>
+            </p> */}
           </div>
           <div>
             <div className="lg:grid lg:grid-cols-2 ">
@@ -230,20 +230,40 @@ export default function SignIn() {
               <div className="btn-icon select_country relative flex align-baseline">
                 {
                   language ==="en" ? <div>
-                  <select
-                   disabled={isOtpSent || disabledPhoneOTP || OtpMessage} 
-                    value={selectedCountryCode}
-                    onChange={(e) => setSelectedCountryCode(e.target.value)}
-                    className="max-w-[154px] placeholder:text-[#11171F] w-full items-center dir_left-t-right rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
-                  >
-                    {countries.map((country, index) => (
-                      <option key={index} value={country.code}>
-                      {selectedCountryCode === country.code
-                       ? country.code
-                       : `${country.name} (${country.code})`}
-                      </option>
-                    ))}
-                  </select>
+                 <div className="relative">
+                        {/* Overlay that covers the dropdown */}
+
+                        <div
+                          className="absolute left-0 top-0 z-10 bg-transparent text-[#11171F] flex items-center justify-center"
+                          style={{
+                            width: '100%', // Full width of the dropdown
+                            height: '100%', // Full height of the dropdown
+                            pointerEvents: 'none', // Prevent blocking interactions
+                            border: '2px solid #DEDEDE', // Match the dropdown's border
+                            borderRadius: '4px', // Match the dropdown's border radius
+                            fontSize: '24px', // Match the font size
+                            lineHeight: '1.5', // Adjust line height for spacing
+                            backgroundColor: 'transparent', // Ensure it doesn't change to white during loading
+                          }}
+                        >
+                          {selectedCountryCode}
+                        </div>
+
+                        {/* Actual dropdown */}
+                        <select
+                          value={selectedCountryCode}
+                          disabled={isOtpSent || disabledPhoneOTP || OtpMessage}
+                          onChange={(e) => setSelectedCountryCode(e.target.value)}
+                          style={{ opacity: 0 }}
+                          className="md:max-w-[154px] xs:max-w-[140px] small:max-w-[110px] placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[45px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 md:mb-0 lg:mb-5 xs:mb-3 small:mb-0 mb-0 opacity:0 bg-transparent"
+                        >
+                          {countries.map((country, index) => (
+                            <option key={index} value={country.code}>
+                              {`${country.name} (${country.code})`}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
                 </div> : <div>
                   <select
                    disabled={isOtpSent || disabledPhoneOTP || OtpMessage} 
