@@ -248,6 +248,15 @@
     "message": "Message",
     "download": "Download Our App",
     "submit": "Submit",
+    "name_is_required":"Name is required",
+    "invalid_email":"Invalid Email",
+    "invalid_phone":"invalid Phone",
+    "phone_is_required":"Phone is required",
+    "message_is_required":"Message is required",
+    "message_too_long":"Message cannot exceed 1000 characters",
+    "email_is_required":"Email is required",
+    "phone_must_be_8_to_16_digits":"Phone number must be between 8 and  16 digits",
+    "name_can_not":"Name cannot exceed 150 characters",
     "alert": "Message sent! We’ll contact you soon"
 
   },
