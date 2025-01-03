@@ -141,6 +141,8 @@
     "download": "قم بتنزيل التطبيق وغير رحلتك اليوم"
   },
   "SubscribeUs": {
+    "email_is_required": "البريد الإلكتروني مطلوب",
+    "invalid_email": "البريد الإلكتروني غير صالح",
     "subscribeUs": "اشترك معنا",
     "enter_email_address": "أدخل عنوان البريد الإلكتروني",
     "follow_us": "تابعنا",

@@ -87,7 +87,7 @@ export default function SignUpNow() {
         toast.success(language === "en" ? response.data.message : response.data.message_ar);
         setErrorMessage("");
       } else if (response?.data?.message.includes("Failed to send WhatsApp message")) {
-        toast.error(language === "en" ? "invalid phone number" : "رقم الهاتف غير صالح");
+        toast.error(language === "en" ? "Invalid phone number" : "رقم الهاتف غير صالح");
         setIsOtpSent(false);
       } else {
         toast.error(language === "en" ? response.data.message : response.data.message_ar);
@@ -231,7 +231,7 @@ export default function SignUpNow() {
         router.push(`/${language}/thank-you`);
       } else {
         toast.error(language === "en" ? response.data.message : response.data.message_ar);
-        setValidationErrors({email:"email already exist"})
+        setValidationErrors({email:"Email already exist"})
         // Delay the loader hide to let toast appear
         setTimeout(() => {
           setLoader(false);
