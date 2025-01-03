@@ -312,9 +312,9 @@ export default function LandingPage() {
                 <p className='2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] xl:leading-10 rtl:xl:text-[40px] rtl:max-w-[926px] rtl:xl:leading-10 font-normal mb-4'>
                   {language === "en" ? CmsWebHMeditationData?.description_en : CmsWebHMeditationData?.description_ar}
                 </p>
-                <p className='2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] xl:leading-10 rtl:xl:text-[48px] md:mb-24 mb-6 font-bold text-[#753892]'>
+                <h5 className='2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] xl:leading-10 rtl:xl:text-[48px] md:mb-24 mb-6 font-bold text-[#753892]'>
                   {t("connect_with_compassionate")}
-                </p>
+                </h5>
               </div>
               <div className='static-img relative lg:left-[-166px] rtl:lg:right-[-166px] mt-8 lg:w-[calc(100%+166px)] w-full'>
                 <div className="md:grid md:grid-cols-3 items-center">
@@ -357,9 +357,9 @@ export default function LandingPage() {
                     {t('downloadOurApp')}
                   </h2>
                 </div>
-                <p className="2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] rtl:xl:text-[48px] mb-2 font-bold text-[#753892]">
+                <h5 className="2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] rtl:xl:text-[48px] mb-2 font-bold text-[#753892]">
                   {t('connectWithExperts')}
-                </p>
+                </h5>
                 <p className="2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] xl:leading-10 rtl:xl:text-[40px] rtl:max-w-[786px] font-normal mb-4">
                   {t('personalizedSupport')}
                 </p>

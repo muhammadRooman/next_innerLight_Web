@@ -199,13 +199,15 @@ const Header = ({ locale }) => {
               </div>
 
               {/* Join Now */}
-              <Link
-                href="https://play.google.com/store/apps/details?id=com.arhamsoft.innerlight.innerlights&hl=en"
-                target="_blank"
-                className="py-2 md:px-6 px-3 text-white rounded-3xl font-medium rtl:font-black xl:text-xl md:text-[15px] sm:text-[10px] rtl:xl:text-[32px] text-[9px] bg-btn-gradient hover:bg-btn-gradient-hover ml-4 rtl:text-[12px]"
-              >
-                {t("download_app")}
-              </Link>
+              <div className="download_app_btn">
+                <Link
+                  href="https://play.google.com/store/apps/details?id=com.arhamsoft.innerlight.innerlights&hl=en"
+                  target="_blank"
+                  className="py-2 md:px-6 px-3 text-white rounded-3xl font-medium rtl:font-black xl:text-xl md:text-[15px] sm:text-[10px] rtl:xl:text-[32px] text-[9px] bg-btn-gradient hover:bg-btn-gradient-hover ml-4 rtl:text-[12px]"
+                >
+                  {t("download_app")}
+                </Link>
+              </div>
 
               {/* Hamburger Menu for Mobile */}
               <button
