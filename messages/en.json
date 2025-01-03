@@ -140,6 +140,8 @@
     "download": "Download The App And Transform Your Journey Today!"
   },
   "SubscribeUs": {
+    "email_is_required":"Email is required",
+    "invalid_email":"Invalid Email",
     "subscribeUs": "Subscribe Us",
     "enter_email_address": "Enter Email Address",
     "follow_us": "Follow Us",
@@ -250,7 +252,7 @@
     "submit": "Submit",
     "name_is_required":"Name is required",
     "invalid_email":"Invalid Email",
-    "invalid_phone":"invalid Phone",
+    "invalid_phone":"Invalid Phone",
     "phone_is_required":"Phone is required",
     "message_is_required":"Message is required",
     "message_too_long":"Message cannot exceed 1000 characters",
