@@ -94,12 +94,20 @@ export default function OurClients() {
               ))}
               {/* Custom Pagination and Navigation */}
               <div className="flex justify-center items-center xl:mt-0 mt-6">
-                <button
-                  className="custom-prev custom-prev-btn absolute xs:top-[44%] top-[46%] xs:translate-y-[-44%] translate-y-[-40%] left-0 z-20"
-                  aria-label="Previous"
-                >
-                  <Image src="/left.svg" alt="left" width={40} height={39} />
-                </button>
+                <div className="swiper_slider_btn">
+                  <button
+                    className="custom-prev custom-prev-btn absolute xs:top-[44%] top-[46%] xs:translate-y-[-44%] translate-y-[-40%] left-0 z-20"
+                    aria-label="Previous"
+                  >
+                    <Image src="/left.svg" alt="left" width={40} height={39} />
+                  </button>
+                  <button
+                    className="custom-next custom-next-btn absolute right-0 z-20 xs:top-[44%] top-[46%] xs:translate-y-[-44%] translate-y-[-40%]"
+                    aria-label="Next"
+                  >
+                    <Image src="/right.svg" alt="right" width={40} height={39} />
+                  </button>
+                </div>
                 <div className="center-nav flex">
                   <button className="custom-prev" aria-label="Previous">
                     <Image src="/left.png" alt="left" width={16} height={8} />
@@ -109,12 +117,6 @@ export default function OurClients() {
                     <Image src="/right.png" alt="right" width={16} height={8} />
                   </button>
                 </div>
-                <button
-                  className="custom-next custom-next-btn absolute right-0 z-20 xs:top-[44%] top-[46%] xs:translate-y-[-44%] translate-y-[-40%]"
-                  aria-label="Next"
-                >
-                  <Image src="/right.svg" alt="right" width={40} height={39} />
-                </button>
               </div>
             </Swiper>
           </div>
