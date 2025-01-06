@@ -229,7 +229,8 @@ export default function SignIn() {
             <div className="form-group lg:mb-0 mb-4">
               <div className="btn-icon select_country relative flex align-baseline">
                 {
-                  language ==="en" ? <div>
+                  language ==="en" ? 
+                  <div>
                  <div className="relative">
                         {/* Overlay that covers the dropdown */}
 
@@ -264,23 +265,44 @@ export default function SignIn() {
                           ))}
                         </select>
                       </div>
-                </div> : <div>
-                  <select
-                   disabled={isOtpSent || disabledPhoneOTP || OtpMessage} 
-                    value={selectedCountryCode}
-                    onChange={(e) => setSelectedCountryCode(e.target.value)}
-                    className=" max-w-[154px] placeholder:text-[#11171F] w-full items-center dir_left-t-right rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6"
-                  >
-                    {arabicCountries.map((country, index) => (
-                      <option key={index} value={country.code}>
-                      {selectedCountryCode === country.code
-                       ? country.code
-                       : `${country.name} (${country.code})`}
-                      </option>
-                       ))}
-                  </select>
-                </div>
-                }
+                </div> :
+                <div>
+                 <div className="relative">
+                        {/* Overlay that covers the dropdown */}
+
+                        <div
+                          className="absolute left-0 top-0 z-10 bg-transparent text-[#11171F] flex items-center justify-center"
+                          style={{
+                            width: '100%',
+                            height: '100%',
+                            pointerEvents: 'none', 
+                            border: '2px solid #DEDEDE',
+                            borderRadius: '4px',
+                            fontSize: '24px', 
+                            lineHeight: '1.5', 
+                            backgroundColor: 'transparent',
+                          }}
+                        >
+                          {selectedCountryCode}
+                        </div>
+
+                        {/* Actual dropdown */}
+                        <select
+                          value={selectedCountryCode}
+                          disabled={isOtpSent || disabledPhoneOTP || OtpMessage}
+                          onChange={(e) => setSelectedCountryCode(e.target.value)}
+                          style={{ opacity: 0 }}
+                          className="max-w-[154px] placeholder:text-[#11171F] w-full items-center dir_left-t-right rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6"
+                        >
+                          {arabicCountries.map((country, index) => (
+                            <option key={index} value={country.code}>
+                              {`${country.name} (${country.code})`}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                </div> 
+     }
              
               <div className="relative w-[80%]">
             <input
