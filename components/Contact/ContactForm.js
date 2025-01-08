@@ -87,7 +87,7 @@ export default function ContactUs() {
 
     return (
         <>
-            <section className="bg-[#F7F7F7] lg:p-24 md:p-10 p-6">
+            <section className="bg-[#F7F7F7] lg:p-24 md:p-10 p-6 form_wrapper">
                 <div className="2xl:container xl:container lg:container mx-auto md:flex justify-center">
                     <div className="form-wrapper bg-yoga bg-cover xl:p-16 p-8 rtl:rounded-r-lg ltr:rounded-l-lg md:flex hidden">
                         <div className="box-overlay shadow-shadow-color2 rounded-10 bg-[#F9F9F9] xl:px-24 xl:py-11 px-6 py-6 flex items-center flex-col justify-center">

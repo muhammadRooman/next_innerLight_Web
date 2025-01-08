@@ -286,7 +286,7 @@ html[lang="ar"] .nurturing-img::before {
 .singnature-text p {
   font-size: 18px;
   max-width: 783px;
-  line-height: 40px;
+  line-height: 28px;
   padding-left: 41px;
 }
 
@@ -451,9 +451,9 @@ html[lang="ar"][dir="rtl"] .sign_in_page p {
   font-size: 32px;
 }
 
-.sign_in_page .btn-icon {
+/* .sign_in_page .btn-icon {
   margin-left: 15px;
-}
+} */
 
 html[lang="ar"][dir="rtl"] .sign_in_page .btn-icon {
   margin-right: 15px;
@@ -641,19 +641,137 @@ html[lang="ar"][dir="rtl"] .what_we_offer span {
   font-weight: 600;
 }
 
-.sign_icon_wrapper{
+.sign_icon_wrapper {
   max-width: 100px;
-    padding: 10px 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  padding: 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.profile_active_unActive button{
+
+.profile_active_unActive button {
   margin-left: 10px;
-    border: 1px solid gray;
-    padding: 5px 20px;
-    font-size: 15px;
-    outline: none;
+  border: 1px solid gray;
+  padding: 5px 20px;
+  font-size: 15px;
+  outline: none;
+}
+
+.custom_select {
+  padding: 3px 25px 3px 8px;
+  font-size: 12px;
+}
+
+html[lang="ar"][dir="rtl"] .blog-card .card-content h4 {
+  font-size: 40px;
+  line-height: 49px;
+}
+
+html[lang="ar"][dir="rtl"] .blog-card .card-content p {
+  font-size: 32px;
+  line-height: 32px;
+}
+
+html[lang="ar"][dir="rtl"] .SubscribeUs-wrap .SubscribeUs-card h1 {
+  font-size: 40px;
+  line-height: 49px;
+}
+
+html[lang="ar"][dir="rtl"] .SubscribeUs-wrap .SubscribeUs-card .icon-wrap input {
+  font-size: 28px;
+  line-height: 35px;
+}
+
+html[lang="ar"][dir="rtl"] .SubscribeUs-wrap .SubscribeUs-card .follow-us h5 {
+  font-size: 40px;
+  line-height: 49px;
+}
+
+html[lang="ar"][dir="rtl"] .border_line::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 480px;
+  background-color: #DEDEDE;
+  left: 0;
+  right: -240px;
+  top: -16px;
+}
+
+.social-icon a>img {
+  width: 20px;
+  height: 20px;
+}
+
+.commitment-wrap {
+  padding-top: 102px !important;
+}
+
+.commitment-wrap .heading-box h2 {
+  padding-bottom: 92px;
+}
+
+.heading-box h5 {
+  font-size: 24px;
+}
+
+.heading-box h2 {
+  font-size: 40px;
+}
+
+.site-banner .btn-wrap a {
+  font-size: 20px;
+}
+
+.our_mission_custom_font {
+  font-size: 18px !important;
+  line-height: 28px;
+}
+
+.our_mission_custom_font_bold {
+  font-size: 18px !important;
+  line-height: 28px;
+  font-weight: bold;
+}
+
+.our_mission_heading {
+  padding: 10px 0;
+}
+
+.benefits-content h5 {
+  padding: 25px 0;
+}
+
+.our-stories {
+  margin-top: 105px;
+}
+
+.contact_us p {
+  font-size: 18px;
+  line-height: 23px;
+  color: #000000;
+}
+
+html[lang="ar"][dir="rtl"] .form_wrapper .form_control .btn-wrap button {
+  margin-left: 0 !important;
+}
+
+.commitment-content p {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.DownloadOurApp-content h5 {
+  margin-bottom: 28px;
+}
+
+.DownloadOurApp-content .btn-download img {
+  width: 180px;
+  height: 55px;
+}
+
+.thankYou-wrap {
+  margin-bottom: 58px;
 }
 
 /* responsive */
@@ -720,13 +838,31 @@ html[lang="ar"][dir="rtl"] .what_we_offer span {
   html[lang="ar"][dir="rtl"] .WhatWeOffer-content {
     padding: 10px;
   }
+
   html[lang="ar"][dir="rtl"] .benefits-holistic .heading-box {
     padding: 60px 0;
-}
-html[lang="ar"][dir="rtl"] .what_we_offer .heading-box h2 {
-  font-size: 62px;
-  line-height: 68px;
-}
+  }
+
+  html[lang="ar"][dir="rtl"] .what_we_offer .heading-box h2 {
+    font-size: 62px;
+    line-height: 68px;
+  }
+
+  .commitment-wrap {
+    padding-top: 82px !important;
+  }
+
+  .commitment-wrap .heading-box h2 {
+    padding-bottom: 45px;
+  }
+
+  .heading-box h5 {
+    font-size: 22px;
+  }
+
+  .heading-box h2 {
+    font-size: 30px;
+  }
 }
 
 @media (max-width: 1367px) {
@@ -826,6 +962,36 @@ html[lang="ar"][dir="rtl"] .what_we_offer .heading-box h2 {
 
   html[lang="ar"][dir="rtl"] .comitment-img {
     min-height: 270px;
+  }
+
+  html[lang="ar"][dir="rtl"] .border_line::after {
+    width: 350px;
+    right: -180px;
+  }
+
+  .MeditationConsultation-wrap .MeditationConsultation-inner {
+    min-height: 860px;
+  }
+
+  .custom_footer p {
+    font-size: 16px;
+  }
+
+  .SubscribeUs-card button {
+    font-size: 18px;
+  }
+
+  .SubscribeUs-card .form-group .icon-wrap input {
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  .commitment-wrap {
+    padding-top: 62px !important;
+  }
+
+  .commitment-wrap .heading-box h2 {
+    padding-bottom: 25px;
   }
 }
 
@@ -964,46 +1130,111 @@ html[lang="ar"][dir="rtl"] .what_we_offer .heading-box h2 {
   html[lang="ar"][dir="rtl"] .event-banner {
     min-height: 500px !important;
   }
+
   html[lang="ar"][dir="rtl"] .benefits-holistic h5 {
     font-size: 50px;
     line-height: 50px;
-}
-html[lang="ar"][dir="rtl"] .benefits-holistic h2 {
-  font-size: 48px;
-  line-height: 38px;
-}
-html[lang="ar"][dir="rtl"] .benefits-holistic{
-  padding-top: 0;
-}
-html[lang="ar"][dir="rtl"] .benefits-holistic .heading-box {
-  padding: 30px 0;
-}
-html[lang="ar"][dir="rtl"] .benefits-card .benefits-content h5 {
-  font-size: 30px;
-  line-height: 29px;
-  padding: 15px 0 5px;
-}
-html[lang="ar"][dir="rtl"] .benefits-card .benefits-content p {
-  font-size: 22px;
-  line-height: 22px;
-}
-html[lang="ar"][dir="rtl"] .custom_font {
-  font-size: 24px;
-  line-height: 30px;
-}
-html[lang="ar"][dir="rtl"] .what_we_offer .heading-box h2 {
-  font-size: 52px;
-  line-height: 58px;
-}
-html[lang="ar"][dir="rtl"] .what_we_offer .heading-box h5 {
-  font-size: 48px;
-  line-height: 40px;
-}
-html[lang="ar"][dir="rtl"] .what_we_offer p {
-  font-size: 26px;
-  line-height: 28px;
-  font-weight: normal;
-}
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-holistic h2 {
+    font-size: 48px;
+    line-height: 38px;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-holistic {
+    padding-top: 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-holistic .heading-box {
+    padding: 30px 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-card .benefits-content h5 {
+    font-size: 30px;
+    line-height: 29px;
+    padding: 15px 0 5px;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-card .benefits-content p {
+    font-size: 22px;
+    line-height: 22px;
+  }
+
+  html[lang="ar"][dir="rtl"] .custom_font {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  html[lang="ar"][dir="rtl"] .what_we_offer .heading-box h2 {
+    font-size: 52px;
+    line-height: 58px;
+  }
+
+  html[lang="ar"][dir="rtl"] .what_we_offer .heading-box h5 {
+    font-size: 48px;
+    line-height: 40px;
+  }
+
+  html[lang="ar"][dir="rtl"] .what_we_offer p {
+    font-size: 26px;
+    line-height: 28px;
+    font-weight: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .custom_select {
+    padding: 2px 30px 2px 10px;
+  }
+
+  html[lang="ar"][dir="rtl"] .navbar_links {
+    font-size: 22px;
+    margin-left: 60px;
+  }
+
+  html[lang="ar"][dir="rtl"] .border_line::after {
+    width: 250px;
+    right: -130px;
+  }
+
+  .custom_footer nav>a {
+    margin-right: 20px;
+  }
+
+  .commitment-wrap .heading-box h2 {
+    padding-bottom: 32px;
+  }
+
+  .commitment-wrap {
+    padding-top: 62px !important;
+  }
+
+  .MeditationConsultation-wrap .MeditationConsultation-inner {
+    min-height: 780px;
+  }
+
+  .our-value-content-box .heading-box h2 {
+    font-size: 32px;
+    line-height: normal;
+  }
+
+  .commitment-content p {
+    font-size: 16px;
+    line-height: normal;
+  }
+
+  .verify_button {
+    min-height: 55px;
+    right: 8px;
+    top: 8px;
+  }
+
+  .heading-box h2 {
+    font-size: 26px;
+  }
+
+  .form_wrap input {
+    font-size: 16px;
+    line-height: normal;
+  }
 }
 
 @media (max-width: 991px) {
@@ -1043,8 +1274,10 @@ html[lang="ar"][dir="rtl"] .what_we_offer p {
   }
 
   html[lang="ar"][dir="rtl"] .blog-card-content p {
-    font-size: 26px !important;
+    font-size: 22px !important;
     max-width: 700px;
+    margin: 0 auto;
+    line-height: normal;
   }
 
   html[lang="ar"][dir="rtl"] .blog-card-content h4 {
@@ -1117,7 +1350,7 @@ html[lang="ar"][dir="rtl"] .what_we_offer p {
   }
 
   .benefits-holistic .heading-box {
-    padding-bottom: 25px;
+    padding-bottom: 0;
   }
 
   .what_we_offer .heading-box h2 {
@@ -1220,6 +1453,41 @@ html[lang="ar"][dir="rtl"] .what_we_offer p {
   html[lang="ar"][dir="rtl"] .site-banner {
     min-height: 370px;
     padding-bottom: 20px;
+  }
+
+  html[lang="ar"][dir="rtl"] .blog-card .card-content p {
+    font-size: 28px;
+    line-height: 26px;
+  }
+
+  .profile_active_unActive button {
+    margin-left: 10px;
+    border: 1px solid gray;
+    padding: 2px 16px;
+    font-size: 15px;
+    outline: none;
+  }
+
+  html[lang="ar"][dir="rtl"] .blog-card .card-content h4 {
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+  html[lang="ar"][dir="rtl"] .btn-icon button {
+    right: auto;
+    left: 6px;
+    top: 6px;
+  }
+
+  .comitment-img img {
+    object-fit: cover;
+    object-position: top;
+  }
+
+  .verify_button {
+    min-height: 45px;
+    right: 5px;
+    top: 8px;
   }
 
 }
@@ -1325,42 +1593,85 @@ html[lang="ar"][dir="rtl"] .what_we_offer p {
     width: 150px !important;
     height: 50px !important;
   }
+
   html[lang="ar"][dir="rtl"] .benefits-card .benefits-content h5 {
     font-size: 28px;
     line-height: 25px;
     padding: 15px 0 5px;
-}
-html[lang="ar"][dir="rtl"] .benefits-card .benefits-content p {
-  font-size: 22px;
-  line-height: 22px;
-}
-html[lang="ar"][dir="rtl"] .play_content_wrap h3 {
-  font-size: 28px;
-  line-height: 30px;
-}
-html[lang="ar"][dir="rtl"] .custom_font {
-  font-size: 20px;
-  line-height: 20px;
-}
-html[lang="ar"][dir="rtl"] .what_we_offer .heading-box h5 {
-  font-size: 38px;
-  line-height: 20px;
-}
-html[lang="ar"][dir="rtl"] .what_we_offer .heading-box h2 {
-  font-size: 36px;
-  line-height: 42px;
-  margin-bottom: 10px;
-}
-html[lang="ar"][dir="rtl"] .what_we_offer span {
-  font-size: 30px;
-  line-height: 30px;
-  font-weight: normal;
-}
-html[lang="ar"][dir="rtl"] .what_we_offer p {
-  font-size: 20px;
-  line-height: 23px;
-  font-weight: normal;
-}
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-card .benefits-content p {
+    font-size: 22px;
+    line-height: 22px;
+  }
+
+  html[lang="ar"][dir="rtl"] .play_content_wrap h3 {
+    font-size: 28px;
+    line-height: 30px;
+  }
+
+  html[lang="ar"][dir="rtl"] .custom_font {
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  html[lang="ar"][dir="rtl"] .what_we_offer .heading-box h5 {
+    font-size: 38px;
+    line-height: 20px;
+  }
+
+  html[lang="ar"][dir="rtl"] .what_we_offer .heading-box h2 {
+    font-size: 36px;
+    line-height: 42px;
+    margin-bottom: 10px;
+  }
+
+  html[lang="ar"][dir="rtl"] .what_we_offer span {
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .what_we_offer p {
+    font-size: 20px;
+    line-height: 23px;
+    font-weight: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .select_country button {
+    padding: 6px 5px;
+  }
+
+  html[lang="ar"][dir="rtl"] .btn-icon button {
+    right: auto;
+    left: 5px;
+    top: 5px;
+  }
+
+  .SubscribeUs-card button {
+    font-size: 16px;
+  }
+
+  .commitment-wrap .heading-box h2 {
+    padding-bottom: 12px;
+  }
+
+  .commitment-wrap {
+    padding-top: 32px !important;
+  }
+
+  .heading-box h5 {
+    font-size: 18px;
+  }
+
+  .heading-box h2 {
+    font-size: 20px;
+  }
+
+  .commitment-content p {
+    font-size: 14px;
+    line-height: normal;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1452,7 +1763,7 @@ html[lang="ar"][dir="rtl"] .what_we_offer p {
   }
 
   .moment_of_senetry {
-    padding-top: 40px;
+    padding-top: 30px;
   }
 
   .form_wrap {
@@ -1480,11 +1791,11 @@ html[lang="ar"][dir="rtl"] .what_we_offer p {
   }
 
   .benefits-holistic .heading-box {
-    margin-top: 15px;
+    margin-top: 25px;
   }
 
   .heading-box h2 {
-    line-height: 15px;
+    line-height: 25px;
   }
 
   .custom-pagination span {
@@ -1497,8 +1808,8 @@ html[lang="ar"][dir="rtl"] .what_we_offer p {
 
   .download_application .heading-box h2 {
     line-height: 24px;
-        font-size: 26px;
-    }
+    font-size: 26px;
+  }
 
   .upload_icon {
     position: relative;
@@ -1566,7 +1877,7 @@ html[lang="ar"][dir="rtl"] .what_we_offer p {
 
   html[lang="ar"][dir="rtl"] .QR img {
     width: 80px;
-    height: 50px;
+    height: 80px;
   }
 
   html[lang="ar"][dir="rtl"] .benefits-holistic .heading-box {
@@ -1647,28 +1958,165 @@ html[lang="ar"][dir="rtl"] .what_we_offer p {
   html[lang="ar"][dir="rtl"] .WhatWeOffer {
     padding-top: 30px;
   }
+
   html[lang="ar"][dir="rtl"] .benefits-holistic h5 {
     font-size: 30px;
     line-height: 20px;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-holistic .heading-box {
+    padding: 0px 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .what_we_offer span {
+    font-size: 26px;
+    line-height: 25px;
+    font-weight: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .what_we_offer p {
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: normal;
+  }
+
+  .profile_active_unActive button {
+    margin-left: 5px;
+    border: 1px solid gray;
+    padding: 3px 8px;
+    font-size: 10px;
+    outline: none;
+  }
+
+  html[lang="ar"][dir="rtl"] .blog-card .card-content h4 {
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  html[lang="ar"][dir="rtl"] .blog-card .card-content p {
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  html[lang="ar"][dir="rtl"] .SubscribeUs-wrap .SubscribeUs-card h1 {
+    font-size: 30px;
+    line-height: 20px;
+  }
+
+  html[lang="ar"][dir="rtl"] .SubscribeUs-wrap .SubscribeUs-card .icon-wrap input {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  html[lang="ar"][dir="rtl"] .swiper_slider_btn button>img {
+    width: 30px;
+    height: 30px;
+  }
+
+  html[lang="ar"][dir="rtl"] .swiper_slider_btn .custom-prev {
+    bottom: 275px;
+  }
+
+  .social-icon a>img {
+    width: 12px;
+    height: 12px;
+  }
+
+  html[lang="ar"][dir="rtl"] .yoga_img_wrapper {
+    min-height: 414px !important;
+  }
+
+  .custom_footer nav>a {
+    margin-right: 15px;
+    font-size: 14px;
+  }
+
+  .SubscribeUs-card button {
+    font-size: 16px;
+    padding: 0;
+  }
+
+  .SubscribeUs-card .form-group .icon-wrap input {
+    font-size: 16px;
+    line-height: normal;
+  }
+
+  .site-banner .btn-wrap a {
+    font-size: 12px;
+  }
+
+  .site-banner .btn-wrap {
+    margin-top: 20px;
+  }
+
+  .contact-banner {
+    min-height: 300px !important;
+  }
+
+  .form_wrapper form {
+    padding: 15px;
+  }
+
+  .icon-wrap button {
+    top: 15px !important;
+  }
+
+  .heading-box h2 {
+    font-size: 18px;
+  }
+
+  .heading-box h5 {
+    font-size: 14px;
+  }
+
+  .commitment-wrap {
+    padding-top: 22px !important;
+  }
+
+  .heading-box {
+    margin-bottom: 20px;
+  }
+
+  .benefits-content h5 {
+    padding: 10px 0 5px;
+    font-size: 16px;
+  }
+
+  .benefits-content h5 {
+    padding: 10px 0 5px;
+    font-size: 14px;
+    line-height: normal;
+  }
+
+  .nurturing-img {
+    min-height: 270px;
+  }
+
+  .our-value-content-box .heading-box h2 {
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  .our_mission_custom_font {
+    font-size: 16px !important;
+    line-height: 24px;
+  }
+  .our-stories {
+    margin-top: 0;
 }
-html[lang="ar"][dir="rtl"] .benefits-holistic .heading-box {
-  padding: 0px 0;
-}
-html[lang="ar"][dir="rtl"] .what_we_offer span {
-  font-size: 26px;
+.what_we_offer .heading-box h2 {
   line-height: 25px;
-  font-weight: normal;
+  max-width: 350px;
+  margin-bottom: 10px;
 }
-html[lang="ar"][dir="rtl"] .what_we_offer p {
-  font-size: 18px;
-  line-height: 20px;
-  font-weight: normal;
+.contact_us p {
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+  padding: 0 10px;
+  margin-bottom: 10px;
 }
-.profile_active_unActive button {
-  margin-left: 10px;
-  border: 1px solid gray;
-  padding: 5px 10px;
-  font-size: 12px;
-  outline: none;
+.event_banner_content .heading-box{
+  margin-bottom: 0;
 }
 }

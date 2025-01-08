@@ -67,7 +67,7 @@ export default function OurClients() {
             >
               {testimonialData?.map((client, index) => (
                 <SwiperSlide key={client._id}>
-                  <div className="xl:grid xl:grid-cols-12 gap-6 items-center">
+                  <div className="md:grid md:grid-cols-12 gap-6 items-center">
                     <div className="col-span-5">
                       <div className="relative xl:min-h-[350px] min-h-[250px] xl:mb-0 mb-9">
                         <Image
@@ -79,7 +79,7 @@ export default function OurClients() {
                       </div>
                     </div>
                     <div className="col-span-7">
-                      <div className="slider-content xl:max-w-[640px] max-w-full xl:text-left text-center">
+                      <div className="slider-content xl:max-w-[640px] md:max-w-[520px] max-w-full md:text-left text-center">
                         <div className="md:mb-5 mb-3 rtl:text-right">
                           <h4 className="xl:text-lg rtl:2xl:text-[32px] rtl:md:text-[28px] font-normal">{language === "en" ? client?.name_en : client?.name_ar}</h4>
                           <small className="text-info-color xl:text-lg rtl:2xl:text-[25px] md:text-[20px] text-[14px] rtl:md:text-[22px] font-normal">
@@ -94,12 +94,20 @@ export default function OurClients() {
               ))}
               {/* Custom Pagination and Navigation */}
               <div className="flex justify-center items-center xl:mt-0 mt-6">
-                <button
-                  className="custom-prev custom-prev-btn absolute xs:top-[44%] top-[46%] xs:translate-y-[-44%] translate-y-[-40%] left-0 z-20"
-                  aria-label="Previous"
-                >
-                  <Image src="/left.svg" alt="left" width={40} height={39} />
-                </button>
+                <div className="swiper_slider_btn">
+                  <button
+                    className="custom-prev custom-prev-btn absolute xs:top-[44%] top-[46%] xs:translate-y-[-44%] translate-y-[-40%] left-0 z-20"
+                    aria-label="Previous"
+                  >
+                    <Image src="/left.svg" alt="left" width={40} height={39} />
+                  </button>
+                  <button
+                    className="custom-next custom-next-btn absolute right-0 z-20 xs:top-[44%] top-[46%] xs:translate-y-[-44%] translate-y-[-40%]"
+                    aria-label="Next"
+                  >
+                    <Image src="/right.svg" alt="right" width={40} height={39} />
+                  </button>
+                </div>
                 <div className="center-nav flex">
                   <button className="custom-prev" aria-label="Previous">
                     <Image src="/left.png" alt="left" width={16} height={8} />
@@ -109,12 +117,6 @@ export default function OurClients() {
                     <Image src="/right.png" alt="right" width={16} height={8} />
                   </button>
                 </div>
-                <button
-                  className="custom-next custom-next-btn absolute right-0 z-20 xs:top-[44%] top-[46%] xs:translate-y-[-44%] translate-y-[-40%]"
-                  aria-label="Next"
-                >
-                  <Image src="/right.svg" alt="right" width={40} height={39} />
-                </button>
               </div>
             </Swiper>
           </div>

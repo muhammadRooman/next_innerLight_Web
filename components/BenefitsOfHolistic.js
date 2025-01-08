@@ -31,7 +31,7 @@ export default function BenefitsOfHolistic() {
     ];
 
     return (
-      <section className="benefits-holistic bg-gray-light lg:pt-0 xs:pt-8 small:pt-0 pb-[40px] small:pb-0 sm:pb-[10px]">
+      <section className="commitment-wrap benefits-holistic bg-gray-light lg:pt-0 xs:pt-8 small:pt-0 pb-[40px] small:pb-0 sm:pb-[10px]">
           <div className="2xl:container xl:container lg:container mx-auto px-5">
             <div className="heading-box text-center lg:pb-6 md:pb-0 pb-5">
               <h5 className="text-info-color 2xl:text-3xl xl:text-2xl lg:text-xl text-[16px] sm:text-md font-black rtl:2xl:text-[56px] rtl:xl:text-[40px] rtl:text-[30px] sm:text-[20px]">
