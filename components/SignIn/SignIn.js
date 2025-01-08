@@ -35,24 +35,22 @@ export default function SignIn() {
     const lang = currentPath.split("/")[1] || "en";
     setLanguage(lang);
   
-    // Handle token existence for redirection
-    setFirstLoader(false); // Stop the loader irrespective of token presence
-  
     if (token) {
       // Redirect to the event page for the detected language
       const redirectTimeout = setTimeout(() => {
-        if(process.env.NEXT_PUBLIC_NODE_ENV== "development"){
-          router.push(`/${lang}/event`);
-        }
-        else{
-          router.push(`https://innerlightacademy.co/${lang}/event`);
-        }
-      }, 1000);
+       const loginURL =
+     process.env.NEXT_PUBLIC_NODE_ENV === "development"
+        ? `/${lang}/event`
+        : `https://innerlightacademy.co/${lang}/event`;
+     router.push(loginURL);
+     }, 1000);
   
       // Cleanup timeout to avoid memory leaks
       return () => clearTimeout(redirectTimeout);
     }
+     setFirstLoader(false); // Stop the loader irrespective of token presence
   }, [currentPath, router, token]);
+
 
   const handleSendOTP = async () => {
     // Validate phone number presence
