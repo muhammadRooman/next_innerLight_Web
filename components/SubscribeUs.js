@@ -78,14 +78,38 @@ export default function SubscribeUs(props) {
               <input id="email" name="email" type="email" value={email} onChange={(e) => {setEmail(e.target.value); setError("")}} placeholder={t("enter_email_address")} className="pl-3 pr-9 border-[#CBCBCB] outline-0 lg:text-xl rtl:lg:text-[28px] text-sm bg-transparent block w-full border-0 text-gray-900 border-b-2 py-3 placeholder:text-[#0F0202] focus:none rtl:pr-0 font_28" />
             {error && <p style={{ color: "red", marginTop: "4px" }}>{error}</p>}                  
              
-              <button type='submit' disabled={loading} className=" absolute left-0 right-0 top-6 ml-auto rtl:mr-auto rtl:ml-0 flex lg:w-[20px] w-[15px] rtl:rotate-[180deg]">
+            <button
+              type="submit"
+              disabled={loading}
+              className="absolute left-0 right-0 top-6 ml-auto rtl:mr-auto rtl:ml-0 flex lg:w-[20px] w-[15px] rtl:rotate-[180deg]"
+            >
               {!loading ? (
-  <Image src="/arrow.png" alt="logo white" width={20} height={20} />
-) : (
-  <FullPageLoader/>
-)}
-        
-                </button>
+                <Image src="/arrow.png" alt="logo white" width={20} height={20} />
+              ) : (
+                <div className="flex justify-center items-center">
+                  <svg
+                    className="animate-spin h-5 w-5 text-gray-500"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                    ></path>
+                  </svg>
+                </div>
+              )}
+            </button>
             </div>
           </form>
           {(props.cmsWeb.facebook || props.cmsWeb.linkedin || props.cmsWeb.twitter || props.cmsWeb.pinterest || props.cmsWeb.youtube) && (
