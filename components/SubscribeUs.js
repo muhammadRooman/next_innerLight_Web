@@ -72,10 +72,10 @@ export default function SubscribeUs(props) {
     <>
       <section className='SubscribeUs-wrap'>
         <div className="SubscribeUs-card shadow-shadow-color rounded-10 lg:py-4 lg:px-8 p-5">
-          <h1 className='2xl:text-2xl rtl:2xl:text-[40px] text-[16px] font-bold text-center md:mb-6 small:mb-4'>{t("subscribeUs")}</h1>
+          <h1 className='2xl:text-2xl rtl:2xl:text-[40px] text-[16px] font-bold text-center md:mb-6 small:mb-4 font_40'>{t("subscribeUs")}</h1>
           <form className='form-group mb-7' onSubmit={onSubmit}>
             <div className='icon-wrap relative'>
-              <input id="email" name="email" type="email" value={email} onChange={(e) => {setEmail(e.target.value); setError("")}} placeholder={t("enter_email_address")} className="pl-3 pr-9 border-[#CBCBCB] outline-0 lg:text-xl rtl:lg:text-[28px] text-sm bg-transparent block w-full border-0 text-gray-900 border-b-2 py-3 placeholder:text-[#0F0202] focus:none rtl:pr-0 " />
+              <input id="email" name="email" type="email" value={email} onChange={(e) => {setEmail(e.target.value); setError("")}} placeholder={t("enter_email_address")} className="pl-3 pr-9 border-[#CBCBCB] outline-0 lg:text-xl rtl:lg:text-[28px] text-sm bg-transparent block w-full border-0 text-gray-900 border-b-2 py-3 placeholder:text-[#0F0202] focus:none rtl:pr-0 font_28" />
             {error && <p style={{ color: "red", marginTop: "4px" }}>{error}</p>}                  
              
             <button
@@ -114,7 +114,7 @@ export default function SubscribeUs(props) {
           </form>
           {(props.cmsWeb.facebook || props.cmsWeb.linkedin || props.cmsWeb.twitter || props.cmsWeb.pinterest || props.cmsWeb.youtube) && (
             <div className="follow-us flex items-center justify-between">
-              <h5 className="2xl:text-2xl rtl:2xl:text-[40px] text-[16px] mb-0 font-bold rtl:ml-4">
+              <h5 className="2xl:text-2xl rtl:2xl:text-[40px] text-[16px] mb-0 font-bold rtl:ml-4 font_40">
                 {t("follow_us")}
               </h5>
               <nav className="flex items-center justify-center ml-auto rtl:ml-0">

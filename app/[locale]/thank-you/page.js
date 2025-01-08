@@ -27,7 +27,7 @@ export default function ThankYou() {
       ) : (
         <div className="thankYou-wrap bg-gray-light">
           <div className="heading-box text-left lg:pt-20 pt-10">
-            <h2 className="xl:text-40 lg:text-[30px] text-[25px] font-bold text-info-color text-center">
+            <h2 className="xl:text-40 lg:text-[30px] text-[25px] font-bold text-info-color text-center arabic_heading_two">
               {t("thanks_joining_us")}
             </h2>
           </div>

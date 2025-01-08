@@ -93,15 +93,15 @@ export default function SpiritualCard({ webinarEvenData }) {
               </div>
               {/* Content Card */}
               <div className="blog-card-content flex-1 xl:max-w-[calc(100%-541px)] lg:max-w-[calc(100%-400px)]  max-w-[100%] shadow-color bg-white rounded-10 py-8 xl:px-12 p-6">
-                <h4 className="text-[#343434] md:text-[32px] xs:text-[24px] small:text-[18px] rtl:2xl:text-[40px] font-bold max-w-[727px] rtl:text-right">
+                <h4 className="text-[#343434] md:text-[32px] xs:text-[24px] small:text-[18px] rtl:2xl:text-[40px] font-bold max-w-[727px] rtl:text-right heading_40">
                   {language === "en" ? event?.name : event?.name_ar}
                 </h4>
                 <div className="shap bg-shap-bg max-w-[262.97px] bg-no-repeat rtl:rotate-[180deg] min-h-[42px] text-center flex items-center justify-center xl:my-7 my-5">
-                  <p className="mt-0 text-white rtl:xl:text-[30px] md:text-lg rtl:rotate-[180deg] px-2">
+                  <p className="mt-0 text-white rtl:xl:text-[30px] md:text-lg rtl:rotate-[180deg] px-2 font_28">
                   {t(event.type)}
                   </p>
                 </div>
-                <p className="md:text-lg text-sm md:leading-[28px] rtl:2xl:text-[32px] rtl:max-w-[750px] rtl:md:text-[28px] font-normal">
+                <p className="md:text-lg text-sm md:leading-[28px] rtl:2xl:text-[32px] rtl:max-w-[750px] rtl:md:text-[28px] font-normal font_32">
                   {" "}
                   {language === "en"
                     ? truncateText(event?.shortDescription)
