@@ -234,7 +234,7 @@ export default function LandingPage() {
       <div className='2xl:container xl:container md:container mx-auto'>
         <section className="commitment-wrap bg-gray-light lg:pt-[80px] xl:pb-[90px] lg:pb-[80px] md:pt-[50px] pt-[30px] md:pb-[60px] pb-[40]">
           <div className="2xl:container xl:container lg:container mx-auto px-5">
-            <div className="heading-box text-center lg:pb-6 md:pb-0 pb-5">
+            <div className="heading-box text-center md:pb-0 pb-5">
               <h5 className="text-info-color 2xl:text-3xl xl:text-2xl lg:text-xl text-[16px] sm:text-md font-black rtl:2xl:text-[56px] rtl:xl:text-[40px] rtl:text-[30px] sm:text-[20px]">
                 {t("innerLight")}
               </h5>
