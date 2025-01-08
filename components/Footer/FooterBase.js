@@ -7,7 +7,7 @@ export default function FooterBase({locale}) {
  
   return (
     <>
-      <footer className="bg-[#F3F3F3] lg:pt-[84px] lg:pb-[23px] pt-[44px] pb-[15px]">
+      <footer className="bg-[#F3F3F3] lg:pt-[84px] lg:pb-[23px] pt-[44px] pb-[15px] custom_footer">
         <div className="container mx-auto">
           <div className="header-inner mx-auto">
             <div className="footer-logo text-center">
@@ -16,7 +16,7 @@ export default function FooterBase({locale}) {
               </Link>
             </div>
             <div className="nav-menu flex lg:mb-14 mb-8 justify-center">
-              <nav className="flex items-center md:flex-row flex-col">
+              <nav className="nav_wrapper">
                 <Link href={`/${locale}/home`} className="tlg:text-black text-white'} py-1.5 lg:py-1 2xl:me-[88px] xl:me-[60px] lg:me-[40px] text-base lg:text-[15px] xl:text-xl rtl:xl:text-[32px] hover:text-[#1796D8] font-medium rtl:font-black">{t("home")}</Link>
                 <Link href={`/${locale}/about`} className="tlg:text-black text-white'} py-1.5 lg:py-1 2xl:me-[88px] xl:me-[60px] lg:me-[40px] text-base lg:text-[15px] xl:text-xl rtl:xl:text-[32px] hover:text-[#1796D8] font-medium rtl:font-black">{t("about")}</Link>
                 <Link href={`/${locale}/benefits`} className="tlg:text-black text-white'} py-1.5 lg:py-1 2xl:me-[88px] xl:me-[60px] lg:me-[40px] text-base lg:text-[15px] xl:text-xl rtl:xl:text-[32px] hover:text-[#1796D8] font-medium rtl:font-black">{t("benefits")}</Link>  

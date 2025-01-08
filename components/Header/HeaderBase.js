@@ -150,7 +150,7 @@ const Header = ({ locale }) => {
                       activeNavbarName === link
                         ? "active text-[#1796D8]"
                         : "md:text-black text-white"
-                    } py-1.5 md:py-1 2xl:me-[88px] xl:me-[60px] md:me-[40px] sm:text-[12px] md:text-[14px] xl:text-xl rtl:lg:text-[32px] rtl:md:text-[24px] rtl:xs:text-[18px] rtl:small:text-[16px] hover:text-[#1796D8] font-medium rtl:font-black rtl:2xl:me-28 rtl:xl:me-20 rtl:lg:me-17 rtl:md:me-16`}
+                    } py-1.5 md:py-1 2xl:me-[88px] xl:me-[60px] md:me-[40px] sm:text-[12px] md:text-[14px] xl:text-xl rtl:lg:text-[32px] rtl:md:text-[24px] rtl:xs:text-[18px] rtl:small:text-[16px] hover:text-[#1796D8] font-medium rtl:font-black rtl:2xl:me-28 rtl:xl:me-20 rtl:lg:me-17 rtl:md:me-16 navbar_links`}
                     onClick={() => setIsMenuOpen(false)}
                     prefetch={true}
                   >

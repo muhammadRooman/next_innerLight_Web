@@ -451,7 +451,7 @@ export default function SignUpNow() {
                       value={phoneNumber} // Always shows country code + phone number
                       onChange={handlePhoneNumberChange} // Handles updates without breaking country code
                       className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[45px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 md:mb-0 lg:mb-0 xs:mb-3 small:mb-0 mb-0"
-                      placeholder="Enter phone number"
+                      placeholder="Phone Number"
                     />
                   </div>
                   <button
@@ -487,7 +487,7 @@ export default function SignUpNow() {
                     <button
                       disabled={isOtpVerify}
                       onClick={handleVerifyOTP}
-                      className="px-4 py-2 font-semibold lg:text-lg rounded-[3px] bg-[#1796D8] text-white absolute w-[101px] lg:top-2 top-[2px] lg:right-2 right-[2px] lg:min-h-[calc(100%-16px)] min-h-[calc(100%-4px)] shadow-shadow-color"
+                      className="px-4 py-2 font-semibold lg:text-lg rounded-[3px] bg-[#1796D8] text-white absolute w-[101px] lg:top-2 top-[2px] lg:right-2 right-[2px] lg:min-h-[calc(100%-16px)] min-h-[calc(100%-4px)] shadow-shadow-color verify_button"
                     >
                       {t("verify")}
                     </button>
