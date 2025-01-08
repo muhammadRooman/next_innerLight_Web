@@ -34,10 +34,10 @@ export default function BenefitsOfHolistic() {
       <section className="commitment-wrap benefits-holistic bg-gray-light lg:pt-0 xs:pt-8 small:pt-0 pb-[40px] small:pb-0 sm:pb-[10px]">
           <div className="2xl:container xl:container lg:container mx-auto px-5">
             <div className="heading-box text-center lg:pb-6 md:pb-0 pb-5">
-              <h5 className="text-info-color 2xl:text-3xl xl:text-2xl lg:text-xl text-[16px] sm:text-md font-black rtl:2xl:text-[56px] rtl:xl:text-[40px] rtl:text-[30px] sm:text-[20px]">
+              <h5 className="text-info-color 2xl:text-3xl xl:text-2xl lg:text-xl text-[16px] sm:text-md font-black rtl:2xl:text-[56px] rtl:xl:text-[40px] rtl:text-[30px] sm:text-[20px] arabic_heading_one">
                 {t("discoverThe")}
               </h5>
-              <h2 className="xl:text-[40px] lg:text-[30px] text-[18px] font-bold rtl:2xl:text-[72px] rtl:xl:text-[50px] rtl:text-[40px] sm:text-[22px]">
+              <h2 className="xl:text-[40px] lg:text-[30px] text-[18px] font-bold rtl:2xl:text-[72px] rtl:xl:text-[50px] rtl:text-[40px] sm:text-[22px] arabic_heading_two">
                 {t("benefits_of_holistic")}
               </h2>
             </div>
@@ -54,10 +54,10 @@ export default function BenefitsOfHolistic() {
                       />
                     </div>
                     <div className="benefits-content xl:max-w-[307px] mx-auto">
-                      <h5 className="text-info-color 2xl:text-3xl xl:text-2xl lg:text-xl text-[16px] sm:text-md font-black rtl:2xl:text-[56px] rtl:xl:text-[40px] rtl:text-[30px] sm:text-[20px]">
+                      <h5 className="text-info-color 2xl:text-3xl xl:text-2xl lg:text-xl text-[16px] sm:text-md font-black rtl:2xl:text-[56px] rtl:xl:text-[40px] rtl:text-[30px] sm:text-[20px] font_40">
                         {benefit.title}
                       </h5>
-                      <p className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] rtl:2xl:text-[30px] rtl:md:text-[28px] font-normal text-[#343434] leading-6 sm:leading-7 md:leading-8 lg:leading-9 max-w-full md:max-w-[900px]">
+                      <p className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] rtl:2xl:text-[30px] rtl:md:text-[28px] font-normal text-[#343434] leading-6 sm:leading-7 md:leading-8 lg:leading-9 max-w-full md:max-w-[900px] font_32">
                         {benefit.description}
                       </p>
                     </div>

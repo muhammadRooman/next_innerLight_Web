@@ -112,10 +112,10 @@ export default function ContactUs() {
                         </div>
                     </div>
                     <div className="bg-white shadow-lg rounded-lg md:p-8 xs:p-6 small:p-4 xl:w-1/2 lg:w-1/2 w-full contact_us">
-                        <h2 className="xl:text-40 md:text-[30px] xs:text-[20px] small:text-[18px] md:leading-[100px] xs:leading-[50px] small:leading-[30px] font-bold rtl:2xl:text-[72px] rtl:md:text-right rtl:xl:text-[50px] rtl:text-[40px] leading-[80px] text-[#1796D8] md:text-left text-center">
+                        <h2 className="xl:text-40 md:text-[30px] xs:text-[20px] small:text-[18px] md:leading-[100px] xs:leading-[50px] small:leading-[30px] font-bold rtl:2xl:text-[72px] rtl:md:text-right rtl:xl:text-[50px] rtl:text-[40px] leading-[80px] text-[#1796D8] md:text-left text-center arabic_heading_two">
                             {t("contact_us")}
                         </h2>
-                        <p className="mb-6 text-[#000000] md:text-[22px] small:text-[16px] md:leading-[23px] font-normal md:text-left text-center rtl:md:text-right">
+                        <p className="mb-6 text-[#000000] md:text-[22px] small:text-[16px] md:leading-[23px] font-normal md:text-left text-center rtl:md:text-right font_32">
                             {t("form")}
                         </p>
 

@@ -13,17 +13,17 @@ export default function DownloadOurApp() {
             <div className="md:grid md:grid-cols-2 flex flex-col-reverse">
               <div className="DownloadOurApp-content xl:max-w-[685px] max-w-full lg:pt-20 pt-8">
                 <div className="heading-box text-left mb-3.5 rtl:text-right">
-                  <h5 className="text-info-color 2xl:text-[22px] xl:text-[20px] lg:text-[18px] sm:text-[16px] text-[14px] 2xl:leading-[69px] font-black rtl:2xl:text-[56px] rtl:xl:text-[40px] rtl:text-[30px]">
+                  <h5 className="text-info-color 2xl:text-[22px] xl:text-[20px] lg:text-[18px] sm:text-[16px] text-[14px] 2xl:leading-[69px] font-black rtl:2xl:text-[56px] rtl:xl:text-[40px] rtl:text-[30px] arabic_heading_one">
                     {t('headingSmall')}
                   </h5>
-                  <h2 className="2xl:text-[40px] xl:text-[35px] lg:text-[30px] sm:text-[25px] text-[14px] 2xl:leading-[88px] font-bold rtl:2xl:text-[72px] rtl:xl:text-[50px] rtl:text-[40px]">
+                  <h2 className="2xl:text-[40px] xl:text-[35px] lg:text-[30px] sm:text-[25px] text-[14px] 2xl:leading-[88px] font-bold rtl:2xl:text-[72px] rtl:xl:text-[50px] rtl:text-[40px] arabic_heading_two">
                     {t('downloadOurApp')}
                   </h2>
                 </div>
-                <h5 className="2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] rtl:xl:text-[48px] mb-2 font-bold text-[#753892]">
+                <h5 className="2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] rtl:xl:text-[48px] mb-2 font-bold text-[#753892] heading_40">
                   {t('connectWithExperts')}
                 </h5>
-                <p className="2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] xl:leading-10 rtl:xl:text-[40px] rtl:max-w-[786px] font-normal mb-4">
+                <p className="2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] xl:leading-10 rtl:xl:text-[40px] rtl:max-w-[786px] font-normal mb-4 font_32">
                   {t('personalizedSupport')}
                 </p>
                 <div className="QR-box mt-9 flex xs:justify-between small:justify-center items-center max-w-[420px] gap-3">
