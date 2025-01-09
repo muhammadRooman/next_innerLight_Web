@@ -92,23 +92,23 @@ export default function ContactUs() {
                     <div className="form-wrapper bg-yoga bg-cover xl:p-16 p-8 rtl:rounded-r-lg ltr:rounded-l-lg md:flex hidden">
                         <div className="box-overlay shadow-shadow-color2 rounded-10 bg-[#F9F9F9] xl:px-24 xl:py-11 px-6 py-6 flex items-center flex-col justify-center">
                             <img src="/mobileimg.png" alt="mobile img" />
-                                <div className="relative border_line"></div>
+                            <div className="relative border_line"></div>
                             <h3 className="text-[32px] text-[#343434] font-bold">{t("download")}</h3>
                             <Link href="https://apps.apple.com/au/app/innerlight-academy/id6670317150" target="_blank">
-                            <img
-                                src="/AppStore.png"
-                                alt="app store img"
-                                className="w-[222px] mt-8"
-                            />
+                                <img
+                                    src="/AppStore.png"
+                                    alt="app store img"
+                                    className="w-[222px] mt-8"
+                                />
                             </Link>
                             <Link href="https://play.google.com/store/apps/details?id=com.arhamsoft.innerlight.innerlights&hl=en" target="_blank">
-                            <img
-                                src="/GooglePlay.png"
-                                alt="google img"
-                                className="w-[222px] mt-8"
-                            />
+                                <img
+                                    src="/GooglePlay.png"
+                                    alt="google img"
+                                    className="w-[222px] mt-8"
+                                />
                             </Link>
-                           
+
                         </div>
                     </div>
                     <div className="bg-white shadow-lg rounded-lg md:p-8 xs:p-6 small:p-4 xl:w-1/2 lg:w-1/2 w-full contact_us">
@@ -128,31 +128,35 @@ export default function ContactUs() {
                                     onChange={handleChange}
                                     placeholder={t("your_name")}
                                     maxLength="150"
-                                    className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
+                                    className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6"
                                 />
+                                {errors.name && <p style={{ color: "red" }} className="error-text">{errors.name}</p>}
                             </div>
-                           {errors.name && <p style={{ color: "red" }} className="error-text">{errors.name}</p>}
-                            <input
-                                type="email"
-                                name="email"
-                                value={formData.email}
-                                onChange={handleChange}
-                                placeholder={t("email")}
-                                className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
-                            />
-                            {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
-                            <input
-                            type="number"
-                            name="phone"
-                            inputMode="tel"
-                            value={formData.phone}
-                            onChange={handleChange}
-                            placeholder={t("contact_no")}
-                            maxLength="17" 
-                            // pattern="^[+]?[\d]+$" 
-                            className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 mb-5"
-                           />
-                            {errors.phone && <p style={{ color: "red" }} className="error-text">{errors.phone}</p>}
+                            <div className="input_wrapper">
+                                <input
+                                    type="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    placeholder={t("email")}
+                                    className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6"
+                                />
+                                {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
+                            </div>
+                            <div className="input_wrapper">
+                                <input
+                                    type="number"
+                                    name="phone"
+                                    inputMode="tel"
+                                    value={formData.phone}
+                                    onChange={handleChange}
+                                    placeholder={t("contact_no")}
+                                    maxLength="17"
+                                    // pattern="^[+]?[\d]+$" 
+                                    className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6"
+                                />
+                                {errors.phone && <p style={{ color: "red" }} className="error-text">{errors.phone}</p>}
+                            </div>
                             <textarea
                                 maxlength="1000"
                                 name="message"
@@ -164,7 +168,7 @@ export default function ContactUs() {
                             {errors.message && <p style={{ color: "red" }} className="error-text">{errors.message}</p>}
                             <div className="btn-wrap text-right rtl:text-left lg:mt-14 mt-10 submit_btn">
                                 <button
-                                   disabled={flag}
+                                    disabled={flag}
                                     type="submit"
                                     className="py-2 lg:px-8 px-3 text-white rounded-3xl font-medium rtl:font-black xl:text-xl rtl:xl:text-[32px] text-[12px] bg-btn-gradient hover:bg-btn-gradient-hover lg:ml-4 rtl:text-[12px]"
                                 >
@@ -175,7 +179,7 @@ export default function ContactUs() {
                     </div>
                 </div>
             </section>
-            <ToastContainer/>
+            <ToastContainer />
         </>
     );
 }

@@ -223,8 +223,8 @@ export default function SignIn() {
             </p> */}
           </div>
           <div>
-            <div className="lg:grid lg:grid-cols-2 ">
-            <div className="form-group lg:mb-0 mb-4">
+            <div className="sm:grid sm:grid-cols-2 ">
+            <div className="form-group lg:mb-0 mb-4 mr-4">
               <div className="btn-icon select_country relative flex align-baseline">
                 {
                   language ==="en" ? 
@@ -311,7 +311,7 @@ export default function SignIn() {
              value={phoneNumber}
               // value={`${selectedCountryCode}${phoneNumber}`} // Always shows country code + phone number
               onChange={handlePhoneNumberChange} // Handles updates without breaking country code
-              className="pr-[165px] placeholder:text-[#11171F] w-full items-center dir_left-t-right rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6"
+              className="placeholder:text-[#11171F] w-full items-center dir_left-t-right rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6"
               placeholder="Enter phone number"
               disabled={isOtpSent || disabledPhoneOTP || OtpMessage} 
             />
