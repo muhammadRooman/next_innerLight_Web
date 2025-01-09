@@ -156,7 +156,7 @@ export default function SignUpNow() {
   };
 
   const handleSubmit = async () => {
-    setLoader(false);
+    setLoader(true);
     let errors = {};
 
     // Validate fullName (maximum length of 150 characters)
@@ -202,7 +202,7 @@ export default function SignUpNow() {
       setLoader(false);
       return;
     }
-    // setLoader(true); // If token exists, stop loader
+    setLoader(true); // If token exists, stop loader
 
     try {
       const formData = new FormData();
@@ -217,7 +217,7 @@ export default function SignUpNow() {
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
-      setLoader(true);
+    
       if (response?.data?.status === 1) {
         localStorage.setItem("authToken", response.data.token);
         setSignUpData({ fullName: "", email: "" });
@@ -230,6 +230,7 @@ export default function SignUpNow() {
         setErrorMessage(null);
         setErrorVerifyMessage(null);
         setValidationErrors({});
+        // setLoader(false);
         router.push(`/${language}/thank-you`);
       } else {
         toast.error(language === "en" ? response.data.message : response.data.message_ar);
@@ -313,6 +314,7 @@ export default function SignUpNow() {
   };
 
   useEffect(() => {
+    setLoader(true);
     const checkToken = () => {
       if (isTokenExpired()) {
         setShowSignUp(true); // Show sign-up if token is expired or invalid
@@ -320,9 +322,12 @@ export default function SignUpNow() {
         setShowSignUp(false); // Hide sign-up if token is valid
       }
     };
+    setLoader(false);
     checkToken(); // Initial check
     const interval = setInterval(checkToken, 5000); // Check every 5 seconds
     return () => clearInterval(interval); // Clean up the interval on unmount
+  
+
   }, []);
 
   if (loader) {
