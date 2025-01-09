@@ -170,11 +170,20 @@ html[lang="ar"][dir="rtl"] .upload_icon {
 
 .mediaContent p {
   margin-right: 30px;
+  color: #0C0101;
+  line-height: 32px;
+}
+.header-inner a{
+  color: #343434;
+}
+.font_bold{
+  font-weight: bold;
 }
 
 html[lang="ar"][dir="rtl"] .btn-icon button {
   right: auto;
   left: 10px;
+  font-size: 28px;
 }
 
 
@@ -530,46 +539,56 @@ select {
 .select_country button {
   padding: 12px 10px;
 }
-html[lang="ar"][dir="rtl"] .font_28{
+
+html[lang="ar"][dir="rtl"] .font_28 {
   font-size: 28px !important;
   line-height: 32px !important;
 }
-html[lang="ar"][dir="rtl"] .font_34{
+
+html[lang="ar"][dir="rtl"] .font_34 {
   font-size: 34px !important;
   line-height: 42px !important;
 }
-html[lang="ar"][dir="rtl"] .font_18{
+
+html[lang="ar"][dir="rtl"] .font_18 {
   font-size: 18px !important;
 }
-html[lang="ar"][dir="rtl"] .font_25{
+
+html[lang="ar"][dir="rtl"] .font_25 {
   font-size: 25px !important;
   line-height: 32px !important;
 }
-html[lang="ar"][dir="rtl"] .font_32{
+
+html[lang="ar"][dir="rtl"] .font_32 {
   font-size: 32px !important;
   line-height: 32px !important;
 }
-html[lang="ar"][dir="rtl"] .font_40{
+
+html[lang="ar"][dir="rtl"] .font_40 {
   font-size: 40px !important;
   line-height: 40px !important;
 }
-html[lang="ar"][dir="rtl"] .heading_40{
+
+html[lang="ar"][dir="rtl"] .heading_40 {
   font-size: 40px !important;
   line-height: 40px !important;
 }
-html[lang="ar"][dir="rtl"] .heading_48{
+
+html[lang="ar"][dir="rtl"] .heading_48 {
   font-size: 48px !important;
   line-height: 48px !important;
 }
-html[lang="ar"][dir="rtl"] .book-you-button h5{
+
+html[lang="ar"][dir="rtl"] .book-you-button h5 {
   font-size: 70px !important;
 }
+
 html[lang="ar"][dir="rtl"] .DownloadOurApp-content h5 {
   margin-bottom: 0px !important;
 }
 
 html[lang="ar"][dir="rtl"] .text-red-500 {
-  margin-right: 20px;
+  font-size: 32px;
 }
 
 html[lang="ar"][dir="rtl"] .btn-wrap a {
@@ -619,6 +638,7 @@ html[lang="ar"][dir="rtl"] .benefits-holistic h2 {
   font-size: 72px;
   line-height: 88px;
 }
+
 html[lang="ar"][dir="rtl"] .benefits-card .benefits-content h5 {
   font-size: 40px;
   line-height: 49px;
@@ -649,7 +669,7 @@ html[lang="ar"][dir="rtl"] .what_we_offer .heading-box h2 {
 html[lang="ar"][dir="rtl"] .what_we_offer p {
   font-size: 32px;
   line-height: 32px;
-  font-weight: 600;
+  font-weight: normal;
 }
 
 html[lang="ar"][dir="rtl"] .yoga_img_wrapper {
@@ -799,32 +819,71 @@ html[lang="ar"][dir="rtl"] .form_wrapper .form_control .btn-wrap button {
 .thankYou-wrap {
   margin-bottom: 58px;
 }
+
 html[lang="ar"][dir="rtl"] .arabic_heading_one {
   font-size: 56px !important;
   line-height: 69px !important;
   margin: 0;
 }
+
 html[lang="ar"][dir="rtl"] .arabic_heading_two {
   font-size: 72px !important;
   line-height: 88px !important;
 }
-html[lang="ar"][dir="rtl"] .our-value-content-box .heading-box{
+
+html[lang="ar"][dir="rtl"] .our-value-content-box .heading-box {
   margin-bottom: 20px;
 }
+
 html[lang="ar"][dir="rtl"] .our-value-content-box {
   margin-top: 0;
 }
-html[lang="ar"][dir="rtl"] .comitment-img img{
+
+html[lang="ar"][dir="rtl"] .comitment-img img {
   object-fit: cover;
 }
+
 html[lang="ar"][dir="rtl"] .btn-download a:first-child {
   margin-right: 0px !important;
 }
-html[lang="ar"][dir="rtl"] .our_mission_content_wrap h2{
+
+html[lang="ar"][dir="rtl"] .our_mission_content_wrap h2 {
   padding: 10px 0;
 }
+
 .event_banner_content {
-  padding: 62px;
+  padding: 76px 0 47px;
+}
+
+.social-icon nav>a {
+  min-width: 56px !important;
+  min-height: 56px !important;
+}
+
+.bg-site-banner {
+  min-height: 800px !important;
+}
+.form_control .input_wrapper{
+  margin-bottom: 20px;
+}
+.home_banner h5{
+  line-height: 50px !important;
+}
+.book-you-button a{
+  padding: 10px 60px;
+}
+.static-img-wrap {
+  width: 380px !important;
+  min-height: 412px !important;
+}
+.custom-next-btn{
+  transform: rotate(178deg);
+}
+html[lang="ar"][dir="rtl"] .custom-next-btn {
+  transform: rotate(0deg);
+}
+.event-banner .heading-box{
+  padding-bottom: 0;
 }
 
 /* responsive */
@@ -916,49 +975,60 @@ html[lang="ar"][dir="rtl"] .our_mission_content_wrap h2{
   .heading-box h2 {
     font-size: 30px;
   }
+
   html[lang="ar"][dir="rtl"] .font_32 {
     font-size: 26px !important;
     line-height: 28px !important;
-}
-html[lang="ar"][dir="rtl"] .arabic_heading_one {
-  font-size: 46px !important;
-  line-height: 49px !important;
-}
-html[lang="ar"][dir="rtl"] .arabic_heading_two {
-  font-size: 62px !important;
-  line-height: 58px !important;
-}
-html[lang="ar"][dir="rtl"] .commitment-wrap{
-  padding-top: 60px !important;
-}
-html[lang="ar"][dir="rtl"] .font_40 {
-  font-size: 32px !important;
-  line-height: 34px !important;
-}
-html[lang="ar"][dir="rtl"] .heading_48 {
-  font-size: 40px !important;
-  line-height: 40px !important;
-margin-bottom: 50px;
-}
-html[lang="ar"][dir="rtl"] .book-you-button h5 {
-  font-size: 56px !important;
-}
-html[lang="ar"][dir="rtl"] .MeditationConsultation-inner{
-  min-height: 890px;
-}
-html[lang="ar"][dir="rtl"] .benefits-card .benefits-content h5 {
-  font-size: 32px;
-  line-height: 34px;
-  padding: 15px 0 10px;
-}
-html[lang="ar"][dir="rtl"] .heading_40 {
-  font-size: 34px !important;
-  line-height: 34px !important;
-}
-html[lang="ar"][dir="rtl"] .font_28 {
-  font-size: 26px !important;
-  line-height: 26px !important;
-}
+  }
+
+  html[lang="ar"][dir="rtl"] .arabic_heading_one {
+    font-size: 46px !important;
+    line-height: 49px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .arabic_heading_two {
+    font-size: 62px !important;
+    line-height: 58px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .commitment-wrap {
+    padding-top: 60px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_40 {
+    font-size: 32px !important;
+    line-height: 34px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .heading_48 {
+    font-size: 40px !important;
+    line-height: 40px !important;
+    margin-bottom: 50px;
+  }
+
+  html[lang="ar"][dir="rtl"] .book-you-button h5 {
+    font-size: 56px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .MeditationConsultation-inner {
+    min-height: 890px;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-card .benefits-content h5 {
+    font-size: 32px;
+    line-height: 34px;
+    padding: 15px 0 10px;
+  }
+
+  html[lang="ar"][dir="rtl"] .heading_40 {
+    font-size: 34px !important;
+    line-height: 34px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_28 {
+    font-size: 26px !important;
+    line-height: 26px !important;
+  }
 }
 
 @media (max-width: 1367px) {
@@ -1089,50 +1159,61 @@ html[lang="ar"][dir="rtl"] .font_28 {
   .commitment-wrap .heading-box h2 {
     padding-bottom: 25px;
   }
+
   html[lang="ar"][dir="rtl"] .font_32 {
     font-size: 24px !important;
     line-height: 26px !important;
-}
-html[lang="ar"][dir="rtl"] .font_40 {
-  font-size: 30px !important;
-  line-height: 32px !important;
-}   
-html[lang="ar"][dir="rtl"] .heading_48 {
-  font-size: 38px !important;
-  line-height: 38px !important;
-  margin-bottom: 40px;
-}
-html[lang="ar"][dir="rtl"] .book-you-button h5 {
-  font-size: 46px !important;
-  line-height: 46px;
-}
-html[lang="ar"][dir="rtl"] .MeditationConsultation-inner {
-  min-height: 830px;
-}
-html[lang="ar"][dir="rtl"] .arabic_heading_one {
-  font-size: 42px !important;
-  line-height: 44px !important;
-}
-html[lang="ar"][dir="rtl"] .arabic_heading_two {
-  font-size: 56px !important;
-  line-height: 56px !important;
-}
-html[lang="ar"][dir="rtl"] .font_40 {
-  font-size: 28px !important;
-  line-height: 29px !important;
-} 
-html[lang="ar"][dir="rtl"] .heading_40 {
-  font-size: 32px !important;
-  line-height: 32px !important;
-}
-html[lang="ar"][dir="rtl"] .font_28 {
-  font-size: 24px !important;
-  line-height: 24px !important;
-}
-html[lang="ar"][dir="rtl"] .arabic_heading_two {
-  font-size: 52px !important;
-  line-height: 48px !important;
-}
+  }
+
+  html[lang="ar"][dir="rtl"] .font_40 {
+    font-size: 30px !important;
+    line-height: 32px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .heading_48 {
+    font-size: 38px !important;
+    line-height: 38px !important;
+    margin-bottom: 40px;
+  }
+
+  html[lang="ar"][dir="rtl"] .book-you-button h5 {
+    font-size: 46px !important;
+    line-height: 46px;
+  }
+
+  html[lang="ar"][dir="rtl"] .MeditationConsultation-inner {
+    min-height: 830px;
+  }
+
+  html[lang="ar"][dir="rtl"] .arabic_heading_one {
+    font-size: 42px !important;
+    line-height: 44px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .arabic_heading_two {
+    font-size: 56px !important;
+    line-height: 56px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_40 {
+    font-size: 28px !important;
+    line-height: 29px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .heading_40 {
+    font-size: 32px !important;
+    line-height: 32px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_28 {
+    font-size: 24px !important;
+    line-height: 24px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .arabic_heading_two {
+    font-size: 52px !important;
+    line-height: 48px !important;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -1365,50 +1446,61 @@ html[lang="ar"][dir="rtl"] .arabic_heading_two {
     font-size: 16px;
     line-height: normal;
   }
+
   html[lang="ar"][dir="rtl"] .arabic_heading_two {
     font-size: 52px !important;
     line-height: 48px !important;
-}
-html[lang="ar"][dir="rtl"] .font_32 {
-  font-size: 22px !important;
-  line-height: 24px !important;
-}
-html[lang="ar"][dir="rtl"] .font_40 {
-  font-size: 26px !important;
-  line-height: 26px !important;
-}
-html[lang="ar"][dir="rtl"] .heading_48 {
-  font-size: 34px !important;
-  line-height: 34px !important;
-  margin-bottom: 30px;
-}
-html[lang="ar"][dir="rtl"] .MeditationConsultation-inner {
-  min-height: 760px;
-}
-html[lang="ar"][dir="rtl"] .benefits-holistic .heading-box {
-  padding: 30px 0;
-  margin-bottom: 30px;
-}
-html[lang="ar"][dir="rtl"] .heading_40 {
-  font-size: 28px !important;
-  line-height: 28px !important;
-}
-html[lang="ar"][dir="rtl"] .font_28 {
-  font-size: 22px !important;
-  line-height: 20px !important;
-}
-html[lang="ar"][dir="rtl"] .font_34 {
-  font-size: 28px !important;
-  line-height: 28px !important;
-  padding-bottom: 0;
-}
-html[lang="ar"][dir="rtl"] .font_25 {
-  font-size: 22px !important;
-  line-height: 26px !important;
-}
-html[lang="ar"][dir="rtl"] .commitment-wrap .heading-box{
-  padding: 0 !important;
-}
+  }
+
+  html[lang="ar"][dir="rtl"] .font_32 {
+    font-size: 22px !important;
+    line-height: 24px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_40 {
+    font-size: 26px !important;
+    line-height: 26px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .heading_48 {
+    font-size: 34px !important;
+    line-height: 34px !important;
+    margin-bottom: 30px;
+  }
+
+  html[lang="ar"][dir="rtl"] .MeditationConsultation-inner {
+    min-height: 760px;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-holistic .heading-box {
+    padding: 30px 0;
+    margin-bottom: 30px;
+  }
+
+  html[lang="ar"][dir="rtl"] .heading_40 {
+    font-size: 28px !important;
+    line-height: 28px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_28 {
+    font-size: 22px !important;
+    line-height: 20px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_34 {
+    font-size: 28px !important;
+    line-height: 28px !important;
+    padding-bottom: 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_25 {
+    font-size: 22px !important;
+    line-height: 26px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .commitment-wrap .heading-box {
+    padding: 0 !important;
+  }
 }
 
 @media (max-width: 991px) {
@@ -1646,59 +1738,72 @@ html[lang="ar"][dir="rtl"] .commitment-wrap .heading-box{
     right: 5px;
     top: 8px;
   }
+
   html[lang="ar"][dir="rtl"] .commitment-wrap {
     padding-top: 40px !important;
-}
-html[lang="ar"][dir="rtl"] .arabic_heading_one {
-  font-size: 36px !important;
-  line-height: 38px !important;
-}
-html[lang="ar"][dir="rtl"] .arabic_heading_two {
-  font-size: 42px !important;
-  line-height: 38px !important;
-  padding-bottom: 20px;
-}
-html[lang="ar"][dir="rtl"] .font_32 {
-  font-size: 20px !important;
-  line-height: 20px !important;
-  max-width: 700px;
-}
-html[lang="ar"][dir="rtl"] .Meditation-content{
-  margin-top: 50px;
-}
-html[lang="ar"][dir="rtl"] .font_40 {
-  font-size: 24px !important;
-  line-height: 24px !important;
-}
-html[lang="ar"][dir="rtl"] .heading_48 {
-  font-size: 28px !important;
-  line-height: 26px !important;
-  margin-bottom: 10px;
-}
-html[lang="ar"][dir="rtl"] .book-you-button h5 {
-  font-size: 36px !important;
-  line-height: 30px;
-}
-html[lang="ar"][dir="rtl"] .mediaContent {
-  margin-right: 25px;
-}
-html[lang="ar"][dir="rtl"] .benefits-holistic .heading-box {
-  padding: 30px 0;
-  margin-bottom: 0px;
-}
-html[lang="ar"][dir="rtl"] .benefits-card .benefits-content h5 {
-  font-size: 28px;
-  line-height: 25px;
-  padding: 15px 0 5px;
-}
-html[lang="ar"][dir="rtl"] .heading_40 {
-  font-size: 26px !important;
-  line-height: 26px !important;
-}
-html[lang="ar"][dir="rtl"] .our-value-content-box .heading-box {
-  margin-bottom: 20px;
-  padding-top: 40px;
-}
+  }
+
+  html[lang="ar"][dir="rtl"] .arabic_heading_one {
+    font-size: 36px !important;
+    line-height: 38px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .arabic_heading_two {
+    font-size: 42px !important;
+    line-height: 38px !important;
+    padding-bottom: 20px;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_32 {
+    font-size: 20px !important;
+    line-height: 20px !important;
+    max-width: 700px;
+  }
+
+  html[lang="ar"][dir="rtl"] .Meditation-content {
+    margin-top: 50px;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_40 {
+    font-size: 24px !important;
+    line-height: 24px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .heading_48 {
+    font-size: 28px !important;
+    line-height: 26px !important;
+    margin-bottom: 10px;
+  }
+
+  html[lang="ar"][dir="rtl"] .book-you-button h5 {
+    font-size: 36px !important;
+    line-height: 30px;
+  }
+
+  html[lang="ar"][dir="rtl"] .mediaContent {
+    margin-right: 25px;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-holistic .heading-box {
+    padding: 30px 0;
+    margin-bottom: 0px;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-card .benefits-content h5 {
+    font-size: 28px;
+    line-height: 25px;
+    padding: 15px 0 5px;
+  }
+
+  html[lang="ar"][dir="rtl"] .heading_40 {
+    font-size: 26px !important;
+    line-height: 26px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .our-value-content-box .heading-box {
+    margin-bottom: 20px;
+    padding-top: 40px;
+  }
 }
 
 @media (max-width: 776px) {
@@ -1881,48 +1986,99 @@ html[lang="ar"][dir="rtl"] .our-value-content-box .heading-box {
     font-size: 14px;
     line-height: normal;
   }
+
   html[lang="ar"][dir="rtl"] .arabic_heading_one {
     font-size: 32px !important;
     line-height: 32px !important;
-}
-html[lang="ar"][dir="rtl"] .arabic_heading_two {
-  font-size: 38px !important;
-  line-height: 30px !important;
-  padding-bottom: 10px;
-}   
-html[lang="ar"][dir="rtl"] .font_32 {
-  font-size: 18px !important;
-  line-height: normal !important;
-  max-width: 700px;
-}
-html[lang="ar"][dir="rtl"] .font_40 {
-  font-size: 20px !important;
-  line-height: normal !important;
-}
-html[lang="ar"][dir="rtl"] .heading_48 {
-  font-size: 26px !important;
-  line-height: 26px !important;
-  margin-bottom: 0;
-}
-html[lang="ar"][dir="rtl"] .book-you-button h5 {
-  font-size: 30px !important;
-  line-height: 25px;
-}
-html[lang="ar"][dir="rtl"] .font_28 {
-  font-size: 20px !important;
-  line-height: 15px !important;
-}
-html[lang="ar"][dir="rtl"] .heading_40 {
-  font-size: 24px !important;
-  line-height: normal !important;
-}
-html[lang="ar"][dir="rtl"] .heading_40 {
-  font-size: 22px !important;
-  line-height: 26px !important;
-}
-html[lang="ar"][dir="rtl"] .our-stories {
-  margin-top: 55px;
-}
+  }
+
+  html[lang="ar"][dir="rtl"] .arabic_heading_two {
+    font-size: 38px !important;
+    line-height: 30px !important;
+    padding-bottom: 10px;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_32 {
+    font-size: 18px !important;
+    line-height: normal !important;
+    max-width: 700px;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_40 {
+    font-size: 20px !important;
+    line-height: normal !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .heading_48 {
+    font-size: 26px !important;
+    line-height: 26px !important;
+    margin-bottom: 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .book-you-button h5 {
+    font-size: 30px !important;
+    line-height: 25px;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_28 {
+    font-size: 20px !important;
+    line-height: 15px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .heading_40 {
+    font-size: 24px !important;
+    line-height: normal !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .heading_40 {
+    font-size: 22px !important;
+    line-height: 26px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .our-stories {
+    margin-top: 55px;
+  }
+
+  .verify_button {
+    min-height: 50px;
+    right: 4px;
+    top: 5px;
+    width: 70px;
+    font-size: 14px;
+  }
+
+  .select_country button {
+    padding: 10px 0px;
+    font-size: 12px;
+    width: 70px;
+    right: 5px;
+    min-height: 50px;
+  }
+
+  .upload_icon {
+    position: relative;
+    height: 50px;
+    width: 70px;
+    top: 0px !important;
+    left: 12px;
+  }
+
+  .form_wrap {
+    margin-top: 20px;
+  }
+
+  .moment_of_senetry .heading-box h5,
+  .moment_of_senetry .heading-box h2 {
+    margin-bottom: 10px;
+  }
+
+  .moment_of_senetry {
+    padding-top: 35px;
+  }
+
+  .evnets_wrap {
+    margin-bottom: 30px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -2017,14 +2173,6 @@ html[lang="ar"][dir="rtl"] .our-stories {
     margin-top: 15px;
   }
 
-  .Toastify__toast-container {
-    max-width: 320px;
-    margin: 0 auto;
-    width: 100%;
-    position: fixed;
-    right: 0px;
-  }
-
   .commitment-wrap {
     padding-top: 30px;
   }
@@ -2060,11 +2208,19 @@ html[lang="ar"][dir="rtl"] .our-stories {
 
   .upload_icon {
     position: relative;
-    height: 40px;
+    height: 50px;
     width: 80px;
     top: 0px !important;
-    left: 7px;
+    left: 5px;
   }
+  .select_country button {
+    padding: 10px 0px;
+    font-size: 12px;
+    width: 70px;
+    right: 5px;
+    min-height: 50px;
+    top: 5px;
+}
 
   .upload_feild {
     padding: 0 5px;
@@ -2259,9 +2415,10 @@ html[lang="ar"][dir="rtl"] .our-stories {
   html[lang="ar"][dir="rtl"] .swiper_slider_btn .custom-prev {
     bottom: 190px;
   }
+
   html[lang="ar"][dir="rtl"] .swiper_slider_btn .custom-next {
     bottom: -100px;
-}
+  }
 
   .social-icon a>img {
     width: 12px;
@@ -2315,14 +2472,16 @@ html[lang="ar"][dir="rtl"] .our-stories {
     font-size: 14px;
     margin-bottom: 0;
   }
+
   .DownloadOurApp-content h5 {
     margin-bottom: 15px;
-}
-.mediaContent p {
-  margin-right: 10px;
-  font-size: 14px;
-  line-height: 15px;
-}
+  }
+
+  .mediaContent p {
+    margin-right: 10px;
+    font-size: 14px;
+    line-height: 15px;
+  }
 
   .commitment-wrap {
     padding-top: 22px !important;
@@ -2356,76 +2515,119 @@ html[lang="ar"][dir="rtl"] .our-stories {
     font-size: 16px !important;
     line-height: 24px;
   }
+
   .our-stories {
     margin-top: 0;
+  }
+
+  .what_we_offer .heading-box h2 {
+    line-height: 25px;
+    max-width: 350px;
+    margin-bottom: 10px;
+  }
+
+  .contact_us p {
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+    padding: 0 10px;
+    margin-bottom: 10px;
+  }
+
+  .event_banner_content .heading-box {
+    margin-bottom: 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .commitment-wrap {
+    padding-top: 30px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .commitment-wrap .heading-box {
+    padding-bottom: 0;
+    margin-bottom: 10px;
+  }
+
+  .comitment_img img {
+    object-position: bottom;
+  }
+
+  html[lang="ar"][dir="rtl"] .Meditation-content-inner .heading-box {
+    margin-bottom: 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .arabic_heading_one {
+    font-size: 28px !important;
+    line-height: 20px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .arabic_heading_two {
+    font-size: 34px !important;
+    line-height: 24px !important;
+    padding-bottom: 10px;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_40 {
+    font-size: 18px !important;
+    line-height: normal !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .heading_48 {
+    font-size: 22px !important;
+    line-height: 20px !important;
+    margin-bottom: 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .book-you-button h5 {
+    font-size: 26px !important;
+    line-height: 25px;
+  }
+
+  html[lang="ar"][dir="rtl"] .our-value-content-box .heading-box {
+    margin-bottom: 0;
+    padding-top: 40px;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_25 {
+    font-size: 18px !important;
+    line-height: 20px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_25 {
+    font-size: 18px !important;
+    line-height: 20px !important;
+    padding-top: 10px;
+  }
+
+  html[lang="ar"][dir="rtl"] .our-stories .book-you-button {
+    margin-bottom: 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .what_we_offer {
+    margin-bottom: 0;
+  }
+
+  .form_wrap input {
+    font-size: 14px;
+    line-height: normal;
+  }
+  .moment_of_senetry .heading-box{
+    margin-bottom: 0;
+  }
+  .moment_of_senetry .heading-box p {
+    line-height: 24px !important;
 }
-.what_we_offer .heading-box h2 {
-  line-height: 25px;
-  max-width: 350px;
-  margin-bottom: 10px;
+.moment_of_senetry .heading-box h5, .moment_of_senetry .heading-box h2 {
+  margin-bottom: 5px;
+  line-height: normal;
 }
-.contact_us p {
-  font-size: 14px;
-  line-height: 17px;
-  color: #000000;
-  padding: 0 10px;
-  margin-bottom: 10px;
+.event_banner_content {
+  padding: 0;
 }
-.event_banner_content .heading-box{
-  margin-bottom: 0;
+.date-wrap{
+  height: 70px;
+  width: 70px;
 }
-html[lang="ar"][dir="rtl"] .commitment-wrap {
-  padding-top: 30px !important;
-}
-html[lang="ar"][dir="rtl"] .commitment-wrap .heading-box {
-  padding-bottom: 0;
-  margin-bottom: 10px;
-}
-.comitment_img img{
-  object-position: bottom;
-}
-html[lang="ar"][dir="rtl"] .Meditation-content-inner .heading-box {
-  margin-bottom: 0;
-}
-html[lang="ar"][dir="rtl"] .arabic_heading_one {
-  font-size: 28px !important;
-  line-height: 20px !important;
-}
-html[lang="ar"][dir="rtl"] .arabic_heading_two {
-  font-size: 34px !important;
-  line-height: 24px !important;
-  padding-bottom: 10px;
-}
-html[lang="ar"][dir="rtl"] .font_40 {
-  font-size: 18px !important;
-  line-height: normal !important;
-}
-html[lang="ar"][dir="rtl"] .heading_48 {
-  font-size: 22px !important;
-  line-height: 20px !important;
-  margin-bottom: 0;
-}
-html[lang="ar"][dir="rtl"] .book-you-button h5 {
-  font-size: 26px !important;
-  line-height: 25px;
-}
-html[lang="ar"][dir="rtl"] .our-value-content-box .heading-box {
-  margin-bottom: 0;
-  padding-top: 40px;
-}
-html[lang="ar"][dir="rtl"] .font_25 {
-  font-size: 18px !important;
-  line-height: 20px !important;
-}
-html[lang="ar"][dir="rtl"] .font_25 {
-  font-size: 18px !important;
-  line-height: 20px !important;
-  padding-top: 10px;
-}
-html[lang="ar"][dir="rtl"] .our-stories .book-you-button{
-margin-bottom: 0;
-}
-html[lang="ar"][dir="rtl"] .what_we_offer{
-  margin-bottom: 0;
+.date-wrap h1{
+  font-size: 18px;
 }
 }
