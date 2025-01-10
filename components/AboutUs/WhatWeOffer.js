@@ -11,17 +11,17 @@ export default function WhatWeOffer() {
     {
       title: t("spiritual_resources"),
       image: "/assets/images/about/SpiritualResources.png",
-      description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore.",
+      description: t("spiritual_heading"),
     },
     {
       title: t("personalized_guidance"),
       image: "/assets/images/about/PersonalizedGuidance.png",
-      description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore.",
+      description: t("Personalized_heading"),
     },
     {
       title: t("online_courses_and_workshops"),
       image: "/assets/images/about/OnlineCourses.png",
-      description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore.",
+      description:t("online_courses_and_workshops_heading"),
     },
   ];
 
