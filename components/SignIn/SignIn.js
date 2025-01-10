@@ -233,16 +233,14 @@ export default function SignIn() {
                         {/* Overlay that covers the dropdown */}
 
                         <div
-                          className="absolute left-0 top-0 z-10 bg-transparent text-[#11171F] flex items-center justify-center"
+                          className="absolute left-0 top-0 z-10 bg-transparent text-[#11171F] flex items-center justify-left p-5 font_32"
                           style={{
                             width: '100%',
                             height: '100%',
                             pointerEvents: 'none', 
                             border: '2px solid #DEDEDE',
                             borderRadius: '4px',
-                            fontSize: '24px', 
-                            lineHeight: '1.5', 
-                            backgroundColor: 'transparent',
+                            backgroundColor: '#ffffff',
                           }}
                         >
                           {selectedCountryCode}
@@ -269,16 +267,14 @@ export default function SignIn() {
                         {/* Overlay that covers the dropdown */}
 
                         <div
-                          className="absolute left-0 top-0 z-10 bg-transparent text-[#11171F] flex items-center justify-center"
+                          className="absolute left-0 top-0 z-10 bg-transparent text-[#11171F] flex items-center justify-center p-5 font_32"
                           style={{
                             width: '100%',
                             height: '100%',
                             pointerEvents: 'none', 
                             border: '2px solid #DEDEDE',
                             borderRadius: '4px',
-                            fontSize: '24px', 
-                            lineHeight: '1.5', 
-                            backgroundColor: 'transparent',
+                            backgroundColor: '#ffffff',
                           }}
                         >
                           {selectedCountryCode}
@@ -326,7 +322,7 @@ export default function SignIn() {
               </div>
               {
                   errorMessage && (
-                <span className="text-red-500 text-sm mt-2">
+                <span className="error_msg">
                   {errorMessage}
                 </span>
               )
@@ -353,7 +349,7 @@ export default function SignIn() {
                     </button>
                   </div>
                   { !otpCode &&  errorVerifyMessage && (
-                    <span className="text-red-500 text-sm mt-2">
+                    <span className="error_msg">
                       {errorVerifyMessage}
                     </span>
                   )}
@@ -361,7 +357,7 @@ export default function SignIn() {
               )}
             </div>
           </div>
-          <div className="book-you-button flex-wrap  flex lg:justify-between items-center mt-10 justify-center text-center ">
+          <div className="book-you-button register_btn flex-wrap  flex lg:justify-between items-center mt-10 justify-center text-center ">
             <p className="text-black text-lg mb-3 lg:mt-0 mt-2 ">
               {t("dont_have_account")}
               <Link

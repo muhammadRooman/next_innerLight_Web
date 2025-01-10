@@ -24,7 +24,7 @@ export default function FooterBase({locale}) {
                 <Link href={`/${locale}/event`} className="tlg:text-black text-white'} py-1.5 lg:py-1 2xl:me-[88px] xl:me-[60px] lg:me-[40px] text-base lg:text-[15px] xl:text-xl rtl:xl:text-[32px] hover:text-[#1796D8] font-medium rtl:font-black">{t("events")}</Link>
               </nav>
             </div>
-            <p className="text-lg flex items-center justify-center rtl:flex-row-reverse">
+            <p className="text-lg flex items-center justify-center rtl:flex-row-reverse font_32">
               <Image src="/copyright.svg" width={20} height={20} alt="logo white" className="mr-2" />
             {t("copyright_reserved_Innerlight")}
             </p>

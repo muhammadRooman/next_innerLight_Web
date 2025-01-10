@@ -182,6 +182,7 @@ const Header = ({ locale }) => {
                 appearance-none 
                 pr-10
                 rtl:ml-5 rtl:pr-4 rtl:pl-10 custom_select
+                font_32
               "
                 >
                   <option value="en">English</option>

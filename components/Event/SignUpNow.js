@@ -372,16 +372,15 @@ export default function SignUpNow() {
                         {/* Overlay that covers the dropdown */}
 
                         <div
-                          className="absolute left-0 top-0 z-10 bg-transparent text-[#11171F] flex items-center justify-center"
+                          className="absolute left-0 top-0 z-10 bg-transparent text-[#11171F] flex items-center justify-left p-5 font_32"
                           style={{
                             width: '100%',
                             height: '100%', 
                             pointerEvents: 'none', 
                             border: '2px solid #DEDEDE', 
                             borderRadius: '4px', 
-                            fontSize: '24px', 
-                            lineHeight: '1.5', 
-                            backgroundColor: 'transparent',
+                            lineHeight: '28px', 
+                            backgroundColor: '#ffffff',
                           }}
                         >
                           {selectedCountryCode}
@@ -408,16 +407,14 @@ export default function SignUpNow() {
                         {/* Overlay that covers the dropdown */}
 
                         <div
-                          className="absolute left-0 top-0 z-10 bg-transparent text-[#11171F] flex items-center justify-center"
+                          className="absolute left-0 top-0 z-10 bg-transparent text-[#11171F] flex items-center justify-right p-5 font_32"
                           style={{
                             width: '100%', 
                             height: '100%', 
                             pointerEvents: 'none', 
                             border: '2px solid #DEDEDE', 
                             borderRadius: '4px', 
-                            fontSize: '24px', 
-                            lineHeight: '1.5', 
-                            backgroundColor: 'transparent', 
+                            backgroundColor: '#ffffff', 
                           }}
                         >
                           {selectedCountryCode}
@@ -451,7 +448,7 @@ export default function SignUpNow() {
                       value={phoneNumber} // Always shows country code + phone number
                       onChange={handlePhoneNumberChange} // Handles updates without breaking country code
                       className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[60px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 font_32"
-                      placeholder="Phone Number"
+                      placeholder={t("phone_number")}
                     />
                   </div>
                   <button
@@ -530,7 +527,7 @@ export default function SignUpNow() {
                       className="flex items-center w-full cursor-pointer"
                     >
                       {/* <!-- Text Section --> */}
-                      <span className="flex-1 lg:text-lg text-[#11171F]">
+                      <span className="flex-1 lg:text-lg text-[#11171F] font_32">
                         {imageName ? imageName : t("upload_picture")}
                       </span>
                       {/* <!-- Hidden Input --> */}

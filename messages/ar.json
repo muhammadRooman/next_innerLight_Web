@@ -226,7 +226,7 @@
     "upload_picture": "تحميل الصورة",
     "email": "بريد إلكتروني",
     "last_name": "اسم العائلة",
-    "send_OTP": "يرسلOTP",
+    "send_OTP": "إرسال الرمز",
     "verify": "يؤكد",
     "phone_number_is_required": "رقم الهاتف مطلوب.",
     "please_upload_your_profile_picture": "يرجى تحميل صورة الملف الشخصي",
@@ -242,7 +242,9 @@
     "full_name_can_not":"لا يمكن أن يتجاوز الاسم الكامل 150 حرفً ",
     "sign_in_now": "تسجيل الدخول الآن",
     "dont_have_account": "ليس لديك حساب؟",
-    "register": "تسجيل الحساب"
+    "register": "تسجيل الحساب",
+    "otp": "رمز لمرة واحدة"
+    
   },
   "Contact": {
     "contact_us": "اتصل بنا",

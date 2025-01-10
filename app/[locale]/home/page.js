@@ -312,24 +312,24 @@ export default function LandingPage() {
                 <p className='2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] xl:leading-10 rtl:xl:text-[40px] rtl:max-w-[926px] rtl:xl:leading-10 font-normal mb-4 font_40'>
                   {language === "en" ? CmsWebHMeditationData?.description_en : CmsWebHMeditationData?.description_ar}
                 </p>
-                <h5 className='2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] xl:leading-10 rtl:xl:text-[48px] md:mb-24 mb-6 font-bold text-[#753892] heading_48'>
+                <h5 className='2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] xl:leading-10 rtl:xl:text-[48px] md:mb-24 mb-6 font-bold text-[#753892] heading_48 compassionate'>
                   {t("connect_with_compassionate")}
                 </h5>
               </div>
               <div className='static-img relative lg:left-[-166px] rtl:lg:right-[-166px] mt-8 lg:w-[calc(100%+166px)] w-full'>
                 <div className="md:grid md:grid-cols-3 items-center">
                   <div className='col-span-1'>
-                    <div className='static-img-wrap relative min-h-[200px] sm:min-h-[300px] xs:min-h-[250px] rounded-10 overflow-hidden'>
+                    <div className='static-img-wrap relative min-h-[200px] sm:min-h-[300px] xs:min-h-[250px] lg:min-h-[412px] rounded-10 overflow-hidden'>
                       <Image src="/MmeditationImg1.png" alt="logo white" layout="fill" className="rounded-30 object-cover p-2.5" />
                     </div>
                   </div>
                   <div className='col-span-1'>
-                    <div className='static-img-wrap relative min-h-[200px] sm:min-h-[300px] xs:min-h-[250px] rounded-10 overflow-hidden'>
+                    <div className='static-img-wrap relative min-h-[200px] sm:min-h-[300px] xs:min-h-[250px] lg:min-h-[412px] rounded-10 overflow-hidden'>
                       <Image src="/MmeditationImg2.png" alt="logo white" layout="fill" className="rounded-30 object-cover p-2.5" />
                     </div>
                   </div>
                   <div className='col-span-1'>
-                    <div className='static-img-wrap relative min-h-[200px] sm:min-h-[300px] xs:min-h-[250px] rounded-10 overflow-hidden'>
+                    <div className='static-img-wrap relative min-h-[200px] sm:min-h-[300px] xs:min-h-[250px] lg:min-h-[412px] rounded-10 overflow-hidden'>
                       <Image src="/MmeditationImg3.png" alt="logo white" layout="fill" className="rounded-30 object-cover p-2.5" />
                     </div>
                   </div>
@@ -350,14 +350,14 @@ export default function LandingPage() {
             <div className="md:grid md:grid-cols-2 flex flex-col-reverse">
               <div className="DownloadOurApp-content xl:max-w-[685px] max-w-full lg:pt-20 pt-8">
                 <div className="heading-box text-left mb-3.5 rtl:text-right">
-                  <h5 className="text-info-color 2xl:text-[22px] xl:text-[20px] lg:text-[18px] sm:text-[16px] text-[14px] 2xl:leading-[69px] font-black rtl:2xl:text-[56px] rtl:xl:text-[40px] rtl:text-[30px] arabic_heading_one">
+                  <h5 className="text-info-color 2xl:text-[22px] xl:text-[20px] lg:text-[18px] sm:text-[16px] text-[14px] 2xl:leading-[69px] font-black rtl:2xl:text-[56px] rtl:xl:text-[40px] rtl:text-[30px] arabic_heading_one innerlight_heading_space">
                     {t('headingSmall')}
                   </h5>
                   <h2 className="2xl:text-[40px] xl:text-[35px] lg:text-[30px] sm:text-[25px] text-[14px] 2xl:leading-[88px] font-bold rtl:2xl:text-[72px] rtl:xl:text-[50px] rtl:text-[40px] arabic_heading_two">
                     {t('downloadOurApp')}
                   </h2>
                 </div>
-                <h5 className="2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] rtl:xl:text-[48px] mb-2 font-bold text-[#753892] heading_48">
+                <h5 className="2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] rtl:xl:text-[48px] mb-2 font-bold text-[#753892] heading_48 compassionate">
                   {t('connectWithExperts')}
                 </h5>
                 <p className="2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] xl:leading-10 rtl:xl:text-[40px] rtl:max-w-[786px] font-normal mb-4 font_40">

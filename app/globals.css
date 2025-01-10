@@ -171,10 +171,7 @@ html[lang="ar"][dir="rtl"] .upload_icon {
 .mediaContent p {
   margin-right: 30px;
   color: #0C0101;
-  line-height: 32px;
-}
-.header-inner a{
-  color: #343434;
+  line-height: 23px;
 }
 .font_bold{
   font-weight: bold;
@@ -252,8 +249,12 @@ html[lang="ar"][dir="rtl"] .nurturing-img {
   inset: 0;
   z-index: -1;
   background-image: url('../public/assets/images/about/nurturing.png');
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
+  background-position-x: center;
+}
+.nurturing-img{
+  min-height: 860px !important;
 }
 
 .btn-download img {
@@ -458,6 +459,7 @@ html[lang="ar"][dir="rtl"] .SubscribeUs-card input {
 
 html[lang="ar"][dir="rtl"] .sign_in_page p {
   font-size: 32px;
+  margin-right: 35px;
 }
 
 /* .sign_in_page .btn-icon {
@@ -471,6 +473,7 @@ html[lang="ar"][dir="rtl"] .sign_in_page .btn-icon {
 html[lang="ar"][dir="rtl"] .sign_in_page input {
   text-align: right;
   padding-right: 25px;
+  font-size: 32px;
 }
 
 .thankYou-wrap .DownloadOurApp-content p:first-child {
@@ -540,6 +543,11 @@ select {
   padding: 12px 10px;
 }
 
+.font_18{
+  font-size: 18px !important;
+  line-height: 28px !important;
+}
+
 html[lang="ar"][dir="rtl"] .font_28 {
   font-size: 28px !important;
   line-height: 32px !important;
@@ -583,9 +591,9 @@ html[lang="ar"][dir="rtl"] .book-you-button h5 {
   font-size: 70px !important;
 }
 
-html[lang="ar"][dir="rtl"] .DownloadOurApp-content h5 {
+/* html[lang="ar"][dir="rtl"] .DownloadOurApp-content h5 {
   margin-bottom: 0px !important;
-}
+} */
 
 html[lang="ar"][dir="rtl"] .text-red-500 {
   font-size: 32px;
@@ -619,9 +627,9 @@ html[lang="ar"][dir="rtl"] .nurturing_wrap {
 }
 
 html[lang="ar"][dir="rtl"] .appstore_heading {
-  font-size: 24px;
-  line-height: 36px;
-  margin-top: 0;
+  font-size: 40px;
+  line-height: 40px;
+  margin-top: 10px;
 }
 
 html[lang="ar"][dir="rtl"] .custom-prev,
@@ -759,6 +767,8 @@ html[lang="ar"][dir="rtl"] .border_line::after {
 
 .heading-box h5 {
   font-size: 24px;
+  margin-bottom: 5px;
+  padding-bottom: 0;
 }
 
 .heading-box h2 {
@@ -807,9 +817,9 @@ html[lang="ar"][dir="rtl"] .form_wrapper .form_control .btn-wrap button {
   line-height: 28px;
 }
 
-.DownloadOurApp-content h5 {
+/* .DownloadOurApp-content h5 {
   margin-bottom: 28px;
-}
+} */
 
 .DownloadOurApp-content .btn-download img {
   width: 180px;
@@ -872,10 +882,10 @@ html[lang="ar"][dir="rtl"] .our_mission_content_wrap h2 {
 .book-you-button a{
   padding: 10px 60px;
 }
-.static-img-wrap {
+/* .static-img-wrap {
   width: 380px !important;
   min-height: 412px !important;
-}
+} */
 .custom-next-btn{
   transform: rotate(178deg);
 }
@@ -885,7 +895,32 @@ html[lang="ar"][dir="rtl"] .custom-next-btn {
 .event-banner .heading-box{
   padding-bottom: 0;
 }
+.compassionate{
+  margin-bottom: 37px !important;
+}
+.sportive_content{
+  margin-bottom: 47px !important;
+}
+.events_blogs {
+  padding-bottom: 20px;
+}
+.register_btn a{
+  padding: 0;
+}
+/* .arrow_btn{
+  height: 16px !important;
+  width: 8px !important;
+} */
 
+.error_msg{
+  font-size: 16px;
+  color: #ff0000;
+}
+html[lang="ar"][dir="rtl"] .error_msg{
+  font-size: 28px;
+  line-height: normal;
+  color: #ff0000;
+}
 /* responsive */
 
 @media (min-width: 1536px) {
@@ -1107,10 +1142,10 @@ html[lang="ar"][dir="rtl"] .custom-next-btn {
   }
 
   html[lang="ar"][dir="rtl"] .appstore_heading {
-    font-size: 22px;
-    line-height: 26px;
-    margin-top: 0;
-  }
+    font-size: 40px;
+    line-height: 40px;
+    margin-top: 10px;
+}
 
   html[lang="ar"][dir="rtl"] .btn-download img {
     width: 150px;
@@ -1214,6 +1249,10 @@ html[lang="ar"][dir="rtl"] .custom-next-btn {
     font-size: 52px !important;
     line-height: 48px !important;
   }
+  /* .static-img-wrap {
+    width: unset !important;
+    min-height: unset !important;
+} */
 }
 
 @media (min-width: 1280px) {
@@ -1804,6 +1843,9 @@ html[lang="ar"][dir="rtl"] .custom-next-btn {
     margin-bottom: 20px;
     padding-top: 40px;
   }
+  html[lang="ar"][dir="rtl"] .bg-site-banner {
+    min-height: 660px !important;
+}
 }
 
 @media (max-width: 776px) {
@@ -2630,4 +2672,9 @@ html[lang="ar"][dir="rtl"] .custom-next-btn {
 .date-wrap h1{
   font-size: 18px;
 }
+}
+
+.detail_img img{
+  width: 100%;
+  height: auto;
 }
