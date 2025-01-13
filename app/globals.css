@@ -871,7 +871,7 @@ html[lang="ar"][dir="rtl"] .our_mission_content_wrap h2 {
 }
 
 .bg-site-banner {
-  min-height: 800px !important;
+  min-height: 1000px !important;
 }
 .form_control .input_wrapper{
   margin-bottom: 20px;
@@ -921,6 +921,22 @@ html[lang="ar"][dir="rtl"] .error_msg{
   line-height: normal;
   color: #ff0000;
 }
+.detail_img img{
+  width: 100%;
+  height: auto;
+}
+.download_app_btn a{
+  color:#fff;
+}
+html[lang="ar"][dir="rtl"] .navbar_links {
+  margin-left: 80px;
+}
+html[lang="ar"][dir="rtl"] .logo a > img {
+  margin-left: 60px;
+}
+.DownloadOurApp-content h5{
+    max-width: 580px;
+}
 /* responsive */
 
 @media (min-width: 1536px) {
@@ -963,8 +979,8 @@ html[lang="ar"][dir="rtl"] .error_msg{
   }
 
   html[lang="ar"][dir="rtl"] .site-banner-content img {
-    height: 130px;
-    width: 400px;
+    height: 120px;
+        width: 300px;
   }
 
   .DownloadOurApp-content .heading-box p {
@@ -1064,6 +1080,12 @@ html[lang="ar"][dir="rtl"] .error_msg{
     font-size: 26px !important;
     line-height: 26px !important;
   }
+  html[lang="ar"][dir="rtl"] .navbar_links {
+    margin-left: 65px;
+}
+.bg-site-banner {
+  min-height: 800px !important;
+}
 }
 
 @media (max-width: 1367px) {
@@ -1253,6 +1275,10 @@ html[lang="ar"][dir="rtl"] .error_msg{
     width: unset !important;
     min-height: unset !important;
 } */
+
+.bg-site-banner {
+  min-height: 700px !important;
+}
 }
 
 @media (min-width: 1280px) {
@@ -1436,8 +1462,8 @@ html[lang="ar"][dir="rtl"] .error_msg{
   }
 
   html[lang="ar"][dir="rtl"] .navbar_links {
-    font-size: 22px;
-    margin-left: 60px;
+    font-size: 20px;
+    margin-left: 50px;
   }
 
   html[lang="ar"][dir="rtl"] .border_line::after {
@@ -1539,6 +1565,9 @@ html[lang="ar"][dir="rtl"] .error_msg{
 
   html[lang="ar"][dir="rtl"] .commitment-wrap .heading-box {
     padding: 0 !important;
+  }
+  .bg-site-banner {
+    min-height: 500px !important;
   }
 }
 
@@ -1846,6 +1875,34 @@ html[lang="ar"][dir="rtl"] .error_msg{
   html[lang="ar"][dir="rtl"] .bg-site-banner {
     min-height: 660px !important;
 }
+.bg-site-banner {
+  min-height: 400px !important;
+}
+.social-icon nav>a {
+  min-width: 36px !important;
+  min-height: 36px !important;
+}  
+.social-icon a>img {
+  width: 15px;
+  height: 15px;
+}
+.wellness_image_wrap {
+  min-height: 60px !important;
+}
+.wellness_image_wrap img{
+  max-width: 300px;
+    margin: 0 auto;
+    min-height: 50px;
+}
+.home_banner p {
+  padding: 0;
+  line-height: 16px;
+}
+.home_banner h5 {
+  line-height: 10px !important;
+  font-size: 18px;
+  margin: 0 auto;
+}
 }
 
 @media (max-width: 776px) {
@@ -1857,9 +1914,8 @@ html[lang="ar"][dir="rtl"] .error_msg{
   }
 
   html[lang="ar"][dir="rtl"] .site-banner-content h5 {
-    font-size: 40px;
-    line-height: normal;
-    max-width: 400px;
+    font-size: 30px;
+    line-height: normal !important;
   }
 
   html[lang="ar"][dir="rtl"] .custom_select {
@@ -2121,6 +2177,9 @@ html[lang="ar"][dir="rtl"] .error_msg{
   .evnets_wrap {
     margin-bottom: 30px;
   }
+  html[lang="ar"][dir="rtl"] .bg-site-banner {
+    min-height: 550px !important;
+}
 }
 
 @media (max-width: 480px) {
@@ -2458,9 +2517,9 @@ html[lang="ar"][dir="rtl"] .error_msg{
     bottom: 190px;
   }
 
-  html[lang="ar"][dir="rtl"] .swiper_slider_btn .custom-next {
+  /* html[lang="ar"][dir="rtl"] .swiper_slider_btn .custom-next {
     bottom: -100px;
-  }
+  } */
 
   .social-icon a>img {
     width: 12px;
@@ -2515,9 +2574,9 @@ html[lang="ar"][dir="rtl"] .error_msg{
     margin-bottom: 0;
   }
 
-  .DownloadOurApp-content h5 {
+  /* .DownloadOurApp-content h5 {
     margin-bottom: 15px;
-  }
+  } */
 
   .mediaContent p {
     margin-right: 10px;
@@ -2530,7 +2589,7 @@ html[lang="ar"][dir="rtl"] .error_msg{
   }
 
   .heading-box {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 
   .benefits-content h5 {
@@ -2672,9 +2731,14 @@ html[lang="ar"][dir="rtl"] .error_msg{
 .date-wrap h1{
   font-size: 18px;
 }
+.custom-next-btn {
+  transform: rotate(178deg);
+  top: 44%;
 }
-
-.detail_img img{
-  width: 100%;
-  height: auto;
+html[lang="ar"][dir="rtl"] .custom-next-btn {
+  top: 50%;
+}
+html[lang="ar"][dir="rtl"] .logo a > img {
+  margin-left: 20px;
+}
 }

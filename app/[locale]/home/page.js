@@ -125,7 +125,7 @@ export default function LandingPage() {
           <div className="inner-container relative sm:pt-4 md:pt0">
             <div className="site-banner-content home_banner max-w-[965px] mx-auto">
               <h5 className="xl:text-40 rtl:xl:text-[100px] lg:text-[30px] text-[22px] text-white font-bold text-center xl:leading-normal">{language === "en" ? cmsWebHeadingData?.heading_en : cmsWebHeadingData?.heading_ar} </h5>
-              <div className="relative banner-img 2xl:min-h-[148px] sm:min-h-[80px] lg:min-h-[120px] min-h-[60px] max-w-full">
+              <div className="relative banner-img 2xl:min-h-[148px] sm:min-h-[80px] lg:min-h-[120px] min-h-[60px] max-w-full wellness_image_wrap">
                 {
                   language === "en" ? (
                     <Image
@@ -357,11 +357,11 @@ export default function LandingPage() {
                     {t('downloadOurApp')}
                   </h2>
                 </div>
-                <h5 className="2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] rtl:xl:text-[48px] mb-2 font-bold text-[#753892] heading_48 compassionate">
-                  {t('connectWithExperts')}
-                </h5>
-                <p className="2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] xl:leading-10 rtl:xl:text-[40px] rtl:max-w-[786px] font-normal mb-4 font_40">
+                <h5 className="2xl:text-[24px] xl:text-[22px] lg:text-[20px] text-[#753892] sm:text-[18px] text-[14px] xl:leading-10 rtl:xl:text-[40px] rtl:max-w-[786px] mb-4 font-bold font_40">
                   {t('personalizedSupport')}
+                </h5>
+                <p className="2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] rtl:xl:text-[48px] mb-2 text-[#000] font_25 compassionate">
+                  {t('connectWithExperts')}
                 </p>
                 <div className="QR-box mt-9 flex xs:justify-between small:justify-center items-center max-w-[420px] gap-3">
                   <div className="btn-download">

@@ -156,7 +156,7 @@ export default function SignUpNow() {
   };
 
   const handleSubmit = async () => {
-    setLoader(false);
+    setLoader(true);
     let errors = {};
 
     // Validate fullName (maximum length of 150 characters)
@@ -202,7 +202,7 @@ export default function SignUpNow() {
       setLoader(false);
       return;
     }
-    // setLoader(true); // If token exists, stop loader
+    setLoader(true); // If token exists, stop loader
 
     try {
       const formData = new FormData();
@@ -217,7 +217,7 @@ export default function SignUpNow() {
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
-      setLoader(true);
+    
       if (response?.data?.status === 1) {
         localStorage.setItem("authToken", response.data.token);
         setSignUpData({ fullName: "", email: "" });
@@ -313,6 +313,7 @@ export default function SignUpNow() {
   };
 
   useEffect(() => {
+    setLoader(true);
     const checkToken = () => {
       if (isTokenExpired()) {
         setShowSignUp(true); // Show sign-up if token is expired or invalid
@@ -320,9 +321,12 @@ export default function SignUpNow() {
         setShowSignUp(false); // Hide sign-up if token is valid
       }
     };
+    setLoader(false);
     checkToken(); // Initial check
     const interval = setInterval(checkToken, 5000); // Check every 5 seconds
     return () => clearInterval(interval); // Clean up the interval on unmount
+  
+
   }, []);
 
   if (loader) {
@@ -461,7 +465,7 @@ export default function SignUpNow() {
                 </div>
                 {
                   errorMessage && (
-                <span className="text-red-500 text-sm mt-2">
+                <span className="error_msg">
                   {errorMessage}
                 </span>
               )
@@ -490,7 +494,7 @@ export default function SignUpNow() {
                     </button>
                   </div>
                   {!otpCode && errorVerifyMessage && (
-                    <span className="text-red-500 text-sm mt-2">
+                    <span className="error_msg">
                       {errorVerifyMessage}
                     </span>
                   )}
@@ -584,8 +588,9 @@ export default function SignUpNow() {
                   {t("sign_in")}
                 </button>
               </p>
-              <button
-                // disabled={!disabledPhoneOTP}
+              {
+                disabledPhoneOTP &&   <button
+                disabled={!disabledPhoneOTP}
                 onClick={handleSubmit}
                 className={
                   !disabledPhoneOTP
@@ -595,6 +600,8 @@ export default function SignUpNow() {
               >
                 {t("sign_up")}
               </button>
+              }
+            
             </div>
           </div>
         </div>
