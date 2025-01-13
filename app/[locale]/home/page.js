@@ -10,6 +10,9 @@ import useSWR from 'swr';
 import FullPageLoader from '@/components/fullPageLoader.js/FullPageLoader';
 import OurClients from '@/components/OurClients';
 import Head from "@/app/[locale]/home/head"; // Import DefaultTags component
+import { FaTelegramPlane } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+
 
 // Define fetcher function
 const fetcher = (url) => fetch(url).then((r) => r.json());
@@ -149,7 +152,7 @@ export default function LandingPage() {
             </div>
             <div className="social-icon">
               <nav className="flex items-center justify-center mt-6">
-                {cmsWebHeadingData?.facebook && (
+                {/* {cmsWebHeadingData?.facebook && (
                   <Link href={cmsWebHeadingData.facebook}
                     target="_blank"
                     className="
@@ -175,9 +178,9 @@ export default function LandingPage() {
                    "
                     />
                   </Link>
-                )}
-                {cmsWebHeadingData?.twitter && (
-                  <Link href={cmsWebHeadingData.twitter} target="_blank" className="min-w-14 min-h-14 
+                )} */}
+                {cmsWebHeadingData?.instagram && (
+                  <Link href={cmsWebHeadingData.instagram} target="_blank" className="min-w-14 min-h-14 
                    small:min-w-7 small:min-h-7  
                    xs:min-w-9 xs:min-h-9       
                    sm:min-w-11 sm:min-h-11  
@@ -185,15 +188,15 @@ export default function LandingPage() {
                    rounded-full border-solid border-2 
                    flex items-center justify-center border-info-color 
                    ease-in-out me-2 hover:bg-info-color">
-                    <Image src="/twitter.png" width={25} height={25} alt={t("twitterAlt")} className="max-w-full object-contain 
+                     <FaInstagram width={25} height={25} alt={t("linkedinAlt")} className="max-w-full object-contain 
                      small:w-4 small:h-4   
                      xs:w-5 xs:h-5       
                      sm:w-6 sm:h-6     
-                     lg:w-9 lg:h-9" />
+                     text-white" /> 
                   </Link>
                 )}
-                {cmsWebHeadingData?.linkedin && (
-                  <Link href={cmsWebHeadingData.linkedin} target="_blank" className="min-w-14 min-h-14 
+                {cmsWebHeadingData?.telegram && (
+                  <Link href={cmsWebHeadingData.telegram} target="_blank" className="min-w-14 min-h-14 
                    small:min-w-7 small:min-h-7  
                    xs:min-w-9 xs:min-h-9       
                    sm:min-w-11 sm:min-h-11  
@@ -201,11 +204,11 @@ export default function LandingPage() {
                    rounded-full border-solid border-2 
                    flex items-center justify-center border-info-color 
                    ease-in-out me-2 hover:bg-info-color">
-                    <Image src="/linkedin.png" width={25} height={25} alt={t("linkedinAlt")} className="max-w-full object-contain 
+                     <FaTelegramPlane width={25} height={25} alt={t("linkedinAlt")} className="max-w-full object-contain 
                      small:w-4 small:h-4   
                      xs:w-5 xs:h-5       
                      sm:w-6 sm:h-6     
-                     lg:w-9 lg:h-9" />
+                     text-white" />
                   </Link>
                 )}
                 {cmsWebHeadingData?.youtube && (
