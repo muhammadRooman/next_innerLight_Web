@@ -316,7 +316,7 @@ export default function LandingPage() {
                   {language === "en" ? CmsWebHMeditationData?.description_en : CmsWebHMeditationData?.description_ar}
                 </p>
                 <h5 className='2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] xl:leading-10 rtl:xl:text-[48px] md:mb-24 mb-6 font-bold text-[#753892] heading_48'>
-                  {t("connect_with_compassionate")}
+                  {t("connectWithExperts")}
                 </h5>
               </div>
               <div className='static-img relative lg:left-[-166px] rtl:lg:right-[-166px] mt-8 lg:w-[calc(100%+166px)] w-full'>
