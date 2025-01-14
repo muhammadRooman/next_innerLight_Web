@@ -173,7 +173,8 @@ html[lang="ar"][dir="rtl"] .upload_icon {
   color: #0C0101;
   line-height: 23px;
 }
-.font_bold{
+
+.font_bold {
   font-weight: bold;
 }
 
@@ -239,10 +240,6 @@ html[lang="ar"][dir="rtl"] .nurturing-img {
   min-height: 770px;
 }
 
-.our-value-content-box {
-  margin-top: 130px;
-}
-
 .nurturing-img::before {
   content: "";
   position: absolute;
@@ -253,8 +250,9 @@ html[lang="ar"][dir="rtl"] .nurturing-img {
   background-repeat: no-repeat;
   background-position-x: center;
 }
-.nurturing-img{
-  min-height: 860px !important;
+
+.nurturing-img {
+  min-height: 700px !important;
 }
 
 .btn-download img {
@@ -543,9 +541,19 @@ select {
   padding: 12px 10px;
 }
 
-.font_18{
+.font_18 {
   font-size: 18px !important;
   line-height: 28px !important;
+}
+
+.font_32 {
+  font-size: 18px !important;
+  line-height: 28px !important;
+}
+
+.font_25 {
+  font-size: 25px !important;
+  line-height: 32px !important;
 }
 
 html[lang="ar"][dir="rtl"] .font_28 {
@@ -574,7 +582,7 @@ html[lang="ar"][dir="rtl"] .font_32 {
 
 html[lang="ar"][dir="rtl"] .font_40 {
   font-size: 40px !important;
-  line-height: 40px !important;
+  line-height: 49px !important;
 }
 
 html[lang="ar"][dir="rtl"] .heading_40 {
@@ -621,9 +629,6 @@ html[lang="ar"][dir="rtl"] .nurturing-img {
 html[lang="ar"][dir="rtl"] .nurturing_wrap {
   display: flex;
   flex-direction: column;
-  align-items: normal;
-  justify-content: center;
-  margin-top: 100px;
 }
 
 html[lang="ar"][dir="rtl"] .appstore_heading {
@@ -873,70 +878,111 @@ html[lang="ar"][dir="rtl"] .our_mission_content_wrap h2 {
 .bg-site-banner {
   min-height: 1000px !important;
 }
-.form_control .input_wrapper{
+
+.form_control .input_wrapper {
   margin-bottom: 20px;
 }
-.home_banner h5{
+
+.home_banner h5 {
   line-height: 50px !important;
 }
-.book-you-button a{
+
+.book-you-button a {
   padding: 10px 60px;
 }
+
 /* .static-img-wrap {
   width: 380px !important;
   min-height: 412px !important;
 } */
-.custom-next-btn{
+.custom-next-btn {
   transform: rotate(178deg);
 }
+
 html[lang="ar"][dir="rtl"] .custom-next-btn {
   transform: rotate(0deg);
 }
-.event-banner .heading-box{
+
+.event-banner .heading-box {
   padding-bottom: 0;
 }
-.compassionate{
+
+.compassionate {
   margin-bottom: 37px !important;
 }
-.sportive_content{
+
+.sportive_content {
   margin-bottom: 47px !important;
 }
+
 .events_blogs {
   padding-bottom: 20px;
 }
-.register_btn a{
+
+.register_btn a {
   padding: 0;
 }
+
 /* .arrow_btn{
   height: 16px !important;
   width: 8px !important;
 } */
 
-.error_msg{
+.error_msg {
   font-size: 16px;
   color: #ff0000;
 }
-html[lang="ar"][dir="rtl"] .error_msg{
+
+html[lang="ar"][dir="rtl"] .error_msg {
   font-size: 28px;
   line-height: normal;
   color: #ff0000;
 }
-.detail_img img{
+
+.detail_img img {
   width: 100%;
   height: auto;
 }
-.download_app_btn a{
-  color:#fff;
+
+.download_app_btn a {
+  color: #fff;
 }
+
 html[lang="ar"][dir="rtl"] .navbar_links {
   margin-left: 80px;
 }
-html[lang="ar"][dir="rtl"] .logo a > img {
+
+html[lang="ar"][dir="rtl"] .logo a>img {
   margin-left: 60px;
 }
-.DownloadOurApp-content h5{
-    max-width: 580px;
+
+.DownloadOurApp-content h5 {
+  max-width: 580px;
 }
+
+.nurturing-img {
+  margin-top: 0 !important;
+}
+
+.comitment-img {
+  min-height: 760px !important;
+  margin-top: 50px;
+}
+
+.comitment-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.WelcomeMessage p {
+  margin-top: 20px;
+}
+
+html[lang="ar"][dir="rtl"] .nurturing-img {
+  min-height: 740px !important;
+}
+
 /* responsive */
 
 @media (min-width: 1536px) {
@@ -980,7 +1026,7 @@ html[lang="ar"][dir="rtl"] .logo a > img {
 
   html[lang="ar"][dir="rtl"] .site-banner-content img {
     height: 120px;
-        width: 300px;
+    width: 300px;
   }
 
   .DownloadOurApp-content .heading-box p {
@@ -1080,12 +1126,23 @@ html[lang="ar"][dir="rtl"] .logo a > img {
     font-size: 26px !important;
     line-height: 26px !important;
   }
+
   html[lang="ar"][dir="rtl"] .navbar_links {
     margin-left: 65px;
-}
-.bg-site-banner {
-  min-height: 800px !important;
-}
+  }
+
+  .bg-site-banner {
+    min-height: 800px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .nurturing-img {
+    min-height: 640px !important;
+  }
+
+  .comitment-img {
+    min-height: 680px !important;
+    margin-top: 50px;
+  }
 }
 
 @media (max-width: 1367px) {
@@ -1164,10 +1221,10 @@ html[lang="ar"][dir="rtl"] .logo a > img {
   }
 
   html[lang="ar"][dir="rtl"] .appstore_heading {
-    font-size: 40px;
+    font-size: 28px;
     line-height: 40px;
     margin-top: 10px;
-}
+  }
 
   html[lang="ar"][dir="rtl"] .btn-download img {
     width: 150px;
@@ -1179,9 +1236,9 @@ html[lang="ar"][dir="rtl"] .logo a > img {
     line-height: 30px;
   }
 
-  html[lang="ar"][dir="rtl"] .nurturing_wrap {
+  /* html[lang="ar"][dir="rtl"] .nurturing_wrap {
     margin-top: 50px;
-  }
+  } */
 
   html[lang="ar"][dir="rtl"] .comitment-img {
     min-height: 270px;
@@ -1271,14 +1328,24 @@ html[lang="ar"][dir="rtl"] .logo a > img {
     font-size: 52px !important;
     line-height: 48px !important;
   }
+
   /* .static-img-wrap {
     width: unset !important;
     min-height: unset !important;
 } */
 
-.bg-site-banner {
-  min-height: 700px !important;
-}
+  .bg-site-banner {
+    min-height: 700px !important;
+  }
+
+  .comitment-img {
+    min-height: 640px !important;
+    margin-top: 50px;
+  }
+
+  html[lang="ar"][dir="rtl"] .nurturing-img {
+    min-height: 600px !important;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -1394,10 +1461,6 @@ html[lang="ar"][dir="rtl"] .logo a > img {
 
   html[lang="ar"][dir="rtl"] .about-banner {
     min-height: 430px;
-  }
-
-  .our-value-content-box {
-    margin-top: 80px;
   }
 
   .benefits-holistic .heading-box {
@@ -1566,8 +1629,22 @@ html[lang="ar"][dir="rtl"] .logo a > img {
   html[lang="ar"][dir="rtl"] .commitment-wrap .heading-box {
     padding: 0 !important;
   }
+
   .bg-site-banner {
     min-height: 500px !important;
+  }
+
+  .nurturing-img {
+    min-height: 450px !important;
+  }
+
+  .comitment-img {
+    min-height: 490px !important;
+    margin-top: 50px;
+  }
+
+  html[lang="ar"][dir="rtl"] .nurturing-img {
+    min-height: 460px !important;
   }
 }
 
@@ -1667,10 +1744,6 @@ html[lang="ar"][dir="rtl"] .logo a > img {
     font-size: 14px;
     margin-top: 10px;
   } */
-
-  .our-value-content-box {
-    margin-top: 30px;
-  }
 
   .about-us .heading-box {
     margin-bottom: 15px;
@@ -1869,39 +1942,59 @@ html[lang="ar"][dir="rtl"] .logo a > img {
   }
 
   html[lang="ar"][dir="rtl"] .our-value-content-box .heading-box {
-    margin-bottom: 20px;
-    padding-top: 40px;
+    margin-bottom: 0px;
+    padding-top: 0px;
   }
+
+  html[lang="ar"][dir="rtl"] .nurturing-img {
+    min-height: 650px !important;
+  }
+
   html[lang="ar"][dir="rtl"] .bg-site-banner {
     min-height: 660px !important;
-}
-.bg-site-banner {
-  min-height: 400px !important;
-}
-.social-icon nav>a {
-  min-width: 36px !important;
-  min-height: 36px !important;
-}  
-.social-icon a>img {
-  width: 15px;
-  height: 15px;
-}
-.wellness_image_wrap {
-  min-height: 60px !important;
-}
-.wellness_image_wrap img{
-  max-width: 300px;
+  }
+
+  .bg-site-banner {
+    min-height: 400px !important;
+  }
+
+  .social-icon nav>a {
+    min-width: 36px !important;
+    min-height: 36px !important;
+  }
+
+  .social-icon a>img {
+    width: 15px;
+    height: 15px;
+  }
+
+  .wellness_image_wrap {
+    min-height: 60px !important;
+  }
+
+  .wellness_image_wrap img {
+    max-width: 300px;
     margin: 0 auto;
     min-height: 50px;
-}
-.home_banner p {
-  padding: 0;
-  line-height: 16px;
-}
-.home_banner h5 {
-  line-height: 10px !important;
-  font-size: 18px;
-  margin: 0 auto;
+  }
+
+  .home_banner p {
+    padding: 0;
+    line-height: 16px;
+  }
+
+  .home_banner h5 {
+    line-height: 10px !important;
+    font-size: 18px;
+    margin: 0 auto;
+  }
+
+  .nurturing-img {
+    min-height: 630px !important;
+  }
+  html[lang="ar"][dir="rtl"] .navbar_links {
+    font-size: 20px;
+    margin-left: 0;
 }
 }
 
@@ -2177,9 +2270,38 @@ html[lang="ar"][dir="rtl"] .logo a > img {
   .evnets_wrap {
     margin-bottom: 30px;
   }
+
   html[lang="ar"][dir="rtl"] .bg-site-banner {
     min-height: 550px !important;
-}
+  }
+
+  .nurturing-img {
+    min-height: 380px !important;
+  }
+
+  .comitment-img img {
+    object-fit: contain;
+    object-position: top;
+  }
+
+  .comitment-img {
+    min-height: 230px !important;
+    margin-top: 50px;
+  }
+
+  .our-value {
+    padding-top: 30px;
+  }
+
+  html[lang="ar"][dir="rtl"] .nurturing-img {
+    min-height: 370px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .appstore_heading {
+    font-size: 24px;
+    line-height: 20px;
+    margin-top: 10px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -2286,9 +2408,9 @@ html[lang="ar"][dir="rtl"] .logo a > img {
     padding: 10px 40px 10px 10px;
   }
 
-  .benefits-holistic .heading-box {
+  /* .benefits-holistic .heading-box {
     margin-top: 25px;
-  }
+  } */
 
   .heading-box h2 {
     line-height: 25px;
@@ -2314,6 +2436,7 @@ html[lang="ar"][dir="rtl"] .logo a > img {
     top: 0px !important;
     left: 5px;
   }
+
   .select_country button {
     padding: 10px 0px;
     font-size: 12px;
@@ -2321,7 +2444,7 @@ html[lang="ar"][dir="rtl"] .logo a > img {
     right: 5px;
     min-height: 50px;
     top: 5px;
-}
+  }
 
   .upload_feild {
     padding: 0 5px;
@@ -2343,11 +2466,11 @@ html[lang="ar"][dir="rtl"] .logo a > img {
     margin: auto;
   }
 
-  html[lang="ar"][dir="rtl"] .Meditation-content-inner h5 {
+  /* html[lang="ar"][dir="rtl"] .Meditation-content-inner h5 {
     font-size: 20px;
     line-height: 20px;
     margin-bottom: 10px;
-  }
+  } */
 
   html[lang="ar"][dir="rtl"] .book-you-button a {
     margin-left: 0;
@@ -2439,11 +2562,11 @@ html[lang="ar"][dir="rtl"] .logo a > img {
     margin: 0 auto;
   }
 
-  html[lang="ar"][dir="rtl"] .WelcomeMessage h5 {
+  /* html[lang="ar"][dir="rtl"] .WelcomeMessage h5 {
     font-size: 30px !important;
     line-height: 30px;
     font-weight: bold;
-  }
+  } */
 
   html[lang="ar"][dir="rtl"] .nurturing-img {
     min-height: 270px;
@@ -2531,8 +2654,8 @@ html[lang="ar"][dir="rtl"] .logo a > img {
   }
 
   .custom_footer nav>a {
-    margin-right: 15px;
-    font-size: 14px;
+    margin-right: 10px;
+        font-size: 12px;
   }
 
   .SubscribeUs-card button {
@@ -2657,18 +2780,18 @@ html[lang="ar"][dir="rtl"] .logo a > img {
   }
 
   html[lang="ar"][dir="rtl"] .arabic_heading_one {
-    font-size: 28px !important;
-    line-height: 20px !important;
+    font-size: 22px !important;
+    line-height: 30px !important;
   }
 
   html[lang="ar"][dir="rtl"] .arabic_heading_two {
-    font-size: 34px !important;
-    line-height: 24px !important;
+    font-size: 28px !important;
+    line-height: 25px !important;
     padding-bottom: 10px;
   }
 
   html[lang="ar"][dir="rtl"] .font_40 {
-    font-size: 18px !important;
+    font-size: 24px !important;
     line-height: normal !important;
   }
 
@@ -2685,7 +2808,7 @@ html[lang="ar"][dir="rtl"] .logo a > img {
 
   html[lang="ar"][dir="rtl"] .our-value-content-box .heading-box {
     margin-bottom: 0;
-    padding-top: 40px;
+    padding-top: 0px;
   }
 
   html[lang="ar"][dir="rtl"] .font_25 {
@@ -2711,34 +2834,88 @@ html[lang="ar"][dir="rtl"] .logo a > img {
     font-size: 14px;
     line-height: normal;
   }
-  .moment_of_senetry .heading-box{
+
+  .moment_of_senetry .heading-box {
     margin-bottom: 0;
   }
+
   .moment_of_senetry .heading-box p {
     line-height: 24px !important;
+  }
+
+  .moment_of_senetry .heading-box h5,
+  .moment_of_senetry .heading-box h2 {
+    margin-bottom: 5px;
+    line-height: normal;
+  }
+
+  .event_banner_content {
+    padding: 0;
+  }
+
+  .date-wrap {
+    height: 70px;
+    width: 70px;
+  }
+
+  .date-wrap h1 {
+    font-size: 18px;
+  }
+
+  .custom-next-btn {
+    transform: rotate(178deg);
+    top: 44%;
+  }
+
+  html[lang="ar"][dir="rtl"] .custom-next-btn {
+    top: 50%;
+  }
+
+  html[lang="ar"][dir="rtl"] .logo a>img {
+    margin-left: 20px;
+  }
+
+  .nurturing-img {
+    min-height: 290px !important;
+  }
+
+  .comitment-img {
+    min-height: 170px !important;
+    margin-top: 30px;
+  }
+
+  html[lang="ar"][dir="rtl"] .nurturing-img {
+    min-height: 270px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .appstore_heading {
+    font-size: 20px;
+    line-height: 18px;
+    margin-top: 10px;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_32 {
+    font-size: 20px !important;
+    line-height: normal !important;
+    max-width: 700px;
+    margin-top: 10px;
+  }
+  html[lang="ar"][dir="rtl"] .bg-site-banner {
+    min-height: 500px !important;
 }
-.moment_of_senetry .heading-box h5, .moment_of_senetry .heading-box h2 {
-  margin-bottom: 5px;
-  line-height: normal;
+.font_32 {
+  font-size: 16px !important;
+  line-height: 24px !important;
 }
-.event_banner_content {
-  padding: 0;
+.benefits-content p{
+  margin-top: 0 !important;
 }
-.date-wrap{
-  height: 70px;
-  width: 70px;
+.font_25 {
+  font-size: 16px !important;
+  line-height: 24px !important;
 }
-.date-wrap h1{
-  font-size: 18px;
-}
-.custom-next-btn {
-  transform: rotate(178deg);
-  top: 44%;
-}
-html[lang="ar"][dir="rtl"] .custom-next-btn {
-  top: 50%;
-}
-html[lang="ar"][dir="rtl"] .logo a > img {
-  margin-left: 20px;
+.DownloadOurApp {
+  margin-bottom: 35px;
 }
 }
+  

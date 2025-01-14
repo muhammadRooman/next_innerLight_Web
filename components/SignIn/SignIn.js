@@ -260,7 +260,7 @@ export default function SignIn() {
                             </option>
                           ))}
                         </select>
-                      </div>
+                  </div>
                 </div> :
                 <div>
                  <div className="relative">
@@ -294,11 +294,11 @@ export default function SignIn() {
                             </option>
                           ))}
                         </select>
-                      </div>
+                  </div>
                 </div> 
      }
              
-              <div className="relative w-[80%]">
+            <div className="relative w-[100%]">
             <input
               type="number"
               inputMode="tel"
@@ -308,7 +308,7 @@ export default function SignIn() {
               // value={`${selectedCountryCode}${phoneNumber}`} // Always shows country code + phone number
               onChange={handlePhoneNumberChange} // Handles updates without breaking country code
               className="placeholder:text-[#11171F] w-full items-center dir_left-t-right rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6"
-              placeholder="Enter phone number"
+              placeholder="Phone Number"
               disabled={isOtpSent || disabledPhoneOTP || OtpMessage} 
             />
              </div>
@@ -357,8 +357,8 @@ export default function SignIn() {
               )}
             </div>
           </div>
-          <div className="book-you-button register_btn flex-wrap  flex lg:justify-between items-center mt-10 justify-center text-center ">
-            <p className="text-black text-lg mb-3 lg:mt-0 mt-2 ">
+          <div className="book-you-button register_btn flex-wrap flex lg:justify-between items-center mt-10 text-center">
+            <p className="text-black text-lg mb-3 lg:mt-0 mt-2 font_32">
               {t("dont_have_account")}
               <Link
                 href={`/${language}/signup`}

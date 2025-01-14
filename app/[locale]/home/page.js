@@ -312,7 +312,7 @@ export default function LandingPage() {
                   <h5 className='text-info-color 2xl:text-[22px] xl:text-[20px] lg:text-[18px] sm:text-[16px] text-[14px] font-black rtl:2xl:text-[56px] rtl:xl:text-[40px] rtl:text-[30px] arabic_heading_one'>{t("innerLight")}</h5>
                   <h2 className='2xl:text-[40px] xl:text-[36px] lg:text-[30px] sm:text-[25px] text-[14px] font-bold rtl:2xl:text-[72px] rtl:xl:text-[50px] rtl:text-[40px] arabic_heading_two'>{language === "en" ? CmsWebHMeditationData?.heading_en : CmsWebHMeditationData?.heading_ar}</h2>
                 </div>
-                <p className='2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] xl:leading-10 rtl:xl:text-[40px] rtl:max-w-[926px] rtl:xl:leading-10 font-normal mb-4 font_40'>
+                <p className='2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] xl:leading-10 rtl:xl:text-[40px] rtl:max-w-[926px] rtl:xl:leading-10 font-normal mb-4 font_25'>
                   {language === "en" ? CmsWebHMeditationData?.description_en : CmsWebHMeditationData?.description_ar}
                 </p>
                 <h5 className='2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] xl:leading-10 rtl:xl:text-[48px] md:mb-24 mb-6 font-bold text-[#753892] heading_48 compassionate'>

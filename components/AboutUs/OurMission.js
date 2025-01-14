@@ -18,8 +18,8 @@ export default function OurMission(){
                             <h2 className="xl:text-[40px] lg:text-[30px] md:text-[25px] xs:text-[20px] small:text-[18px] 2xl:leading-[50px] text-[25px] font-bold rtl:2xl:text-[72px] rtl:xl:text-[50px] rtl:text-[40px] arabic_heading_two">{t("transforming")}</h2>
                         </div>
                         <div className="WelcomeMessage xl:pl-19 lg:pl-16 pl-5 lg:pr-7 p-5 xl:py-7 border-solid border-2 border-[#B8E7FF] rounded-[20px]">
-                          <h5 className="2xl:text-[32px] md:text-[25px] small:text-[18px] rtl:2xl:text-[40px] text-xl font-bold max-w-[727px] rtl:text-right font_40">{t("welcome_ceo")}</h5>
-                          <p className='lg:text-lg xl:text-[24px] md:text-[16px] text-[14px] rtl:2xl:text-[30px] rtl:md:text-[28px] font-normal mt-7 custom_font font_32'>{t("experience_personalized")}</p>
+                        <h5 className='lg:text-lg xl:text-[24px] md:text-[16px] text-[14px] rtl:2xl:text-[30px] rtl:md:text-[28px]  mt-7 font-bold custom_font font_40'>{t("experience_personalized")}</h5>
+                          <p className="2xl:text-[32px] md:text-[25px] small:text-[18px] rtl:2xl:text-[40px] text-xl max-w-[727px] rtl:text-right font-normal font_32">{t("welcome_ceo")}</p>
                           <p className="text-[#343434] py-5 text-[44px] font-brittany mt-5">Issam Radha</p>
                         </div>
                         <div className="our_mission_content_wrap">
