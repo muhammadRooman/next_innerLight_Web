@@ -363,7 +363,7 @@ export default function LandingPage() {
                 <h5 className="2xl:text-[24px] xl:text-[22px] lg:text-[20px] text-[#753892] sm:text-[18px] text-[14px] xl:leading-10 rtl:xl:text-[40px] rtl:max-w-[786px] mb-4 font-bold font_40">
                   {t('personalizedSupport')}
                 </h5>
-                <p className="2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] rtl:xl:text-[48px] mb-2 text-[#000] font_25 compassionate">
+                <p className="2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] rtl:xl:text-[48px] mb-2 font_25 compassionate text-[#343434]">
                   {t('connectWithExperts')}
                 </p>
                 <div className="QR-box mt-9 flex xs:justify-between small:justify-center items-center max-w-[420px] gap-3">

@@ -588,6 +588,7 @@ html[lang="ar"][dir="rtl"] .font_40 {
 html[lang="ar"][dir="rtl"] .heading_40 {
   font-size: 40px !important;
   line-height: 40px !important;
+  display: block;
 }
 
 html[lang="ar"][dir="rtl"] .heading_48 {
@@ -885,6 +886,7 @@ html[lang="ar"][dir="rtl"] .our_mission_content_wrap h2 {
 
 .home_banner h5 {
   line-height: 50px !important;
+  margin-bottom: 30px !important;
 }
 
 .book-you-button a {
@@ -1992,9 +1994,14 @@ html[lang="ar"][dir="rtl"] .nurturing-img {
   .nurturing-img {
     min-height: 630px !important;
   }
+
   html[lang="ar"][dir="rtl"] .navbar_links {
     font-size: 20px;
     margin-left: 0;
+  }
+  .font_25 {
+    font-size: 22px !important;
+    line-height: 30px !important;
 }
 }
 
@@ -2301,6 +2308,21 @@ html[lang="ar"][dir="rtl"] .nurturing-img {
     font-size: 24px;
     line-height: 20px;
     margin-top: 10px;
+  }
+
+  .font_25 {
+    font-size: 16px !important;
+    line-height: 24px !important;
+  }
+
+  .font_32 {
+    font-size: 16px !important;
+    line-height: 24px !important;
+  }
+
+  .book-you-button h5 {
+    font-size: 20px;
+    line-height: normal;
   }
 }
 
@@ -2655,7 +2677,7 @@ html[lang="ar"][dir="rtl"] .nurturing-img {
 
   .custom_footer nav>a {
     margin-right: 10px;
-        font-size: 12px;
+    font-size: 12px;
   }
 
   .SubscribeUs-card button {
@@ -2900,22 +2922,26 @@ html[lang="ar"][dir="rtl"] .nurturing-img {
     max-width: 700px;
     margin-top: 10px;
   }
+
   html[lang="ar"][dir="rtl"] .bg-site-banner {
     min-height: 500px !important;
+  }
+
+  .font_32 {
+    font-size: 16px !important;
+    line-height: 24px !important;
+  }
+
+  .benefits-content p {
+    margin-top: 0 !important;
+  }
+
+  .font_25 {
+    font-size: 16px !important;
+    line-height: 24px !important;
+  }
+
+  .DownloadOurApp {
+    margin-bottom: 35px;
+  }
 }
-.font_32 {
-  font-size: 16px !important;
-  line-height: 24px !important;
-}
-.benefits-content p{
-  margin-top: 0 !important;
-}
-.font_25 {
-  font-size: 16px !important;
-  line-height: 24px !important;
-}
-.DownloadOurApp {
-  margin-bottom: 35px;
-}
-}
-  
