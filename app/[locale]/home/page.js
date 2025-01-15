@@ -239,7 +239,7 @@ export default function LandingPage() {
           <div className="2xl:container xl:container lg:container mx-auto px-5">
             <div className="heading-box text-center md:pb-0 pb-5 arabic_heading_box">
               <h5 className="text-info-color 2xl:text-3xl xl:text-2xl lg:text-xl text-[16px] sm:text-md font-black rtl:2xl:text-[56px] rtl:xl:text-[40px] rtl:text-[30px] sm:text-[20px] arabic_heading_one">
-                {t("innerLight")}
+                {t("in_innerLight")}
               </h5>
               <h2 className="xl:text-[40px] lg:text-[30px] text-[18px] font-bold rtl:2xl:text-[72px] rtl:xl:text-[50px] rtl:text-[40px] sm:text-[22px] arabic_heading_two">
                 {language === "en" ? cmsWebCommitmentData?.heading_en : cmsWebCommitmentData?.heading_ar}
@@ -354,7 +354,7 @@ export default function LandingPage() {
               <div className="DownloadOurApp-content xl:max-w-[685px] max-w-full lg:pt-20 pt-8">
                 <div className="heading-box text-left mb-3.5 rtl:text-right">
                   <h5 className="text-info-color 2xl:text-[22px] xl:text-[20px] lg:text-[18px] sm:text-[16px] text-[14px] 2xl:leading-[69px] font-black rtl:2xl:text-[56px] rtl:xl:text-[40px] rtl:text-[30px] arabic_heading_one innerlight_heading_space">
-                    {t('headingSmall')}
+                    {t('innerLight')}
                   </h5>
                   <h2 className="2xl:text-[40px] xl:text-[35px] lg:text-[30px] sm:text-[25px] text-[14px] 2xl:leading-[88px] font-bold rtl:2xl:text-[72px] rtl:xl:text-[50px] rtl:text-[40px] arabic_heading_two">
                     {t('downloadOurApp')}
