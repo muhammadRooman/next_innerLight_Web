@@ -76,7 +76,7 @@ export default function SubscribeUs(props) {
           <form className='form-group mb-7' onSubmit={onSubmit}>
             <div className='icon-wrap relative'>
               <input id="email" name="email" type="email" value={email} onChange={(e) => {setEmail(e.target.value); setError("")}} placeholder={t("enter_email_address")} className="pl-3 pr-9 border-[#CBCBCB] outline-0 lg:text-xl rtl:lg:text-[28px] text-sm bg-transparent block w-full border-0 text-gray-900 border-b-2 py-3 placeholder:text-[#0F0202] focus:none rtl:pr-0 font_28" />
-            {error && <p style={{ color: "red", marginTop: "4px" }}>{error}</p>}                  
+            {error && <p className="error_msg">{error}</p>}                  
              
             <button
               type="submit"

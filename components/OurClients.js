@@ -109,11 +109,11 @@ export default function OurClients() {
                   </button>
                 </div>
                 <div className="center-nav flex">
-                  <button className="custom-prev" aria-label="Previous">
+                  <button className="custom-prev arrow_btn" aria-label="Previous">
                     <Image src="/left.png" alt="left" width={16} height={8} />
                   </button>
                   <div className="custom-pagination text-center"></div>
-                  <button className="custom-next custom-next-btn" aria-label="Next">
+                  <button className="custom-next custom-next-btn arrow_btn" aria-label="Next">
                     <Image src="/right.png" alt="right" width={16} height={8} />
                   </button>
                 </div>

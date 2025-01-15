@@ -149,12 +149,12 @@ const handleImageLoadingComplete = () => {
                 </div>
               </section>
               <section className="container mx-auto px-4 py-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                   {/* Product Image */}
-                  <div className="flex justify-center">
+                  <div className="flex justify-center detail_img">
               {isImageLoading && <FullPageLoader />}
                     <Image
-                       src={`${process.env.NEXT_PUBLIC_IMAGE_API}/${webinarDetailPage?.thumbnailPic}`}
+                      src={`${process.env.NEXT_PUBLIC_IMAGE_API}/${webinarDetailPage?.thumbnailPic}`}
                       alt="Product"
                       width={400}
                       height={400}

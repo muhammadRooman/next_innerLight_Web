@@ -75,7 +75,7 @@ export default function SpiritualCard({ webinarEvenData }) {
    // Check if there's more data available for pagination
    const hasMoreData = webinarEvenData?.filter(
     (event) => event.status === true
-  ).length > visibleData.length;
+  ).length > visibleData?.length;
 
   return (
     <>

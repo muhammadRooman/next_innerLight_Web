@@ -11,17 +11,17 @@ export default function WhatWeOffer() {
     {
       title: t("spiritual_resources"),
       image: "/assets/images/about/SpiritualResources.png",
-      description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore.",
+      description: t("spiritual_heading"),
     },
     {
       title: t("personalized_guidance"),
       image: "/assets/images/about/PersonalizedGuidance.png",
-      description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore.",
+      description: t("Personalized_heading"),
     },
     {
       title: t("online_courses_and_workshops"),
       image: "/assets/images/about/OnlineCourses.png",
-      description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore.",
+      description:t("online_courses_and_workshops_heading"),
     },
   ];
 
@@ -49,7 +49,7 @@ export default function WhatWeOffer() {
               </div>
               <div className="WhatWeOffer-content lg:p-6 p-5">
                 <h5 className="text-info-color 2xl:text-2xl md:text-[20px] xs:text-[18px] small:text-[16px] 2xl:leading-[30px] font-black rtl:2xl:text-[56px] rtl:xl:text-[40px] rtl:text-[30px] heading_40">{offering.title}</h5>
-                <div className="hide-content max-h-0 overflow-hidden transition-[max-height] duration-300 ease-in-out group-hover:max-h-40">
+                <div className="hide-content max-h-0 overflow-hidden transition-[max-height] duration-300 ease-in-out group-hover:max-h-48">
                   <p className="lg:text-lg text-sm xl:text-lg rtl:2xl:text-[30px] rtl:md:text-[28px] font-normal font_32">{offering.description}</p>
                 </div>
               </div>

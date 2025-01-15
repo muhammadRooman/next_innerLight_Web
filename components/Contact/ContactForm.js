@@ -130,7 +130,7 @@ export default function ContactUs() {
                                     maxLength="150"
                                     className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6"
                                 />
-                                {errors.name && <p style={{ color: "red" }} className="error-text">{errors.name}</p>}
+                                {errors.name && <p style={{ color: "red" }} className="error_msg">{errors.name}</p>}
                             </div>
                             <div className="input_wrapper">
                                 <input
@@ -155,7 +155,7 @@ export default function ContactUs() {
                                     // pattern="^[+]?[\d]+$" 
                                     className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6"
                                 />
-                                {errors.phone && <p style={{ color: "red" }} className="error-text">{errors.phone}</p>}
+                                {errors.phone && <p style={{ color: "red" }} className="error_msg">{errors.phone}</p>}
                             </div>
                             <textarea
                                 maxlength="1000"
@@ -165,12 +165,12 @@ export default function ContactUs() {
                                 placeholder={t("message")}
                                 className="placeholder:text-[#11171F] w-full p-4 border border-[#DEDEDE] focus:outline-none rounded-lg min-h-[180px] rtl:xl:text-[32px] md:text-lg xs:text-[16px] small:text-[14px] resize-none"
                             ></textarea>
-                            {errors.message && <p style={{ color: "red" }} className="error-text">{errors.message}</p>}
+                            {errors.message && <p style={{ color: "red" }} className="error_msg">{errors.message}</p>}
                             <div className="btn-wrap text-right rtl:text-left lg:mt-14 mt-10 submit_btn">
                                 <button
                                     disabled={flag}
                                     type="submit"
-                                    className="py-2 lg:px-8 px-3 text-white rounded-3xl font-medium rtl:font-black xl:text-xl rtl:xl:text-[32px] text-[12px] bg-btn-gradient hover:bg-btn-gradient-hover lg:ml-4 rtl:text-[12px]"
+                                    className="py-2 lg:px-8 px-3 text-white rounded-3xl font-medium rtl:font-black xl:text-xl rtl:xl:text-[32px] text-[12px] bg-btn-gradient hover:bg-btn-gradient-hover lg:ml-4 rtl:text-[12px] outline-none"
                                 >
                                     {t("submit")}
                                 </button>
