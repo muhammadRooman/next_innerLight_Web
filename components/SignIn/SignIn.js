@@ -243,7 +243,7 @@ export default function SignIn() {
                             backgroundColor: '#ffffff',
                           }}
                         >
-                          {selectedCountryCode}
+                          {selectedCountryCode.split('-')[0]}
                         </div>
 
                         {/* Actual dropdown */}
@@ -255,7 +255,7 @@ export default function SignIn() {
                           className="max-w-[154px] placeholder:text-[#11171F] w-full items-center dir_left-t-right rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6"
                         >
                           {countries.map((country, index) => (
-                            <option key={index} value={country.code}>
+                            <option key={index} value={`${country.code}-${country.name}`}>
                               {`${country.name} (${country.code})`}
                             </option>
                           ))}
@@ -277,7 +277,7 @@ export default function SignIn() {
                             backgroundColor: '#ffffff',
                           }}
                         >
-                          {selectedCountryCode}
+                           {selectedCountryCode.split('-')[0]}
                         </div>
 
                         {/* Actual dropdown */}
@@ -289,7 +289,7 @@ export default function SignIn() {
                           className="max-w-[154px] placeholder:text-[#11171F] w-full items-center dir_left-t-right rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6"
                         >
                           {arabicCountries.map((country, index) => (
-                            <option key={index} value={country.code}>
+                            <option key={index} value={`${country.code}-${country.name}`}>
                               {`${country.name} (${country.code})`}
                             </option>
                           ))}
