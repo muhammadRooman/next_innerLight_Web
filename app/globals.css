@@ -997,9 +997,9 @@ html[lang="ar"][dir="rtl"] .nurturing-img {
   min-height: 740px !important;
 }
 
-.alignment {
+/* .alignment {
   padding: 32px 0;
-}
+} */
 
 .event_banner_content {
   padding: 68px 0 !important;
@@ -2582,7 +2582,6 @@ html[lang="ar"][dir="rtl"] .upload_icon {
 }
 .btn-wrap button {
   font-size: 18px;
-  padding: 2px 20px;
 }
 html[lang="ar"][dir="rtl"] .btn-icon button {
   min-height: 35px !important;

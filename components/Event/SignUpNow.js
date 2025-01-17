@@ -529,7 +529,7 @@ export default function SignUpNow() {
                 </div>
               )}
             </div>
-            <div className="book-you-button md:flex flex-wrap md:justify-between items-center mt-10 justify-center text-center btn-wrap">
+            <div className="book-you-button xs:flex flex-wrap xs:justify-between items-center mt-10 justify-center text-center btn-wrap">
               <p className="text-black text-lg mb-3 lg:mt-0 mt-2 rtl:xl:text-[30px] font_32">
                 {t("already_have_an_account")}{" "}
                 <button
