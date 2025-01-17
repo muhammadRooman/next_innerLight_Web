@@ -321,6 +321,9 @@ export default function SignUpNow() {
               </div>
               <div className="form-group md:mb-0 mb-0">
                 <div className="btn-icon select_country relative flex align-baseline">
+                  {
+                    language === "en"?
+                    
                  <div>
                       <div className="relative">
                         {/* Overlay that covers the dropdown */}
@@ -353,7 +356,7 @@ export default function SignUpNow() {
                           ))}
                         </select>
                       </div>
-                    </div> 
+                    </div> :
                     <div>
                       <div className="relative">
                         {/* Overlay that covers the dropdown */}

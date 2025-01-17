@@ -195,6 +195,8 @@ export default function SignIn() {
             <div className="sm:grid sm:grid-cols-2 gap-7">
             <div className="form-group lg:mb-0 mb-4">
               <div className="btn-icon select_country relative flex align-baseline">
+                {
+                  language==="en"?
                   <div>
                  <div className="relative">
                         {/* Overlay that covers the dropdown */}
@@ -261,8 +263,7 @@ export default function SignIn() {
                         </select>
                   </div>
                 </div> 
-     }
-             
+}
             <div className="relative w-[100%]">
             <input
               type="number"
