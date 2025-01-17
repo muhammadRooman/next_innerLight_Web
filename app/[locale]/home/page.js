@@ -87,6 +87,11 @@ export default function LandingPage() {
     const words = text.split(' ');
     return words.length > 15 ? words.slice(0, 15).join(' ') + '...' : text;
   };
+  const truncateTextMore = (text) => {
+    if (!text) return '';
+    const words = text.split(' ');
+    return words.length > 25 ? words.slice(0, 25).join(' ') + '...' : text;
+  };
 
 
   if (isLoading) return <div> <FullPageLoader /></div>;
@@ -480,15 +485,15 @@ export default function LandingPage() {
                     <h4 className="2xl:text-2xl font-bold max-w-[605px] hover:text-blue-500 mb-4 text-[14px] lg:text-[16px] xl:text-[18px] leading-[20px] sm:leading-[20px] lg:leading-[24px] xl:leading-[28px] heading_40">
                     <Link href={`/${language}/event/${latestEvent?._id}`}>
                       {language === "en"
-                        ? truncateText(latestEvent?.name || "No description available")
-                        : truncateText(latestEvent?.name_ar || "تفصیل موجود نہیں")}
+                        ? truncateTextMore(latestEvent?.name || "No description available")
+                        : truncateTextMore(latestEvent?.name_ar || "تفصیل موجود نہیں")}
                     </Link>
                     </h4>
                     <p className="lg:text-lg text-sm hover:text-blue-500 mb-4 text-[14px] sm:text-[14px] lg:text-[16px] xl:text-[18px] leading-[18px] sm:leading-[18px] lg:leading-[22px] xl:leading-[24px] alignment font_32">
                     <Link href={`/${language}/event/${latestEvent?._id}`}>
                       {language === "en"
-                        ? truncateText(latestEvent?.shortDescription || "No description available")
-                        : truncateText(latestEvent?.shortDescription_ar || "تفصیل موجود نہیں")}
+                        ? truncateTextMore(latestEvent?.shortDescription || "No description available")
+                        : truncateTextMore(latestEvent?.shortDescription_ar || "تفصیل موجود نہیں")}
                     </Link>
                     </p>
                   </div>
