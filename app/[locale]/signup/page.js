@@ -8,7 +8,13 @@ import Head from "../signup/head";
 export default function ThankYou() {
   const [loader, setLoader] = useState(true);
   const router = useRouter(); 
-  const token = localStorage.getItem("authToken");
+  const [token, setToken] = useState(false);
+
+  // Check if the authToken exists
+  useEffect(() => {
+    const authToken = localStorage.getItem("authToken");
+    setToken(authToken !== null);
+  }, []);
 
   useEffect(() => {
     if (token) {

@@ -20,11 +20,11 @@ export default function DownloadOurApp() {
                     {t('downloadOurApp')}
                   </h2>
                 </div>
-                <h5 className="2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] rtl:xl:text-[48px] mb-2 font-bold text-[#753892] heading_40 compassionate">
-                  {t('connectWithExperts')}
-                </h5>
-                <p className="2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] xl:leading-10 rtl:xl:text-[40px] rtl:max-w-[786px] font-normal mb-4 font_32">
+                <h5 className="2xl:text-[24px] xl:text-[22px] lg:text-[20px] text-[#753892] sm:text-[18px] text-[14px] xl:leading-10 rtl:xl:text-[40px] rtl:max-w-[786px] mb-4 font-bold font_40">
                   {t('personalizedSupport')}
+                </h5>
+                <p className="2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] rtl:xl:text-[48px] mb-2 text-[#000] font_25 compassionate">
+                  {t('connectWithExperts')}
                 </p>
                 <div className="QR-box mt-9 flex xs:justify-between small:justify-center items-center max-w-[420px] gap-3">
                   <div className="btn-download">
@@ -55,7 +55,7 @@ export default function DownloadOurApp() {
                 </div>
               </div>
               <div className="DownloadOurApp-img">
-                <div className="relative xl:min-h-[700px] min-h-[300px]">
+                <div className="relative xl:min-h-[700px] min-h-[300px] phone_image">
                   <Image
                     src="/DownloadOurApp.png"
                     alt="App Image"

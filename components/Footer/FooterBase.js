@@ -17,11 +17,11 @@ export default function FooterBase({locale}) {
             </div>
             <div className="nav-menu flex lg:mb-14 mb-8 justify-center">
               <nav className="nav_wrapper">
-                <Link href={`/${locale}/home`} className="tlg:text-black text-white'} py-1.5 lg:py-1 2xl:me-[88px] xl:me-[60px] lg:me-[40px] text-base lg:text-[15px] xl:text-xl rtl:xl:text-[32px] hover:text-[#1796D8] font-medium rtl:font-black">{t("home")}</Link>
-                <Link href={`/${locale}/about`} className="tlg:text-black text-white'} py-1.5 lg:py-1 2xl:me-[88px] xl:me-[60px] lg:me-[40px] text-base lg:text-[15px] xl:text-xl rtl:xl:text-[32px] hover:text-[#1796D8] font-medium rtl:font-black">{t("about")}</Link>
-                <Link href={`/${locale}/benefits`} className="tlg:text-black text-white'} py-1.5 lg:py-1 2xl:me-[88px] xl:me-[60px] lg:me-[40px] text-base lg:text-[15px] xl:text-xl rtl:xl:text-[32px] hover:text-[#1796D8] font-medium rtl:font-black">{t("benefits")}</Link>  
-                <Link href={`/${locale}/contact`} className="tlg:text-black text-white'} py-1.5 lg:py-1 2xl:me-[88px] xl:me-[60px] lg:me-[40px] text-base lg:text-[15px] xl:text-xl rtl:xl:text-[32px] hover:text-[#1796D8] font-medium rtl:font-black">{t("contact")}</Link>
-                <Link href={`/${locale}/event`} className="tlg:text-black text-white'} py-1.5 lg:py-1 2xl:me-[88px] xl:me-[60px] lg:me-[40px] text-base lg:text-[15px] xl:text-xl rtl:xl:text-[32px] hover:text-[#1796D8] font-medium rtl:font-black">{t("events")}</Link>
+                <Link href={`/${locale}/home`} className="tlg:text-black text-white'} py-1.5 lg:py-1 2xl:me-[88px] xl:me-[60px] lg:me-[40px] text-base lg:text-[15px] xl:text-xl rtl:xl:text-[32px] hover:text-[#1796D8] font-medium rtl:font-black navbar_links">{t("home")}</Link>
+                <Link href={`/${locale}/about`} className="tlg:text-black text-white'} py-1.5 lg:py-1 2xl:me-[88px] xl:me-[60px] lg:me-[40px] text-base lg:text-[15px] xl:text-xl rtl:xl:text-[32px] hover:text-[#1796D8] font-medium rtl:font-black navbar_links">{t("about")}</Link>
+                <Link href={`/${locale}/benefits`} className="tlg:text-black text-white'} py-1.5 lg:py-1 2xl:me-[88px] xl:me-[60px] lg:me-[40px] text-base lg:text-[15px] xl:text-xl rtl:xl:text-[32px] hover:text-[#1796D8] font-medium rtl:font-black navbar_links">{t("benefits")}</Link>  
+                <Link href={`/${locale}/contact`} className="tlg:text-black text-white'} py-1.5 lg:py-1 2xl:me-[88px] xl:me-[60px] lg:me-[40px] text-base lg:text-[15px] xl:text-xl rtl:xl:text-[32px] hover:text-[#1796D8] font-medium rtl:font-black navbar_links">{t("contact")}</Link>
+                <Link href={`/${locale}/event`} className="tlg:text-black text-white'} py-1.5 lg:py-1 2xl:me-[88px] xl:me-[60px] lg:me-[40px] text-base lg:text-[15px] xl:text-xl rtl:xl:text-[32px] hover:text-[#1796D8] font-medium rtl:font-black navbar_links">{t("events")}</Link>
               </nav>
             </div>
             <p className="text-lg flex items-center justify-center rtl:flex-row-reverse font_32">

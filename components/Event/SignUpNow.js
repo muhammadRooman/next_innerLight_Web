@@ -1,20 +1,14 @@
 "use client";
-import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-// import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
-// import i18nIsoCountries from 'i18n-iso-countries';
 import { jwtDecode } from "jwt-decode";
 import { countries, arabicCountries } from "../utils/countriesData";
 import FullPageLoader from "../fullPageLoader.js/FullPageLoader";
-
-// Register the Arabic locale
-// i18nIsoCountries.registerLocale(require('i18n-iso-countries/langs/ar.json'));
 
 export default function SignUpNow() {
   const router = useRouter();
@@ -31,8 +25,8 @@ export default function SignUpNow() {
   const [errorVerifyMessage, setErrorVerifyMessage] = useState("");
   const [otpGenerated, setOtpGenerated] = useState(false);
   const [disabledPhoneOTP, setDisabledPhoneOTP] = useState(false);
-  const [profileImage, setProfileImage] = useState(null); // For image upload
-  const [profileImagePreview, setProfileImagePreview] = useState(null); // For preview
+  const [profileImage, setProfileImage] = useState(null); 
+  const [profileImagePreview, setProfileImagePreview] = useState(null); 
   const [imageName, setImageName] = useState("");
   const [imageError, setImageError] = useState("");
   const [OtpMessage, setOtpMessage] = useState("");
@@ -49,28 +43,22 @@ export default function SignUpNow() {
   const [isOtpSent, setIsOtpSent] = useState(false);
   const [isOtpVerify, setIsOtpVerify] = useState(false);
 
-  // fetched cmsWeb
   useEffect(() => {
     const lang = currentPath.split("/")[1] || "en";
     setLanguage(lang);
   }, [currentPath]);
 
   const handleSendOTP = async () => {
-    // Validate if the phone number is provided
     if (!phoneNumber || phoneNumber.trim() === "") {
       setErrorMessage(t("phone_number_is_required"));
       return;
     }
 
-    // Validate the phone number length (between 8 and 16 digits)
     if (phoneNumber.length < 8 || phoneNumber.length > 16) {
       setErrorMessage(t("phone_number_must_be_between_8_and_16_digits"));
       return;
     }
-
-    // Start the OTP generation process
     setIsOtpSent(true);
-
     try {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/auth/generate-otp`,
@@ -79,10 +67,8 @@ export default function SignUpNow() {
           userExist: 0,
         }
       );
-
-      // Handle the response based on status
       if (response?.data?.status === 1) {
-        setOtpGenerated(true); // Show OTP input field
+        setOtpGenerated(true); 
         setOtpMessage(response.data.message || "");
         toast.success(language === "en" ? response.data.message : response.data.message_ar);
         setErrorMessage("");
@@ -99,7 +85,6 @@ export default function SignUpNow() {
     }
   };
 
-
   const handleVerifyOTP = async () => {
     if (!otpCode) {
       setErrorVerifyMessage(t("OTP_is_required"));
@@ -111,10 +96,9 @@ export default function SignUpNow() {
         `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/auth/verify-otp`,
         {
           phoneNumber: fullPhoneNumber,
-          otpCode, // Add userExist here as part of the request body
+          otpCode,
         }
       );
-      // OTP Verified successfully
       if (response?.data?.success) {
         toast.success(language === "en" ? response.data.message : response.data.message_ar);
         setErrorVerifyMessage("");
@@ -122,29 +106,22 @@ export default function SignUpNow() {
       } else {
         toast.error(language === "en" ? response.data.message : response.data.message_ar);
         setIsOtpVerify(false)
-
       }
     } catch (error) {
       toast.error(t("failed_to_Verify_OTP"));
       setIsOtpVerify(false)
-
     }
   };
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-
-    // Check if a file was selected
     if (file) {
-      const fileSizeInMB = file.size / (1024 * 1024); // Convert size to MB
+      const fileSizeInMB = file.size / (1024 * 1024);
       const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
-
-      // Validate the file type
       if (!allowedTypes.includes(file.type)) {
         toast.error(t("please_upload_a_valid_image_file"));
         return;
       }
-      // Validate the file size (e.g., max size 5MB)
       if (fileSizeInMB > 5) {
         toast.error(t("file_size_exceeds_5MB"));
         return;
@@ -158,8 +135,6 @@ export default function SignUpNow() {
   const handleSubmit = async () => {
     setLoader(true);
     let errors = {};
-
-    // Validate fullName (maximum length of 150 characters)
     if (!signUpData?.fullName || signUpData.fullName.trim() === "") {
       errors.fullName = t("full_name_is_required");
     } else if (signUpData.fullName.trim().length > 150) {
@@ -190,7 +165,6 @@ export default function SignUpNow() {
       return;
     }
 
-    // Validate OTP
     if (!otpCode) {
       setErrorVerifyMessage(t("OTP_is_required"));
       return;
@@ -202,8 +176,7 @@ export default function SignUpNow() {
       setLoader(false);
       return;
     }
-    setLoader(true); // If token exists, stop loader
-
+    setLoader(true); 
     try {
       const formData = new FormData();
       formData.append("fullName", signUpData?.fullName);
@@ -211,13 +184,11 @@ export default function SignUpNow() {
       formData.append("otp", otpCode);
       formData.append("email", signUpData?.email.toLowerCase());
       formData.append("profileImage", profileImage || "");
-
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/auth/signup`,
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
-    
       if (response?.data?.status === 1) {
         localStorage.setItem("authToken", response.data.token);
         setSignUpData({ fullName: "", email: "" });
@@ -253,33 +224,14 @@ export default function SignUpNow() {
     if (!token) {
       router.push(`/${language}/signin`);
     } else {
-      setLoader(false); // If token exists, stop loader
+      setLoader(false); 
     }
   }
-
-  // const handlePhoneNumberChange = (e) => {
-  //   const input = e.target.value;
-  //     setErrorMessage('');
-  //   // Ensure the input always starts with the selected country code
-  //   if (!input.startsWith(selectedCountryCode)) {
-  //     return; // Prevent any update if the user tries to remove the country code
-  //   }
-  //   // Extract the phone number (part after the country code)
-  //   let numberWithoutCode = input.slice(selectedCountryCode.length);
-  //   numberWithoutCode = numberWithoutCode.replace(/\D/g, '')
-  //   // Update the phone number state without affecting the country code
-  //   setPhoneNumber(numberWithoutCode);
-  // };
-
 
   const handlePhoneNumberChange = (e) => {
     const value = e.target.value;
     const cleanedValue = value.replace(/[^0-9]/g, '');
-
-    // Update the phone number state
-    setPhoneNumber(cleanedValue);
-
-    // Clear the error message if any
+     setPhoneNumber(cleanedValue);
     if (errorMessage) {
       setErrorMessage("");
     }
@@ -292,22 +244,20 @@ export default function SignUpNow() {
   // Function to check if the token is expired
   const isTokenExpired = () => {
     const token = localStorage.getItem("authToken");
-
     if (!token) {
       return true;
     }
-
     try {
       const decoded = jwtDecode(token);
-      const currentTime = Date.now() / 1000; // Convert milliseconds to seconds
+      const currentTime = Date.now() / 1000; 
       if (currentTime > decoded.exp) {
-        localStorage.removeItem("authToken"); // Remove when expired token
+        localStorage.removeItem("authToken"); 
         return true;
       } else if (decoded.exp > currentTime) {
         return false;
       }
     } catch (error) {
-      localStorage.removeItem("authToken"); // Remove invalid token
+      localStorage.removeItem("authToken"); 
       return true;
     }
   };
@@ -316,9 +266,9 @@ export default function SignUpNow() {
     setLoader(true);
     const checkToken = () => {
       if (isTokenExpired()) {
-        setShowSignUp(true); // Show sign-up if token is expired or invalid
+        setShowSignUp(true); 
       } else {
-        setShowSignUp(false); // Hide sign-up if token is valid
+        setShowSignUp(false); 
       }
     };
     setLoader(false);
@@ -332,6 +282,7 @@ export default function SignUpNow() {
   if (loader) {
     return <FullPageLoader />
   }
+
   return (
     <>{
       showSignUp && <section className="bg-gray-light relative py-16 moment_of_senetry">
@@ -358,7 +309,7 @@ export default function SignUpNow() {
                     // Clear the error message as the user starts typing
                     setValidationErrors((prevErrors) => ({
                       ...prevErrors,
-                      fullName: "", // Clear fullName error message
+                      fullName: "", 
                     }));
                   }}
                   className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[60px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 font_32"
@@ -371,10 +322,11 @@ export default function SignUpNow() {
               <div className="form-group md:mb-0 mb-0">
                 <div className="btn-icon select_country relative flex align-baseline">
                   {
-                    language === "en" ? <div>
+                    language === "en"?
+                    
+                 <div>
                       <div className="relative">
                         {/* Overlay that covers the dropdown */}
-
                         <div
                           className="absolute left-0 top-0 z-10 bg-transparent text-[#11171F] flex items-center justify-left p-5 font_32"
                           style={{
@@ -387,19 +339,18 @@ export default function SignUpNow() {
                             backgroundColor: '#ffffff',
                           }}
                         >
-                          {selectedCountryCode}
+                        {selectedCountryCode.split('-')[0]}
                         </div>
-
                         {/* Actual dropdown */}
                         <select
                           value={selectedCountryCode}
                           disabled={isOtpSent || disabledPhoneOTP || OtpMessage}
                           onChange={(e) => setSelectedCountryCode(e.target.value)}
                           style={{ opacity: 0 }}
-                          className="md:max-w-[154px] xs:max-w-[140px] small:max-w-[110px] placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[60px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 font_32 opacity:0 bg-transparent"
+                          className="md:max-w-[154px] xs:max-w-[140px] small:max-w-[110px] placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[60px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 font_32 opacity:0 bg-transparent country_select_dropdown"
                         >
                           {countries.map((country, index) => (
-                            <option key={index} value={country.code}>
+                            <option key={index} value={`${country.code}-${country.name}`}>
                               {`${country.name} (${country.code})`}
                             </option>
                           ))}
@@ -421,7 +372,7 @@ export default function SignUpNow() {
                             backgroundColor: '#ffffff', 
                           }}
                         >
-                          {selectedCountryCode}
+                         {selectedCountryCode.split('-')[0]}
                         </div>
 
                         {/* Actual dropdown */}
@@ -430,10 +381,10 @@ export default function SignUpNow() {
                           disabled={isOtpSent || disabledPhoneOTP || OtpMessage}
                           onChange={(e) => setSelectedCountryCode(e.target.value)}
                           style={{ opacity: 0 }}
-                          className="md:max-w-[154px] xs:max-w-[140px] small:max-w-[110px] placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[60px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 font_32 opacity:0 bg-transparent"
+                          className="md:max-w-[154px] xs:max-w-[140px] small:max-w-[110px] placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[60px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 font_32 opacity:0 bg-transparent country_select_dropdown"
                         >
                           {arabicCountries.map((country, index) => (
-                            <option key={index} value={country.code}>
+                            <option key={index} value={`${country.code}-${country.name}`}>
                               {`${country.name} (${country.code})`}
                             </option>
                           ))}
@@ -442,21 +393,21 @@ export default function SignUpNow() {
                     </div>
                   }
 
-                  <div className="relative w-[80%]">
+                  <div className="relative w-[100%]">
                     <input
                       type="number"
                       name="PhoneNumber"
                       inputMode="tel"
                       id="PhoneNumber"
                       disabled={isOtpSent || disabledPhoneOTP || OtpMessage}
-                      value={phoneNumber} // Always shows country code + phone number
-                      onChange={handlePhoneNumberChange} // Handles updates without breaking country code
+                      value={phoneNumber} 
+                      onChange={handlePhoneNumberChange} 
                       className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[60px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 font_32"
                       placeholder={t("phone_number")}
                     />
                   </div>
                   <button
-                    disabled={isOtpSent || disabledPhoneOTP || OtpMessage} // Disable immediately on click
+                    disabled={isOtpSent || disabledPhoneOTP || OtpMessage} 
                     onClick={handleSendOTP}
                     className="px-4 py-2 font-semibold lg:text-lg rounded-[3px] bg-[#1796D8] text-white absolute rtl:xl:text-[30px] lg:w-[149px] w-[100px] md:top-2 md:right-2 top-[2px] right-[2px] xs:right-[4px] rtl:left-[0px] xs:top-[4px] lg:min-h-[calc(100%-35px)] md:min-h-[calc(100%-16px)] small:min-h-[calc(100%-16px)] shadow-shadow-color custom_select_button"
                   >
@@ -483,7 +434,7 @@ export default function SignUpNow() {
                       // disabled={disabledPhoneOTP}
                       onChange={handleOtpChange}
                       className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[60px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6"
-                      placeholder="OTP"
+                      placeholder={t("otp")}
                     />
                     <button
                       disabled={isOtpVerify}
@@ -500,13 +451,12 @@ export default function SignUpNow() {
                   )}
                 </div>
               )}
-              <div class="form-group md:mb-0 mb-0">
+              <div className="form-group md:mb-0 mb-0">
                 <input
                   type="email"
                   name="email"
                   id="email"
                   value={signUpData?.email}
-
                   onChange={(e) => {
                     setSignUpData({ ...signUpData, email: e.target.value })
                     // Clear the error message as the user starts typing
@@ -595,13 +545,12 @@ export default function SignUpNow() {
                 className={
                   !disabledPhoneOTP
                     ? "py-2.5 px-6 text-white rounded-3xl font-medium xl:text-xl text-sm bg-btn-gradient hover:bg-btn-gradient-hover md:w-[181px]"
-                    : "lg:text-lg block md:w-[181px] w-full py-2.5 px-6 text-white rounded-3xl font-medium xl:text-xl text-sm bg-btn-gradient hover:bg-btn-gradient-hover"
+                    : "py-2.5 px-6 text-white rounded-3xl font-medium xl:text-xl text-sm bg-btn-gradient hover:bg-btn-gradient-hover"
                 }
               >
                 {t("sign_up")}
               </button>
-              }
-            
+              }          
             </div>
           </div>
         </div>

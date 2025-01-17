@@ -15,7 +15,7 @@ export default function SpiritualCard({ webinarEvenData }) {
   const [visibleData, setVisibleData] = useState([]); // State for currently visible data
   const [currentPage, setCurrentPage] = useState(0); // Current page for pagination
   const itemsPerPage = 3; // Number of items per page
-  const token = localStorage.getItem("authToken");
+  // const token = localStorage.getItem("authToken");
 
   useEffect(() => {
     const lang = currentPath.split("/")[1] || "en";
@@ -25,7 +25,6 @@ export default function SpiritualCard({ webinarEvenData }) {
     return () => clearTimeout(loaderTimeout);
   }, [currentPath]);
 
-  console.log("webinarEvenData",webinarEvenData);
   
   // useEffect(() => {
   //   // Calculate data to display based on current page
@@ -79,7 +78,7 @@ export default function SpiritualCard({ webinarEvenData }) {
 
   return (
     <>
-      <section className="bg-[#EFEFEF] relative flex items-center justify-start lg:pt-4 lg:pb-14 events_blogs">
+      <section className="bg-[#EFEFEF] relative flex items-center justify-start lg:pb-8 events_blogs">
         <div className="2xl:container xl:container lg:container md:container xs:container mx-auto lg:max-0 px-5 evnets_wrap">
           {visibleData?.map((event, index) => (
             <div

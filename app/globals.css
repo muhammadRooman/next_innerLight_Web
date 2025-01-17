@@ -256,8 +256,8 @@ html[lang="ar"][dir="rtl"] .nurturing-img {
 }
 
 .btn-download img {
-  width: 237px;
-  height: 72px;
+  width: 180px;
+  height: 55px;
 }
 
 .btn-download a:first-child {
@@ -444,7 +444,7 @@ html[lang="ar"][dir="rtl"] .SubscribeUs-card input {
 
 .slider-content h4 {
   font-size: 24px;
-  padding-bottom: 10px;
+  padding-bottom: 9px;
 }
 
 .custom-pagination span {
@@ -464,9 +464,9 @@ html[lang="ar"][dir="rtl"] .sign_in_page p {
   margin-left: 15px;
 } */
 
-html[lang="ar"][dir="rtl"] .sign_in_page .btn-icon {
+/* html[lang="ar"][dir="rtl"] .sign_in_page .btn-icon {
   margin-right: 15px;
-}
+} */
 
 html[lang="ar"][dir="rtl"] .sign_in_page input {
   text-align: right;
@@ -551,6 +551,15 @@ select {
   line-height: 28px !important;
 }
 
+.font_26 {
+  font-size: 26px !important;
+  line-height: 32px !important;
+}
+
+.detail_titles p {
+  margin-bottom: 12px;
+}
+
 .font_25 {
   font-size: 25px !important;
   line-height: 32px !important;
@@ -588,6 +597,7 @@ html[lang="ar"][dir="rtl"] .font_40 {
 html[lang="ar"][dir="rtl"] .heading_40 {
   font-size: 40px !important;
   line-height: 40px !important;
+  display: block;
 }
 
 html[lang="ar"][dir="rtl"] .heading_48 {
@@ -782,6 +792,8 @@ html[lang="ar"][dir="rtl"] .border_line::after {
 
 .site-banner .btn-wrap a {
   font-size: 20px;
+  padding: 12px 29px;
+  line-height: 25px;
 }
 
 .our_mission_custom_font {
@@ -885,6 +897,7 @@ html[lang="ar"][dir="rtl"] .our_mission_content_wrap h2 {
 
 .home_banner h5 {
   line-height: 50px !important;
+  margin-bottom: 30px !important;
 }
 
 .book-you-button a {
@@ -929,14 +942,15 @@ html[lang="ar"][dir="rtl"] .custom-next-btn {
 } */
 
 .error_msg {
-  font-size: 16px;
-  color: #ff0000;
+  font-size: 16px !important;
+  color: #ff0000 !important;
+  line-height: 24px !important;
 }
 
 html[lang="ar"][dir="rtl"] .error_msg {
-  font-size: 28px;
-  line-height: normal;
-  color: #ff0000;
+  font-size: 28px !important;
+  line-height: normal !important;
+  color: #ff0000 !important;
 }
 
 .detail_img img {
@@ -981,6 +995,41 @@ html[lang="ar"][dir="rtl"] .logo a>img {
 
 html[lang="ar"][dir="rtl"] .nurturing-img {
   min-height: 740px !important;
+}
+
+.alignment {
+  padding: 32px 0;
+}
+
+.event_banner_content {
+  padding: 68px 0 !important;
+}
+
+.country_select_dropdown {
+  max-width: 100px !important;
+  width: 100%;
+}
+
+.arrow_btn img {
+  height: 10px !important;
+  width: 30px !important;
+}
+
+html[lang="ar"][dir="rtl"] .custom_select {
+  padding: 5px 40px 5px 20px;
+  font-size: 20px !important;
+}
+
+.select_country button {
+  padding: 12px 10px;
+  right: 8px;
+}
+
+html[lang="ar"][dir="rtl"] .icon-wrap button {
+  top: 16px !important;
+}
+.DownloadOurApp {
+  margin-bottom: 30px;
 }
 
 /* responsive */
@@ -1142,6 +1191,10 @@ html[lang="ar"][dir="rtl"] .nurturing-img {
   .comitment-img {
     min-height: 680px !important;
     margin-top: 50px;
+  }
+
+  .site-banner .btn-wrap a {
+    font-size: 18px;
   }
 }
 
@@ -1346,6 +1399,16 @@ html[lang="ar"][dir="rtl"] .nurturing-img {
   html[lang="ar"][dir="rtl"] .nurturing-img {
     min-height: 600px !important;
   }
+
+  .our_service_height {
+    min-height: 350px;
+  }
+
+  html[lang="ar"][dir="rtl"] .date-wrap {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -1421,9 +1484,10 @@ html[lang="ar"][dir="rtl"] .nurturing-img {
   }
 
   html[lang="ar"][dir="rtl"] .form_control input,
-  textarea {
-    font-size: 22px;
+  html[lang="ar"][dir="rtl"] .form_control textarea {
+    font-size: 18px !important;
   }
+
 
   html[lang="ar"][dir="rtl"] .contact_us h2 {
     line-height: 45px;
@@ -1436,7 +1500,7 @@ html[lang="ar"][dir="rtl"] .nurturing-img {
   .WhatWeOffer-card .WhatWeOffer-img img {
     position: relative !important;
     width: 100% !important;
-    height: 190px !important;
+    height: 230px !important;
   }
 
   .heading-box h2 {
@@ -1463,9 +1527,9 @@ html[lang="ar"][dir="rtl"] .nurturing-img {
     min-height: 430px;
   }
 
-  .benefits-holistic .heading-box {
+  /* .benefits-holistic .heading-box {
     padding-bottom: 45px;
-  }
+  } */
 
   .border_line::after {
     width: 220px;
@@ -1646,6 +1710,83 @@ html[lang="ar"][dir="rtl"] .nurturing-img {
   html[lang="ar"][dir="rtl"] .nurturing-img {
     min-height: 460px !important;
   }
+
+  html[lang="ar"][dir="rtl"] .error_msg {
+    font-size: 20px !important;
+  }
+
+  .error_msg {
+    font-size: 14px !important;
+  }
+
+  .site-banner .btn-wrap a {
+    font-size: 17px !important;
+    padding: 10px 22px;
+    line-height: 22px;
+  }
+
+  html[lang="ar"][dir="rtl"] .error_msg {
+    font-size: 18px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .btn-icon button {
+    font-size: 20px;
+    height: 50px;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_32 {
+    margin-top: 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .upload_icon {
+    position: relative;
+    height: 44px;
+    width: 88px;
+    right: 16px;
+  }
+
+  .cust_container {
+    width: 100%;
+  }
+
+  html[lang="ar"][dir="rtl"] .sign_in_page input {
+    font-size: 22px;
+    min-height: 60px;
+  }
+
+  .WhatWeOffer-content h5 {
+    font-size: 18px;
+  }
+
+  .form_wrap input {
+    min-height: 60px;
+  }
+
+  .country_select_dropdown {
+    min-height: 60px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .btn-icon button {
+    right: auto;
+    left: 6px;
+    font-size: 18px !important;
+    top: 5px;
+    min-height: 44px !important;
+    width: 88px;
+  }
+  .event_banner_content {
+    padding: 48px 0 !important;
+}
+
+  html[lang="ar"][dir="rtl"] .verify_button {
+    min-height: 50px;
+    right: 8px;
+    top: 8px;
+  }
+
+  .upload_feild {
+    min-height: 60px !important;
+  }
 }
 
 @media (max-width: 991px) {
@@ -1665,8 +1806,8 @@ html[lang="ar"][dir="rtl"] .nurturing-img {
   }
 
   .btn-download img {
-    width: 180px !important;
-    height: 60px !important;
+    width: 150px !important;
+    height: 50px !important;
   }
 
   html[lang="ar"][dir="rtl"] .events_blogs .\32 xl\:container.xl\:container.lg\:container.md\:container.xs\:container.mx-auto.lg\:max-0.px-5 {
@@ -1898,7 +2039,7 @@ html[lang="ar"][dir="rtl"] .nurturing-img {
   html[lang="ar"][dir="rtl"] .font_32 {
     font-size: 20px !important;
     line-height: 20px !important;
-    max-width: 700px;
+    max-width: 100%;
   }
 
   html[lang="ar"][dir="rtl"] .Meditation-content {
@@ -1992,10 +2133,41 @@ html[lang="ar"][dir="rtl"] .nurturing-img {
   .nurturing-img {
     min-height: 630px !important;
   }
+
   html[lang="ar"][dir="rtl"] .navbar_links {
     font-size: 20px;
     margin-left: 0;
-}
+  }
+
+  .font_25 {
+    font-size: 22px !important;
+    line-height: 30px !important;
+  }
+
+  .select_country button {
+    padding: 12px 10px;
+    right: 6px;
+    top: 6px;
+  }
+
+  html[lang="ar"][dir="rtl"] .sign_in_page input {
+    font-size: 20px;
+  }
+
+  .download_btn_wrap {
+    justify-content: space-between !important;
+  }
+
+  .download_btn_wrap h2 {
+    font-size: 32px !important;
+    padding-bottom: 0px !important;
+  }
+  .phone_image img{
+    height: 500px;
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+  }
 }
 
 @media (max-width: 776px) {
@@ -2192,7 +2364,7 @@ html[lang="ar"][dir="rtl"] .nurturing-img {
   html[lang="ar"][dir="rtl"] .font_32 {
     font-size: 18px !important;
     line-height: normal !important;
-    max-width: 700px;
+    max-width: 100%;
   }
 
   html[lang="ar"][dir="rtl"] .font_40 {
@@ -2302,6 +2474,129 @@ html[lang="ar"][dir="rtl"] .nurturing-img {
     line-height: 20px;
     margin-top: 10px;
   }
+
+  .font_25 {
+    font-size: 16px !important;
+    line-height: 24px !important;
+  }
+
+  .font_32 {
+    font-size: 16px !important;
+    line-height: 24px !important;
+  }
+
+  .book-you-button h5 {
+    font-size: 20px;
+    line-height: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .error_msg {
+    font-size: 16px !important;
+  }
+
+  .error_msg {
+    font-size: 12px !important;
+    line-height: 5px !important;
+  }
+
+  .site-banner .btn-wrap a {
+    font-size: 14px !important;
+    padding: 8px 20px;
+    line-height: 22px;
+  }
+
+  .static-img-wrap {
+    min-height: 160px !important;
+  }
+
+  .sign_in_page_inner {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 14px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .sign_in_page .btn-icon {
+    margin-right: 0;
+  }
+
+  .sign_in_page_inner {
+    padding: 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .sign_in_page input {
+    font-size: 20px;
+  }
+
+  html[lang="ar"][dir="rtl"] .MeditationConsultation-inner {
+    min-height: 590px;
+  }
+
+  .custom_overflow {
+    overflow: auto;
+  }
+
+  .WhatWeOffer-content {
+    padding: 0;
+  }
+
+  .WhatWeOffer-content h5 {
+    padding: 10px 22px;
+    line-height: normal;
+    font-size: 12px;
+  }
+
+  .WhatWeOffer-content h5 {
+    font-size: 12px;
+  }
+
+  .download_btn_wrap {
+    justify-content: center !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .form_control input,
+  html[lang="ar"][dir="rtl"] .form_control textarea {
+    font-size: 18px;
+  }
+  .form_wrap input {
+    min-height: 45px;
+}
+html[lang="ar"][dir="rtl"] .btn-icon button {
+  width: 60px;
+  height: 30px;
+}
+.country_select_dropdown {
+  min-height: 45px !important;
+}
+html[lang="ar"][dir="rtl"] .select_country button {
+  padding: 6px 5px;
+  font-size: 14px !important;
+}
+html[lang="ar"][dir="rtl"] .upload_icon {
+  position: relative;
+  height: 36px;
+  width: 60px;
+  right: 10px;
+}
+.upload_feild{
+  min-height: 45px !important;
+}
+.btn-wrap button {
+  font-size: 18px;
+  padding: 2px 20px;
+}
+html[lang="ar"][dir="rtl"] .btn-icon button {
+  min-height: 35px !important;
+}
+.btn-icon button {
+  min-height: 35px !important;
+}
+html[lang="ar"][dir="rtl"] .sign_in_page input {
+  font-size: 22px;
+  min-height: 45px;
+}
+.btn-icon input{
+  min-height: 45px !important;
+}
 }
 
 @media (max-width: 480px) {
@@ -2425,8 +2720,8 @@ html[lang="ar"][dir="rtl"] .nurturing-img {
   }
 
   .download_application .heading-box h2 {
-    line-height: 24px;
-    font-size: 26px;
+    line-height: 35px;
+        font-size: 26px !important;
   }
 
   .upload_icon {
@@ -2439,7 +2734,7 @@ html[lang="ar"][dir="rtl"] .nurturing-img {
 
   .select_country button {
     padding: 10px 0px;
-    font-size: 12px;
+    font-size: 10px;
     width: 70px;
     right: 5px;
     min-height: 50px;
@@ -2655,7 +2950,7 @@ html[lang="ar"][dir="rtl"] .nurturing-img {
 
   .custom_footer nav>a {
     margin-right: 10px;
-        font-size: 12px;
+    font-size: 12px;
   }
 
   .SubscribeUs-card button {
@@ -2704,7 +2999,7 @@ html[lang="ar"][dir="rtl"] .nurturing-img {
   .mediaContent p {
     margin-right: 10px;
     font-size: 14px;
-    line-height: 15px;
+    line-height: 15px !important;
   }
 
   .commitment-wrap {
@@ -2897,25 +3192,54 @@ html[lang="ar"][dir="rtl"] .nurturing-img {
   html[lang="ar"][dir="rtl"] .font_32 {
     font-size: 20px !important;
     line-height: normal !important;
-    max-width: 700px;
-    margin-top: 10px;
+    max-width: 100%;
+    margin-top: 0;
   }
+
   html[lang="ar"][dir="rtl"] .bg-site-banner {
     min-height: 500px !important;
+  }
+
+  .font_32 {
+    font-size: 16px !important;
+    line-height: 24px !important;
+  }
+
+  .benefits-content p {
+    margin-top: 0 !important;
+  }
+
+  .font_25 {
+    font-size: 16px !important;
+    line-height: 24px !important;
+  }
+
+  .DownloadOurApp {
+    margin-bottom: 35px;
+  }
+
+  .static-img-wrap {
+    min-height: 250px !important;
+  }
+
+  .static-img-wrap img {
+    object-fit: cover;
+    object-position: inherit;
+  }
+
+  .btn-download {
+    margin-top: 0 !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .Toastify__toast-container.Toastify__toast-container--top-right {
+    right: 0;
+  }
+  html[lang="ar"][dir="rtl"] .upload_icon {
+    right: 4px;
 }
-.font_32 {
-  font-size: 16px !important;
-  line-height: 24px !important;
-}
-.benefits-content p{
-  margin-top: 0 !important;
-}
-.font_25 {
-  font-size: 16px !important;
-  line-height: 24px !important;
-}
-.DownloadOurApp {
-  margin-bottom: 35px;
+.play_content_wrap h3 {
+  font-size: 18px;
+  max-width: 204px;
+  line-height: normal;
 }
 }
-  

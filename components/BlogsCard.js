@@ -44,7 +44,7 @@ export default function BlogsCard() {
             </div>
             <div className="card-content lg:p-6 lg:pb-10 p-5 ">
               <h4 className="2xl:text-2xl rtl:2xl:text-[40px] text-[16px] font-bold max-w-[727px] rtl:text-right heading_40">{card.title}</h4>
-              <p className="lg:text-lg text-[12px] xl:text-lg rtl:2xl:text-[30px] rtl:md:text-[28px] font-normal font_28">{card.description}</p>
+              <p className="lg:text-lg text-[12px] xl:text-lg rtl:2xl:text-[30px] rtl:md:text-[28px] font-normal font_28 mt-4">{card.description}</p>
             </div>
           </div>
         ))}

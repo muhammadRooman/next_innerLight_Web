@@ -22,9 +22,13 @@ const Header = ({ locale }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [loader, setLoader] = useState(false);
   const activeNavbarName = pathname.split("/").slice(2).join("/") || "";
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   // Check if the authToken exists
-  const isAuthenticated = localStorage.getItem("authToken") !== null;
+  useEffect(() => {
+    const authToken = localStorage.getItem("authToken");
+    setIsAuthenticated(authToken !== null);
+  }, []);
 
   useEffect(() => {
     const lang = currentPath.split("/")[1] || "en";

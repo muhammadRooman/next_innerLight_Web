@@ -87,6 +87,11 @@ export default function LandingPage() {
     const words = text.split(' ');
     return words.length > 15 ? words.slice(0, 15).join(' ') + '...' : text;
   };
+  const truncateTextMore = (text) => {
+    if (!text) return '';
+    const words = text.split(' ');
+    return words.length > 25 ? words.slice(0, 25).join(' ') + '...' : text;
+  };
 
 
   if (isLoading) return <div> <FullPageLoader /></div>;
@@ -239,7 +244,7 @@ export default function LandingPage() {
           <div className="2xl:container xl:container lg:container mx-auto px-5">
             <div className="heading-box text-center md:pb-0 pb-5 arabic_heading_box">
               <h5 className="text-info-color 2xl:text-3xl xl:text-2xl lg:text-xl text-[16px] sm:text-md font-black rtl:2xl:text-[56px] rtl:xl:text-[40px] rtl:text-[30px] sm:text-[20px] arabic_heading_one">
-                {t("innerLight")}
+                {t("in_innerLight")}
               </h5>
               <h2 className="xl:text-[40px] lg:text-[30px] text-[18px] font-bold rtl:2xl:text-[72px] rtl:xl:text-[50px] rtl:text-[40px] sm:text-[22px] arabic_heading_two">
                 {language === "en" ? cmsWebCommitmentData?.heading_en : cmsWebCommitmentData?.heading_ar}
@@ -268,7 +273,7 @@ export default function LandingPage() {
 
               {/* Middle Column with Image */}
               <div className="col-span-2">
-                <div className="relative xl:max-w-[566px] lg:max-w-[440px] md:max-w-[360px] sm:max-w-[280px] max-w-full lg:min-h-[715px] md:min-h-[450px] sm:min-h-[450px] min-h-[300px] shadow-shadow-color bg-white p-2.5 mx-auto rounded-10 my-7 comitment_img">
+                <div className="relative xl:max-w-[566px] lg:max-w-[440px] md:max-w-[360px] sm:max-w-[280px] max-w-full lg:min-h-[715px] md:min-h-[450px] sm:min-h-[450px] min-h-[300px] shadow-shadow-color bg-white p-2.5 mx-auto rounded-10 comitment_img">
                   <Image
                     src="/CommitmentImg.png"
                     alt="Commitment Image"
@@ -320,7 +325,7 @@ export default function LandingPage() {
                 </h5>
               </div>
               <div className='static-img relative lg:left-[-166px] rtl:lg:right-[-166px] mt-8 lg:w-[calc(100%+166px)] w-full'>
-                <div className="md:grid md:grid-cols-3 items-center">
+                <div className="xs:grid xs:grid-cols-3 items-center">
                   <div className='col-span-1'>
                     <div className='static-img-wrap relative min-h-[200px] sm:min-h-[300px] xs:min-h-[250px] lg:min-h-[412px] rounded-10 overflow-hidden'>
                       <Image src="/MmeditationImg1.png" alt="logo white" layout="fill" className="rounded-30 object-cover p-2.5" />
@@ -339,8 +344,8 @@ export default function LandingPage() {
                 </div>
               </div>
               <div className='book-you-button sm:flex sm:justify-between items-center md:mt-8 mt-3 justify-center text-center'>
-                <h5 className='text-black 2xl:text-[40px] xl:text-[35px] lg:text-[30px] xs:text-[25px] text-[14px] font-bold mb-3'>{t("book_your_consultation")}</h5>
-                <Link href={`/${language}/contact`} className="py-2 md:px-6 px-3 text-white rounded-3xl font-medium rtl:font-black xl:text-xl md:text-[15px] sm:text-[10px] rtl:xl:text-[32px] text-[9px] bg-btn-gradient hover:bg-btn-gradient-hover ml-4 rtl:text-[12px]">{t("contact_us")}</Link>
+                <h5 className='text-black 2xl:text-[40px] xl:text-[35px] lg:text-[30px] xs:text-[25px] text-[14px] font-bold'>{t("book_your_consultation")}</h5>
+                <Link href={`/${language}/contact`} className="py-2 md:px-6 px-3 text-white rounded-3xl font-medium rtl:font-black xl:text-xl md:text-[15px] sm:text-[10px] rtl:xl:text-[32px] text-[9px] bg-btn-gradient hover:bg-btn-gradient-hover ml-4 rtl:text-[12px] font_32">{t("contact_us")}</Link>
               </div>
             </div>
           </div>
@@ -354,7 +359,7 @@ export default function LandingPage() {
               <div className="DownloadOurApp-content xl:max-w-[685px] max-w-full lg:pt-20 pt-8">
                 <div className="heading-box text-left mb-3.5 rtl:text-right">
                   <h5 className="text-info-color 2xl:text-[22px] xl:text-[20px] lg:text-[18px] sm:text-[16px] text-[14px] 2xl:leading-[69px] font-black rtl:2xl:text-[56px] rtl:xl:text-[40px] rtl:text-[30px] arabic_heading_one innerlight_heading_space">
-                    {t('headingSmall')}
+                    {t('innerLight')}
                   </h5>
                   <h2 className="2xl:text-[40px] xl:text-[35px] lg:text-[30px] sm:text-[25px] text-[14px] 2xl:leading-[88px] font-bold rtl:2xl:text-[72px] rtl:xl:text-[50px] rtl:text-[40px] arabic_heading_two">
                     {t('downloadOurApp')}
@@ -363,7 +368,7 @@ export default function LandingPage() {
                 <h5 className="2xl:text-[24px] xl:text-[22px] lg:text-[20px] text-[#753892] sm:text-[18px] text-[14px] xl:leading-10 rtl:xl:text-[40px] rtl:max-w-[786px] mb-4 font-bold font_40">
                   {t('personalizedSupport')}
                 </h5>
-                <p className="2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] rtl:xl:text-[48px] mb-2 text-[#000] font_25 compassionate">
+                <p className="2xl:text-[24px] xl:text-[22px] lg:text-[20px] sm:text-[18px] text-[14px] rtl:xl:text-[48px] mb-2 font_25 compassionate text-[#343434]">
                   {t('connectWithExperts')}
                 </p>
                 <div className="QR-box mt-9 flex xs:justify-between small:justify-center items-center max-w-[420px] gap-3">
@@ -395,7 +400,7 @@ export default function LandingPage() {
                 </div>
               </div>
               <div className="DownloadOurApp-img">
-                <div className="relative xl:min-h-[700px] min-h-[300px]">
+                <div className="relative xl:min-h-[700px] min-h-[300px] phone_image">
                   <Image
                     src="/DownloadOurApp.png"
                     alt="App Image"
@@ -480,15 +485,15 @@ export default function LandingPage() {
                     <h4 className="2xl:text-2xl font-bold max-w-[605px] hover:text-blue-500 mb-4 text-[14px] lg:text-[16px] xl:text-[18px] leading-[20px] sm:leading-[20px] lg:leading-[24px] xl:leading-[28px] heading_40">
                     <Link href={`/${language}/event/${latestEvent?._id}`}>
                       {language === "en"
-                        ? truncateText(latestEvent?.name || "No description available")
-                        : truncateText(latestEvent?.name_ar || "تفصیل موجود نہیں")}
+                        ? truncateTextMore(latestEvent?.name || "No description available")
+                        : truncateTextMore(latestEvent?.name_ar || "تفصیل موجود نہیں")}
                     </Link>
                     </h4>
-                    <p className="lg:text-lg text-sm hover:text-blue-500 mb-4 text-[14px] sm:text-[14px] lg:text-[16px] xl:text-[18px] leading-[18px] sm:leading-[18px] lg:leading-[22px] xl:leading-[24px] font_32">
+                    <p className="lg:text-lg text-sm hover:text-blue-500 mb-4 text-[14px] sm:text-[14px] lg:text-[16px] xl:text-[18px] leading-[18px] sm:leading-[18px] lg:leading-[22px] xl:leading-[24px] alignment font_32">
                     <Link href={`/${language}/event/${latestEvent?._id}`}>
                       {language === "en"
-                        ? truncateText(latestEvent?.shortDescription || "No description available")
-                        : truncateText(latestEvent?.shortDescription_ar || "تفصیل موجود نہیں")}
+                        ? truncateTextMore(latestEvent?.shortDescription || "No description available")
+                        : truncateTextMore(latestEvent?.shortDescription_ar || "تفصیل موجود نہیں")}
                     </Link>
                     </p>
                   </div>
