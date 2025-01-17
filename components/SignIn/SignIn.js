@@ -215,7 +215,7 @@ export default function SignIn() {
   return (
     <div>
       <section className="bg-gray-light relative flex items-center justify-start py-16 sign_in_page">
-        <div className="2xl:container xl:container lg:container mx-auto lg:max-0  px-5">
+        <div className="2xl:container xl:container lg:container md:container cust_container px-5 mx-auto lg:max-0 sign_in_page_inner">
           <div className="heading-box text-center xl:mb-11 mb-8">
             <h2 className="xl:text-40 lg:text-[30px] text-[25px] font-bold rtl:2xl:text-[72px] rtl:xl:text-[50px] rtl:text-[40px]">{t("sign_in_now")}</h2>
             {/* <p className="2xl:text-2xl text-xl font-normal">
@@ -223,8 +223,8 @@ export default function SignIn() {
             </p> */}
           </div>
           <div>
-            <div className="sm:grid sm:grid-cols-2 ">
-            <div className="form-group lg:mb-0 mb-4 mr-4">
+            <div className="sm:grid sm:grid-cols-2 gap-7">
+            <div className="form-group lg:mb-0 mb-4">
               <div className="btn-icon select_country relative flex align-baseline">
                 {
                   language ==="en" ? 
@@ -252,7 +252,7 @@ export default function SignIn() {
                           disabled={isOtpSent || disabledPhoneOTP || OtpMessage}
                           onChange={(e) => setSelectedCountryCode(e.target.value)}
                           style={{ opacity: 0 }}
-                          className="max-w-[154px] placeholder:text-[#11171F] w-full items-center dir_left-t-right rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6"
+                          className="md:max-w-[154px] xs:max-w-[140px] small:max-w-[110px] placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[60px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 font_32 opacity:0 bg-transparent country_select_dropdown"
                         >
                           {countries.map((country, index) => (
                             <option key={index} value={country.code}>
@@ -267,7 +267,7 @@ export default function SignIn() {
                         {/* Overlay that covers the dropdown */}
 
                         <div
-                          className="absolute left-0 top-0 z-10 bg-transparent text-[#11171F] flex items-center justify-center p-5 font_32"
+                          className="absolute left-0 top-0 z-10 bg-transparent text-[#11171F] flex items-center justify-left p-5 font_32"
                           style={{
                             width: '100%',
                             height: '100%',
@@ -286,7 +286,7 @@ export default function SignIn() {
                           disabled={isOtpSent || disabledPhoneOTP || OtpMessage}
                           onChange={(e) => setSelectedCountryCode(e.target.value)}
                           style={{ opacity: 0 }}
-                          className="max-w-[154px] placeholder:text-[#11171F] w-full items-center dir_left-t-right rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6"
+                          className="md:max-w-[154px] xs:max-w-[140px] small:max-w-[110px] placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[60px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 font_32 opacity:0 bg-transparent country_select_dropdown"
                         >
                           {arabicCountries.map((country, index) => (
                             <option key={index} value={country.code}>
@@ -307,15 +307,15 @@ export default function SignIn() {
              value={phoneNumber}
               // value={`${selectedCountryCode}${phoneNumber}`} // Always shows country code + phone number
               onChange={handlePhoneNumberChange} // Handles updates without breaking country code
-              className="placeholder:text-[#11171F] w-full items-center dir_left-t-right rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6"
-              placeholder="Phone Number"
+              className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[60px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 font_32"
+              placeholder={t("phone_number")}
               disabled={isOtpSent || disabledPhoneOTP || OtpMessage} 
             />
              </div>
              <button
               disabled={isOtpSent || disabledPhoneOTP || OtpMessage} // Disable immediately on click
               onClick={handleSendOTP}
-              className="px-4 py-2 font-semibold lg:text-lg rounded-[3px] bg-[#1796D8] text-white absolute rtl:xl:text-[30px] lg:w-[149px] w-[100px] lg:top-2 top-[2px] lg:right-2 right-[2px] lg:min-h-[calc(100%-35px)] min-h-[calc(100%-4px)] shadow-shadow-color"
+              className="px-4 py-2 font-semibold lg:text-lg rounded-[3px] bg-[#1796D8] text-white absolute rtl:xl:text-[30px] lg:w-[149px] w-[100px] md:top-2 md:right-2 top-[2px] right-[2px] xs:right-[4px] rtl:left-[0px] xs:top-[4px] lg:min-h-[calc(100%-35px)] md:min-h-[calc(100%-16px)] small:min-h-[calc(100%-16px)] shadow-shadow-color custom_select_button"
             >
               {t("send_OTP")}
             </button>
@@ -337,13 +337,13 @@ export default function SignIn() {
                       id="otp"
                       disabled={disabledPhoneOTP}
                       onChange={(e) => setOtpCode(e.target.value.trim())}
-                      className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg  text-[#11171F] focus:outline-none sm:text-sm/6"
-                      placeholder="OTP"
+                      className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[60px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6"
+                      placeholder={t("otp")}
                     />
                     <button
                       disabled={disabledPhoneOTP || isOtpVerify}
                       onClick={handleVerifyOTP}
-                      className="px-4 py-2 font-semibold lg:text-lg rounded-[3px] bg-[#1796D8] text-white absolute w-[101px] lg:top-2 top-[2px] lg:right-2 right-[2px] lg:min-h-[calc(100%-16px)] min-h-[calc(100%-4px)] shadow-shadow-color"
+                      className="px-4 py-2 font-semibold lg:text-lg rounded-[3px] bg-[#1796D8] text-white absolute w-[101px] lg:top-2 top-[2px] lg:right-2 right-[2px] lg:min-h-[calc(100%-16px)] min-h-[calc(100%-4px)] shadow-shadow-color verify_button"
                     >
                       {t("verify")}
                     </button>

@@ -166,20 +166,20 @@ const handleImageLoadingComplete = () => {
                   {/* Product Info */}
                   <div>
                     <h2 className="text-3xl font-bold mb-4"> {language === "en" ? webinarDetailPage?.name : webinarDetailPage?.name_ar}</h2>
-                    <p className="text-gray-600 mb-4">
+                    <p className="text-gray-600 mb-4 font_25">
                     {/* {webinarDetailPage?.shortDescription} */}
                     {language === "en" ? webinarDetailPage?.shortDescription : webinarDetailPage?.shortDescription_ar}
                     </p>
                     {
                       webinarDetailPage?.type &&  <div className="mb-3">
-                      <span className="text-xl font-semibold">{t("price")}:</span>{" "}
-                      <span className="text-xl text-black-600">$0.00</span>
+                      <span className="text-xl font-semibold font_26 font_32">{t("price")}:</span>{" "}
+                      <span className="text-xl text-black-600 font_25">$0.00</span>
                     </div>
                     }            
                     {
                       webinarDetailPage?.date && <div className="mb-3">
-                      <span className="text-xl font-semibold">{t("date")}:</span>{" "}
-                      <span className="text-xl text-black-600">
+                      <span className="text-xl font-semibold font_26 font_32">{t("date")}:</span>{" "}
+                      <span className="text-xl text-black-600 font_25">
                     {new Date(webinarDetailPage?.date).toLocaleDateString(language, {
                       year: "numeric",
                       month: "long",
@@ -190,8 +190,8 @@ const handleImageLoadingComplete = () => {
                     }     
                     {
                       webinarDetailPage?.time &&  <div className="mb-3">
-                      <span className="text-xl font-semibold">{t("time")}:</span>{" "}
-                      <span className="text-xl text-black-600">{webinarDetailPage?.time}</span>
+                      <span className="text-xl font-semibold font_26 font_32">{t("time")}:</span>{" "}
+                      <span className="text-xl text-black-600 font_25">{webinarDetailPage?.time}</span>
                     </div>
                     }    
                  {
@@ -199,15 +199,15 @@ const handleImageLoadingComplete = () => {
                 <div className="mb-3">
                   {language === "en" ? (
                     webinarDetailPage?.description?.length > 0 ? (
-                      <span className="text-xl font-semibold">{t("outline")}:</span>
+                      <span className="text-xl font-semibold font_26 font_32">{t("outline")}:</span>
                     ) : null
                   ) : (
                     webinarDetailPage?.description_ar?.length > 0 ? (
-                      <span className="text-xl font-semibold">{t("outline")}:</span>
+                      <span className="text-xl font-semibold font_26 font_32">{t("outline")}:</span>
                     ) : null
                   )}
                     <div
-                      className="text-xl text-black-600"
+                      className="text-xl text-black-600 font_26 detail_titles"
                       dangerouslySetInnerHTML={{
                         __html: (language === "en" ? webinarDetailPage?.description : webinarDetailPage?.description_ar)
                           .replace(/<ol>/g, '<ol style="list-style-type: decimal; margin-left: 20px;">')

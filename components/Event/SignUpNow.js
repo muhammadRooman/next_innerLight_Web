@@ -396,7 +396,7 @@ export default function SignUpNow() {
                           disabled={isOtpSent || disabledPhoneOTP || OtpMessage}
                           onChange={(e) => setSelectedCountryCode(e.target.value)}
                           style={{ opacity: 0 }}
-                          className="md:max-w-[154px] xs:max-w-[140px] small:max-w-[110px] placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[60px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 font_32 opacity:0 bg-transparent"
+                          className="md:max-w-[154px] xs:max-w-[140px] small:max-w-[110px] placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[60px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 font_32 opacity:0 bg-transparent country_select_dropdown"
                         >
                           {countries.map((country, index) => (
                             <option key={index} value={country.code}>
@@ -430,7 +430,7 @@ export default function SignUpNow() {
                           disabled={isOtpSent || disabledPhoneOTP || OtpMessage}
                           onChange={(e) => setSelectedCountryCode(e.target.value)}
                           style={{ opacity: 0 }}
-                          className="md:max-w-[154px] xs:max-w-[140px] small:max-w-[110px] placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[60px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 font_32 opacity:0 bg-transparent"
+                          className="md:max-w-[154px] xs:max-w-[140px] small:max-w-[110px] placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[60px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 font_32 opacity:0 bg-transparent country_select_dropdown"
                         >
                           {arabicCountries.map((country, index) => (
                             <option key={index} value={country.code}>
@@ -442,7 +442,7 @@ export default function SignUpNow() {
                     </div>
                   }
 
-                  <div className="relative w-[80%]">
+                  <div className="relative w-[100%]">
                     <input
                       type="number"
                       name="PhoneNumber"
@@ -483,7 +483,7 @@ export default function SignUpNow() {
                       // disabled={disabledPhoneOTP}
                       onChange={handleOtpChange}
                       className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[60px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6"
-                      placeholder="OTP"
+                      placeholder={t("otp")}
                     />
                     <button
                       disabled={isOtpVerify}
@@ -595,7 +595,7 @@ export default function SignUpNow() {
                 className={
                   !disabledPhoneOTP
                     ? "py-2.5 px-6 text-white rounded-3xl font-medium xl:text-xl text-sm bg-btn-gradient hover:bg-btn-gradient-hover md:w-[181px]"
-                    : "lg:text-lg block md:w-[181px] w-full py-2.5 px-6 text-white rounded-3xl font-medium xl:text-xl text-sm bg-btn-gradient hover:bg-btn-gradient-hover"
+                    : "py-2.5 px-6 text-white rounded-3xl font-medium xl:text-xl text-sm bg-btn-gradient hover:bg-btn-gradient-hover"
                 }
               >
                 {t("sign_up")}

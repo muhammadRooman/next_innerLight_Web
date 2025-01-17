@@ -55,7 +55,7 @@ export default function DownloadOurApp() {
                 </div>
               </div>
               <div className="DownloadOurApp-img">
-                <div className="relative xl:min-h-[700px] min-h-[300px]">
+                <div className="relative xl:min-h-[700px] min-h-[300px] phone_image">
                   <Image
                     src="/DownloadOurApp.png"
                     alt="App Image"

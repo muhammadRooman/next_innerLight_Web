@@ -79,7 +79,7 @@ export default function SpiritualCard({ webinarEvenData }) {
 
   return (
     <>
-      <section className="bg-[#EFEFEF] relative flex items-center justify-start lg:pt-4 lg:pb-14 events_blogs">
+      <section className="bg-[#EFEFEF] relative flex items-center justify-start lg:pb-8 events_blogs">
         <div className="2xl:container xl:container lg:container md:container xs:container mx-auto lg:max-0 px-5 evnets_wrap">
           {visibleData?.map((event, index) => (
             <div

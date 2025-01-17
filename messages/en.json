@@ -226,7 +226,8 @@
     "OTP_is_required": "OTP is required",
     "phone_number_must_be_between_8_and_16_digits":"Phone number must be between 8 and  16 digits",
     "invalid_email":"Invalid email",
-    "full_name_can_not":"Full Name cannot exceed 150 characters"
+    "full_name_can_not":"Full Name cannot exceed 150 characters",
+    "otp": "OTP"
   },
   "SpiritualCard": {
     "price":"Price",
