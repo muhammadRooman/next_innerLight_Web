@@ -23,6 +23,14 @@ export default function ContactUs() {
         setFormData({ ...formData, [name]: value });
         setErrors({ ...errors, [name]: "" });
     };
+    
+    const validatePhone = (e) => {
+        const value = e.target.value;
+        if (!/^[+\d]*$/.test(value)) {
+          e.target.value = value.slice(0, -1);
+        }
+      };
+    
 
     const validateForm = () => {
         let errors = {};
@@ -145,8 +153,9 @@ export default function ContactUs() {
                             </div>
                             <div className="input_wrapper">
                                 <input
-                                    type="number"
+                                    type="text"
                                     name="phone"
+                                    onInput={validatePhone}
                                     inputMode="tel"
                                     value={formData.phone}
                                     onChange={handleChange}

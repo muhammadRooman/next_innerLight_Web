@@ -13,7 +13,6 @@ import FullPageLoader from "../fullPageLoader.js/FullPageLoader";
 export default function SignIn() {
   const router = useRouter();
   const t = useTranslations("SignUpNow");
-  const token = localStorage.getItem("authToken");
   const [phoneNumber, setPhoneNumber] = useState("");
   const currentPath = usePathname();
   const [language, setLanguage] = useState("");
@@ -29,15 +28,22 @@ export default function SignIn() {
   const [OtpMessage, setOtpMessage] = useState("");
   const [selectedCountryCode, setSelectedCountryCode] = useState("+968");
   const fullPhoneNumber = `${selectedCountryCode}${phoneNumber.trim()}`;
+  // const token = localStorage.getItem("authToken");
   
+  const [token, setToken] = useState(false);
+
+  // Check if the authToken exists
   useEffect(() => {
-    // Extract the language from the URL path or default to "en"
-    const lang = currentPath.split("/")[1] || "en";
+    const authToken = localStorage.getItem("authToken");
+    setToken(authToken !== null);
+  }, []);
+
+  useEffect(() => {
+     const lang = currentPath.split("/")[1] || "en";
     setLanguage(lang);
   
     if (token) {
-      // Redirect to the event page for the detected language
-      const redirectTimeout = setTimeout(() => {
+     const redirectTimeout = setTimeout(() => {
        const loginURL =
      process.env.NEXT_PUBLIC_NODE_ENV === "development"
         ? `/${lang}/event`
@@ -45,31 +51,23 @@ export default function SignIn() {
      router.push(loginURL);
      }, 1000);
   
-      // Cleanup timeout to avoid memory leaks
       return () => clearTimeout(redirectTimeout);
     }
-     setFirstLoader(false); // Stop the loader irrespective of token presence
+     setFirstLoader(false); 
   }, [currentPath, router, token]);
 
-
   const handleSendOTP = async () => {
-    // Validate phone number presence
     if (!phoneNumber) {
       setErrorMessage(t("phone_number_is_required"));
       return;
     }
   
-    // Validate phone number length
     if (phoneNumber.length < 8 || phoneNumber.length > 16) {
       setErrorMessage(t("phone_number_must_be_between_8_and_16_digits"));
       return;
     }
-  
-    // Indicate OTP sending process has started
     setIsOtpSent(true);
-  
     try {
-      // API call to generate OTP
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/auth/generate-otp`,
         {
@@ -77,24 +75,20 @@ export default function SignIn() {
           userExist: 1,
         }
       );
-  
-      // Handle successful OTP generation
       if (response?.data?.status === 1) {
-        setOtpGenerated(true); // Show OTP input field
+        setOtpGenerated(true); 
         setOtpMessage(response.data.message || "");
         toast.success(
           language === "en" ? response.data.message : response.data.message_ar
         );
         setErrorMessage("");
       } 
-      // Handle specific error message related to WhatsApp
       else if (response?.data?.message.includes("Failed to send WhatsApp message")) {
         toast.error(
           language === "en" ? "Invalid phone number" : "رقم الهاتف غير صالح"
         );
         setIsOtpSent(false);
       } 
-      // Handle general errors
       else {
         toast.error(
           language === "en" ? response.data.message : response.data.message_ar
@@ -120,7 +114,6 @@ export default function SignIn() {
           otpCode, 
         }
       );
-      // OTP Verified successfully
       if (response?.data?.success) {
         toast.success(language === "en" ? response.data.message : response.data.message_ar );
         setErrorVerifyMessage("");
@@ -142,17 +135,16 @@ export default function SignIn() {
       setErrorVerifyMessage(t("OTP_is_required"));
       return;
   }
-   // Validate phone number
+
     if (!phoneNumber || phoneNumber.trim() === "") {
       setErrorMessage(t("phone_number_is_required"));
       return;
   }
-  // Validate the phone number length (between 8 and 16 digits)
+
   if (phoneNumber.length < 8 || phoneNumber.length > 16) {
     setErrorMessage(t("phone_number_must_be_between_8_and_16_digits"));
-    return; // Stop execution if validation fails
+    return; 
   }
-   
     try {
       const formData = new FormData();   
       formData.append("phoneNumber", fullPhoneNumber);
@@ -166,7 +158,6 @@ export default function SignIn() {
         localStorage.setItem("authToken", response.data.data.accessToken);
         console.log("here")
         router.push(`/${language}/event`);
-        // return
        setLoader(false)
       } else {
         toast.error(
@@ -180,34 +171,15 @@ export default function SignIn() {
     }
   };
 
-  // const handlePhoneNumberChange = (e) => {
-  //   const input = e.target.value;
-  //     setErrorMessage('');
-  //   // Ensure the input always starts with the selected country code
-  //   if (!input.startsWith(selectedCountryCode)) {
-  //     return; // Prevent any update if the user tries to remove the country code
-  //   }
-  //   // Extract the phone number (part after the country code)
-  //   let numberWithoutCode = input.slice(selectedCountryCode.length);
-  //   numberWithoutCode = numberWithoutCode.replace(/\D/g, '')
-  //   // Update the phone number state without affecting the country code
-  //   setPhoneNumber(numberWithoutCode);
-  // };
-
   const handlePhoneNumberChange = (e) => {
     const value = e.target.value;   
     const cleanedValue = value.replace(/[^0-9]/g, ''); 
-   
-    // Update the phone number state
     setPhoneNumber(cleanedValue);
-
-     // Clear the error message if any
      if (errorMessage) {
       setErrorMessage("");
     }
   };
   
-
   if (loader || firstLoader){
     return <FullPageLoader/>
   }
@@ -218,20 +190,14 @@ export default function SignIn() {
         <div className="2xl:container xl:container lg:container md:container cust_container px-5 mx-auto lg:max-0 sign_in_page_inner">
           <div className="heading-box text-center xl:mb-11 mb-8">
             <h2 className="xl:text-40 lg:text-[30px] text-[25px] font-bold rtl:2xl:text-[72px] rtl:xl:text-[50px] rtl:text-[40px]">{t("sign_in_now")}</h2>
-            {/* <p className="2xl:text-2xl text-xl font-normal">
-              {t("fill_the_form_below_our_representatives_respond_you")}
-            </p> */}
           </div>
           <div>
             <div className="sm:grid sm:grid-cols-2 gap-7">
             <div className="form-group lg:mb-0 mb-4">
               <div className="btn-icon select_country relative flex align-baseline">
-                {
-                  language ==="en" ? 
                   <div>
                  <div className="relative">
                         {/* Overlay that covers the dropdown */}
-
                         <div
                           className="absolute left-0 top-0 z-10 bg-transparent text-[#11171F] flex items-center justify-left p-5 font_32"
                           style={{
@@ -245,7 +211,6 @@ export default function SignIn() {
                         >
                           {selectedCountryCode.split('-')[0]}
                         </div>
-
                         {/* Actual dropdown */}
                         <select
                           value={selectedCountryCode}
@@ -377,8 +342,7 @@ export default function SignIn() {
             >
               {t("sign_in")}
             </button>
-            }
-          
+            }  
           </div>
         </div>
       </section>

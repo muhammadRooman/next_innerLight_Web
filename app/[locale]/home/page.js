@@ -344,7 +344,7 @@ export default function LandingPage() {
                 </div>
               </div>
               <div className='book-you-button sm:flex sm:justify-between items-center md:mt-8 mt-3 justify-center text-center'>
-                <h5 className='text-black 2xl:text-[40px] xl:text-[35px] lg:text-[30px] xs:text-[25px] text-[14px] font-bold mb-3'>{t("book_your_consultation")}</h5>
+                <h5 className='text-black 2xl:text-[40px] xl:text-[35px] lg:text-[30px] xs:text-[25px] text-[14px] font-bold'>{t("book_your_consultation")}</h5>
                 <Link href={`/${language}/contact`} className="py-2 md:px-6 px-3 text-white rounded-3xl font-medium rtl:font-black xl:text-xl md:text-[15px] sm:text-[10px] rtl:xl:text-[32px] text-[9px] bg-btn-gradient hover:bg-btn-gradient-hover ml-4 rtl:text-[12px] font_32">{t("contact_us")}</Link>
               </div>
             </div>
