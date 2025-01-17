@@ -20,7 +20,6 @@ export async function generateMetadata({
 }
 
 export default function Home() {
-  const t = useTranslations("HomePage");
   return (
     <>
       <LandingPage/>

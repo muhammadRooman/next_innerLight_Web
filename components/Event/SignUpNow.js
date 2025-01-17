@@ -414,7 +414,7 @@ export default function SignUpNow() {
                   )}
                 </div>
               )}
-              <div class="form-group md:mb-0 mb-0">
+              <div className="form-group md:mb-0 mb-0">
                 <input
                   type="email"
                   name="email"

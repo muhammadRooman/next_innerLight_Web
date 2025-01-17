@@ -13,7 +13,6 @@ import FullPageLoader from "../fullPageLoader.js/FullPageLoader";
 export default function SignIn() {
   const router = useRouter();
   const t = useTranslations("SignUpNow");
-  const token = localStorage.getItem("authToken");
   const [phoneNumber, setPhoneNumber] = useState("");
   const currentPath = usePathname();
   const [language, setLanguage] = useState("");
@@ -29,13 +28,22 @@ export default function SignIn() {
   const [OtpMessage, setOtpMessage] = useState("");
   const [selectedCountryCode, setSelectedCountryCode] = useState("+968");
   const fullPhoneNumber = `${selectedCountryCode}${phoneNumber.trim()}`;
+  // const token = localStorage.getItem("authToken");
   
+  const [token, setToken] = useState(false);
+
+  // Check if the authToken exists
   useEffect(() => {
-    const lang = currentPath.split("/")[1] || "en";
+    const authToken = localStorage.getItem("authToken");
+    setToken(authToken !== null);
+  }, []);
+
+  useEffect(() => {
+     const lang = currentPath.split("/")[1] || "en";
     setLanguage(lang);
   
     if (token) {
-      const redirectTimeout = setTimeout(() => {
+     const redirectTimeout = setTimeout(() => {
        const loginURL =
      process.env.NEXT_PUBLIC_NODE_ENV === "development"
         ? `/${lang}/event`
