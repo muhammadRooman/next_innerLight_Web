@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import FullPageLoader from "./fullPageLoader.js/FullPageLoader";
 
 export default function SubscribeUs(props) {
   const t = useTranslations("SubscribeUs");
@@ -30,22 +29,17 @@ export default function SubscribeUs(props) {
   const onSubmit = async (e) => {
     e.preventDefault();
     setError("");
-    setLoading(true); // Set loading state
-
-    // Validate email
+    setLoading(true); 
     if (!email.trim()) {
       setError(t("email_is_required"));
-      setLoading(false); // Reset loading on error
+      setLoading(false);
       return;
     }
     if (!validateEmail(email.trim())) {
       setError(t("invalid_email"));
-      setLoading(false); // Reset loading on error
+      setLoading(false); 
       return;
     }
-
-
-  
     try {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/newsletter`,
@@ -54,19 +48,18 @@ export default function SubscribeUs(props) {
       setLoading(false);
       if (response.data.success) {
         toast.success(language === "en" ? response.data.message : response.data.message_ar);
-        setEmail(""); // Reset email on success
+        setEmail(""); 
       } else {
         toast.error(language === "en" ? response.data.message : response.data.message_ar);
-        setEmail(""); // Reset email on error
+        setEmail(""); 
       }
     } catch (err) {
       console.error(err);
       toast.error(t("something_went_wrong"));
     } finally {
-      setLoading(false); // Reset loading state after the API call
+      setLoading(false); 
     }
   };
-
 
   return (
     <>
@@ -133,7 +126,6 @@ export default function SubscribeUs(props) {
                     />
                   </Link>
                 )}
-
                 {props.cmsWeb.linkedin && (
                   <Link
                     href={`${props.cmsWeb.linkedin}`}
@@ -149,7 +141,6 @@ export default function SubscribeUs(props) {
                     />
                   </Link>
                 )}
-
                 {props.cmsWeb.twitter && (
                   <Link
                     href={`${props.cmsWeb.twitter}`}
@@ -165,7 +156,6 @@ export default function SubscribeUs(props) {
                     />
                   </Link>
                 )}
-
                 {props.cmsWeb.pinterest && (
                   <Link
                     href={`${props.cmsWeb.pinterest}`}
@@ -181,7 +171,6 @@ export default function SubscribeUs(props) {
                     />
                   </Link>
                 )}
-
                 {props.cmsWeb.youtube && (
                   <Link
                     href={`${props.cmsWeb.youtube}`}

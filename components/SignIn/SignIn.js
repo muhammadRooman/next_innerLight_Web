@@ -28,11 +28,12 @@ export default function SignIn() {
   const [OtpMessage, setOtpMessage] = useState("");
   const [selectedCountryCode, setSelectedCountryCode] = useState("+968");
   const fullPhoneNumber = `${selectedCountryCode}${phoneNumber.trim()}`;
-  // const token = localStorage.getItem("authToken");
-  
+  const parts = fullPhoneNumber.split("-");
+  const countryCode = parts[0];
+  const remaining = parts.slice(1).join("-").replace(/^[A-Za-z]+/, "");  
+  const cleanPhoneNumber = countryCode + remaining.trim();
   const [token, setToken] = useState(false);
 
-  // Check if the authToken exists
   useEffect(() => {
     const authToken = localStorage.getItem("authToken");
     setToken(authToken !== null);
@@ -41,7 +42,7 @@ export default function SignIn() {
   useEffect(() => {
      const lang = currentPath.split("/")[1] || "en";
     setLanguage(lang);
-  
+
     if (token) {
      const redirectTimeout = setTimeout(() => {
        const loginURL =
@@ -50,7 +51,6 @@ export default function SignIn() {
         : `https://innerlightacademy.co/${lang}/event`;
      router.push(loginURL);
      }, 1000);
-  
       return () => clearTimeout(redirectTimeout);
     }
      setFirstLoader(false); 
@@ -61,7 +61,6 @@ export default function SignIn() {
       setErrorMessage(t("phone_number_is_required"));
       return;
     }
-  
     if (phoneNumber.length < 8 || phoneNumber.length > 16) {
       setErrorMessage(t("phone_number_must_be_between_8_and_16_digits"));
       return;
@@ -71,10 +70,11 @@ export default function SignIn() {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/auth/generate-otp`,
         {
-          phoneNumber: fullPhoneNumber,
+          phoneNumber: cleanPhoneNumber,
           userExist: 1,
         }
       );
+
       if (response?.data?.status === 1) {
         setOtpGenerated(true); 
         setOtpMessage(response.data.message || "");
@@ -110,7 +110,7 @@ export default function SignIn() {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/auth/verify-otp`,
         {
-          phoneNumber:fullPhoneNumber,
+          phoneNumber:cleanPhoneNumber,
           otpCode, 
         }
       );
@@ -135,12 +135,10 @@ export default function SignIn() {
       setErrorVerifyMessage(t("OTP_is_required"));
       return;
   }
-
     if (!phoneNumber || phoneNumber.trim() === "") {
       setErrorMessage(t("phone_number_is_required"));
       return;
   }
-
   if (phoneNumber.length < 8 || phoneNumber.length > 16) {
     setErrorMessage(t("phone_number_must_be_between_8_and_16_digits"));
     return; 
@@ -156,7 +154,6 @@ export default function SignIn() {
       setLoader(false)
       if (response?.data?.status === 1) {
         localStorage.setItem("authToken", response.data.data.accessToken);
-        console.log("here")
         router.push(`/${language}/event`);
        setLoader(false)
       } else {
@@ -194,13 +191,10 @@ export default function SignIn() {
           <div>
             <div className="sm:grid sm:grid-cols-2 gap-7">
             <div className="form-group lg:mb-0 mb-4">
-              <div className="btn-icon select_country relative flex align-baseline">
-                {
-                  language==="en"?
+              <div className="btn-icon select_country relative flex align-baseline">      
                   <div>
                  <div className="relative">
-                        {/* Overlay that covers the dropdown */}
-                        <div
+                         <div
                           className="absolute left-0 top-0 z-10 bg-transparent text-[#11171F] flex items-center justify-left p-5 font_32"
                           style={{
                             width: '100%',
@@ -213,57 +207,21 @@ export default function SignIn() {
                         >
                           {selectedCountryCode.split('-')[0]}
                         </div>
-                        {/* Actual dropdown */}
                         <select
-                          value={selectedCountryCode}
-                          disabled={isOtpSent || disabledPhoneOTP || OtpMessage}
-                          onChange={(e) => setSelectedCountryCode(e.target.value)}
-                          style={{ opacity: 0 }}
-                          className="md:max-w-[154px] xs:max-w-[140px] small:max-w-[110px] placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[60px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 font_32 opacity:0 bg-transparent country_select_dropdown"
-                        >
-                          {countries.map((country, index) => (
-                            <option key={index} value={`${country.code}-${country.name}`}>
-                              {`${country.name} (${country.code})`}
-                            </option>
-                          ))}
-                        </select>
-                  </div>
-                </div> :
-                <div>
-                 <div className="relative">
-                        {/* Overlay that covers the dropdown */}
-
-                        <div
-                          className="absolute left-0 top-0 z-10 bg-transparent text-[#11171F] flex items-center justify-left p-5 font_32"
-                          style={{
-                            width: '100%',
-                            height: '100%',
-                            pointerEvents: 'none', 
-                            border: '2px solid #DEDEDE',
-                            borderRadius: '4px',
-                            backgroundColor: '#ffffff',
-                          }}
-                        >
-                           {selectedCountryCode.split('-')[0]}
-                        </div>
-
-                        {/* Actual dropdown */}
-                        <select
-                          value={selectedCountryCode}
-                          disabled={isOtpSent || disabledPhoneOTP || OtpMessage}
-                          onChange={(e) => setSelectedCountryCode(e.target.value)}
-                          style={{ opacity: 0 }}
-                          className="md:max-w-[154px] xs:max-w-[140px] small:max-w-[110px] placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[60px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 font_32 opacity:0 bg-transparent country_select_dropdown"
-                        >
-                          {arabicCountries.map((country, index) => (
-                            <option key={index} value={`${country.code}-${country.name}`}>
-                              {`${country.name} (${country.code})`}
-                            </option>
-                          ))}
-                        </select>
+                        value={selectedCountryCode}
+                        disabled={isOtpSent || disabledPhoneOTP || OtpMessage}
+                        onChange={(e) => setSelectedCountryCode(e.target.value)}
+                        style={{ opacity: 0 }}
+                        className="md:max-w-[154px] xs:max-w-[140px] small:max-w-[110px] placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[60px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 font_32 opacity:0 bg-transparent country_select_dropdown"
+                      >
+                        {(language === "en" ? countries : arabicCountries).map((country, index) => (
+                          <option key={index} value={country.code}>
+                         {`${country.name} (${country.code})`}
+                      </option>
+                       ))}
+                   </select>
                   </div>
                 </div> 
-}
             <div className="relative w-[100%]">
             <input
               type="number"

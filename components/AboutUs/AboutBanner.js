@@ -1,7 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-
 
 export default function AboutBanner(){
     const t = useTranslations("AboutBanner");

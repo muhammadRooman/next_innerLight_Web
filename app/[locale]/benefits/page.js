@@ -4,9 +4,8 @@ import OurStories from "@/components/Benefits/OurStories";
 import WeOffer from "@/components/Benefits/WeOffer";
 import DownloadApp from "@/components/Benefits/DownloadApp";
 import OurClients from "@/components/OurClients"; 
-import Head from "@/app/[locale]/benefits/head"; // Import DefaultTags component
+import Head from "@/app/[locale]/benefits/head"; 
 
-// app/aboutus/page.js
 export default function Benefits() {
     return (
         <>

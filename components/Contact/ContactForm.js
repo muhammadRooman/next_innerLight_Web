@@ -1,5 +1,4 @@
 "use client"
-import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
@@ -19,7 +18,6 @@ export default function ContactUs() {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        console.log("Captured Value:", value);
         setFormData({ ...formData, [name]: value });
         setErrors({ ...errors, [name]: "" });
     };
@@ -29,8 +27,7 @@ export default function ContactUs() {
         if (!/^[+\d]*$/.test(value)) {
           e.target.value = value.slice(0, -1);
         }
-      };
-    
+      };  
 
     const validateForm = () => {
         let errors = {};
@@ -58,7 +55,6 @@ export default function ContactUs() {
         } else if (formData.message.trim().length > 1000) {
             errors.message = t("message_too_long");
         }
-
         return errors;
     };
 
@@ -116,7 +112,6 @@ export default function ContactUs() {
                                     className="w-[222px] mt-8"
                                 />
                             </Link>
-
                         </div>
                     </div>
                     <div className="bg-white shadow-lg rounded-lg md:p-8 xs:p-6 small:p-4 xl:w-1/2 lg:w-1/2 w-full contact_us">
@@ -161,8 +156,7 @@ export default function ContactUs() {
                                     onChange={handleChange}
                                     placeholder={t("contact_no")}
                                     maxLength="17"
-                                    // pattern="^[+]?[\d]+$" 
-                                    className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6"
+                                     className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[50px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6"
                                 />
                                 {errors.phone && <p className="error_msg" style={{ color: "red" }}>{errors.phone}</p>}
                             </div>

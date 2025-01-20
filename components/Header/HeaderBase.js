@@ -39,23 +39,21 @@ const Header = ({ locale }) => {
     setIsOpen(!isOpen);
   };
 
-  // Handle menu item clicks
   const handleMenuItemClick = (action) => {
     if (action === "signin") {
       setLoader(true);
       router.push(`/${language}/signin`);
       setLoader(false);
     } else if (action === "logout") {
-      setShowModal(true); // Show confirmation modal
+      setShowModal(true); 
     }
-    setIsOpen(false); // Close dropdown
+    setIsOpen(false); 
   };
 
-  // Confirm logout action
   const confirmLogout = () => {
-     localStorage.removeItem("authToken"); // Remove token
-    setShowModal(false); // Close modal
-    router.push(`/${language}/signup`); // Redirect to signup
+     localStorage.removeItem("authToken");
+    setShowModal(false); 
+    router.push(`/${language}/signup`);
   };
 
   const handleLanguageChange = (e) => {
@@ -64,7 +62,6 @@ const Header = ({ locale }) => {
     router.push(`/${newLocale}/${path}`, { shallow: true });
   };
 
-  // Cancel logout action
   const cancelLogout = () => {
     setShowModal(false);
   };
@@ -83,11 +80,10 @@ const Header = ({ locale }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-   // Handle clicks outside the dropdown then closed the dropdown
    useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false); // Close the dropdown
+        setIsOpen(false); 
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -273,8 +269,7 @@ const Header = ({ locale }) => {
                         className="text-gray-700 hover:bg-gray-100"
                           role="menuitem"
                           onClick={() => handleMenuItemClick("signin")}
-                        >
-                         
+                        >                      
                         <CgProfile style={{ color: "green" }} className="h-6 w-6 text-gray-700" />
                         <div className="signin_text pl-3">
                           {t("signin")}

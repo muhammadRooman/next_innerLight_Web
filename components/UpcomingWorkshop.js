@@ -3,7 +3,6 @@ import { useTranslations } from "next-intl";
 
 export default function UpcomingWorkshop() {
   const t = useTranslations("UpComingWorkShop");
-  // Array of workshop data
   const workshops = [
     {
       id: 1,
