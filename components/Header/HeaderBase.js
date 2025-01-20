@@ -241,7 +241,7 @@ const Header = ({ locale }) => {
                     </div>
                     ) : (
                       // <IoMdLogOut style={{ color: "red" }} className="h-6 w-6 text-gray-700" />
-                      <span style={{ color: "black" }}>Sign in</span>
+                      <span style={{ color: "black" }}>{t("signin")}</span>
                     )}
                   </button>
                 </div>

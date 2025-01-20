@@ -1031,6 +1031,16 @@ html[lang="ar"][dir="rtl"] .icon-wrap button {
 .DownloadOurApp {
   margin-bottom: 30px;
 }
+html[lang="ar"][dir="rtl"] .profile_active_unActive span{
+  font-size: 25px;
+    padding: 0px 10px;
+}
+html[lang="ar"][dir="rtl"] .custom_select{
+  font-size: 32px !important;
+}
+html[lang="ar"][dir="rtl"] .custom_select option{
+  font-size: 32px !important;
+}
 
 /* responsive */
 
@@ -1196,6 +1206,14 @@ html[lang="ar"][dir="rtl"] .icon-wrap button {
   .site-banner .btn-wrap a {
     font-size: 18px;
   }
+  html[lang="ar"][dir="rtl"] .download_app_btn a {
+    color: #fff;
+    font-size: 26px;
+}
+.profile_active_unActive button {
+  padding: 2px 12px;
+  font-size: 12px !important;
+}
 }
 
 @media (max-width: 1367px) {
@@ -1409,6 +1427,20 @@ html[lang="ar"][dir="rtl"] .icon-wrap button {
     top: 15px;
     right: 15px;
   }
+  html[lang="ar"][dir="rtl"] .navbar_links {
+    margin-left: 50px;
+}
+html[lang="ar"][dir="rtl"] .download_app_btn a {
+  color: #fff;
+  font-size: 22px;
+}
+html[lang="ar"][dir="rtl"] .profile_active_unActive span {
+  font-size: 22px;
+  padding: 0px 10px;
+}
+html[lang="ar"][dir="rtl"] .custom_select {
+  padding: 5px 30px 5px 12px;
+}
 }
 
 @media (min-width: 1280px) {
@@ -1589,8 +1621,8 @@ html[lang="ar"][dir="rtl"] .icon-wrap button {
   }
 
   html[lang="ar"][dir="rtl"] .navbar_links {
-    font-size: 20px;
-    margin-left: 50px;
+    font-size: 18px;
+    margin-left: 40px;
   }
 
   html[lang="ar"][dir="rtl"] .border_line::after {
@@ -1787,6 +1819,44 @@ html[lang="ar"][dir="rtl"] .icon-wrap button {
   .upload_feild {
     min-height: 60px !important;
   }
+  .download_app_btn a{
+    padding: 8px 15px;
+    font-size: 12px;
+  }
+  .profile_active_unActive button{
+    padding: 0px 0px;
+    font-size: 12px;
+  }
+  .social-icon nav>a {
+    min-width: 50px !important;
+    min-height: 50px !important;
+}
+.font_25 {
+  font-size: 20px !important;
+  line-height: 30px !important;
+}
+.font_32 {
+  font-size: 16px !important;
+  line-height: 22px !important;
+}
+.font_25 {
+  font-size: 16px !important;
+  line-height: 25px !important;
+}
+html[lang="ar"][dir="rtl"] .profile_active_unActive span {
+  font-size: 18px;
+  padding: 0px 10px;
+}
+html[lang="ar"][dir="rtl"] .download_app_btn a {
+  color: #fff;
+  font-size: 14px;
+}
+html[lang="ar"][dir="rtl"] .custom_select {
+  font-size: 22px !important;
+}
+html[lang="ar"][dir="rtl"] .custom_select option{
+  font-size: 22px !important;
+}
 }
 
 @media (max-width: 991px) {
@@ -1997,11 +2067,7 @@ html[lang="ar"][dir="rtl"] .icon-wrap button {
   }
 
   .profile_active_unActive button {
-    margin-left: 10px;
-    border: 1px solid gray;
-    padding: 2px 16px;
-    font-size: 15px;
-    outline: none;
+    padding: 0 0;
   }
 
   html[lang="ar"][dir="rtl"] .btn-icon button {
@@ -2251,6 +2317,7 @@ html[lang="ar"][dir="rtl"] .icon-wrap button {
 
   html[lang="ar"][dir="rtl"] .download_app_btn a {
     padding: 5px 10px !important;
+        margin-left: 0px;
   }
 
   html[lang="ar"][dir="rtl"] .event-banner .btn-wrap a {
@@ -3240,5 +3307,9 @@ html[lang="ar"][dir="rtl"] .sign_in_page input {
   font-size: 18px;
   max-width: 204px;
   line-height: normal;
+}
+html[lang="ar"][dir="rtl"] .profile_active_unActive span {
+  font-size: 14px;
+  padding: 0px 0px;
 }
 }
