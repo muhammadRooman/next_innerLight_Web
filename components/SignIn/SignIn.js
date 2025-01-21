@@ -256,7 +256,7 @@ export default function SignIn() {
                 <div className="form-group lg:mb-0 mb-4">
                   <div className="btn-icon relative">
                     <input
-                      type="text"
+                      type="number"
                       name="otp"
                       id="otp"
                       disabled={disabledPhoneOTP}

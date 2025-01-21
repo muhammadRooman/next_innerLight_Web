@@ -316,7 +316,7 @@ export default function SignUpNow() {
                   placeholder={t("full_name")}
                 />
                 {validationErrors?.fullName && (
-                  <p style={{ color: "red" }}>{validationErrors?.fullName}</p>
+                  <p className="error_msg" style={{ color: "red" }}>{validationErrors?.fullName}</p>
                 )}
               </div>
               <div className="form-group md:mb-0 mb-0">
@@ -385,14 +385,14 @@ export default function SignUpNow() {
                 <div className="form-group md:mb-0 mb-0">
                   <div className="btn-icon relative">
                     <input
-                      type="text"
+                      type="number"
                       name="otp"
                       id="otp"
                       value={otpCode}
                       disabled={isOtpVerify}
                       // disabled={disabledPhoneOTP}
                       onChange={handleOtpChange}
-                      className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[60px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6"
+                      className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[60px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 font_32"
                       placeholder={t("otp")}
                     />
                     <button
@@ -427,7 +427,7 @@ export default function SignUpNow() {
                   placeholder={t("email")}
                 />
                 {validationErrors?.email && (
-                  <p style={{ color: "red" }}>{validationErrors?.email}</p>
+                  <p className="error_msg" style={{ color: "red" }}>{validationErrors?.email}</p>
                 )}
               </div>
               {otpGenerated && (
@@ -482,7 +482,7 @@ export default function SignUpNow() {
                     </div>
                   )}
                   {!profileImage && imageError && (
-                    <p style={{ color: "red" }}>{imageError}</p>
+                    <p className="error_msg" style={{ color: "red" }}>{imageError}</p>
                   )}
                 </div>
               )}
