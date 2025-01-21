@@ -512,7 +512,10 @@ export default function SignUpNow() {
                     : "py-2.5 px-6 text-white rounded-3xl font-medium xl:text-xl text-sm bg-btn-gradient hover:bg-btn-gradient-hover"
                 }
               >
-                {t("sign_up")}
+                   <div className="flex items-center justify-center gap-2">
+                  {loader && <FullPageLoader />}
+                  <span>Sign Up</span>
+                </div>
               </button>
               }          
             </div>
