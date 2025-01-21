@@ -236,7 +236,7 @@ const Header = ({ locale }) => {
                   >
                     {/* {/ Skeleton Loader /} */}
                     <div className="flex items-center justify-center">
-                      <div className="bg-gray-300 rounded-full animate-pulse w-32 h-10"></div>
+                      <div className="bg-gray-300 rounded-full animate-pulse w-[40px] h-[40px]"></div>
                     </div>
                   </div>
                 </div>
