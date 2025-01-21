@@ -36,7 +36,6 @@ export default function DownloadOurApp() {
                         alt="AppStore"
                         className="w-[90px] xl:w-[180px] lg:w-[160px] md:w-[140px] sm:w-[120px] xs:w-[100px]"
                       />
-
                     </Link>
                     <Link href="https://play.google.com/store/apps/details?id=com.arhamsoft.innerlight.innerlights&hl=en" target="_blank" className="md:mt-9 xs:mt-5 mt-3 block">
                       <Image src="/GooglePlay.png" width={180} height={55} alt="Google Play" className="w-[90px] xl:w-[180px] lg:w-[160px] md:w-[140px] sm:w-[120px] xs:w-[100px]" />
@@ -50,7 +49,6 @@ export default function DownloadOurApp() {
                       alt="QR Code"
                       className="w-[90px] xl:w-[120px] lg:w-[110px] md:w-[100px] sm:w-[90px] xs:w-[80px]"
                     />
-
                   </div>
                 </div>
               </div>

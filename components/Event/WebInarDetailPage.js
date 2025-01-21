@@ -15,13 +15,12 @@ const fetcher = (url) => fetch(url).then((r) => r.json());
 const WebInarDeatilPage = () => {
   const router = useRouter();
   const t = useTranslations("SpiritualCard");
-  const params = useParams(); // Use useParams here to access the dynamic id
-  const { detaiId } = params; // Get id from params
+  const params = useParams(); 
+  const { detaiId } = params; 
   const currentPath = usePathname();
   const [language, setLanguage] = useState('')
   const [webinarDetailPage, setWebinarDetailPage] = useState(null)
   const [loading,setLoading]=useState(false);
-  const [isSend,setIsSend]=useState(false);
   const token = localStorage.getItem("authToken");
   const [isImageLoading, setIsImageLoading] = useState(true);
 
@@ -31,104 +30,71 @@ const WebInarDeatilPage = () => {
     fetcher
   );
 
-useEffect(() => {
-  if (data) {
-    setWebinarDetailPage(data?.event);
-    // setLoading(false); 
-  }
-  const lang = currentPath.split('/')[1] || 'en';
-  setLanguage(lang);
-}, [data, currentPath]);
-
-  // Check for invalid detaiId and handle redirection
-  // useEffect(() => {
-  //   if (!detaiId || detaiId.length !== 24) {
-  //     router.push(`/${language}/not-found`);
-  //   }
-  // }, [detaiId, language]);
-
-
-if (isLoading) return <FullPageLoader />;
-if (error) return <div>Error: {error.message}</div>;
-// if (isLoading) return <FullPageLoader />;
-  // if (error || !webinarDetailPage) {
-  //   return (
-  //     <div className="text-center">
-  //       <h2 className="text-3xl font-bold">Event Not Found</h2>
-  //       <p className="mt-4 text-xl">Sorry, we couldn't find the event you are looking for.</p>
-  //     </div>
-  //   );
-  // }
-  
-
-const handleSubmit = async (id) => {
-  setLoading(true)
-  setIsSend(true)
-  try {
-    const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/webinars/join-webinar/${id}`,
-      {},
-      {
-        headers: {
-          "Authorization": `Bearer ${token}`,
-        },
+    useEffect(() => {
+      if (data) {
+        setWebinarDetailPage(data?.event);
       }
-    );
-    // setLoading(true)
-    console.log(response.data)
-   if (response.data.success === 1) {
-      router.push(`/${language}/thank-you`);
-    } else if (response.data.status === 0) {
-      // Token expired or invalid
-      // toast.error(
-      //   language === "en"
-      //     ? "Your session has expired. Please sign up again."
-      //     : "انتهت صلاحية الجلسة. الرجاء التسجيل مرة أخرى."
-      // );
-      router.push(`/${language}/signup`);
+      const lang = currentPath.split('/')[1] || 'en';
+      setLanguage(lang);
+    }, [data, currentPath]);
 
-      setLoading(false)
-      // setTimeout(() => {
-      //   router.push(`/${language}/signup`);
-      // }, 4000); 
-    } else {
-      toast.error(
-        language === "en"
-          ? response.data.message
-          : "لم يتم العثور على الرمز المميز"
-      );
-      setLoading(false)
-    }
-  } catch (error) {
-    console.error("Error in joining webinar:", error);
-    setLoading(false)
+    const handleSubmit = async (id) => {
+      setLoading(true)
+      try {
+        const response = await axios.post(
+          `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/webinars/join-webinar/${id}`,
+          {},
+          {
+            headers: {
+              "Authorization": `Bearer ${token}`,
+            },
+          }
+        );
+        console.log(response.data)
+      if (response.data.success === 1) {
+          router.push(`/${language}/thank-you`);
+        } else if (response.data.status === 0) {
+          router.push(`/${language}/signup`);
+          setLoading(false)
+        } else {
+          toast.error(
+            language === "en"
+              ? response.data.message
+              : "لم يتم العثور على الرمز المميز"
+          );
+          setLoading(false)
+        }
+      } catch (error) {
+        console.error("Error in joining webinar:", error);
+        setLoading(false)
 
-    // Handle token expiry or other errors
-    if (error.response?.status === 401 || error.response?.status === 403) {
-      toast.error(
-        language === "en"
-          ? "Your session has expired. Please sign up again."
-          : "انتهت صلاحية الجلسة. الرجاء التسجيل مرة أخرى."
-      );
-      router.push(`/${language}/signup`);
-      setLoading(false)
+        if (error.response?.status === 401 || error.response?.status === 403) {
+          toast.error(
+            language === "en"
+              ? "Your session has expired. Please sign up again."
+              : "انتهت صلاحية الجلسة. الرجاء التسجيل مرة أخرى."
+          );
+          router.push(`/${language}/signup`);
+          setLoading(false)
 
-    } else {
-      toast.error(
-        language === "en"
-          ? "An unexpected error occurred. Please try again."
-          : "حدث خطأ غير متوقع. حاول مرة اخرى."
-      );
-     setLoading(false)
+        } else {
+          toast.error(
+            language === "en"
+              ? "An unexpected error occurred. Please try again."
+              : "حدث خطأ غير متوقع. حاول مرة اخرى."
+          );
+        setLoading(false)
+        }
+      }
+    };
 
-    }
-  }
-};
+    const handleImageLoadingComplete = () => {
+      setIsImageLoading(false);
+    };
 
-// Function to handle when image loading is complete
-const handleImageLoadingComplete = () => {
-  setIsImageLoading(false);
-};
+    if (isLoading) return <FullPageLoader />;
+    if (error) return <div>Error: {error.message}</div>;
+
     return (
         <div>
           {
@@ -150,7 +116,6 @@ const handleImageLoadingComplete = () => {
               </section>
               <section className="container mx-auto px-4 py-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-                  {/* Product Image */}
                   <div className="flex justify-center detail_img">
               {isImageLoading && <FullPageLoader />}
                     <Image
@@ -161,14 +126,11 @@ const handleImageLoadingComplete = () => {
                       className="rounded-lg shadow-lg"
                       onLoadingComplete={handleImageLoadingComplete}
                     />
-                  </div>
-        
-                  {/* Product Info */}
+                  </div> 
                   <div>
                     <h2 className="text-3xl font-bold mb-4"> {language === "en" ? webinarDetailPage?.name : webinarDetailPage?.name_ar}</h2>
                     <p className="text-gray-600 mb-4 font_25">
-                    {/* {webinarDetailPage?.shortDescription} */}
-                    {language === "en" ? webinarDetailPage?.shortDescription : webinarDetailPage?.shortDescription_ar}
+                     {language === "en" ? webinarDetailPage?.shortDescription : webinarDetailPage?.shortDescription_ar}
                     </p>
                     {
                       webinarDetailPage?.type &&  <div className="mb-3">
@@ -195,27 +157,27 @@ const handleImageLoadingComplete = () => {
                     </div>
                     }    
                  {
-             (webinarDetailPage?.description?.length > 0 || webinarDetailPage?.description_ar?.length > 0) && (
-                <div className="mb-3">
-                  {language === "en" ? (
-                    webinarDetailPage?.description?.length > 0 ? (
-                      <span className="text-xl font-semibold font_26 font_32">{t("outline")}:</span>
-                    ) : null
-                  ) : (
-                    webinarDetailPage?.description_ar?.length > 0 ? (
-                      <span className="text-xl font-semibold font_26 font_32">{t("outline")}:</span>
-                    ) : null
-                  )}
-                    <div
-                      className="text-xl text-black-600 font_26 detail_titles"
-                      dangerouslySetInnerHTML={{
-                        __html: (language === "en" ? webinarDetailPage?.description : webinarDetailPage?.description_ar)
-                          .replace(/<ol>/g, '<ol style="list-style-type: decimal; margin-left: 20px;">')
-                          .replace(/<ul>/g, '<ul style="list-style-type: disc; margin-left: 20px;">'),
-                      }}
-                    />
-                  </div>
-                )
+                (webinarDetailPage?.description?.length > 0 || webinarDetailPage?.description_ar?.length > 0) && (
+                    <div className="mb-3">
+                      {language === "en" ? (
+                        webinarDetailPage?.description?.length > 0 ? (
+                          <span className="text-xl font-semibold font_26 font_32">{t("outline")}:</span>
+                        ) : null
+                      ) : (
+                        webinarDetailPage?.description_ar?.length > 0 ? (
+                          <span className="text-xl font-semibold font_26 font_32">{t("outline")}:</span>
+                        ) : null
+                      )}
+                        <div
+                          className="text-xl text-black-600 font_26 detail_titles"
+                          dangerouslySetInnerHTML={{
+                            __html: (language === "en" ? webinarDetailPage?.description : webinarDetailPage?.description_ar)
+                              .replace(/<ol>/g, '<ol style="list-style-type: decimal; margin-left: 20px;">')
+                              .replace(/<ul>/g, '<ul style="list-style-type: disc; margin-left: 20px;">'),
+                          }}
+                        />
+                      </div>
+                    )
                 }        
                    <button
                    disabled={loading}
@@ -228,12 +190,9 @@ const handleImageLoadingComplete = () => {
                 </div>
               </section>
               </>
-
             )
-          }
-        
+          }      
       <ToastContainer />
-
         </div>
       );
 }

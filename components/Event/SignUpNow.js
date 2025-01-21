@@ -35,11 +35,13 @@ export default function SignUpNow() {
   const [validationErrors, setValidationErrors] = useState({
     fullName: "",
     email: "",
-    phoneNumber: "",
-    otpCode: "",
   });
   const [selectedCountryCode, setSelectedCountryCode] = useState("+968");
   const fullPhoneNumber = `${selectedCountryCode}${phoneNumber.trim()}`;
+  const parts = fullPhoneNumber.split("-");
+  const countryCode = parts[0];
+  const remaining = parts.slice(1).join("-").replace(/^[A-Za-z]+/, "");  
+  const cleanPhoneNumber = countryCode + "-" + remaining.trim();
   const [isOtpSent, setIsOtpSent] = useState(false);
   const [isOtpVerify, setIsOtpVerify] = useState(false);
 
@@ -63,7 +65,7 @@ export default function SignUpNow() {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/auth/generate-otp`,
         {
-          phoneNumber: fullPhoneNumber,
+          phoneNumber: cleanPhoneNumber,
           userExist: 0,
         }
       );
@@ -95,7 +97,7 @@ export default function SignUpNow() {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/auth/verify-otp`,
         {
-          phoneNumber: fullPhoneNumber,
+          phoneNumber: cleanPhoneNumber,
           otpCode,
         }
       );
@@ -203,8 +205,7 @@ export default function SignUpNow() {
         setValidationErrors({});
         router.push(`/${language}/thank-you`);
       } else {
-        toast.error(language === "en" ? response.data.message : response.data.message_ar);
-        setValidationErrors({email:"Email already exist"})
+        setValidationErrors(language == "en"? {email:"Email already exist"} : {email:"البريد الإلكتروني موجود بالفعل"})
         // Delay the loader hide to let toast appear
         setTimeout(() => {
           setLoader(false);
@@ -306,7 +307,6 @@ export default function SignUpNow() {
                   value={signUpData?.fullName}
                   onChange={(e) => {
                     setSignUpData({ ...signUpData, fullName: e.target.value });
-                    // Clear the error message as the user starts typing
                     setValidationErrors((prevErrors) => ({
                       ...prevErrors,
                       fullName: "", 
@@ -320,80 +320,39 @@ export default function SignUpNow() {
                 )}
               </div>
               <div className="form-group md:mb-0 mb-0">
-                <div className="btn-icon select_country relative flex align-baseline">
-                  {
-                    language === "en"?
-                    
+                <div className="btn-icon select_country relative flex align-baseline">  
                  <div>
-                      <div className="relative">
-                        {/* Overlay that covers the dropdown */}
-                        <div
-                          className="absolute left-0 top-0 z-10 bg-transparent text-[#11171F] flex items-center justify-left p-5 font_32"
-                          style={{
-                            width: '100%',
-                            height: '100%', 
-                            pointerEvents: 'none', 
-                            border: '2px solid #DEDEDE', 
-                            borderRadius: '4px', 
-                            lineHeight: '28px', 
-                            backgroundColor: '#ffffff',
-                          }}
-                        >
-                        {selectedCountryCode.split('-')[0]}
-                        </div>
-                        {/* Actual dropdown */}
-                        <select
-                          value={selectedCountryCode}
-                          disabled={isOtpSent || disabledPhoneOTP || OtpMessage}
-                          onChange={(e) => setSelectedCountryCode(e.target.value)}
-                          style={{ opacity: 0 }}
-                          className="md:max-w-[154px] xs:max-w-[140px] small:max-w-[110px] placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[60px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 font_32 opacity:0 bg-transparent country_select_dropdown"
-                        >
-                          {countries.map((country, index) => (
-                            <option key={index} value={`${country.code}-${country.name}`}>
-                              {`${country.name} (${country.code})`}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-                    </div> :
-                    <div>
-                      <div className="relative">
-                        {/* Overlay that covers the dropdown */}
-
-                        <div
-                          className="absolute left-0 top-0 z-10 bg-transparent text-[#11171F] flex items-center justify-right p-5 font_32"
-                          style={{
-                            width: '100%', 
-                            height: '100%', 
-                            pointerEvents: 'none', 
-                            border: '2px solid #DEDEDE', 
-                            borderRadius: '4px', 
-                            backgroundColor: '#ffffff', 
-                          }}
-                        >
-                         {selectedCountryCode.split('-')[0]}
-                        </div>
-
-                        {/* Actual dropdown */}
-                        <select
-                          value={selectedCountryCode}
-                          disabled={isOtpSent || disabledPhoneOTP || OtpMessage}
-                          onChange={(e) => setSelectedCountryCode(e.target.value)}
-                          style={{ opacity: 0 }}
-                          className="md:max-w-[154px] xs:max-w-[140px] small:max-w-[110px] placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[60px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 font_32 opacity:0 bg-transparent country_select_dropdown"
-                        >
-                          {arabicCountries.map((country, index) => (
-                            <option key={index} value={`${country.code}-${country.name}`}>
-                              {`${country.name} (${country.code})`}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
+                    <div className="relative">
+                     <div
+                        className="absolute left-0 top-0 z-10 bg-transparent text-[#11171F] flex items-center justify-left p-5 font_32"
+                        style={{
+                          width: '100%',
+                          height: '100%', 
+                          pointerEvents: 'none', 
+                          border: '2px solid #DEDEDE', 
+                          borderRadius: '4px', 
+                          lineHeight: '28px', 
+                          backgroundColor: '#ffffff',
+                        }}
+                      >
+                      {selectedCountryCode.split('-')[0]}
+                     </div>                      
+                  <select
+                      value={selectedCountryCode}
+                      disabled={isOtpSent || disabledPhoneOTP || OtpMessage}
+                      onChange={(e) => setSelectedCountryCode(e.target.value)}
+                      style={{ opacity: 0 }}
+                      className="md:max-w-[154px] xs:max-w-[140px] small:max-w-[110px] placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[60px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 font_32 opacity:0 bg-transparent country_select_dropdown"
+                    >
+                    {(language === "en" ? countries : arabicCountries).map((country, index) => (
+                      <option key={index} value={country.code}>
+                      {`${country.name} (${country.code})`}
+                  </option>
+                    ))}
+                  </select>
                     </div>
-                  }
-
-                  <div className="relative w-[100%]">
+                    </div> 
+                    <div className="relative w-[100%]">
                     <input
                       type="number"
                       name="PhoneNumber"
@@ -405,7 +364,7 @@ export default function SignUpNow() {
                       className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] sm:min-h-[60px] md:min-h-[70px] small:min-h-[60px] block min-w-0 grow py-1.5 md:pr-5 md:pl-5 xs:pr-4 xs:pl-4 small:pr-[7px] small:pl-[7px] md:text-lg xs:text-[16px] small:text-[14px] text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 font_32"
                       placeholder={t("phone_number")}
                     />
-                  </div>
+                   </div>
                   <button
                     disabled={isOtpSent || disabledPhoneOTP || OtpMessage} 
                     onClick={handleSendOTP}
@@ -415,7 +374,7 @@ export default function SignUpNow() {
                   </button>
                 </div>
                 {
-                  errorMessage && (
+                 errorMessage && (
                 <span className="error_msg">
                   {errorMessage}
                 </span>
@@ -459,8 +418,7 @@ export default function SignUpNow() {
                   value={signUpData?.email}
                   onChange={(e) => {
                     setSignUpData({ ...signUpData, email: e.target.value })
-                    // Clear the error message as the user starts typing
-                    setValidationErrors((prevErrors) => ({
+                      setValidationErrors((prevErrors) => ({
                       ...prevErrors,
                       email: "",
                     }));

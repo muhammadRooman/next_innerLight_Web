@@ -4,23 +4,18 @@ import { usePathname } from 'next/navigation';
 import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useTranslations } from "next-intl";
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import useSWR from 'swr';
-
 import "swiper/css/navigation";
-
-// Import required Swiper modules
 import { Pagination, Navigation } from "swiper/modules";
-// Define fetcher function
+
 const fetcher = (url) => fetch(url).then((r) => r.json());
 export default function OurClients() {
   const t = useTranslations("OurClient");
   const currentPath = usePathname();
   const [language, setLanguage] = useState('');
   const [testimonialData, settTestimonialData] = useState([]);
-
 
   // Fetch cmsWeb data using SWR
   const { data, error, isLoading } = useSWR(
