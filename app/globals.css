@@ -722,7 +722,7 @@ html[lang="ar"][dir="rtl"] .what_we_offer span {
 .profile_active_unActive button {
   margin-left: 10px;
   border: 1px solid gray;
-  padding: 5px 20px;
+  padding: 0px 1px;
   font-size: 15px;
   outline: none;
 }
@@ -899,6 +899,7 @@ html[lang="ar"][dir="rtl"] .our_mission_content_wrap h2 {
 .home_banner h5 {
   line-height: 50px !important;
 }
+
 html[lang="ar"][dir="rtl"] .home_banner h5 {
   line-height: 50px !important;
   margin-bottom: 30px !important;
@@ -1057,20 +1058,30 @@ html[lang="ar"][dir="rtl"] .navbar_links {
 .custom_overflow {
   overflow: auto;
 }
+
 .commit_content_wrap {
   margin-top: 60px;
 }
+
 select {
-  background-color: white; /* Set the background color explicitly */
-  color: black; /* Set text color to black */
-  border: 1px solid #ccc; /* Add a border for better visibility */
-  appearance: none; /* Removes default browser styles */
-  -webkit-appearance: none; /* For Safari and iOS */
-  -moz-appearance: none; /* For Firefox */
+  background-color: white;
+  /* Set the background color explicitly */
+  color: black;
+  /* Set text color to black */
+  border: 1px solid #ccc;
+  /* Add a border for better visibility */
+  appearance: none;
+  /* Removes default browser styles */
+  -webkit-appearance: none;
+  /* For Safari and iOS */
+  -moz-appearance: none;
+  /* For Firefox */
 }
-html[lang="ar"][dir="rtl"] .font_outfit{
+
+html[lang="ar"][dir="rtl"] .font_outfit {
   font-family: Outfit;
 }
+
 .blog-card {
   height: 100%;
   min-height: 100%;
@@ -1088,13 +1099,15 @@ html[lang="ar"][dir="rtl"] .font_outfit{
   align-items: center !important;
   justify-content: center !important;
 }
+
 .userIconWrap span img {
   width: 22px !important;
   padding: 0;
   position: relative !important;
   height: 22px !important;
 }
-.text_white{
+
+.text_white {
   color: #fff !important;
 }
 
@@ -1102,6 +1115,10 @@ html[lang="ar"][dir="rtl"] .font_outfit{
   text-align: center;
   max-width: 1054px;
   margin: 0 auto 50px;
+}
+
+.custom_select {
+  background-color: #F7F7F7;
 }
 
 
@@ -1287,8 +1304,13 @@ html[lang="ar"][dir="rtl"] .font_outfit{
     padding: 2px 12px;
     font-size: 12px !important;
   }
+
   html[lang="ar"][dir="rtl"] .home_banner h5 {
     margin-bottom: 10px !important;
+  }
+  .userIconWrap {
+    width: 20px;
+    height: 40px;
 }
 }
 
@@ -1523,7 +1545,8 @@ html[lang="ar"][dir="rtl"] .font_outfit{
   html[lang="ar"][dir="rtl"] .custom_select {
     padding: 5px 30px 5px 12px;
   }
-  .bannerText{
+
+  .bannerText {
     background: #00000080;
     display: inline-block;
     margin: 0 auto;
@@ -1533,17 +1556,20 @@ html[lang="ar"][dir="rtl"] .font_outfit{
     border-radius: 20px;
     margin-top: 10px;
   }
+
   .custom_select {
     padding: 3px 22px 3px 8px;
     font-size: 16px !important;
-}
-.detail_btn{
-  font-size: 16px;
-  line-height: normal;
-}
-.DownloadOurApp {
-  margin-bottom: 60px;
-}
+  }
+
+  .detail_btn {
+    font-size: 16px;
+    line-height: normal;
+  }
+
+  .DownloadOurApp {
+    margin-bottom: 60px;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -1973,11 +1999,17 @@ html[lang="ar"][dir="rtl"] .font_outfit{
   html[lang="ar"][dir="rtl"] .custom_select option {
     font-size: 22px !important;
   }
+
   html[lang="ar"][dir="rtl"] .home_banner h5 {
     margin-bottom: 0 !important;
-}
-.commitment-content {
-  margin-bottom: 50px;
+  }
+
+  .commitment-content {
+    margin-bottom: 50px;
+  }
+  .userIconWrap {
+    width: 20px;
+    height: 33px;
 }
 }
 
@@ -2372,15 +2404,18 @@ html[lang="ar"][dir="rtl"] .font_outfit{
   .sportive_content {
     margin-bottom: 24px !important;
   }
-  .commitment_wrap{
+
+  .commitment_wrap {
     margin-top: 20px;
   }
-  .commit_content_wrap{
+
+  .commit_content_wrap {
     margin-top: 0;
   }
+
   .commitment-content {
     margin-bottom: 20px;
-}
+  }
 }
 
 @media (max-width: 767px) {
@@ -2700,8 +2735,8 @@ html[lang="ar"][dir="rtl"] .font_outfit{
 
   .book-you-button h5 {
     font-size: 20px;
-        line-height: normal;
-        margin-bottom: 25px;
+    line-height: normal;
+    margin-bottom: 25px;
   }
 
   html[lang="ar"][dir="rtl"] .error_msg {
@@ -2841,17 +2876,19 @@ html[lang="ar"][dir="rtl"] .font_outfit{
   .sportive_content {
     margin-bottom: 30px !important;
   }
-  
-.userIconWrap {
-  width: 30px;
-  height: 30px;
-}
-.userIconWrap span img {
-  width: 20px !important; 
-  height: 20px !important;
-}
+
+  .userIconWrap {
+    width: 30px;
+    height: 30px;
+  }
+
+  .userIconWrap span img {
+    width: 20px !important;
+    height: 20px !important;
+  }
 
 }
+
 @media (max-width: 480px) {
   .WhatWeOffer-card .WhatWeOffer-img img {
     height: 217px !important;
@@ -3128,9 +3165,10 @@ html[lang="ar"][dir="rtl"] .font_outfit{
     width: 100px !important;
     height: 30px !important;
   }
-  html[lang="ar"][dir="rtl"] .btn-download a > img:first-of-type {
+
+  html[lang="ar"][dir="rtl"] .btn-download a>img:first-of-type {
     margin-bottom: 10px;
-}
+  }
 
 
   html[lang="ar"][dir="rtl"] .WhatWeOffer {
@@ -3176,6 +3214,7 @@ html[lang="ar"][dir="rtl"] .font_outfit{
     font-size: 20px;
     line-height: 20px;
   }
+
 
 
   html[lang="ar"][dir="rtl"] .SubscribeUs-wrap .SubscribeUs-card h1 {
@@ -3526,28 +3565,32 @@ html[lang="ar"][dir="rtl"] .font_outfit{
     padding: 8px 9px;
     font-size: 12px;
   }
+
   .custom_select {
     padding: 3px 22px 3px 8px;
     font-size: 12px !important;
-}
-.register_btn {
-  display: flex;
-  flex-direction: column-reverse;
-  width: 100%;
-}
-.form_control .input_wrapper input{
-  font-size: 16px !important;
-  line-height: normal;
-}
-input {
-  font-size: 16px !important;
-  -webkit-transform: none;
-  transform: none;
-  -webkit-transform-origin: 0 0;
-  transform-origin: 0 0;
-}
+  }
 
-input:focus {
-  font-size: 16px !important;
-}
+  .register_btn {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+
+  .form_control .input_wrapper input {
+    font-size: 16px !important;
+    line-height: normal;
+  }
+
+  input {
+    font-size: 16px !important;
+    -webkit-transform: none;
+    transform: none;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+  }
+
+  input:focus {
+    font-size: 16px !important;
+  }
 }
