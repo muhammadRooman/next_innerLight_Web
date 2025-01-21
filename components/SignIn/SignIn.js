@@ -9,8 +9,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'react-phone-number-input/style.css';
 import { countries, arabicCountries } from "../utils/countriesData";
 import FullPageLoader from "../fullPageLoader.js/FullPageLoader";
+import { useAuth } from "../../app/context/AuthContext";
 
 export default function SignIn() {
+  const { authState, signIn, signOut } = useAuth();
   const router = useRouter();
   const t = useTranslations("SignUpNow");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -33,6 +35,7 @@ export default function SignIn() {
   const remaining = parts.slice(1).join("-").replace(/^[A-Za-z]+/, "");  
   const cleanPhoneNumber = countryCode + remaining.trim();
   const [token, setToken] = useState(false);
+
 
   useEffect(() => {
     const authToken = localStorage.getItem("authToken");
@@ -154,14 +157,18 @@ export default function SignIn() {
       setLoader(false)
       if (response?.data?.status === 1) {
         localStorage.setItem("authToken", response.data.data.accessToken);
-        router.push(`/${language}/event`);
-       setLoader(false)
+        // Update context using signIn
+        signIn(response.data.data.accessToken);
+        router.replace(`/${language}/event`);
+      
+        setLoader(false);
       } else {
         toast.error(
-          language === "en" ? response.data.message : response.data.message_ar
+          response.data[`message${language === "en" ? "" : "_ar"}`]
         );
-       setLoader(false)
+        setLoader(false);
       }
+      
     } catch (error) {
       toast.error(error.message || "An error occurred");
       setLoader(false)

@@ -8,8 +8,11 @@ import FullPageLoader from "../fullPageLoader.js/FullPageLoader";
 import { CgProfile } from "react-icons/cg";
 import { IoMdLogOut } from "react-icons/io";
 import { CiSettings } from "react-icons/ci";
+import { useAuth } from "../../app/context/AuthContext";
+
 
 const Header = ({ locale }) => {
+  const { authState, signIn, signOut ,loading } = useAuth();
   const t = useTranslations("NavbarLinks");
   const pathname = usePathname();
   const currentPath = usePathname();
@@ -29,6 +32,7 @@ const Header = ({ locale }) => {
     const authToken = localStorage.getItem("authToken");
     setIsAuthenticated(authToken !== null);
   }, []);
+
 
   useEffect(() => {
     const lang = currentPath.split("/")[1] || "en";
@@ -51,7 +55,7 @@ const Header = ({ locale }) => {
   };
 
   const confirmLogout = () => {
-     localStorage.removeItem("authToken");
+    signOut();
     setShowModal(false); 
     router.push(`/${language}/signup`);
   };
@@ -224,43 +228,33 @@ const Header = ({ locale }) => {
                 />
               </button>
               {/* Profile */}
-              <div className="relative inline-block text-left">
-                <div className="profile_active_unActive">
-                  <button
-                    onClick={toggleDropdown}
-                    className="flex items-center justify-center bg-gray-200 userIconWrap rounded-full p-2 hover:bg-gray-300"
+              {
+                loading ?  <div className="profile_active_unActive">
+                <div ref={dropdownRef}>
+                  <div
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="options-menu"
                   >
-                    {isAuthenticated ? (
-                      //  <CgProfile  className="h-6 w-6 text-gray-700" />
-                     <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                      <CiSettings className="h-6 w-6 text-gray-700" />
-                    </div>
-                    ) : (
-                      // <IoMdLogOut style={{ color: "red" }} className="h-6 w-6 text-gray-700" />
-                      <span className="userIcon">  
-                      <Image
-                        src="/user.png"
-                        alt="user Image"
-                        layout="fill"
-                        className="rounded-30 object-cover p-2.5"
-                      />
-                       </span>
-                    )}
-                  </button>
+                    {/* Skeleton Loader */}
+                    <div className="flex items-center justify-center">
+                      <div className="bg-gray-300 rounded-full animate-pulse w-32 h-10"></div>
+                    </div
                 </div>
-
-                {isOpen && (
-                  <div ref={dropdownRef}  className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none sign_icon_wrapper">
+              </div>:  <div className="relative inline-block text-left">
+                <div className="profile_active_unActive">
+              <div ref={dropdownRef} >
                     <div
                       role="menu"
                       aria-orientation="vertical"
                       aria-labelledby="options-menu"
                     >
                       {/* Conditional rendering for Signin or Logout */}
-                      {isAuthenticated ? (
+                      
+                      {authState.isAuthenticated ? (
                         <button 
                           style={{ display: "flex", alignItems: "center"}}
-                          className="text-gray-700 hover:bg-gray-100"
+                          className="flex items-center justify-center bg-gray-200 rounded-full p-2 hover:bg-gray-300"
                           role="menuitem"
                           onClick={() => handleMenuItemClick("logout")}
                         >
@@ -273,7 +267,7 @@ const Header = ({ locale }) => {
                       ) : (
                         <button
                         style={{ display: "flex", alignItems: "center"}} 
-                        className="text-gray-700 hover:bg-gray-100"
+                        className="flex items-center justify-center bg-gray-200 rounded-full p-2 hover:bg-gray-300"
                           role="menuitem"
                           onClick={() => handleMenuItemClick("signin")}
                         >                      
@@ -285,8 +279,10 @@ const Header = ({ locale }) => {
                       )}
                     </div>
                   </div>
-                )}
+                </div>
               </div>
+              }
+            
               {showModal && (
                 <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
                   <div className="bg-white rounded-lg shadow-lg p-6 w-80">

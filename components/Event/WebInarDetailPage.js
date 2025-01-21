@@ -50,7 +50,6 @@ const WebInarDeatilPage = () => {
             },
           }
         );
-        console.log(response.data)
       if (response.data.success === 1) {
           router.push(`/${language}/thank-you`);
         } else if (response.data.status === 0) {
