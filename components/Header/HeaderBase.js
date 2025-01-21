@@ -107,7 +107,7 @@ const Header = ({ locale }) => {
           isScrolled ? "bg-[#EBEBEB] shadow-shadow-color" : "bg-[#F7F7F7]"
         }`}
       >
-        <div className="2xl:container xl:container md:container mx-auto custom_container">
+        <div className="2xl:container xl:container md:container sm:container mx-auto">
           <div className="header-inner flex justify-between items-center xl:px-5 px-3 xl:py-2 md:py-2 py-2">
             {/* Logo */}
             <div className="logo">
@@ -175,7 +175,7 @@ const Header = ({ locale }) => {
                   className="
                 rounded-md
                 px-4 py-2
-                bg-white
+                bg-[#F7F7F7]
                 border border-gray-300 dark:border-gray-600 
                 text-black
                 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400
@@ -239,8 +239,7 @@ const Header = ({ locale }) => {
                     {/* Skeleton Loader */}
                     <div className="flex items-center justify-center">
                       <div className="bg-gray-300 rounded-full animate-pulse w-32 h-10"></div>
-                    </div>
-                  </div>
+                    </div
                 </div>
               </div>:  <div className="relative inline-block text-left">
                 <div className="profile_active_unActive">
