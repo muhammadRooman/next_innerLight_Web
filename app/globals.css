@@ -171,7 +171,7 @@ html[lang="ar"][dir="rtl"] .upload_icon {
 .mediaContent p {
   margin-right: 30px;
   color: #0C0101;
-  line-height: 23px;
+  line-height: 23px !important;
 }
 
 .font_bold {
@@ -580,13 +580,14 @@ html[lang="ar"][dir="rtl"] .font_18 {
 }
 
 html[lang="ar"][dir="rtl"] .font_25 {
-  font-size: 25px !important;
+  font-size: 30px !important;
   line-height: 32px !important;
 }
 
 html[lang="ar"][dir="rtl"] .font_32 {
   font-size: 32px !important;
   line-height: 32px !important;
+  color: #0F0202;
 }
 
 html[lang="ar"][dir="rtl"] .font_40 {
@@ -897,6 +898,9 @@ html[lang="ar"][dir="rtl"] .our_mission_content_wrap h2 {
 
 .home_banner h5 {
   line-height: 50px !important;
+}
+html[lang="ar"][dir="rtl"] .home_banner h5 {
+  line-height: 50px !important;
   margin-bottom: 30px !important;
 }
 
@@ -1028,19 +1032,55 @@ html[lang="ar"][dir="rtl"] .custom_select {
 html[lang="ar"][dir="rtl"] .icon-wrap button {
   top: 16px !important;
 }
+
 .DownloadOurApp {
   margin-bottom: 30px;
 }
-html[lang="ar"][dir="rtl"] .profile_active_unActive span{
+
+html[lang="ar"][dir="rtl"] .profile_active_unActive span {
   font-size: 25px;
-    padding: 0px 10px;
+  padding: 0px 10px;
 }
-html[lang="ar"][dir="rtl"] .custom_select{
+
+html[lang="ar"][dir="rtl"] .custom_select {
   font-size: 32px !important;
 }
-html[lang="ar"][dir="rtl"] .custom_select option{
+
+html[lang="ar"][dir="rtl"] .custom_select option {
   font-size: 32px !important;
 }
+
+input[type="number"] {
+  font-size: 16px;
+  -webkit-transform: none;
+  transform: none;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+input[type="number"]:focus {
+  font-size: 16px;
+}
+
+html[lang="ar"][dir="rtl"] .navbar_links {
+  display: inline-block;
+}
+
+.custom_overflow {
+  overflow: auto;
+}
+.commit_content_wrap {
+  margin-top: 60px;
+}
+select {
+  background-color: white; /* Set the background color explicitly */
+  color: black; /* Set text color to black */
+  border: 1px solid #ccc; /* Add a border for better visibility */
+  appearance: none; /* Removes default browser styles */
+  -webkit-appearance: none; /* For Safari and iOS */
+  -moz-appearance: none; /* For Firefox */
+}
+
 
 /* responsive */
 
@@ -1135,6 +1175,8 @@ html[lang="ar"][dir="rtl"] .custom_select option{
   html[lang="ar"][dir="rtl"] .font_32 {
     font-size: 26px !important;
     line-height: 28px !important;
+    color: #0F0202;
+
   }
 
   html[lang="ar"][dir="rtl"] .arabic_heading_one {
@@ -1206,13 +1248,18 @@ html[lang="ar"][dir="rtl"] .custom_select option{
   .site-banner .btn-wrap a {
     font-size: 18px;
   }
+
   html[lang="ar"][dir="rtl"] .download_app_btn a {
     color: #fff;
     font-size: 26px;
-}
-.profile_active_unActive button {
-  padding: 2px 12px;
-  font-size: 12px !important;
+  }
+
+  .profile_active_unActive button {
+    padding: 2px 12px;
+    font-size: 12px !important;
+  }
+  html[lang="ar"][dir="rtl"] .home_banner h5 {
+    margin-bottom: 10px !important;
 }
 }
 
@@ -1348,6 +1395,8 @@ html[lang="ar"][dir="rtl"] .custom_select option{
   html[lang="ar"][dir="rtl"] .font_32 {
     font-size: 24px !important;
     line-height: 26px !important;
+    color: #0F0202;
+
   }
 
   html[lang="ar"][dir="rtl"] .font_40 {
@@ -1427,20 +1476,24 @@ html[lang="ar"][dir="rtl"] .custom_select option{
     top: 15px;
     right: 15px;
   }
+
   html[lang="ar"][dir="rtl"] .navbar_links {
     margin-left: 50px;
-}
-html[lang="ar"][dir="rtl"] .download_app_btn a {
-  color: #fff;
-  font-size: 22px;
-}
-html[lang="ar"][dir="rtl"] .profile_active_unActive span {
-  font-size: 22px;
-  padding: 0px 10px;
-}
-html[lang="ar"][dir="rtl"] .custom_select {
-  padding: 5px 30px 5px 12px;
-}
+  }
+
+  html[lang="ar"][dir="rtl"] .download_app_btn a {
+    color: #fff;
+    font-size: 22px;
+  }
+
+  html[lang="ar"][dir="rtl"] .profile_active_unActive span {
+    font-size: 22px;
+    padding: 0px 10px;
+  }
+
+  html[lang="ar"][dir="rtl"] .custom_select {
+    padding: 5px 30px 5px 12px;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -1544,7 +1597,7 @@ html[lang="ar"][dir="rtl"] .custom_select {
   }
 
   .about-banner h5 {
-    max-width: 350px;
+    max-width: 420px;
   }
 
   html[lang="ar"][dir="rtl"] .about-banner h5 {
@@ -1643,7 +1696,7 @@ html[lang="ar"][dir="rtl"] .custom_select {
   }
 
   .MeditationConsultation-wrap .MeditationConsultation-inner {
-    min-height: 780px;
+    min-height: 660px;
   }
 
   .our-value-content-box .heading-box h2 {
@@ -1679,6 +1732,8 @@ html[lang="ar"][dir="rtl"] .custom_select {
   html[lang="ar"][dir="rtl"] .font_32 {
     font-size: 22px !important;
     line-height: 24px !important;
+    color: #0F0202;
+
   }
 
   html[lang="ar"][dir="rtl"] .font_40 {
@@ -1718,7 +1773,7 @@ html[lang="ar"][dir="rtl"] .custom_select {
   }
 
   html[lang="ar"][dir="rtl"] .font_25 {
-    font-size: 22px !important;
+    font-size: 25px !important;
     line-height: 26px !important;
   }
 
@@ -1806,9 +1861,10 @@ html[lang="ar"][dir="rtl"] .custom_select {
     min-height: 44px !important;
     width: 88px;
   }
+
   .event_banner_content {
     padding: 48px 0 !important;
-}
+  }
 
   html[lang="ar"][dir="rtl"] .verify_button {
     min-height: 50px;
@@ -1819,43 +1875,56 @@ html[lang="ar"][dir="rtl"] .custom_select {
   .upload_feild {
     min-height: 60px !important;
   }
-  .download_app_btn a{
+
+  .download_app_btn a {
     padding: 8px 15px;
     font-size: 12px;
   }
-  .profile_active_unActive button{
-    padding: 0px 0px;
+
+  .profile_active_unActive button {
+    padding: 2px 10px;
     font-size: 12px;
   }
+
   .social-icon nav>a {
     min-width: 50px !important;
     min-height: 50px !important;
-}
-.font_25 {
-  font-size: 20px !important;
-  line-height: 30px !important;
-}
-.font_32 {
-  font-size: 16px !important;
-  line-height: 22px !important;
-}
-.font_25 {
-  font-size: 16px !important;
-  line-height: 25px !important;
-}
-html[lang="ar"][dir="rtl"] .profile_active_unActive span {
-  font-size: 18px;
-  padding: 0px 10px;
-}
-html[lang="ar"][dir="rtl"] .download_app_btn a {
-  color: #fff;
-  font-size: 14px;
-}
-html[lang="ar"][dir="rtl"] .custom_select {
-  font-size: 22px !important;
-}
-html[lang="ar"][dir="rtl"] .custom_select option{
-  font-size: 22px !important;
+  }
+
+  .font_25 {
+    font-size: 20px !important;
+    line-height: 30px !important;
+  }
+
+  .font_32 {
+    font-size: 16px !important;
+    line-height: 22px !important;
+  }
+
+  .font_25 {
+    font-size: 16px !important;
+    line-height: 25px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .profile_active_unActive span {
+    font-size: 18px;
+    padding: 0px 10px;
+  }
+
+  html[lang="ar"][dir="rtl"] .download_app_btn a {
+    color: #fff;
+    font-size: 14px;
+  }
+
+  html[lang="ar"][dir="rtl"] .custom_select {
+    font-size: 22px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .custom_select option {
+    font-size: 22px !important;
+  }
+  html[lang="ar"][dir="rtl"] .home_banner h5 {
+    margin-bottom: 0 !important;
 }
 }
 
@@ -2067,7 +2136,7 @@ html[lang="ar"][dir="rtl"] .custom_select option{
   }
 
   .profile_active_unActive button {
-    padding: 0 0;
+    padding: 2px 8px;
   }
 
   html[lang="ar"][dir="rtl"] .btn-icon button {
@@ -2105,6 +2174,7 @@ html[lang="ar"][dir="rtl"] .custom_select option{
   html[lang="ar"][dir="rtl"] .font_32 {
     font-size: 20px !important;
     line-height: 20px !important;
+    color: #0F0202;
     max-width: 100%;
   }
 
@@ -2206,7 +2276,7 @@ html[lang="ar"][dir="rtl"] .custom_select option{
   }
 
   .font_25 {
-    font-size: 22px !important;
+    font-size: 20px !important;
     line-height: 30px !important;
   }
 
@@ -2228,11 +2298,32 @@ html[lang="ar"][dir="rtl"] .custom_select option{
     font-size: 32px !important;
     padding-bottom: 0px !important;
   }
-  .phone_image img{
+
+  .phone_image img {
     height: 500px;
     max-width: 500px;
     margin: 0 auto;
     width: 100%;
+  }
+
+  .WelcomeMessage h5 {
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  .play_content_wrap h3 {
+    font-size: 22px;
+    max-width: 310px;
+  }
+
+  .sportive_content {
+    margin-bottom: 24px !important;
+  }
+  .commitment_wrap{
+    margin-top: 20px;
+  }
+  .commit_content_wrap{
+    margin-top: 0;
   }
 }
 
@@ -2283,9 +2374,6 @@ html[lang="ar"][dir="rtl"] .custom_select option{
     height: 150px !important;
   }
 
-  .WhatWeOffer-content h5 {
-    font-size: 16px;
-  }
 
   .benefits-content h5 {
     padding: 10px 0 5px;
@@ -2317,7 +2405,7 @@ html[lang="ar"][dir="rtl"] .custom_select option{
 
   html[lang="ar"][dir="rtl"] .download_app_btn a {
     padding: 5px 10px !important;
-        margin-left: 0px;
+    margin-left: 0px;
   }
 
   html[lang="ar"][dir="rtl"] .event-banner .btn-wrap a {
@@ -2432,6 +2520,7 @@ html[lang="ar"][dir="rtl"] .custom_select option{
     font-size: 18px !important;
     line-height: normal !important;
     max-width: 100%;
+    color: #0F0202;
   }
 
   html[lang="ar"][dir="rtl"] .font_40 {
@@ -2481,8 +2570,9 @@ html[lang="ar"][dir="rtl"] .custom_select option{
     padding: 10px 0px;
     font-size: 12px;
     width: 70px;
-    right: 5px;
+    right: 3px;
     min-height: 50px;
+    top: 3px;
   }
 
   .upload_icon {
@@ -2555,6 +2645,7 @@ html[lang="ar"][dir="rtl"] .custom_select option{
   .book-you-button h5 {
     font-size: 20px;
     line-height: normal;
+    margin-bottom: 30px;
   }
 
   html[lang="ar"][dir="rtl"] .error_msg {
@@ -2564,6 +2655,7 @@ html[lang="ar"][dir="rtl"] .custom_select option{
   .error_msg {
     font-size: 12px !important;
     line-height: 5px !important;
+    margin-top: 5px;
   }
 
   .site-banner .btn-wrap a {
@@ -2598,22 +2690,23 @@ html[lang="ar"][dir="rtl"] .custom_select option{
     min-height: 590px;
   }
 
-  .custom_overflow {
-    overflow: auto;
+  .WhatWeOffer-content h5 {
+    line-height: normal;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .heading-box p {
+    font-size: 16px !important;
+    line-height: normal !important;
   }
 
   .WhatWeOffer-content {
-    padding: 0;
+    padding: 10px 5px 10px 35px;
   }
 
-  .WhatWeOffer-content h5 {
-    padding: 10px 22px;
-    line-height: normal;
-    font-size: 12px;
-  }
-
-  .WhatWeOffer-content h5 {
-    font-size: 12px;
+  .WhatWeOffer-content p {
+    margin-top: 0;
   }
 
   .download_btn_wrap {
@@ -2624,45 +2717,74 @@ html[lang="ar"][dir="rtl"] .custom_select option{
   html[lang="ar"][dir="rtl"] .form_control textarea {
     font-size: 18px;
   }
+
   .form_wrap input {
     min-height: 45px;
-}
-html[lang="ar"][dir="rtl"] .btn-icon button {
-  width: 60px;
-  height: 30px;
-}
-.country_select_dropdown {
-  min-height: 45px !important;
-}
-html[lang="ar"][dir="rtl"] .select_country button {
-  padding: 6px 5px;
-  font-size: 14px !important;
-}
-html[lang="ar"][dir="rtl"] .upload_icon {
-  position: relative;
-  height: 36px;
-  width: 60px;
-  right: 10px;
-}
-.upload_feild{
-  min-height: 45px !important;
-}
-.btn-wrap button {
-  font-size: 18px;
-}
-html[lang="ar"][dir="rtl"] .btn-icon button {
-  min-height: 35px !important;
-}
-.btn-icon button {
-  min-height: 35px !important;
-}
-html[lang="ar"][dir="rtl"] .sign_in_page input {
-  font-size: 22px;
-  min-height: 45px;
-}
-.btn-icon input{
-  min-height: 45px !important;
-}
+  }
+
+  html[lang="ar"][dir="rtl"] .btn-icon button {
+    width: 60px;
+    height: 30px;
+  }
+
+  .country_select_dropdown {
+    min-height: 45px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .select_country button {
+    padding: 6px 5px;
+    font-size: 14px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .upload_icon {
+    position: relative;
+    height: 36px;
+    width: 60px;
+    right: 10px;
+  }
+
+  .upload_feild {
+    min-height: 45px !important;
+  }
+
+  .btn-wrap button {
+    font-size: 18px;
+  }
+
+  html[lang="ar"][dir="rtl"] .btn-icon button {
+    min-height: 35px !important;
+  }
+
+  .btn-icon button {
+    min-height: 35px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .sign_in_page input {
+    font-size: 22px;
+    min-height: 45px;
+  }
+
+  .btn-icon input {
+    min-height: 45px !important;
+  }
+
+  .MeditationConsultation-wrap .MeditationConsultation-inner {
+    min-height: 580px;
+  }
+
+  .Meditation-content-inner .book-you-button a {
+    margin-top: 25px;
+  }
+
+  .WelcomeMessage h5 {
+    font-size: 14px;
+    line-height: normal;
+    margin-top: 0;
+  }
+
+  .sportive_content {
+    margin-bottom: 30px !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -2745,8 +2867,12 @@ html[lang="ar"][dir="rtl"] .sign_in_page input {
   }
 
   .btn-download img {
-    width: 130px !important;
-    height: 40px !important;
+    width: 100px !important;
+    height: 30px !important;
+  }
+
+  .btn-download a {
+    margin-top: 0 !important;
   }
 
   .moment_of_senetry {
@@ -2787,7 +2913,7 @@ html[lang="ar"][dir="rtl"] .sign_in_page input {
 
   .download_application .heading-box h2 {
     line-height: 35px;
-        font-size: 26px !important;
+    font-size: 26px !important;
   }
 
   .upload_icon {
@@ -3064,8 +3190,8 @@ html[lang="ar"][dir="rtl"] .sign_in_page input {
 
   .mediaContent p {
     margin-right: 10px;
-    font-size: 14px;
-    line-height: 15px !important;
+    font-size: 14px !important;
+    line-height: 18px !important;
   }
 
   .commitment-wrap {
@@ -3173,7 +3299,7 @@ html[lang="ar"][dir="rtl"] .sign_in_page input {
   }
 
   html[lang="ar"][dir="rtl"] .font_25 {
-    font-size: 18px !important;
+    font-size: 20px !important;
     line-height: 20px !important;
   }
 
@@ -3260,6 +3386,7 @@ html[lang="ar"][dir="rtl"] .sign_in_page input {
     line-height: normal !important;
     max-width: 100%;
     margin-top: 0;
+    color: #0F0202;
   }
 
   html[lang="ar"][dir="rtl"] .bg-site-banner {
@@ -3300,16 +3427,33 @@ html[lang="ar"][dir="rtl"] .sign_in_page input {
   html[lang="ar"][dir="rtl"] .Toastify__toast-container.Toastify__toast-container--top-right {
     right: 0;
   }
+
   html[lang="ar"][dir="rtl"] .upload_icon {
     right: 4px;
-}
-.play_content_wrap h3 {
-  font-size: 18px;
-  max-width: 204px;
-  line-height: normal;
-}
-html[lang="ar"][dir="rtl"] .profile_active_unActive span {
-  font-size: 14px;
-  padding: 0px 0px;
-}
+  }
+
+  .play_content_wrap h3 {
+    font-size: 18px;
+    max-width: 204px;
+    line-height: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .profile_active_unActive span {
+    font-size: 14px;
+    padding: 0px 0px;
+  }
+
+  .moment_of_senetry .book-you-button {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .sportive_content {
+    margin-bottom: 20px !important;
+  }
+
+  .download_app_btn a {
+    padding: 8px 9px;
+    font-size: 12px;
+  }
 }

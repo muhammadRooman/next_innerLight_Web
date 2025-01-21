@@ -172,7 +172,7 @@ export default function ContactUs() {
                                 value={formData.message}
                                 onChange={handleChange}
                                 placeholder={t("message")}
-                                className="placeholder:text-[#11171F] w-full p-4 border border-[#DEDEDE] focus:outline-none rounded-lg min-h-[180px] rtl:xl:text-[32px] md:text-lg xs:text-[16px] small:text-[14px] resize-none"
+                                className="placeholder:text-[#11171F] w-full items-center rounded-[4px] bg-white border-solid border-2 border-[#DEDEDE] outline-1 -outline-offset-1 outline-[#DEDEDE] focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#11171F] lg:min-h-[70px] min-h-[180px] block min-w-0 grow py-1.5 pr-5 pl-5 lg:text-lg text-[#11171F] focus:outline-none rtl:xl:text-[32px] sm:text-sm/6 resize-none"
                             ></textarea>
                             {errors.message && <p className="error_msg" style={{ color: "red" }}>{errors.message}</p>}
                             <div className="btn-wrap text-right rtl:text-left lg:mt-14 mt-10 submit_btn">

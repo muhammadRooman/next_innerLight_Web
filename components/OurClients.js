@@ -82,7 +82,7 @@ export default function OurClients() {
                       <div className="slider-content xl:max-w-[640px] md:max-w-[520px] max-w-full md:text-left text-center">
                         <div className="md:mb-5 mb-3 rtl:text-right">
                           <h4 className="xl:text-lg rtl:2xl:text-[32px] rtl:md:text-[28px] font-normal font_34">{language === "en" ? client?.name_en : client?.name_ar}</h4>
-                          <small className="text-info-color xl:text-lg rtl:2xl:text-[25px] md:text-[20px] text-[14px] rtl:md:text-[22px] font-normal font_25">
+                          <small className="text-info-color xl:text-lg rtl:2xl:text-[25px] md:text-[20px] text-[14px] rtl:md:text-[22px] font-normal">
                             {language === "en" ? client?.country_en : client?.country_ar} , {language === "en" ? client?.age_en : client?.age_ar} {t("years_old")}
                           </small>
                         </div>

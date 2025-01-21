@@ -154,7 +154,7 @@ const Header = ({ locale }) => {
                       activeNavbarName === link
                         ? "active text-[#1796D8]"
                         : "md:text-black text-white"
-                    } py-1.5 md:py-1 2xl:me-[88px] xl:me-[60px] md:me-[40px] sm:text-[12px] md:text-[14px] xl:text-xl rtl:lg:text-[32px] rtl:md:text-[24px] rtl:xs:text-[18px] rtl:small:text-[16px] hover:text-[#1796D8] font-medium rtl:font-black rtl:2xl:me-28 rtl:xl:me-20 rtl:lg:me-17 rtl:md:me-16 navbar_links`}
+                    } py-1.5 md:py-1 2xl:me-[88px] xl:me-[60px] md:me-[40px] sm:text-[12px] md:text-[15px] xl:text-xl rtl:lg:text-[32px] rtl:md:text-[24px] rtl:xs:text-[18px] rtl:small:text-[16px] hover:text-[#1796D8] font-medium rtl:font-black rtl:2xl:me-28 rtl:xl:me-20 rtl:lg:me-17 rtl:md:me-16 navbar_links`}
                     onClick={() => setIsMenuOpen(false)}
                     prefetch={true}
                   >
@@ -175,9 +175,9 @@ const Header = ({ locale }) => {
                   className="
                 rounded-md
                 px-4 py-2
-                bg-white dark:bg-gray-800
+                bg-white
                 border border-gray-300 dark:border-gray-600 
-                text-gray-700 dark:text-gray-300 
+                text-black
                 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400
                 shadow-sm 
                 cursor-pointer
@@ -191,7 +191,7 @@ const Header = ({ locale }) => {
                   <option value="en">English</option>
                   <option value="ar">{t("ar")}</option>
                 </select>
-                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300">
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-black">
                   <svg
                     className="fill-current h-4 w-4"
                     xmlns="http://www.w3.org/2000/svg"
