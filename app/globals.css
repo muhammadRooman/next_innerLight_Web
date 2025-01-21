@@ -3159,11 +3159,12 @@ html[lang="ar"][dir="rtl"] .font_outfit{
   }
 
   .profile_active_unActive button {
-    margin-left: 5px;
+    margin-left: 10px;
     border: 1px solid gray;
-    padding: 3px 8px;
-    font-size: 10px;
+    padding: 5px 7px;
+    font-size: 15px;
     outline: none;
+    border-radius: 50%;
   }
 
   html[lang="ar"][dir="rtl"] .blog-card .card-content h4 {
