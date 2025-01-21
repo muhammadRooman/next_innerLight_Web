@@ -104,7 +104,7 @@ export default function LandingPage() {
       <section className="site-banner home_banner bg-site-banner bg-cover 2xl:min-h-[calc(997px-100px)] lg:min-h-[calc(997px-400px)] sm:min-h-[calc(997px-600px)] min-h-[calc(350px)] relative flex items-end justify-center md:pb-10 pb-5 lg:bg-center bg-center">
         <div className="2xl:container xl:container lg:container mx-auto px-5">
           <div className="inner-container relative sm:pt-4 md:pt0">
-            <div className="site-banner-content home_banner max-w-[965px] mx-auto">
+            <div className="site-banner-content home_banner max-w-[965px] mx-auto text-center">
               <h5 className="xl:text-40 rtl:xl:text-[100px] lg:text-[30px] text-[22px] text-white font-bold text-center xl:leading-normal">{language === "en" ? cmsWebHeadingData?.heading_en : cmsWebHeadingData?.heading_ar} </h5>
               <div className="relative banner-img 2xl:min-h-[148px] sm:min-h-[80px] lg:min-h-[120px] min-h-[60px] max-w-full wellness_image_wrap">
                 {
@@ -126,7 +126,9 @@ export default function LandingPage() {
                   )
                 }
               </div>
-              <p className="text-center text-white 2xl:text-2xl lg:text-xl md:text-[16] md:max-w-[650px] xl:max-w-[956px] sm:text-[14px] text-[12px] 2xl:leading-10 rtl:2xl:text-[40px] mt-6">{language === "en" ? cmsWebHeadingData?.description_en : cmsWebHeadingData?.description_ar}</p>
+              <div className='bannerText'>
+              <p className="text-center text-white 2xl:text-2xl lg:text-xl md:text-[16] md:max-w-[650px] xl:max-w-[956px] sm:text-[14px] text-[12px] 2xl:leading-10 rtl:2xl:text-[40px] mt-6 overlay_visible">{language === "en" ? cmsWebHeadingData?.description_en : cmsWebHeadingData?.description_ar}</p>
+              </div>
             </div>
             <div className="social-icon">
               <nav className="flex items-center justify-center mt-6">
@@ -285,7 +287,7 @@ export default function LandingPage() {
               </div>
               <div className='book-you-button sm:flex sm:justify-between items-center md:mt-8 mt-3 justify-center text-center'>
                 <h5 className='text-black 2xl:text-[40px] xl:text-[35px] lg:text-[30px] xs:text-[25px] text-[14px] font-bold'>{t("book_your_consultation")}</h5>
-                <Link href={`/${language}/contact`} className="py-2 md:px-6 px-3 text-white rounded-3xl font-medium rtl:font-black xl:text-xl md:text-[15px] sm:text-[10px] rtl:xl:text-[32px] text-[9px] bg-btn-gradient hover:bg-btn-gradient-hover ml-4 rtl:text-[12px] font_32">{t("contact_us")}</Link>
+                <Link href={`/${language}/contact`} className="py-2 md:px-6 px-3 text-white rounded-3xl font-medium rtl:font-black xl:text-xl md:text-[15px] sm:text-[10px] rtl:xl:text-[32px] text-[9px] bg-btn-gradient hover:bg-btn-gradient-hover ml-4 rtl:text-[12px] font_32 text_white">{t("contact_us")}</Link>
               </div>
             </div>
           </div>

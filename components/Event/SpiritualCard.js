@@ -62,9 +62,11 @@ export default function SpiritualCard({ webinarEvenData }) {
               className="blog-wrap flex-col md:flex-row flex gap-5 pt-10 pb-10 border-b-2 border-[#D0D0D0] last:border-0 first:pt-0"
             >
               {/* {/ Date Card /} */}
-              <div className="date-wrap flex-wrap md:flex-nowrap w-[161px] h-[188px] bg-white rounded-10 flex justify-center items-center shadow-shadow-color3 xl:flex hidden">
+              <div className="date-wrap flex-wrap md:flex-nowrap w-[161px] h-[188px] bg-white rounded-10 flex justify-center items-center shadow-shadow-color3 xl:flex hidden ">
                 <h1 className="xl:text-40 lg:text-[30px] text-[25px] font-bold leading-[46px] text-center text-[#0C0101]">
-                  {new Date(event.date).getDate()}
+                  <span className="font_outfit">
+                   {new Date(event.date).getDate()}
+                  </span>
                   <span className="block">
                     {" "}
                     {new Date(event.date)
@@ -86,15 +88,18 @@ export default function SpiritualCard({ webinarEvenData }) {
                   className="object-cover mx-auto w-full"
                 />
                 <div className="date-wrap w-[100px] h-[100px] bg-white rounded-10 flex justify-center items-center shadow-shadow-color3 xl:hidden lg:flex absolute top-3 left-3">
-                  <h1 className="xl:text-40 lg:text-[20px] text-[18px] font-bold lg:leading-[25px] leading-6  text-center text-[#0C0101]">
+                  <h2 className="xl:text-40 lg:text-[20px] text-[18px] font-bold lg:leading-[25px] leading-6 text-center text-[#0C0101">
                   
-                       {new Date(event.date).getDate()}
+                    <span className="font_outfit">
+                      {new Date(event.date).getDate()}
+                    </span>
                     <span className="block"> {new Date(event.date)
                       .toLocaleString(language === "en" ? "en-US" : "ar", {
                         month: "short",
                       })
-                      .toUpperCase()}</span>
-                  </h1>
+                      .toUpperCase()}
+                    </span>
+                  </h2>
                 </div>
               </div>
               {/* {/ Content Card /} */}
@@ -118,7 +123,7 @@ export default function SpiritualCard({ webinarEvenData }) {
                     onClick={() =>
                       router.push(`/${language}/event/${event._id}`)
                     }
-                    className="py-2 md:px-10 xs:px-6 small:px-5 text-white rounded-3xl font-medium rtl:font-black xl:text-xl rtl:xl:text-[32px] text-[12px] bg-btn-gradient hover:bg-btn-gradient-hover lg:ml-4 rtl:text-[12px]"
+                    className="py-2 md:px-10 xs:px-6 small:px-5 text-white rounded-3xl font-medium rtl:font-black xl:text-xl rtl:xl:text-[32px] text-[12px] bg-btn-gradient hover:bg-btn-gradient-hover lg:ml-4 rtl:text-[12px] detail_btn"
                   >
                     {t("detail")}
                   </button>

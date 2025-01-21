@@ -103,7 +103,7 @@ const Header = ({ locale }) => {
           isScrolled ? "bg-[#EBEBEB] shadow-shadow-color" : "bg-[#F7F7F7]"
         }`}
       >
-        <div className="2xl:container xl:container md:container mx-auto custom_container">
+        <div className="2xl:container xl:container md:container sm:container mx-auto">
           <div className="header-inner flex justify-between items-center xl:px-5 px-3 xl:py-2 md:py-2 py-2">
             {/* Logo */}
             <div className="logo">
@@ -171,7 +171,7 @@ const Header = ({ locale }) => {
                   className="
                 rounded-md
                 px-4 py-2
-                bg-white
+                bg-[#F7F7F7]
                 border border-gray-300 dark:border-gray-600 
                 text-black
                 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400
@@ -228,7 +228,7 @@ const Header = ({ locale }) => {
                 <div className="profile_active_unActive">
                   <button
                     onClick={toggleDropdown}
-                    className="flex items-center justify-center bg-gray-200 rounded-full p-2 hover:bg-gray-300"
+                    className="flex items-center justify-center bg-gray-200 userIconWrap rounded-full p-2 hover:bg-gray-300"
                   >
                     {isAuthenticated ? (
                       //  <CgProfile  className="h-6 w-6 text-gray-700" />
@@ -237,7 +237,14 @@ const Header = ({ locale }) => {
                     </div>
                     ) : (
                       // <IoMdLogOut style={{ color: "red" }} className="h-6 w-6 text-gray-700" />
-                      <span style={{ color: "black" }}>{t("signin")}</span>
+                      <span className="userIcon">  
+                      <Image
+                        src="/user.png"
+                        alt="user Image"
+                        layout="fill"
+                        className="rounded-30 object-cover p-2.5"
+                      />
+                       </span>
                     )}
                   </button>
                 </div>

@@ -281,7 +281,7 @@ export default function SignIn() {
               )}
             </div>
           </div>
-          <div className="book-you-button register_btn flex-wrap flex lg:justify-between items-center mt-10 text-center">
+          <div className="book-you-button register_btn flex-wrap flex xs:justify-between items-center mt-10 text-center">
             <p className="text-black text-lg mb-3 lg:mt-0 mt-2 font_32">
               {t("dont_have_account")}
               <Link
