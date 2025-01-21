@@ -6,6 +6,15 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    container: {
+      screens: {
+        'sm': '810px',    
+        'md': '991px',        
+        'lg': '1280px',       
+        'xl': '1367px', 
+        '2xl': '1536px',     
+      },
+    },
     extend: {
       fontFamily: {
         brittany: ['BrittanySignature', 'sans-serif'],
@@ -60,11 +69,13 @@ module.exports = {
       },
       screens: {
         'small': '360px',    
-        'xs': '475px',       
+        'xs': '475px',  
+        'sm': '767px',     
         'md': '991px',        
         'lg': '1280px',       
         'xl': '1367px',      
       },
+      
     },
   },
   plugins: [],

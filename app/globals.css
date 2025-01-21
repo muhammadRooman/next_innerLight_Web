@@ -282,7 +282,7 @@ html[lang="ar"] .nurturing-img::before {
   top: 0;
   right: 0;
   bottom: 0;
-  z-index: 10;
+  z-index: 999;
   background: rgba(0, 0, 0, 0.7);
 }
 
@@ -580,8 +580,8 @@ html[lang="ar"][dir="rtl"] .font_18 {
 }
 
 html[lang="ar"][dir="rtl"] .font_25 {
-  font-size: 30px !important;
-  line-height: 32px !important;
+  font-size: 40px !important;
+  line-height: 40px !important;
 }
 
 html[lang="ar"][dir="rtl"] .font_32 {
@@ -1050,18 +1050,6 @@ html[lang="ar"][dir="rtl"] .custom_select option {
   font-size: 32px !important;
 }
 
-input[type="number"] {
-  font-size: 16px;
-  -webkit-transform: none;
-  transform: none;
-  -webkit-transform-origin: 0 0;
-  transform-origin: 0 0;
-}
-
-input[type="number"]:focus {
-  font-size: 16px;
-}
-
 html[lang="ar"][dir="rtl"] .navbar_links {
   display: inline-block;
 }
@@ -1080,6 +1068,47 @@ select {
   -webkit-appearance: none; /* For Safari and iOS */
   -moz-appearance: none; /* For Firefox */
 }
+html[lang="ar"][dir="rtl"] .font_outfit{
+  font-family: Outfit;
+}
+.blog-card {
+  height: 100%;
+  min-height: 100%;
+}
+
+.userIconWrap {
+  padding: 0 !important;
+}
+
+.userIconWrap {
+  width: 40px;
+  height: 40px;
+  display: flex !important;
+  background: none;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.userIconWrap span img {
+  width: 22px !important;
+  padding: 0;
+  position: relative !important;
+  height: 22px !important;
+}
+.text_white{
+  color: #fff !important;
+}
+
+.headDetails {
+  text-align: center;
+  max-width: 1054px;
+  margin: 0 auto 50px;
+}
+
+
+
+
+
+
 
 
 /* responsive */
@@ -1494,6 +1523,27 @@ select {
   html[lang="ar"][dir="rtl"] .custom_select {
     padding: 5px 30px 5px 12px;
   }
+  .bannerText{
+    background: #00000080;
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+    max-width: 100%;
+    padding: 0px 12px;
+    border-radius: 20px;
+    margin-top: 10px;
+  }
+  .custom_select {
+    padding: 3px 22px 3px 8px;
+    font-size: 16px !important;
+}
+.detail_btn{
+  font-size: 16px;
+  line-height: normal;
+}
+.DownloadOurApp {
+  margin-bottom: 60px;
+}
 }
 
 @media (min-width: 1280px) {
@@ -1926,6 +1976,9 @@ select {
   html[lang="ar"][dir="rtl"] .home_banner h5 {
     margin-bottom: 0 !important;
 }
+.commitment-content {
+  margin-bottom: 50px;
+}
 }
 
 @media (max-width: 991px) {
@@ -2325,9 +2378,12 @@ select {
   .commit_content_wrap{
     margin-top: 0;
   }
+  .commitment-content {
+    margin-bottom: 20px;
+}
 }
 
-@media (max-width: 776px) {
+@media (max-width: 767px) {
 
   .WhatWeOffer-card .WhatWeOffer-img img {
     position: relative !important;
@@ -2644,8 +2700,8 @@ select {
 
   .book-you-button h5 {
     font-size: 20px;
-    line-height: normal;
-    margin-bottom: 30px;
+        line-height: normal;
+        margin-bottom: 25px;
   }
 
   html[lang="ar"][dir="rtl"] .error_msg {
@@ -2769,11 +2825,11 @@ select {
   }
 
   .MeditationConsultation-wrap .MeditationConsultation-inner {
-    min-height: 580px;
+    min-height: 600px;
   }
 
   .Meditation-content-inner .book-you-button a {
-    margin-top: 25px;
+    margin-top: 0;
   }
 
   .WelcomeMessage h5 {
@@ -2785,8 +2841,17 @@ select {
   .sportive_content {
     margin-bottom: 30px !important;
   }
+  
+.userIconWrap {
+  width: 30px;
+  height: 30px;
+}
+.userIconWrap span img {
+  width: 20px !important; 
+  height: 20px !important;
 }
 
+}
 @media (max-width: 480px) {
   .WhatWeOffer-card .WhatWeOffer-img img {
     height: 217px !important;
@@ -3040,7 +3105,7 @@ select {
   }
 
   html[lang="ar"][dir="rtl"] .font-brittany {
-    font-size: 28px;
+    font-size: 20px;
     padding: 0;
   }
 
@@ -3063,6 +3128,10 @@ select {
     width: 100px !important;
     height: 30px !important;
   }
+  html[lang="ar"][dir="rtl"] .btn-download a > img:first-of-type {
+    margin-bottom: 10px;
+}
+
 
   html[lang="ar"][dir="rtl"] .WhatWeOffer {
     padding-top: 30px;
@@ -3090,11 +3159,12 @@ select {
   }
 
   .profile_active_unActive button {
-    margin-left: 5px;
+    margin-left: 10px;
     border: 1px solid gray;
-    padding: 3px 8px;
-    font-size: 10px;
+    padding: 5px 7px;
+    font-size: 15px;
     outline: none;
+    border-radius: 50%;
   }
 
   html[lang="ar"][dir="rtl"] .blog-card .card-content h4 {
@@ -3456,4 +3526,28 @@ select {
     padding: 8px 9px;
     font-size: 12px;
   }
+  .custom_select {
+    padding: 3px 22px 3px 8px;
+    font-size: 12px !important;
+}
+.register_btn {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
+}
+.form_control .input_wrapper input{
+  font-size: 16px !important;
+  line-height: normal;
+}
+input {
+  font-size: 16px !important;
+  -webkit-transform: none;
+  transform: none;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+input:focus {
+  font-size: 16px !important;
+}
 }

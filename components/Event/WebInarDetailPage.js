@@ -114,6 +114,12 @@ const WebInarDeatilPage = () => {
                 </div>
               </section>
               <section className="container mx-auto px-4 py-10">
+                <div className='headDetails'>
+                    <h2 className="text-3xl font-bold mb-4"> {language === "en" ? webinarDetailPage?.name : webinarDetailPage?.name_ar}</h2>
+                    <p className="text-gray-600 mb-4 font_25">
+                     {language === "en" ? webinarDetailPage?.shortDescription : webinarDetailPage?.shortDescription_ar}
+                    </p>
+                </div>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                   <div className="flex justify-center detail_img">
               {isImageLoading && <FullPageLoader />}
@@ -126,11 +132,8 @@ const WebInarDeatilPage = () => {
                       onLoadingComplete={handleImageLoadingComplete}
                     />
                   </div> 
-                  <div>
-                    <h2 className="text-3xl font-bold mb-4"> {language === "en" ? webinarDetailPage?.name : webinarDetailPage?.name_ar}</h2>
-                    <p className="text-gray-600 mb-4 font_25">
-                     {language === "en" ? webinarDetailPage?.shortDescription : webinarDetailPage?.shortDescription_ar}
-                    </p>
+                  <div className='detailsContent'>
+                    
                     {
                       webinarDetailPage?.type &&  <div className="mb-3">
                       <span className="text-xl font-semibold font_26 font_32">{t("price")}:</span>{" "}
@@ -151,7 +154,7 @@ const WebInarDeatilPage = () => {
                     }     
                     {
                       webinarDetailPage?.time &&  <div className="mb-3">
-                      <span className="text-xl font-semibold font_26 font_32">{t("time")}:</span>{" "}
+                      <span className="text-xl font-semibold font_26 font_32 ">{t("time")}:</span>{" "}
                       <span className="text-xl text-black-600 font_25">{webinarDetailPage?.time}</span>
                     </div>
                     }    
@@ -160,7 +163,7 @@ const WebInarDeatilPage = () => {
                     <div className="mb-3">
                       {language === "en" ? (
                         webinarDetailPage?.description?.length > 0 ? (
-                          <span className="text-xl font-semibold font_26 font_32">{t("outline")}:</span>
+                          <span className="text-xl font-semibold font_26 font_32 ">{t("outline")}:</span>
                         ) : null
                       ) : (
                         webinarDetailPage?.description_ar?.length > 0 ? (
@@ -168,7 +171,7 @@ const WebInarDeatilPage = () => {
                         ) : null
                       )}
                         <div
-                          className="text-xl text-black-600 font_26 detail_titles"
+                          className="text-xl text-black-600 font_26 detail_titles mt-3"
                           dangerouslySetInnerHTML={{
                             __html: (language === "en" ? webinarDetailPage?.description : webinarDetailPage?.description_ar)
                               .replace(/<ol>/g, '<ol style="list-style-type: decimal; margin-left: 20px;">')

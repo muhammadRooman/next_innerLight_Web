@@ -109,7 +109,7 @@ const Header = ({ locale }) => {
       >
         <div className="2xl:container xl:container md:container mx-auto custom_container">
           <div className="header-inner flex justify-between items-center xl:px-5 px-3 xl:py-2 md:py-2 py-2">
-            {/* Logo */}
+            {/* {/ Logo /} */}
             <div className="logo">
               <Link href={`/${locale}/home`}>
                 <Image
@@ -122,7 +122,7 @@ const Header = ({ locale }) => {
               </Link>
             </div>
 
-            {/* Navigation */}
+            {/* {/ Navigation /} */}
             <nav
               className={`ml-auto fixed top-0 left-0 w-full h-full bg-white z-10 md:relative md:bg-transparent md:w-auto md:h-auto flex flex-col md:flex-row justify-center items-center transition-transform duration-300 ${
                 isMenuOpen
@@ -130,7 +130,7 @@ const Header = ({ locale }) => {
                   : "-translate-x-full md:translate-x-0"
               }`}
             >
-              {/* Close Button for Mobile */}
+              {/* {/ Close Button for Mobile /} */}
               <button
                 className="absolute top-10 right-10 md:hidden text-black focus:outline-none"
                 aria-label="Close Menu"
@@ -144,7 +144,7 @@ const Header = ({ locale }) => {
                   className="sm:w-[18px] sm:h-[15px] w-4 h-3"
                 />
               </button>
-              {/* Menu Links */}
+              {/* {/ Menu Links /} */}
               {["home", "about", "benefits", "contact", "event"].map(
                 (link, index) => (
                   <Link
@@ -165,10 +165,9 @@ const Header = ({ locale }) => {
             </nav>
 
             <div className="flex items-center">
-              {/* Language Selector */}
               <div className="relative inline-block">
                 {" "}
-                {/* Added a relative wrapper for positioning if needed */}
+                {/* {/ Added a relative wrapper for positioning if needed /} */}
                 <select
                   value={locale}
                   onChange={handleLanguageChange}
@@ -188,7 +187,7 @@ const Header = ({ locale }) => {
                 rtl:ml-5 rtl:pr-4 rtl:pl-10 custom_select
               "
                 >
-                  <option value="en">English</option>
+                  <option value="en">{t("en")}</option>
                   <option value="ar">{t("ar")}</option>
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-black">
@@ -202,7 +201,7 @@ const Header = ({ locale }) => {
                 </div>
               </div>
 
-              {/* Join Now */}
+              {/* {/ Join Now /} */}
               <div className="download_app_btn">
                 <Link
                   href="https://play.google.com/store/apps/details?id=com.arhamsoft.innerlight.innerlights&hl=en"
@@ -213,7 +212,7 @@ const Header = ({ locale }) => {
                 </Link>
               </div>
 
-              {/* Hamburger Menu for Mobile */}
+              {/* {/ Hamburger Menu for Mobile /} */}
               <button
                 className="ml-4 md:hidden text-black focus:outline-none xl:mr-0 mr-3"
                 aria-label="Toggle Menu"
@@ -227,7 +226,7 @@ const Header = ({ locale }) => {
                   className="sm:w-[18px] sm:h-[15px] w-4 h-3"
                 />
               </button>
-              {/* Profile */}
+              {/* {/ Profile /} */}
               {
                 loading ?  <div className="profile_active_unActive">
                 <div ref={dropdownRef}>
@@ -236,7 +235,7 @@ const Header = ({ locale }) => {
                     aria-orientation="vertical"
                     aria-labelledby="options-menu"
                   >
-                    {/* Skeleton Loader */}
+                    {/* {/ Skeleton Loader /} */}
                     <div className="flex items-center justify-center">
                       <div className="bg-gray-300 rounded-full animate-pulse w-32 h-10"></div>
                     </div>
@@ -250,7 +249,7 @@ const Header = ({ locale }) => {
                       aria-orientation="vertical"
                       aria-labelledby="options-menu"
                     >
-                      {/* Conditional rendering for Signin or Logout */}
+                      {/* {/ Conditional rendering for Signin or Logout /} */}
                       
                       {authState.isAuthenticated ? (
                         <button 
@@ -272,9 +271,16 @@ const Header = ({ locale }) => {
                           role="menuitem"
                           onClick={() => handleMenuItemClick("signin")}
                         >                      
-                        <CgProfile style={{ color: "green" }} className="h-6 w-6 text-gray-700" />
-                        <div className="signin_text pl-3">
-                          {t("signin")}
+                       
+                        <div className="signin_text pl-3 userIconWrap">
+                        <span>  
+                          <Image
+                            src="/user.png"
+                            alt="user Image"
+                            layout="fill"
+                            className="rounded-30 object-cover p-2.5"
+                          />
+                       </span>
                         </div>
                         </button>
                       )}
