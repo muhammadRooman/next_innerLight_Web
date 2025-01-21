@@ -1,6 +1,7 @@
 "use client"
 import { usePathname } from "next/navigation"; 
 import React from "react";
+import { AuthProvider } from "./context/AuthContext";
 
 export default function RootLayout({ children }) {
   const currentPath = usePathname(); 
@@ -9,7 +10,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang={lang}> 
       <body>
-        {children}
+      <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );

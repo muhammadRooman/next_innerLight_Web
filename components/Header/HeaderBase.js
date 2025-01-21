@@ -8,8 +8,11 @@ import FullPageLoader from "../fullPageLoader.js/FullPageLoader";
 import { CgProfile } from "react-icons/cg";
 import { IoMdLogOut } from "react-icons/io";
 import { CiSettings } from "react-icons/ci";
+import { useAuth } from "../../app/context/AuthContext";
+
 
 const Header = ({ locale }) => {
+  const { authState, signIn, signOut ,loading } = useAuth();
   const t = useTranslations("NavbarLinks");
   const pathname = usePathname();
   const currentPath = usePathname();
@@ -29,6 +32,7 @@ const Header = ({ locale }) => {
     const authToken = localStorage.getItem("authToken");
     setIsAuthenticated(authToken !== null);
   }, []);
+
 
   useEffect(() => {
     const lang = currentPath.split("/")[1] || "en";
@@ -51,7 +55,7 @@ const Header = ({ locale }) => {
   };
 
   const confirmLogout = () => {
-     localStorage.removeItem("authToken");
+    signOut();
     setShowModal(false); 
     router.push(`/${language}/signup`);
   };
@@ -150,7 +154,7 @@ const Header = ({ locale }) => {
                       activeNavbarName === link
                         ? "active text-[#1796D8]"
                         : "md:text-black text-white"
-                    } py-1.5 md:py-1 2xl:me-[88px] xl:me-[60px] md:me-[40px] sm:text-[12px] md:text-[14px] xl:text-xl rtl:lg:text-[32px] rtl:md:text-[24px] rtl:xs:text-[18px] rtl:small:text-[16px] hover:text-[#1796D8] font-medium rtl:font-black rtl:2xl:me-28 rtl:xl:me-20 rtl:lg:me-17 rtl:md:me-16 navbar_links`}
+                    } py-1.5 md:py-1 2xl:me-[88px] xl:me-[60px] md:me-[40px] sm:text-[12px] md:text-[15px] xl:text-xl rtl:lg:text-[32px] rtl:md:text-[24px] rtl:xs:text-[18px] rtl:small:text-[16px] hover:text-[#1796D8] font-medium rtl:font-black rtl:2xl:me-28 rtl:xl:me-20 rtl:lg:me-17 rtl:md:me-16 navbar_links`}
                     onClick={() => setIsMenuOpen(false)}
                     prefetch={true}
                   >
@@ -171,9 +175,9 @@ const Header = ({ locale }) => {
                   className="
                 rounded-md
                 px-4 py-2
-                bg-white dark:bg-gray-800
+                bg-white
                 border border-gray-300 dark:border-gray-600 
-                text-gray-700 dark:text-gray-300 
+                text-black
                 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400
                 shadow-sm 
                 cursor-pointer
@@ -187,7 +191,7 @@ const Header = ({ locale }) => {
                   <option value="en">English</option>
                   <option value="ar">{t("ar")}</option>
                 </select>
-                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300">
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-black">
                   <svg
                     className="fill-current h-4 w-4"
                     xmlns="http://www.w3.org/2000/svg"
@@ -224,36 +228,34 @@ const Header = ({ locale }) => {
                 />
               </button>
               {/* Profile */}
-              <div className="relative inline-block text-left">
-                <div className="profile_active_unActive">
-                  <button
-                    onClick={toggleDropdown}
-                    className="flex items-center justify-center bg-gray-200 rounded-full p-2 hover:bg-gray-300"
+              {
+                loading ?  <div className="profile_active_unActive">
+                <div ref={dropdownRef}>
+                  <div
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="options-menu"
                   >
-                    {isAuthenticated ? (
-                      //  <CgProfile  className="h-6 w-6 text-gray-700" />
-                     <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                      <CiSettings className="h-6 w-6 text-gray-700" />
+                    {/* Skeleton Loader */}
+                    <div className="flex items-center justify-center">
+                      <div className="bg-gray-300 rounded-full animate-pulse w-32 h-10"></div>
                     </div>
-                    ) : (
-                      // <IoMdLogOut style={{ color: "red" }} className="h-6 w-6 text-gray-700" />
-                      <span style={{ color: "black" }}>{t("signin")}</span>
-                    )}
-                  </button>
+                  </div>
                 </div>
-
-                {isOpen && (
-                  <div ref={dropdownRef}  className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none sign_icon_wrapper">
+              </div>:  <div className="relative inline-block text-left">
+                <div className="profile_active_unActive">
+              <div ref={dropdownRef} >
                     <div
                       role="menu"
                       aria-orientation="vertical"
                       aria-labelledby="options-menu"
                     >
                       {/* Conditional rendering for Signin or Logout */}
-                      {isAuthenticated ? (
+                      
+                      {authState.isAuthenticated ? (
                         <button 
                           style={{ display: "flex", alignItems: "center"}}
-                          className="text-gray-700 hover:bg-gray-100"
+                          className="flex items-center justify-center bg-gray-200 rounded-full p-2 hover:bg-gray-300"
                           role="menuitem"
                           onClick={() => handleMenuItemClick("logout")}
                         >
@@ -266,7 +268,7 @@ const Header = ({ locale }) => {
                       ) : (
                         <button
                         style={{ display: "flex", alignItems: "center"}} 
-                        className="text-gray-700 hover:bg-gray-100"
+                        className="flex items-center justify-center bg-gray-200 rounded-full p-2 hover:bg-gray-300"
                           role="menuitem"
                           onClick={() => handleMenuItemClick("signin")}
                         >                      
@@ -278,8 +280,10 @@ const Header = ({ locale }) => {
                       )}
                     </div>
                   </div>
-                )}
+                </div>
               </div>
+              }
+            
               {showModal && (
                 <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
                   <div className="bg-white rounded-lg shadow-lg p-6 w-80">
