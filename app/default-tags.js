@@ -30,8 +30,6 @@ export default function DefaultTags({ title, description = null, keywords = null
         property="og:description"
         content={description ? description : 'Online InnerLight software platform | The InnerLight'}
       />
-      {/* Use the correct image URL */}
-      {/* <meta property="og:image" content={`${window.location.origin}/logo.png`} /> */}
       <meta property="og:type" content="website" />
       <meta property="og:image:width" content="400" />
       <meta property="og:image:height" content="400" />
@@ -45,7 +43,6 @@ export default function DefaultTags({ title, description = null, keywords = null
         content={description ? description : 'Online InnerLight software platform | The InnerLight'}
       />
       <meta name="twitter:creator" content="The InnerLight" />
-      {/* <meta name="twitter:image:src" content={`${window.location.origin}/logo.png`} /> */}
       <meta name="twitter:image:alt" content="The InnerLight" />
       <meta name="twitter:domain" content="innerlightacademy.com" />
     </>

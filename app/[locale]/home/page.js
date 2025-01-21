@@ -9,11 +9,9 @@ import BlogsCard from "@/components/BlogsCard";
 import useSWR from 'swr';
 import FullPageLoader from '@/components/fullPageLoader.js/FullPageLoader';
 import OurClients from '@/components/OurClients';
-import Head from "@/app/[locale]/home/head"; // Import DefaultTags component
+import Head from "@/app/[locale]/home/head"; 
 import { FaTelegramPlane } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
-
-
 // Define fetcher function
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
@@ -26,77 +24,8 @@ export default function LandingPage() {
   const [cmsWebCommitmentData, setCmsWebHCommitmentData] = useState("")
   const [CmsWebHMeditationData, setCmsWebHMeditationData] = useState("")
   const [CmsWebHEventsData, setCmsWebHEventsData] = useState([])
-  const [testimonialsData, setTestimonialsData] = useState([])
-  {/* State to manage visibility */ }
-  const [showAll, setShowAll] = useState(false);
-
-  {/* Data to be displayed */ }
-  // const displayedEvents = showAll ? CmsWebHEventsData : CmsWebHEventsData.slice(-3);
-  // Reverse the data for latest events
-  const displayedEvents = showAll
-    ? CmsWebHEventsData.slice().reverse()
-    : CmsWebHEventsData.slice(-3).reverse();
-
+  const displayedEvents =  CmsWebHEventsData.slice(-3).reverse()
   const latestEvent = [...CmsWebHEventsData].reverse()[0];
-
-  // Fetch cmsWeb data using SWR
-  const { data, error, isLoading } = useSWR(
-    `${process.env.NEXT_PUBLIC_BASE_API}/cmsWeb`,
-    fetcher
-  );
-
-  // Fetch Webinar data using SWR
-  const { data: WebinarData, error: WebinarError, isLoading: isWebinarLoading } = useSWR(
-    `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/webinars/events`,
-    fetcher
-  );
-
-  // Fetch Testimonial data using SWR
-  const { data: testimonialData, error: testimonialError, isLoading: isTestimonialLoading } = useSWR(
-    `${process.env.NEXT_PUBLIC_BASE_API}/testimonial`,
-    fetcher
-  );
-
-  // fetched cmsWeb
-  useEffect(() => {
-    if (data) {
-      setCmsWebHeadingData(data?.cmsWeb?.header)
-      setCmsWebHCommitmentData(data?.cmsWeb?.commitment)
-      setCmsWebHMeditationData(data?.cmsWeb?.meditation)
-    }
-    const lang = currentPath.split('/')[1] || 'en';
-    setLanguage(lang);
-  }, [data, currentPath]);
-
-  // fetched Webinar
-  useEffect(() => {
-    if (WebinarData) {
-      setCmsWebHEventsData(WebinarData?.events)
-    }
-  }, [WebinarData]);
-
-  // fetched testimonialData
-  useEffect(() => {
-    if (testimonialData) {
-      setTestimonialsData(testimonialData?.testimonials)
-    }
-  }, [testimonialData]);
-
-  const truncateText = (text) => {
-    if (!text) return '';
-    const words = text.split(' ');
-    return words.length > 15 ? words.slice(0, 15).join(' ') + '...' : text;
-  };
-  const truncateTextMore = (text) => {
-    if (!text) return '';
-    const words = text.split(' ');
-    return words.length > 25 ? words.slice(0, 25).join(' ') + '...' : text;
-  };
-
-
-  if (isLoading) return <div> <FullPageLoader /></div>;
-  if (error) return <div>Error: {error.message}</div>;
-
   const benefits = [
     {
       id: 1,
@@ -123,6 +52,50 @@ export default function LandingPage() {
       description: t("para_4")
     }
   ];
+
+  // Fetch cmsWeb data using SWR
+  const { data, error, isLoading } = useSWR(
+    `${process.env.NEXT_PUBLIC_BASE_API}/cmsWeb`,
+    fetcher
+  );
+
+  // Fetch Webinar data using SWR
+  const { data: WebinarData, error: WebinarError, isLoading: isWebinarLoading } = useSWR(
+    `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/webinars/events`,
+    fetcher
+  );
+
+  // fetched cmsWeb
+  useEffect(() => {
+    if (data) {
+      setCmsWebHeadingData(data?.cmsWeb?.header)
+      setCmsWebHCommitmentData(data?.cmsWeb?.commitment)
+      setCmsWebHMeditationData(data?.cmsWeb?.meditation)
+    }
+    const lang = currentPath.split('/')[1] || 'en';
+    setLanguage(lang);
+  }, [data, currentPath]);
+
+  // fetched Webinar
+  useEffect(() => {
+    if (WebinarData) {
+      setCmsWebHEventsData(WebinarData?.events)
+    }
+  }, [WebinarData]);
+
+  const truncateText = (text) => {
+    if (!text) return '';
+    const words = text.split(' ');
+    return words.length > 15 ? words.slice(0, 15).join(' ') + '...' : text;
+  };
+  const truncateTextMore = (text) => {
+    if (!text) return '';
+    const words = text.split(' ');
+    return words.length > 25 ? words.slice(0, 25).join(' ') + '...' : text;
+  };
+
+  if (isLoading) return <div> <FullPageLoader /></div>;
+  if (error) return <div>Error: {error.message}</div>;
 
   return (
     <>
@@ -157,33 +130,6 @@ export default function LandingPage() {
             </div>
             <div className="social-icon">
               <nav className="flex items-center justify-center mt-6">
-                {/* {cmsWebHeadingData?.facebook && (
-                  <Link href={cmsWebHeadingData.facebook}
-                    target="_blank"
-                    className="
-                   min-w-14 min-h-14 
-                   small:min-w-7 small:min-h-7  
-                   xs:min-w-9 xs:min-h-9       
-                   sm:min-w-11 sm:min-h-11  
-                   lg:min-w-16 lg:min-h-16  
-                   rounded-full border-solid border-2 
-                   flex items-center justify-center border-info-color 
-                   ease-in-out me-2 hover:bg-info-color">
-
-                    <Image
-                      src="/facebook.png"
-                      width={25} height={25}
-                      alt={t("facebookAlt")}
-                      className="
-                     max-w-full object-contain 
-                     small:w-4 small:h-4   
-                     xs:w-5 xs:h-5       
-                     sm:w-6 sm:h-6     
-                     lg:w-9 lg:h-9   
-                   "
-                    />
-                  </Link>
-                )} */}
                 {cmsWebHeadingData?.instagram && (
                   <Link href={cmsWebHeadingData.instagram} target="_blank" className="min-w-14 min-h-14 
                    small:min-w-7 small:min-h-7  
@@ -237,7 +183,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
       {/* Commitment Section */}
       <div className='2xl:container xl:container md:container mx-auto'>
         <section className="commitment-wrap bg-gray-light lg:pt-[80px] xl:pb-[90px] lg:pb-[80px] md:pt-[50px] pt-[30px] md:pb-[60px] pb-[40]">
@@ -250,7 +195,6 @@ export default function LandingPage() {
                 {language === "en" ? cmsWebCommitmentData?.heading_en : cmsWebCommitmentData?.heading_ar}
               </h2>
             </div>
-
             <div className="grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-2 small:grid-cols-1 blog-card-content">
               {/* First Column */}
               <div className="lg:col-span-1 md:col-span-1 small:col-span-2 col-span-1">
@@ -270,7 +214,6 @@ export default function LandingPage() {
                   </p>
                 </div>
               </div>
-
               {/* Middle Column with Image */}
               <div className="col-span-2">
                 <div className="relative xl:max-w-[566px] lg:max-w-[440px] md:max-w-[360px] sm:max-w-[280px] max-w-full lg:min-h-[715px] md:min-h-[450px] sm:min-h-[450px] min-h-[300px] shadow-shadow-color bg-white p-2.5 mx-auto rounded-10 comitment_img">
@@ -282,7 +225,6 @@ export default function LandingPage() {
                   />
                 </div>
               </div>
-
               {/* Third Column */}
               <div className="lg:col-span-1 md:col-span-1 small:col-span-2 col-span-1 commitment_wrap">
                 <div className="commitment-content text-center lg:mb-36 lg:max-w-[395px] max-w-full mb-4 commit_content_wrap">
@@ -302,11 +244,9 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
-
           </div>
         </section>
       </div>
-
       <section className="MeditationConsultation-wrap">
         <div className='MeditationConsultation-inner flex lg:min-h-[997px] min-h-[860px]'>
           <div className='Meditation-left-img bg-meditation-left w-full bg-cover lg:max-w-[calc(100%-70%)] max-w-full min-h-full lg:block hidden'></div>
@@ -351,7 +291,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
       <div className='2xl:container xl:container md:container mx-auto'>
         <section className="DownloadOurApp bg-gray-light lg:pt-9">
           <div className="2xl:container xl:container lg:container mx-auto px-5">
@@ -381,7 +320,6 @@ export default function LandingPage() {
                         alt="AppStore"
                         className="w-[90px] xl:w-[180px] lg:w-[160px] md:w-[140px] sm:w-[120px] xs:w-[100px]"
                       />
-
                     </Link>
                     <Link href="https://play.google.com/store/apps/details?id=com.arhamsoft.innerlight.innerlights&hl=en" target="_blank" className="md:mt-9 xs:mt-5 mt-3 block">
                       <Image src="/GooglePlay.png" width={180} height={55} alt="Google Play" className="w-[90px] xl:w-[180px] lg:w-[160px] md:w-[140px] sm:w-[120px] xs:w-[100px]" />
@@ -395,7 +333,6 @@ export default function LandingPage() {
                       alt="QR Code"
                       className="w-[90px] xl:w-[120px] lg:w-[110px] md:w-[100px] sm:w-[90px] xs:w-[80px]"
                     />
-
                   </div>
                 </div>
               </div>
@@ -415,7 +352,6 @@ export default function LandingPage() {
           </div>
         </section>
       </div>
-
       <div className='2xl:container xl:container md:container mx-auto'>
         <section className="benefits-holistic bg-gray-light lg:pt-0 xs:pt-8 small:pt-0 pb-[40px] small:pb-0 sm:pb-[10px]">
           <div className="2xl:container xl:container lg:container mx-auto px-5">
@@ -454,9 +390,7 @@ export default function LandingPage() {
           </div>
         </section>
       </div>
-
       {/* blog */}
-
       <div className='2xl:container xl:container md:container mx-auto'>
         <section className='blog-wrap bg-gray-light'>
           <div className="2xl:container xl:container lg:container px-5 mx-auto lg:py-12 py-5">
@@ -506,7 +440,6 @@ export default function LandingPage() {
                     <h1 className="2xl:text-2xl rtl:2xl:text-[40px] font-bold text-center mb-6 text-[16px] sm:text-[14px] lg:text-[16px] xl:text-[18px] leading-[22px] sm:leading-[22px] lg:leading-[26px] xl:leading-[30px] heading_40">
                       {t("upcoming_workshop")}
                     </h1>
-
                     {displayedEvents?.map((item) => (
                       <Link href={`/${language}/event/${item._id}`} key={item._id}>
                         <div className="mediaObject flex justify-start items-center mb-5 hover:text-blue-500 overflow-hidden group">
@@ -540,13 +473,8 @@ export default function LandingPage() {
             <BlogsCard />
           </div>
         </section>
-
       </div>
-
       <OurClients />
-
-      {/* Additional Sections */}
-      {/* ...Other sections like DownloadOurApp, BenefitsOfHolistic, etc. */}
     </>
   );
 }

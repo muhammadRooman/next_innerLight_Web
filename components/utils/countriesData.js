@@ -63,7 +63,7 @@ export const countries = [
     { code: "+84", name: "Vietnam" },
     { code: "+260", name: "Zambia" },
     { code: "+263", name: "Zimbabwe" },
-    { code: "+973", name: "Bahrain" } // Added Bahrain
+    { code: "+973", name: "Bahrain" } 
 ].sort((a, b) => a.name.localeCompare(b.name));
 
 export  const arabicCountries = [
@@ -131,6 +131,6 @@ export  const arabicCountries = [
         { code: "+84", name: "فيتنام" },
         { code: "+260", name: "زامبيا" },
         { code: "+263", name: "زيمبابوي" },
-        { code: "+973", name: "البحرين" } // Added Bahrain
+        { code: "+973", name: "البحرين" } 
     ].sort((a, b) => a.name.localeCompare(b.name));
     

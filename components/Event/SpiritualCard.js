@@ -12,58 +12,31 @@ export default function SpiritualCard({ webinarEvenData }) {
   const router = useRouter();
   const [language, setLanguage] = useState("");
   const [loading, setLoading] = useState(true);
-  const [visibleData, setVisibleData] = useState([]); // State for currently visible data
-  const [currentPage, setCurrentPage] = useState(0); // Current page for pagination
-  const itemsPerPage = 3; // Number of items per page
-  // const token = localStorage.getItem("authToken");
+  const [visibleData, setVisibleData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0); 
+  const itemsPerPage = 3; 
 
   useEffect(() => {
     const lang = currentPath.split("/")[1] || "en";
     setLanguage(lang);
     setLoading(true);
-    const loaderTimeout = setTimeout(() => setLoading(false), 500); // Simulate loader delay
+    const loaderTimeout = setTimeout(() => setLoading(false), 500); 
     return () => clearTimeout(loaderTimeout);
   }, [currentPath]);
 
-  
-  // useEffect(() => {
-  //   // Calculate data to display based on current page
-  //   const reversedData = webinarEvenData?.slice()?.reverse();
-  //   const activeEvents = reversedData?.filter(event => event.status === true);
-  //   const startIndex = currentPage * itemsPerPage;
-  //   const endIndex = startIndex + itemsPerPage;
-    
-  //   // setVisibleData(webinarEvenData.slice(0, endIndex));
-  //   setVisibleData(reversedData?.slice(0, endIndex));
-  // }, [currentPage, webinarEvenData]);
-
-  useEffect(() => {
-    // Calculate data to display based on current page
-    const reversedData = webinarEvenData?.slice()?.reverse();
-
-    // Filter the events where status is true and type is "free"
-    const filteredEvents = reversedData?.filter(
-      (event) => event.status === true // You can modify this condition as needed
+   useEffect(() => {
+  const reversedData = webinarEvenData?.slice()?.reverse();
+   const filteredEvents = reversedData?.filter(
+      (event) => event.status === true 
     );
-
-    // Log filtered events for debugging
-    console.log("Filtered Events:", filteredEvents);
-
     if (filteredEvents?.length === 0) {
-      // Display a message if no events match the criteria
       setVisibleData([]);
     } else {
       const startIndex = currentPage * itemsPerPage;
       const endIndex = startIndex + itemsPerPage;
-
-      // Update visible data based on pagination
-      setVisibleData(filteredEvents?.slice(0, endIndex));
+     setVisibleData(filteredEvents?.slice(0, endIndex));
     }
   }, [currentPage, webinarEvenData]);
-
-  if (loading) {
-    return <FullPageLoader />;
-  }
 
   const truncateText = (text) => {
     if (!text) return "";
@@ -71,10 +44,13 @@ export default function SpiritualCard({ webinarEvenData }) {
     return words.length > 40 ? words.slice(0, 40).join(" ") + "..." : text;
   };
 
-   // Check if there's more data available for pagination
    const hasMoreData = webinarEvenData?.filter(
     (event) => event.status === true
   ).length > visibleData?.length;
+
+  if (loading) {
+    return <FullPageLoader />;
+  }
 
   return (
     <>

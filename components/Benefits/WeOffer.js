@@ -2,8 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 
-
-
 export default function WeOffer() {
     const t = useTranslations("WeOffer");
     return (
@@ -34,9 +32,6 @@ export default function WeOffer() {
                         </div>
 
                         <div className="ml-auto w-full">
-                            {/* <div className="yoga_image_wrap w-[566px] h-[715px]">
-                                <img src="/yoga.png" alt="Yoga Image" className="rounded-lg shadow-md w-full" />
-                            </div> */}
                             <div className='relative lg:w-full lg:min-h-[715px] min-h-[450px] w-full shadow-shadow-color bg-white p-2.5 ml-auto rounded-10 my-7 yoga_img_wrapper'>
                                 <Image src="/yoga.png" alt="logo white" layout="fill" className="rounded-30 object-cover p-2.5" />
                             </div>

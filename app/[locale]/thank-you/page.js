@@ -6,7 +6,6 @@ import "react-toastify/dist/ReactToastify.css";
 import FullPageLoader from "@/components/fullPageLoader.js/FullPageLoader";
 import Head from "../thank-you/head";
 
-
 export default function ThankYou() {
   const t = useTranslations("ThankYou");
   const [isLoading, setIsLoading] = useState(true);
@@ -14,9 +13,8 @@ export default function ThankYou() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2000); // 2 seconds ka timer
-
-    return () => clearTimeout(timer); // Cleanup timer on component unmount
+    }, 2000);
+    return () => clearTimeout(timer); 
   }, []);
 
   return (
