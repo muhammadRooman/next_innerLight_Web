@@ -11,13 +11,13 @@ export default function Head() {
   }, []); 
 
   if (lng === null) {
-    return null;
+    return null; 
   }
 
   return (
     <>
       <DefaultTags
-        title={lng === "en" ? "Event | InnerLight" : "الحدث | ضوء داخلي"} 
+        title={lng === "en" ? "thank-you | InnerLight" : " شكرًا لك | ضوء داخلي"}
         description="InnerLight is one of the best course and meditation websites"
         keywords="online InnerLight keywords"
       />

@@ -4,6 +4,7 @@ import DownloadOurApp from "@/components/DownloadOurApp";
 import { useTranslations } from "next-intl";
 import "react-toastify/dist/ReactToastify.css";
 import FullPageLoader from "@/components/fullPageLoader.js/FullPageLoader";
+import Head from "../thank-you/head";
 
 export default function ThankYou() {
   const t = useTranslations("ThankYou");
@@ -12,19 +13,19 @@ export default function ThankYou() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2000); // 2 seconds ka timer
-
-    return () => clearTimeout(timer); // Cleanup timer on component unmount
+    }, 2000);
+    return () => clearTimeout(timer); 
   }, []);
 
   return (
     <>
+    <Head/>
       {isLoading ? (
        <FullPageLoader/>
       ) : (
         <div className="thankYou-wrap bg-gray-light">
           <div className="heading-box text-left lg:pt-20 pt-10">
-            <h2 className="xl:text-40 lg:text-[30px] text-[25px] font-bold text-info-color text-center">
+            <h2 className="xl:text-40 lg:text-[30px] text-[25px] font-bold text-info-color text-center arabic_heading_two">
               {t("thanks_joining_us")}
             </h2>
           </div>

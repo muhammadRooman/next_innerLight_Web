@@ -1,11 +1,9 @@
-// app/aboutus/page.js
 import EventBanner from "@/components/Event/EventBanner";  
 import SpiritualEvents from "@/components/Event/SpiritualEvents";  
 import SignUpNow from "@/components/Event/SignUpNow";   
 import OurClients from "@/components/OurClients";  
 import { WebinarApi } from "../../../components/api/WebinarApi";
-import Head from "@/app/[locale]/event/head"; // Import DefaultTags component
-
+import Head from "@/app/[locale]/event/head"; 
 
 const fetchWebinarData = async () => {
   try {

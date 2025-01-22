@@ -1,21 +1,29 @@
 "use client"
-
-import DefaultTags from "@/app/default-tags"; // Import DefaultTags component
-import { usePathname } from 'next/navigation';
+import DefaultTags from "@/app/default-tags";
+import { useEffect, useState } from "react";
 
 export default function Head() {
-  const currentPath = usePathname();
+  const [lng, setLng] = useState(null); 
 
-  const title =
-    currentPath === "/en/contact" ? "Contact | InnerLight" : "الاتصال | ضوء داخلي";
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem('language')); 
+    setLng(items);
+  }, []); 
+
+  if (lng === null) {
+    return null; 
+  }
 
   return (
     <>
       <DefaultTags
-        title={title}
+        title={lng === "en" ? "Contact | InnerLight" : "الاتصال | ضوء داخلي"}
         description="InnerLight is one of the best course and meditation websites"
         keywords="online InnerLight keywords"
       />
     </>
   );
 }
+
+
+

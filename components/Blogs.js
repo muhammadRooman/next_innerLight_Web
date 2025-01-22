@@ -13,7 +13,7 @@ export default function Blogs() {
             <h5 className="text-info-color 2xl:text-2xl font-black">{t("deepen_your_practice")}</h5>
             <h2 className="xl:text-40 lg:text-[30px] text-[25px] font-bold">{t("blogs_and_upcoming_workshops")}</h2> 
           </div>
-          <div class="xl:grid xl:grid-cols-12 gap-6">
+          <div className="xl:grid xl:grid-cols-12 gap-6">
             <div className='col-span-8'> 
                  <div className='blog-card shadow-shadow-color rounded-10 xl:mb-0 mb-6'> 
                     <div className='card-img relative xl:min-h-[521px] lg:min-h-[421px] min-h-[300px]'>

@@ -5,7 +5,7 @@
 @font-face {
   font-family: 'AGA Rasheeq V.2';
   src: url('../public/fonts/AGARasheeqV2.woff2') format('woff2'),
-      url('../public/fonts/AGARasheeqV2.woff') format('woff');
+    url('../public/fonts/AGARasheeqV2.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -14,7 +14,7 @@
 @font-face {
   font-family: 'AGA Rasheeq V.2';
   src: url('../public/fonts/AGARasheeqV2-Bold.woff2') format('woff2'),
-      url('../public/fonts/AGARasheeqV2-Bold.woff') format('woff');
+    url('../public/fonts/AGARasheeqV2-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -27,7 +27,7 @@
 @font-face {
   font-family: 'BrittanySignature';
   src: url('/fonts/BrittanySignatureRegular.woff') format('truetype'),
-       url('/fonts/BrittanySignatureRegular.woff') format('truetype');
+    url('/fonts/BrittanySignatureRegular.woff') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -64,24 +64,26 @@ body {
   .theme-blue-btn {
     @apply uppercase rounded-md bg-primary-300 text-white py-4 px-9 self-start
   }
-  .swiper.servicesSwiper{
+
+  .swiper.servicesSwiper {
     @apply pb-36 static
   }
 }
- 
+
 .rtl {
   /* RTL-specific styles */
   direction: rtl;
-  text-align: right; 
+  text-align: right;
 }
 
-.arabic body{
+.arabic body {
   font-family: 'AGA Rasheeq V.2';
 }
- 
-.direction{
+
+.direction {
   direction: rtl;
 }
+
 .wellness-text {
   font-size: 8rem;
   font-weight: bold;
@@ -90,28 +92,36 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
+  /* text-fill-color: transparent; */
   letter-spacing: 5px;
 }
 
 
 
 /* WhatWeOffer-card */
-.WhatWeOffer-card .WhatWeOffer-img { 
-  margin: -60px 25px 0;
-  animation: .3s ease-in-out;
+.WhatWeOffer-card .WhatWeOffer-img {
+  margin: -60px 0 0;
+  animation: all 0.3s;
   transition: all 0.3s;
+  transform: scale(0.9);
 }
+
 .WhatWeOffer-card .WhatWeOffer-img img {
   position: relative !important;
   width: 100% !important;
   height: 292px !important;
 }
-.WhatWeOffer-card:hover .WhatWeOffer-img{
+
+/* .WhatWeOffer-card:hover .WhatWeOffer-img {
   margin: -60px 0px 0;
   animation: .3s ease-in;
-} 
- 
+} */
+
+.WhatWeOffer-card:hover .WhatWeOffer-img {
+  transform: scale(1);
+
+}
+
 
 
 
@@ -125,82 +135,62 @@ body {
 .rtl .DownloadOurApp .heading-box {
   text-align: right;
 } */
-
- 
-
-@media (min-width: 1536px) {
-  .rtl .\32xl\:me-\[88px\] {
-      margin-inline-end: 0px;
-      margin-inline-start: 88px;
-  }
+html[lang="ar"][dir="rtl"] .bnenfits_banner p {
+  max-width: 582px;
 }
 
-@media (min-width: 1280px) {
-  .rtl .xl\:text-lg {
-      font-size: 1.125rem;
-      line-height: 1.75rem;
-  }
-}
-
-@media (min-width: 1280px) {
-  .rtl .xl\:me-\[60px\] {
-      margin-inline-start: 60px;
-      margin-inline-end: 0px;
-  }
-}
-@media (max-width: 991px) {
-  .lg\:text-black {
-      --tw-text-opacity: 1;
-      color: rgb(0 0 0 / var(--tw-text-opacity, 1));
-  }
-  .WhatWeOffer-card .WhatWeOffer-img img {
-    position: relative !important;
-    width: 100% !important;
-    height: 190px !important;
-  }
-}
-
-@media (max-width: 776px) {
-
-  .WhatWeOffer-card .WhatWeOffer-img img {
-    position: relative !important;
-    width: 100% !important;
-    height: 190px !important;
-  }
-}
-
-
-
-
-@media (max-width: 991px) { 
-  .WhatWeOffer-card .WhatWeOffer-img { 
-    margin:  15px 15px 0;
-  } 
-  .WhatWeOffer-card:hover .WhatWeOffer-img{
-    margin: 0;
-    animation: .3s ease-in;
-  } 
-  .our-value-inner,
-  .aboutUs{
+/* html[lang="ar"][dir="rtl"] .custom_select_button{
+    position: relative;
     display: flex;
-    flex-direction: column-reverse;
-  }
-  .our-value-inner .nurturing-img{
-    margin-bottom: 25px;
-  }
-  .object-cover {
-    object-fit: cover;
-    object-position: top;
+    align-items: center;
+    justify-content: center;
+    top: 7px;
+    height: 55px;
+    right: -18%;
+  } */
+html[lang="ar"][dir="rtl"] .upload_icon {
+  position: relative;
+  height: 55px;
+  width: 100px;
+  top: 0px;
+  right: 13px;
 }
-} 
-@media (max-width: 480px) {
-  .WhatWeOffer-card .WhatWeOffer-img img { 
-      height: 217px !important;
-  } 
+
+.upload_icon {
+  position: relative;
+  height: 55px;
+  width: 100px;
+  top: 0px !important;
+  left: 13px;
 }
+
+.icon-wrap button {
+  top: 20px !important;
+}
+
+.mediaContent p {
+  margin-right: 30px;
+  color: #0C0101;
+  line-height: 23px !important;
+}
+
+.font_bold {
+  font-weight: bold;
+}
+
+html[lang="ar"][dir="rtl"] .btn-icon button {
+  right: auto;
+  left: 10px;
+  font-size: 28px;
+}
+
 
 /* new css */
 
+.custom_client {
+  object-fit: cover;
+  object-position: top !important;
+}
 
 .contact-hero {
   position: relative;
@@ -215,7 +205,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
-.event-banner::before{
+
+.event-banner::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -224,7 +215,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
-.about-banner::before{
+
+.about-banner::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -233,7 +225,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
-.benefits-banner::before{
+
+.benefits-banner::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -242,7 +235,12 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
-.nurturing-img::before{
+
+html[lang="ar"][dir="rtl"] .nurturing-img {
+  min-height: 770px;
+}
+
+.nurturing-img::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -250,9 +248,23 @@ body {
   background-image: url('../public/assets/images/about/nurturing.png');
   background-size: cover;
   background-repeat: no-repeat;
+  background-position-x: center;
 }
 
-.dir_left-t-right{
+.nurturing-img {
+  min-height: 700px !important;
+}
+
+.btn-download img {
+  width: 180px;
+  height: 55px;
+}
+
+.btn-download a:first-child {
+  margin-right: 52px;
+}
+
+.dir_left-t-right {
   direction: ltr;
 }
 
@@ -264,18 +276,26 @@ html[lang="ar"] .nurturing-img::before {
   transform: scaleX(-1);
 }
 
-html[lang="ar"] .btn-icon.select_country {
-  flex-direction: row-reverse;
-}
-
 .fullpage-loader-holder {
   position: fixed;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
-  z-index: 10;
+  z-index: 999;
   background: rgba(0, 0, 0, 0.7);
+}
+
+.play_content_wrap h3 {
+  font-size: 24px;
+  max-width: 204px;
+}
+
+.singnature-text p {
+  font-size: 18px;
+  max-width: 783px;
+  line-height: 28px;
+  padding-left: 41px;
 }
 
 .fullpage-loader {
@@ -296,7 +316,7 @@ html[lang="ar"] .btn-icon.select_country {
   height: 20px;
   position: absolute;
   border-radius: 50%;
-  background: linear-gradient(71deg, rgba(73,145,214,1) 0%, rgba(125,49,138,1) 70%);
+  background: linear-gradient(71deg, rgba(73, 145, 214, 1) 0%, rgba(125, 49, 138, 1) 70%);
   left: 15%;
   transform-origin: 50%;
   animation: circle .5s alternate infinite ease;
@@ -304,18 +324,20 @@ html[lang="ar"] .btn-icon.select_country {
 
 @keyframes circle {
   0% {
-      top: 60px;
-      height: 5px;
-      border-radius: 50px 50px 25px 25px;
-      transform: scaleX(1.7);
+    top: 60px;
+    height: 5px;
+    border-radius: 50px 50px 25px 25px;
+    transform: scaleX(1.7);
   }
+
   40% {
-      height: 20px;
-      border-radius: 50%;
-      transform: scaleX(1);
+    height: 20px;
+    border-radius: 50%;
+    transform: scaleX(1);
   }
+
   100% {
-      top: 0%;
+    top: 0%;
   }
 }
 
@@ -346,15 +368,17 @@ html[lang="ar"] .btn-icon.select_country {
 
 @keyframes shadow {
   0% {
-      transform: scaleX(1.5);
+    transform: scaleX(1.5);
   }
+
   40% {
-      transform: scaleX(1);
-      opacity: .7;
+    transform: scaleX(1);
+    opacity: .7;
   }
+
   100% {
-      transform: scaleX(.2);
-      opacity: .4;
+    transform: scaleX(.2);
+    opacity: .4;
   }
 }
 
@@ -379,3 +403,3194 @@ html[lang="ar"] .btn-icon.select_country {
   left: 15%;
 }
 
+.yoga_img_wrapper {
+  min-height: 910px !important;
+}
+
+.border_line::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 480px;
+  background-color: #DEDEDE;
+  left: -240px;
+  right: 0;
+  top: -16px;
+}
+
+html[lang="ar"][dir="rtl"] .SubscribeUs-card input {
+  padding: 10px 10px 10px 30px;
+}
+
+.Meditation-content-inner p:nth-of-type(2) {
+  font-weight: 600;
+}
+
+.Meditation-content-inner h2 {
+  line-height: 50px;
+}
+
+.commitment-wrap h2 {
+  line-height: 50px;
+}
+
+.what_we_offer h2 {
+  line-height: 50px;
+}
+
+.slider-content small {
+  font-size: 16px;
+}
+
+.slider-content h4 {
+  font-size: 24px;
+  padding-bottom: 9px;
+}
+
+.custom-pagination span {
+  font-size: 18px;
+}
+
+.form_wrap {
+  margin-top: 57px;
+}
+
+html[lang="ar"][dir="rtl"] .sign_in_page p {
+  font-size: 32px;
+  margin-right: 35px;
+}
+
+/* .sign_in_page .btn-icon {
+  margin-left: 15px;
+} */
+
+/* html[lang="ar"][dir="rtl"] .sign_in_page .btn-icon {
+  margin-right: 15px;
+} */
+
+html[lang="ar"][dir="rtl"] .sign_in_page input {
+  text-align: right;
+  padding-right: 25px;
+  font-size: 32px;
+}
+
+.thankYou-wrap .DownloadOurApp-content p:first-child {
+  color: #753892;
+}
+
+.follow-us a {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  /* Smooth transition for hover effect */
+}
+
+.follow-us a:hover {
+  transform: scale(1.1);
+  /* Slight zoom on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Adding a soft shadow on hover */
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+.SubscribeUs-card .mediaObject img {
+  width: 103px;
+  flex: 0 0 auto;
+}
+
+.heading-box h5 {
+  line-height: 30px;
+}
+
+.heading-box h2 {
+  line-height: 50px;
+}
+
+.heading-box p {
+  line-height: 36px !important;
+}
+
+.blog-image {
+  max-width: 375px !important;
+  width: 100% !important;
+  height: 402px;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.moment_of_senetry .heading-box h5,
+.moment_of_senetry .heading-box h2 {
+  margin-bottom: 15px;
+}
+
+.select_country button {
+  padding: 12px 10px;
+}
+
+.font_18 {
+  font-size: 18px !important;
+  line-height: 28px !important;
+}
+
+.font_32 {
+  font-size: 18px !important;
+  line-height: 28px !important;
+}
+
+.font_26 {
+  font-size: 26px !important;
+  line-height: 32px !important;
+}
+
+.detail_titles p {
+  margin-bottom: 12px;
+}
+
+.font_25 {
+  font-size: 25px !important;
+  line-height: 32px !important;
+}
+
+html[lang="ar"][dir="rtl"] .font_28 {
+  font-size: 28px !important;
+  line-height: 32px !important;
+}
+
+html[lang="ar"][dir="rtl"] .font_34 {
+  font-size: 34px !important;
+  line-height: 42px !important;
+}
+
+html[lang="ar"][dir="rtl"] .font_18 {
+  font-size: 18px !important;
+}
+
+html[lang="ar"][dir="rtl"] .font_25 {
+  font-size: 40px !important;
+  line-height: 40px !important;
+}
+
+html[lang="ar"][dir="rtl"] .font_32 {
+  font-size: 32px !important;
+  line-height: 32px !important;
+  color: #0F0202;
+}
+
+html[lang="ar"][dir="rtl"] .font_40 {
+  font-size: 40px !important;
+  line-height: 49px !important;
+}
+
+html[lang="ar"][dir="rtl"] .heading_40 {
+  font-size: 40px !important;
+  line-height: 40px !important;
+  display: block;
+}
+
+html[lang="ar"][dir="rtl"] .heading_48 {
+  font-size: 48px !important;
+  line-height: 48px !important;
+}
+
+html[lang="ar"][dir="rtl"] .book-you-button h5 {
+  font-size: 70px !important;
+}
+
+/* html[lang="ar"][dir="rtl"] .DownloadOurApp-content h5 {
+  margin-bottom: 0px !important;
+} */
+
+html[lang="ar"][dir="rtl"] .text-red-500 {
+  font-size: 32px;
+}
+
+html[lang="ar"][dir="rtl"] .btn-wrap a {
+  font-size: 30px;
+  padding: 10px 34px;
+}
+
+html[lang="ar"][dir="rtl"] .WelcomeMessage p:first-child {
+  font-size: 32px !important;
+  line-height: 36px;
+}
+
+html[lang="ar"][dir="rtl"] .custom_font {
+  font-size: 32px;
+  line-height: 36px;
+}
+
+html[lang="ar"][dir="rtl"] .nurturing-img {
+  margin-top: 0;
+}
+
+html[lang="ar"][dir="rtl"] .nurturing_wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+html[lang="ar"][dir="rtl"] .appstore_heading {
+  font-size: 40px;
+  line-height: 40px;
+  margin-top: 10px;
+}
+
+html[lang="ar"][dir="rtl"] .custom-prev,
+.custom-next img {
+  transform: rotate(180deg);
+}
+
+html[lang="ar"][dir="rtl"] .benefits-holistic h5 {
+  font-size: 56px;
+  line-height: 69px;
+}
+
+html[lang="ar"][dir="rtl"] .benefits-holistic h2 {
+  font-size: 72px;
+  line-height: 88px;
+}
+
+html[lang="ar"][dir="rtl"] .benefits-card .benefits-content h5 {
+  font-size: 40px;
+  line-height: 49px;
+  padding: 25px 0 10px;
+}
+
+html[lang="ar"][dir="rtl"] .benefits-card .benefits-content p {
+  font-size: 32px;
+  line-height: 32px;
+}
+
+html[lang="ar"][dir="rtl"] .play_content_wrap h3 {
+  font-size: 40px;
+  line-height: 40px;
+  max-width: 204px;
+}
+
+html[lang="ar"][dir="rtl"] .what_we_offer .heading-box h5 {
+  font-size: 56px;
+  line-height: 69px;
+}
+
+html[lang="ar"][dir="rtl"] .what_we_offer .heading-box h2 {
+  font-size: 72px;
+  line-height: 88px;
+}
+
+html[lang="ar"][dir="rtl"] .what_we_offer p {
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: normal;
+}
+
+html[lang="ar"][dir="rtl"] .yoga_img_wrapper {
+  min-height: 685px !important;
+}
+
+html[lang="ar"][dir="rtl"] .yoga_img_wrapper img {
+  object-fit: cover;
+  object-position: top;
+}
+
+html[lang="ar"][dir="rtl"] .what_we_offer span {
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 600;
+}
+
+.sign_icon_wrapper {
+  max-width: 100px;
+  padding: 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile_active_unActive button {
+  margin-left: 10px;
+  border: 1px solid gray;
+  padding: 0px 1px;
+  font-size: 15px;
+  outline: none;
+}
+
+.custom_select {
+  padding: 3px 25px 3px 8px;
+  font-size: 12px;
+}
+
+html[lang="ar"][dir="rtl"] .blog-card .card-content h4 {
+  font-size: 40px;
+  line-height: 49px;
+}
+
+html[lang="ar"][dir="rtl"] .blog-card .card-content p {
+  font-size: 32px;
+  line-height: 32px;
+}
+
+html[lang="ar"][dir="rtl"] .SubscribeUs-wrap .SubscribeUs-card h1 {
+  font-size: 40px;
+  line-height: 49px;
+}
+
+html[lang="ar"][dir="rtl"] .SubscribeUs-wrap .SubscribeUs-card .icon-wrap input {
+  font-size: 28px;
+  line-height: 35px;
+}
+
+html[lang="ar"][dir="rtl"] .SubscribeUs-wrap .SubscribeUs-card .follow-us h5 {
+  font-size: 40px;
+  line-height: 49px;
+}
+
+html[lang="ar"][dir="rtl"] .border_line::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 480px;
+  background-color: #DEDEDE;
+  left: 0;
+  right: -240px;
+  top: -16px;
+}
+
+.social-icon a>img {
+  width: 20px;
+  height: 20px;
+}
+
+.commitment-wrap {
+  padding-top: 102px !important;
+}
+
+.commitment-wrap .heading-box h2 {
+  padding-bottom: 92px;
+}
+
+.heading-box h5 {
+  font-size: 24px;
+  margin-bottom: 5px;
+  padding-bottom: 0;
+}
+
+.heading-box h2 {
+  font-size: 40px;
+}
+
+.site-banner .btn-wrap a {
+  font-size: 20px;
+  padding: 12px 29px;
+  line-height: 25px;
+}
+
+.our_mission_custom_font {
+  font-size: 18px !important;
+  line-height: 28px;
+}
+
+.our_mission_custom_font_bold {
+  font-size: 18px !important;
+  line-height: 28px;
+  font-weight: bold;
+}
+
+.our_mission_heading {
+  padding: 10px 0;
+}
+
+.benefits-content h5 {
+  padding: 25px 0;
+}
+
+.our-stories {
+  margin-top: 105px;
+}
+
+.contact_us p {
+  font-size: 18px;
+  line-height: 23px;
+  color: #000000;
+}
+
+html[lang="ar"][dir="rtl"] .form_wrapper .form_control .btn-wrap button {
+  margin-left: 0 !important;
+}
+
+.commitment-content p {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+/* .DownloadOurApp-content h5 {
+  margin-bottom: 28px;
+} */
+
+.DownloadOurApp-content .btn-download img {
+  width: 180px;
+  height: 55px;
+}
+
+.thankYou-wrap {
+  margin-bottom: 58px;
+}
+
+html[lang="ar"][dir="rtl"] .arabic_heading_one {
+  font-size: 56px !important;
+  line-height: 69px !important;
+  margin: 0;
+}
+
+html[lang="ar"][dir="rtl"] .arabic_heading_two {
+  font-size: 72px !important;
+  line-height: 88px !important;
+}
+
+html[lang="ar"][dir="rtl"] .our-value-content-box .heading-box {
+  margin-bottom: 20px;
+}
+
+html[lang="ar"][dir="rtl"] .our-value-content-box {
+  margin-top: 0;
+}
+
+html[lang="ar"][dir="rtl"] .comitment-img img {
+  object-fit: cover;
+}
+
+html[lang="ar"][dir="rtl"] .btn-download a:first-child {
+  margin-right: 0px !important;
+}
+
+html[lang="ar"][dir="rtl"] .our_mission_content_wrap h2 {
+  padding: 10px 0;
+}
+
+.event_banner_content {
+  padding: 76px 0 47px;
+}
+
+.social-icon nav>a {
+  min-width: 56px !important;
+  min-height: 56px !important;
+}
+
+.bg-site-banner {
+  min-height: 1000px !important;
+}
+
+.form_control .input_wrapper {
+  margin-bottom: 20px;
+}
+
+.home_banner h5 {
+  line-height: 50px !important;
+}
+
+html[lang="ar"][dir="rtl"] .home_banner h5 {
+  line-height: 50px !important;
+  margin-bottom: 30px !important;
+}
+
+.book-you-button a {
+  padding: 10px 60px;
+}
+
+/* .static-img-wrap {
+  width: 380px !important;
+  min-height: 412px !important;
+} */
+.custom-next-btn {
+  transform: rotate(178deg);
+}
+
+html[lang="ar"][dir="rtl"] .custom-next-btn {
+  transform: rotate(0deg);
+}
+
+.event-banner .heading-box {
+  padding-bottom: 0;
+}
+
+.compassionate {
+  margin-bottom: 37px !important;
+}
+
+.sportive_content {
+  margin-bottom: 47px !important;
+}
+
+.events_blogs {
+  padding-bottom: 20px;
+}
+
+.register_btn a {
+  padding: 0;
+}
+
+/* .arrow_btn{
+  height: 16px !important;
+  width: 8px !important;
+} */
+
+.error_msg {
+  font-size: 16px !important;
+  color: #ff0000 !important;
+  line-height: 24px !important;
+}
+
+html[lang="ar"][dir="rtl"] .error_msg {
+  font-size: 28px !important;
+  line-height: normal !important;
+  color: #ff0000 !important;
+}
+
+.detail_img img {
+  width: 100%;
+  height: auto;
+}
+
+.download_app_btn a {
+  color: #fff;
+}
+
+html[lang="ar"][dir="rtl"] .navbar_links {
+  margin-left: 80px;
+}
+
+html[lang="ar"][dir="rtl"] .logo a>img {
+  margin-left: 60px;
+}
+
+.DownloadOurApp-content h5 {
+  max-width: 580px;
+}
+
+.nurturing-img {
+  margin-top: 0 !important;
+}
+
+.comitment-img {
+  min-height: 760px !important;
+  margin-top: 50px;
+}
+
+.comitment-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.WelcomeMessage p {
+  margin-top: 20px;
+}
+
+html[lang="ar"][dir="rtl"] .nurturing-img {
+  min-height: 740px !important;
+}
+
+/* .alignment {
+  padding: 32px 0;
+} */
+
+.event_banner_content {
+  padding: 68px 0 !important;
+}
+
+.country_select_dropdown {
+  max-width: 100px !important;
+  width: 100%;
+}
+
+.arrow_btn img {
+  height: 10px !important;
+  width: 30px !important;
+}
+
+html[lang="ar"][dir="rtl"] .custom_select {
+  padding: 5px 40px 5px 20px;
+  font-size: 20px !important;
+}
+
+.select_country button {
+  padding: 12px 10px;
+  right: 8px;
+}
+
+html[lang="ar"][dir="rtl"] .icon-wrap button {
+  top: 16px !important;
+}
+
+.DownloadOurApp {
+  margin-bottom: 30px;
+}
+
+html[lang="ar"][dir="rtl"] .profile_active_unActive span {
+  font-size: 25px;
+  padding: 0px 10px;
+}
+
+html[lang="ar"][dir="rtl"] .custom_select {
+  font-size: 32px !important;
+}
+
+html[lang="ar"][dir="rtl"] .custom_select option {
+  font-size: 32px !important;
+}
+
+html[lang="ar"][dir="rtl"] .navbar_links {
+  display: inline-block;
+}
+
+.custom_overflow {
+  overflow: auto;
+}
+
+.commit_content_wrap {
+  margin-top: 60px;
+}
+
+select {
+  background-color: white;
+  /* Set the background color explicitly */
+  color: black;
+  /* Set text color to black */
+  border: 1px solid #ccc;
+  /* Add a border for better visibility */
+  appearance: none;
+  /* Removes default browser styles */
+  -webkit-appearance: none;
+  /* For Safari and iOS */
+  -moz-appearance: none;
+  /* For Firefox */
+}
+
+html[lang="ar"][dir="rtl"] .font_outfit {
+  font-family: Outfit;
+}
+
+.blog-card {
+  height: 100%;
+  min-height: 100%;
+}
+
+.userIconWrap {
+  padding: 0 !important;
+}
+
+.userIconWrap {
+  width: 40px;
+  height: 40px;
+  display: flex !important;
+  background: none;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.userIconWrap span img {
+  width: 22px !important;
+  padding: 0;
+  position: relative !important;
+  height: 22px !important;
+}
+
+.text_white {
+  color: #fff !important;
+}
+
+.headDetails {
+  text-align: center;
+  max-width: 1054px;
+  margin: 0 auto 50px;
+}
+
+.custom_select {
+  background-color: #F7F7F7;
+}
+
+
+
+
+
+
+
+
+/* responsive */
+
+@media (min-width: 1536px) {
+  .rtl .\32xl\:me-\[88px\] {
+    margin-inline-end: 0px;
+    margin-inline-start: 88px;
+  }
+
+  html[lang="ar"][dir="rtl"] .custom_select {
+    padding: 5px 40px 5px 20px;
+  }
+}
+
+
+
+@media (max-width: 1536px) {
+  .rtl .\32xl\:me-\[88px\] {
+    margin-inline-end: 0px;
+    margin-inline-start: 88px;
+  }
+
+  html[lang="ar"][dir="rtl"] .custom_select {
+    padding: 5px 40px 5px 20px;
+  }
+
+  html[lang="ar"][dir="rtl"] .bnenfits_banner p {
+    max-width: 440px;
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner-content h5 {
+    font-size: 65px;
+    line-height: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner-content p {
+    font-size: 34px;
+    max-width: 530px;
+    padding-top: 16px;
+    line-height: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner-content img {
+    height: 120px;
+    width: 300px;
+  }
+
+  .DownloadOurApp-content .heading-box p {
+    line-height: 30px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .about-banner h5 {
+    max-width: 560px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .home_banner p {
+    font-size: 32px;
+    max-width: 750px;
+    margin: 0 auto;
+    padding-top: 15px;
+  }
+
+  html[lang="ar"][dir="rtl"] .WhatWeOffer-content {
+    padding: 10px;
+  }
+
+  /* html[lang="ar"][dir="rtl"] .benefits-holistic .heading-box {
+    padding: 60px 0;
+  } */
+
+  html[lang="ar"][dir="rtl"] .what_we_offer .heading-box h2 {
+    font-size: 62px;
+    line-height: 68px;
+  }
+
+  .commitment-wrap {
+    padding-top: 82px !important;
+  }
+
+  .commitment-wrap .heading-box h2 {
+    padding-bottom: 25px;
+  }
+
+  .heading-box h5 {
+    font-size: 22px;
+  }
+
+  .heading-box h2 {
+    font-size: 30px;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_32 {
+    font-size: 26px !important;
+    line-height: 28px !important;
+    color: #0F0202;
+
+  }
+
+  html[lang="ar"][dir="rtl"] .arabic_heading_one {
+    font-size: 46px !important;
+    line-height: 49px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .arabic_heading_two {
+    font-size: 62px !important;
+    line-height: 58px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .commitment-wrap {
+    padding-top: 60px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_40 {
+    font-size: 32px !important;
+    line-height: 34px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .heading_48 {
+    font-size: 40px !important;
+    line-height: 40px !important;
+    margin-bottom: 50px;
+  }
+
+  html[lang="ar"][dir="rtl"] .book-you-button h5 {
+    font-size: 56px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .MeditationConsultation-inner {
+    min-height: 890px;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-card .benefits-content h5 {
+    font-size: 32px;
+    line-height: 34px;
+    padding: 15px 0 10px;
+  }
+
+  html[lang="ar"][dir="rtl"] .heading_40 {
+    font-size: 34px !important;
+    line-height: 34px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_28 {
+    font-size: 26px !important;
+    line-height: 26px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .navbar_links {
+    margin-left: 65px;
+  }
+
+  .bg-site-banner {
+    min-height: 800px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .nurturing-img {
+    min-height: 640px !important;
+  }
+
+  .comitment-img {
+    min-height: 680px !important;
+    margin-top: 50px;
+  }
+
+  .site-banner .btn-wrap a {
+    font-size: 18px;
+  }
+
+  html[lang="ar"][dir="rtl"] .download_app_btn a {
+    color: #fff;
+    font-size: 26px;
+  }
+
+  .profile_active_unActive button {
+    padding: 2px 12px;
+    font-size: 12px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .home_banner h5 {
+    margin-bottom: 10px !important;
+  }
+  .userIconWrap {
+    width: 20px;
+    height: 40px;
+}
+}
+
+@media (max-width: 1367px) {
+  html[lang="ar"][dir="rtl"] .site-banner-content h5 {
+    font-size: 55px;
+  }
+
+  html[lang="ar"][dir="rtl"] .bnenfits_banner p {
+    max-width: 440px;
+  }
+
+  html[lang="ar"][dir="rtl"] .btn-wrap a {
+    font-size: 20px;
+    line-height: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-content h5 {
+    font-size: 30px;
+  }
+
+  .singnature-text p {
+    padding-left: 12px;
+  }
+
+  .yoga_img_wrapper {
+    min-height: 790px !important;
+  }
+
+  .home_banner p {
+    max-width: 790px;
+    padding-top: 15px;
+    margin: 0 auto;
+  }
+
+  .WhatWeOffer-card .WhatWeOffer-img img {
+    position: relative !important;
+    width: 100% !important;
+    height: 250px !important;
+  }
+
+  .benefits-content h5 {
+    padding: 10px 0 5px;
+  }
+
+  .about-banner {
+    min-height: 500px;
+  }
+
+  .about-banner h5 {
+    max-width: 470px;
+  }
+
+  .border_line::after {
+    width: 300px;
+    left: -150px;
+  }
+
+  html[lang="ar"][dir="rtl"] .about-banner h5 {
+    max-width: 400px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .event-banner {
+    min-height: 600px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .event-banner p {
+    padding-top: 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .nurturing-img {
+    min-height: 620px;
+  }
+
+  html[lang="ar"][dir="rtl"] .nurturing-img {
+    min-height: 470px;
+  }
+
+  html[lang="ar"][dir="rtl"] .appstore_heading {
+    font-size: 28px;
+    line-height: 40px;
+    margin-top: 10px;
+  }
+
+  html[lang="ar"][dir="rtl"] .btn-download img {
+    width: 150px;
+    height: 50px;
+  }
+
+  html[lang="ar"][dir="rtl"] .custom_font {
+    font-size: 26px;
+    line-height: 30px;
+  }
+
+  /* html[lang="ar"][dir="rtl"] .nurturing_wrap {
+    margin-top: 50px;
+  } */
+
+  html[lang="ar"][dir="rtl"] .comitment-img {
+    min-height: 270px;
+  }
+
+  html[lang="ar"][dir="rtl"] .border_line::after {
+    width: 350px;
+    right: -180px;
+  }
+
+  .MeditationConsultation-wrap .MeditationConsultation-inner {
+    min-height: 860px;
+  }
+
+  .custom_footer p {
+    font-size: 16px;
+  }
+
+  .SubscribeUs-card button {
+    font-size: 18px;
+  }
+
+  .SubscribeUs-card .form-group .icon-wrap input {
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  .commitment-wrap {
+    padding-top: 62px !important;
+  }
+
+  .commitment-wrap .heading-box h2 {
+    padding-bottom: 25px;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_32 {
+    font-size: 24px !important;
+    line-height: 26px !important;
+    color: #0F0202;
+
+  }
+
+  html[lang="ar"][dir="rtl"] .font_40 {
+    font-size: 30px !important;
+    line-height: 32px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .heading_48 {
+    font-size: 38px !important;
+    line-height: 38px !important;
+    margin-bottom: 40px;
+  }
+
+  html[lang="ar"][dir="rtl"] .book-you-button h5 {
+    font-size: 46px !important;
+    line-height: 46px;
+  }
+
+  html[lang="ar"][dir="rtl"] .MeditationConsultation-inner {
+    min-height: 830px;
+  }
+
+  html[lang="ar"][dir="rtl"] .arabic_heading_one {
+    font-size: 42px !important;
+    line-height: 44px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .arabic_heading_two {
+    font-size: 56px !important;
+    line-height: 56px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_40 {
+    font-size: 28px !important;
+    line-height: 29px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .heading_40 {
+    font-size: 32px !important;
+    line-height: 32px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_28 {
+    font-size: 24px !important;
+    line-height: 24px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .arabic_heading_two {
+    font-size: 52px !important;
+    line-height: 48px !important;
+  }
+
+  /* .static-img-wrap {
+    width: unset !important;
+    min-height: unset !important;
+} */
+
+  .bg-site-banner {
+    min-height: 700px !important;
+  }
+
+  .comitment-img {
+    min-height: 640px !important;
+    margin-top: 50px;
+  }
+
+  html[lang="ar"][dir="rtl"] .nurturing-img {
+    min-height: 600px !important;
+  }
+
+  .our_service_height {
+    min-height: 350px;
+  }
+
+  html[lang="ar"][dir="rtl"] .date-wrap {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  html[lang="ar"][dir="rtl"] .navbar_links {
+    margin-left: 50px;
+  }
+
+  html[lang="ar"][dir="rtl"] .download_app_btn a {
+    color: #fff;
+    font-size: 22px;
+  }
+
+  html[lang="ar"][dir="rtl"] .profile_active_unActive span {
+    font-size: 22px;
+    padding: 0px 10px;
+  }
+
+  html[lang="ar"][dir="rtl"] .custom_select {
+    padding: 5px 30px 5px 12px;
+  }
+
+  .bannerText {
+    background: #00000080;
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+    max-width: 100%;
+    padding: 0px 12px;
+    border-radius: 20px;
+    margin-top: 10px;
+  }
+
+  .custom_select {
+    padding: 3px 22px 3px 8px;
+    font-size: 16px !important;
+  }
+
+  .detail_btn {
+    font-size: 16px;
+    line-height: normal;
+  }
+
+  .DownloadOurApp {
+    margin-bottom: 60px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .rtl .xl\:me-\[60px\] {
+    margin-inline-start: 60px;
+    margin-inline-end: 0px;
+  }
+}
+
+@media (max-width: 1280px) {
+
+  html[lang="ar"][dir="rtl"] .site-banner h1,
+  .site-banner h5 {
+    line-height: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner-content h5 {
+    font-size: 50px;
+    line-height: normal;
+    margin: 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .bnenfits_banner p {
+    max-width: 350px;
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  html[lang="ar"][dir="rtl"] .heading-box {
+    line-height: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .blog-card-content .shap p {
+    font-size: 24px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .btn-wrap button {
+    font-size: 18px;
+  }
+
+  html[lang="ar"][dir="rtl"] .date-wrap {
+    font-size: 20px;
+    line-height: normal;
+    height: 80px;
+    width: 80px;
+  }
+
+  .yoga_img_wrapper {
+    min-height: 850px !important;
+  }
+
+  .btn-download a:first-child {
+    margin-right: 25px !important;
+  }
+
+  .download_app h2 {
+    text-align: left;
+    font-size: 24px;
+  }
+
+  .btn-download img {
+    width: 225px;
+    height: 62px;
+  }
+
+  .site-banner-content p {
+    max-width: 520px;
+    padding-top: 15px;
+  }
+
+  html[lang="ar"][dir="rtl"] .submit_btn button {
+    padding: 2px 20px;
+  }
+
+  html[lang="ar"][dir="rtl"] .form_control input,
+  html[lang="ar"][dir="rtl"] .form_control textarea {
+    font-size: 18px !important;
+  }
+
+
+  html[lang="ar"][dir="rtl"] .contact_us h2 {
+    line-height: 45px;
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner {
+    min-height: 400px;
+  }
+
+  .WhatWeOffer-card .WhatWeOffer-img img {
+    position: relative !important;
+    width: 100% !important;
+    height: 230px !important;
+  }
+
+  .heading-box h2 {
+    line-height: 30px;
+  }
+
+  .about-banner p {
+    padding: 0;
+  }
+
+  .about-banner h5 {
+    max-width: 420px;
+  }
+
+  html[lang="ar"][dir="rtl"] .about-banner h5 {
+    max-width: 350px;
+  }
+
+  .about-banner {
+    min-height: 430px;
+  }
+
+  html[lang="ar"][dir="rtl"] .about-banner {
+    min-height: 430px;
+  }
+
+  /* .benefits-holistic .heading-box {
+    padding-bottom: 45px;
+  } */
+
+  .border_line::after {
+    width: 220px;
+    left: -110px;
+  }
+
+  .custom-pagination span {
+    font-size: 15px;
+  }
+
+  html[lang="ar"][dir="rtl"] .event-banner {
+    min-height: 500px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-holistic h5 {
+    font-size: 50px;
+    line-height: 50px;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-holistic {
+    padding-top: 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-holistic .heading-box {
+    padding: 30px 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-card .benefits-content h5 {
+    font-size: 30px;
+    line-height: 29px;
+    padding: 15px 0 5px;
+  }
+
+  html[lang="ar"][dir="rtl"] .custom_font {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  html[lang="ar"][dir="rtl"] .what_we_offer .heading-box h2 {
+    font-size: 52px;
+    line-height: 58px;
+  }
+
+  html[lang="ar"][dir="rtl"] .what_we_offer .heading-box h5 {
+    font-size: 48px;
+    line-height: 40px;
+  }
+
+  html[lang="ar"][dir="rtl"] .what_we_offer p {
+    font-size: 26px;
+    line-height: 28px;
+    font-weight: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .custom_select {
+    padding: 2px 30px 2px 10px;
+  }
+
+  html[lang="ar"][dir="rtl"] .navbar_links {
+    font-size: 18px;
+    margin-left: 40px;
+  }
+
+  html[lang="ar"][dir="rtl"] .border_line::after {
+    width: 250px;
+    right: -130px;
+  }
+
+  .custom_footer nav>a {
+    margin-right: 20px;
+  }
+
+  .commitment-wrap .heading-box h2 {
+    padding-bottom: 32px;
+  }
+
+  .commitment-wrap {
+    padding-top: 62px !important;
+  }
+
+  .MeditationConsultation-wrap .MeditationConsultation-inner {
+    min-height: 660px;
+  }
+
+  .our-value-content-box .heading-box h2 {
+    font-size: 32px;
+    line-height: normal;
+  }
+
+  .commitment-content p {
+    font-size: 16px;
+    line-height: normal;
+  }
+
+  .verify_button {
+    min-height: 55px;
+    right: 8px;
+    top: 8px;
+  }
+
+  .heading-box h2 {
+    font-size: 26px;
+  }
+
+  .form_wrap input {
+    font-size: 16px;
+    line-height: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .arabic_heading_two {
+    font-size: 52px !important;
+    line-height: 48px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_32 {
+    font-size: 22px !important;
+    line-height: 24px !important;
+    color: #0F0202;
+
+  }
+
+  html[lang="ar"][dir="rtl"] .font_40 {
+    font-size: 26px !important;
+    line-height: 26px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .heading_48 {
+    font-size: 34px !important;
+    line-height: 34px !important;
+    margin-bottom: 30px;
+  }
+
+  html[lang="ar"][dir="rtl"] .MeditationConsultation-inner {
+    min-height: 760px;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-holistic .heading-box {
+    padding: 30px 0;
+    margin-bottom: 30px;
+  }
+
+  html[lang="ar"][dir="rtl"] .heading_40 {
+    font-size: 28px !important;
+    line-height: 28px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_28 {
+    font-size: 22px !important;
+    line-height: 20px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_34 {
+    font-size: 28px !important;
+    line-height: 28px !important;
+    padding-bottom: 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_25 {
+    font-size: 25px !important;
+    line-height: 26px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .commitment-wrap .heading-box {
+    padding: 0 !important;
+  }
+
+  .bg-site-banner {
+    min-height: 500px !important;
+  }
+
+  .nurturing-img {
+    min-height: 450px !important;
+  }
+
+  .comitment-img {
+    min-height: 490px !important;
+    margin-top: 50px;
+  }
+
+  html[lang="ar"][dir="rtl"] .nurturing-img {
+    min-height: 460px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .error_msg {
+    font-size: 20px !important;
+  }
+
+  .error_msg {
+    font-size: 14px !important;
+  }
+
+  .site-banner .btn-wrap a {
+    font-size: 17px !important;
+    padding: 10px 22px;
+    line-height: 22px;
+  }
+
+  html[lang="ar"][dir="rtl"] .error_msg {
+    font-size: 18px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .btn-icon button {
+    font-size: 20px;
+    height: 50px;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_32 {
+    margin-top: 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .upload_icon {
+    position: relative;
+    height: 44px;
+    width: 88px;
+    right: 16px;
+  }
+
+  .cust_container {
+    width: 100%;
+  }
+
+  html[lang="ar"][dir="rtl"] .sign_in_page input {
+    font-size: 22px;
+    min-height: 60px;
+  }
+
+  .WhatWeOffer-content h5 {
+    font-size: 18px;
+  }
+
+  .form_wrap input {
+    min-height: 60px;
+  }
+
+  .country_select_dropdown {
+    min-height: 60px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .btn-icon button {
+    right: auto;
+    left: 6px;
+    font-size: 18px !important;
+    top: 5px;
+    min-height: 44px !important;
+    width: 88px;
+  }
+
+  .event_banner_content {
+    padding: 48px 0 !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .verify_button {
+    min-height: 50px;
+    right: 8px;
+    top: 8px;
+  }
+
+  .upload_feild {
+    min-height: 60px !important;
+  }
+
+  .download_app_btn a {
+    padding: 8px 15px;
+    font-size: 12px;
+  }
+
+  .profile_active_unActive button {
+    padding: 2px 10px;
+    font-size: 12px;
+  }
+
+  .social-icon nav>a {
+    min-width: 50px !important;
+    min-height: 50px !important;
+  }
+
+  .font_25 {
+    font-size: 20px !important;
+    line-height: 30px !important;
+  }
+
+  .font_32 {
+    font-size: 16px !important;
+    line-height: 22px !important;
+  }
+
+  .font_25 {
+    font-size: 16px !important;
+    line-height: 25px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .profile_active_unActive span {
+    font-size: 18px;
+    padding: 0px 10px;
+  }
+
+  html[lang="ar"][dir="rtl"] .download_app_btn a {
+    color: #fff;
+    font-size: 14px;
+  }
+
+  html[lang="ar"][dir="rtl"] .custom_select {
+    font-size: 22px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .custom_select option {
+    font-size: 22px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .home_banner h5 {
+    margin-bottom: 0 !important;
+  }
+
+  .commitment-content {
+    margin-bottom: 50px;
+  }
+  .userIconWrap {
+    width: 20px;
+    height: 33px;
+}
+}
+
+@media (max-width: 991px) {
+  .lg\:text-black {
+    --tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+  }
+
+  .WhatWeOffer-card .WhatWeOffer-img img {
+    position: relative !important;
+    width: 100% !important;
+    height: 260px !important;
+  }
+
+  .yoga_img_wrapper {
+    min-height: 750px !important;
+  }
+
+  .btn-download img {
+    width: 150px !important;
+    height: 50px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .events_blogs .\32 xl\:container.xl\:container.lg\:container.md\:container.xs\:container.mx-auto.lg\:max-0.px-5 {
+    max-width: 100%;
+  }
+
+  html[lang="ar"][dir="rtl"] .blog-image img {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner-content h5 {
+    font-size: 50px;
+    line-height: normal;
+    max-width: 400px;
+  }
+
+  html[lang="ar"][dir="rtl"] .blog-card-content h4 {
+    font-size: 26px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .f26 {
+    font-size: 26px !important;
+  }
+
+  .singnature-text p {
+    padding-left: 0 !important;
+  }
+
+  .signature_play_wrap {
+    align-items: end;
+  }
+
+  .w-\[80\%\] {
+    width: 100%;
+  }
+
+  .home_banner h5 {
+    max-width: 480px !important;
+  }
+
+  .blog-image {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 402px;
+  }
+
+  .about-banner {
+    min-height: 330px;
+  }
+
+  .about-banner h5 {
+    max-width: 240px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .about-banner h5 {
+    max-width: 420px !important;
+    font-size: 42px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .event-banner {
+    min-height: 400px !important;
+  }
+
+  .about-banner p {
+    max-width: 400px;
+    padding-top: 0px;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  /* html[lang="ar"][dir="rtl"] .about-banner p {
+    max-width: 400px;
+    padding-top: 0px;
+    font-size: 14px;
+    margin-top: 10px;
+  } */
+
+  .about-us .heading-box {
+    margin-bottom: 15px;
+  }
+
+  .benefits-holistic .heading-box {
+    padding-bottom: 0;
+  }
+
+  .what_we_offer .heading-box h2 {
+    line-height: 30px;
+    max-width: 350px;
+    margin-bottom: 20px;
+  }
+}
+
+
+@media (max-width: 991px) {
+  .WhatWeOffer-card .WhatWeOffer-img {
+    margin: 15px 15px 0;
+  }
+
+  .WhatWeOffer-card:hover .WhatWeOffer-img {
+    margin: 0;
+    animation: .3s ease-in;
+  }
+
+  .our-value-inner,
+  .aboutUs {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .our-value-inner .nurturing-img {
+    margin-bottom: 25px;
+  }
+
+  .object-cover {
+    object-fit: cover;
+    object-position: top;
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner h1,
+  .site-banner h5 {
+    line-height: normal;
+    max-width: 280px;
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner p {
+    line-height: normal;
+    max-width: 290px;
+    font-size: 20px;
+    margin-top: 5px;
+  }
+
+  html[lang="ar"][dir="rtl"] .slider-content h4 {
+    font-size: 26px;
+    line-height: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .btn-wrap a {
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .slider-content p {
+    font-size: 22px;
+    line-height: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner-content h5 {
+    font-size: 50px;
+    line-height: normal;
+    max-width: 500px;
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner {
+    min-height: 400px;
+    padding-bottom: 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .slider-content small {
+    font-size: 22px;
+    line-height: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .submit_btn button {
+    padding: 2px 20px;
+  }
+
+  html[lang="ar"][dir="rtl"] .contact_us h2 {
+    line-height: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner-content img {
+    height: 90px;
+    width: 290px;
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner-content p {
+    font-size: 24px !important;
+    max-width: 510px !important;
+    padding-top: 16px;
+
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner {
+    min-height: 370px;
+    padding-bottom: 20px;
+  }
+
+  .profile_active_unActive button {
+    padding: 2px 8px;
+  }
+
+  html[lang="ar"][dir="rtl"] .btn-icon button {
+    right: auto;
+    left: 6px;
+    top: 6px;
+  }
+
+  .comitment-img img {
+    object-fit: cover;
+    object-position: top;
+  }
+
+  .verify_button {
+    min-height: 45px;
+    right: 5px;
+    top: 8px;
+  }
+
+  html[lang="ar"][dir="rtl"] .commitment-wrap {
+    padding-top: 40px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .arabic_heading_one {
+    font-size: 36px !important;
+    line-height: 38px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .arabic_heading_two {
+    font-size: 42px !important;
+    line-height: 38px !important;
+    padding-bottom: 20px;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_32 {
+    font-size: 20px !important;
+    line-height: 20px !important;
+    color: #0F0202;
+    max-width: 100%;
+  }
+
+  html[lang="ar"][dir="rtl"] .Meditation-content {
+    margin-top: 50px;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_40 {
+    font-size: 24px !important;
+    line-height: 24px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .heading_48 {
+    font-size: 28px !important;
+    line-height: 26px !important;
+    margin-bottom: 10px;
+  }
+
+  html[lang="ar"][dir="rtl"] .book-you-button h5 {
+    font-size: 36px !important;
+    line-height: 30px;
+  }
+
+  html[lang="ar"][dir="rtl"] .mediaContent {
+    margin-right: 25px;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-holistic .heading-box {
+    padding: 30px 0;
+    margin-bottom: 0px;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-card .benefits-content h5 {
+    font-size: 28px;
+    line-height: 25px;
+    padding: 15px 0 5px;
+  }
+
+  html[lang="ar"][dir="rtl"] .heading_40 {
+    font-size: 26px !important;
+    line-height: 26px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .our-value-content-box .heading-box {
+    margin-bottom: 0px;
+    padding-top: 0px;
+  }
+
+  html[lang="ar"][dir="rtl"] .nurturing-img {
+    min-height: 650px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .bg-site-banner {
+    min-height: 660px !important;
+  }
+
+  .bg-site-banner {
+    min-height: 400px !important;
+  }
+
+  .social-icon nav>a {
+    min-width: 36px !important;
+    min-height: 36px !important;
+  }
+
+  .social-icon a>img {
+    width: 15px;
+    height: 15px;
+  }
+
+  .wellness_image_wrap {
+    min-height: 60px !important;
+  }
+
+  .wellness_image_wrap img {
+    max-width: 300px;
+    margin: 0 auto;
+    min-height: 50px;
+  }
+
+  .home_banner p {
+    padding: 0;
+    line-height: 16px;
+  }
+
+  .home_banner h5 {
+    line-height: 10px !important;
+    font-size: 18px;
+    margin: 0 auto;
+  }
+
+  .nurturing-img {
+    min-height: 630px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .navbar_links {
+    font-size: 20px;
+    margin-left: 0;
+  }
+
+  .font_25 {
+    font-size: 20px !important;
+    line-height: 30px !important;
+  }
+
+  .select_country button {
+    padding: 12px 10px;
+    right: 6px;
+    top: 6px;
+  }
+
+  html[lang="ar"][dir="rtl"] .sign_in_page input {
+    font-size: 20px;
+  }
+
+  .download_btn_wrap {
+    justify-content: space-between !important;
+  }
+
+  .download_btn_wrap h2 {
+    font-size: 32px !important;
+    padding-bottom: 0px !important;
+  }
+
+  .phone_image img {
+    height: 500px;
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .WelcomeMessage h5 {
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  .play_content_wrap h3 {
+    font-size: 22px;
+    max-width: 310px;
+  }
+
+  .sportive_content {
+    margin-bottom: 24px !important;
+  }
+
+  .commitment_wrap {
+    margin-top: 20px;
+  }
+
+  .commit_content_wrap {
+    margin-top: 0;
+  }
+
+  .commitment-content {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .WhatWeOffer-card .WhatWeOffer-img img {
+    position: relative !important;
+    width: 100% !important;
+    height: 190px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner-content h5 {
+    font-size: 30px;
+    line-height: normal !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .custom_select {
+    padding: 2px 28px 2px 8px;
+    font-size: 16px !important;
+    margin-left: 10px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner-content p {
+    font-size: 22px !important;
+    max-width: 390px !important;
+    padding-top: 10px;
+    line-height: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner {
+    min-height: 150px;
+    padding-bottom: 20px;
+    padding-top: 40px;
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner-content img {
+    height: 70px;
+    width: 180px;
+  }
+
+  .yoga_img_wrapper {
+    min-height: 540px !important;
+  }
+
+  .WhatWeOffer-card .WhatWeOffer-img img {
+    position: relative !important;
+    width: 100% !important;
+    height: 150px !important;
+  }
+
+
+  .benefits-content h5 {
+    padding: 10px 0 5px;
+    font-size: 18px;
+  }
+
+  .contact-banner p {
+    margin-top: 0;
+    padding-top: 5px;
+  }
+
+  .custom-pagination span {
+    font-size: 14px;
+  }
+
+  html[lang="ar"][dir="rtl"] .about-banner h5 {
+    max-width: 320px !important;
+    font-size: 32px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .event-banner {
+    min-height: 300px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .event-banner p {
+    font-size: 18px !important;
+    max-width: 330px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .download_app_btn a {
+    padding: 5px 10px !important;
+    margin-left: 0px;
+  }
+
+  html[lang="ar"][dir="rtl"] .event-banner .btn-wrap a {
+    font-size: 16px !important;
+    padding: 6px 20px;
+  }
+
+  html[lang="ar"][dir="rtl"] .event-banner .btn-wrap {
+    margin-top: 30px;
+  }
+
+  html[lang="ar"][dir="rtl"] .nurturing_wrap {
+    margin-top: 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .btn-download img {
+    width: 150px !important;
+    height: 50px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-card .benefits-content h5 {
+    font-size: 28px;
+    line-height: 25px;
+    padding: 15px 0 5px;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-card .benefits-content p {
+    font-size: 22px;
+    line-height: 22px;
+  }
+
+  html[lang="ar"][dir="rtl"] .play_content_wrap h3 {
+    font-size: 28px;
+    line-height: 30px;
+  }
+
+  html[lang="ar"][dir="rtl"] .custom_font {
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  html[lang="ar"][dir="rtl"] .what_we_offer .heading-box h5 {
+    font-size: 38px;
+    line-height: 20px;
+  }
+
+  html[lang="ar"][dir="rtl"] .what_we_offer .heading-box h2 {
+    font-size: 36px;
+    line-height: 42px;
+    margin-bottom: 10px;
+  }
+
+  html[lang="ar"][dir="rtl"] .what_we_offer span {
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .what_we_offer p {
+    font-size: 20px;
+    line-height: 23px;
+    font-weight: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .select_country button {
+    padding: 6px 5px;
+  }
+
+  html[lang="ar"][dir="rtl"] .btn-icon button {
+    right: auto;
+    left: 5px;
+    top: 5px;
+  }
+
+  .SubscribeUs-card button {
+    font-size: 16px;
+  }
+
+  .commitment-wrap .heading-box h2 {
+    padding-bottom: 12px;
+  }
+
+  .commitment-wrap {
+    padding-top: 32px !important;
+  }
+
+  .heading-box h5 {
+    font-size: 18px;
+  }
+
+  .heading-box h2 {
+    font-size: 20px;
+  }
+
+  .commitment-content p {
+    font-size: 14px;
+    line-height: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .arabic_heading_one {
+    font-size: 32px !important;
+    line-height: 32px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .arabic_heading_two {
+    font-size: 38px !important;
+    line-height: 30px !important;
+    padding-bottom: 10px;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_32 {
+    font-size: 18px !important;
+    line-height: normal !important;
+    max-width: 100%;
+    color: #0F0202;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_40 {
+    font-size: 20px !important;
+    line-height: normal !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .heading_48 {
+    font-size: 26px !important;
+    line-height: 26px !important;
+    margin-bottom: 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .book-you-button h5 {
+    font-size: 30px !important;
+    line-height: 25px;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_28 {
+    font-size: 20px !important;
+    line-height: 15px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .heading_40 {
+    font-size: 24px !important;
+    line-height: normal !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .heading_40 {
+    font-size: 22px !important;
+    line-height: 26px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .our-stories {
+    margin-top: 55px;
+  }
+
+  .verify_button {
+    min-height: 50px;
+    right: 4px;
+    top: 5px;
+    width: 70px;
+    font-size: 14px;
+  }
+
+  .select_country button {
+    padding: 10px 0px;
+    font-size: 12px;
+    width: 70px;
+    right: 3px;
+    min-height: 50px;
+    top: 3px;
+  }
+
+  .upload_icon {
+    position: relative;
+    height: 50px;
+    width: 70px;
+    top: 0px !important;
+    left: 12px;
+  }
+
+  .form_wrap {
+    margin-top: 20px;
+  }
+
+  .moment_of_senetry .heading-box h5,
+  .moment_of_senetry .heading-box h2 {
+    margin-bottom: 10px;
+  }
+
+  .moment_of_senetry {
+    padding-top: 35px;
+  }
+
+  .evnets_wrap {
+    margin-bottom: 30px;
+  }
+
+  html[lang="ar"][dir="rtl"] .bg-site-banner {
+    min-height: 550px !important;
+  }
+
+  .nurturing-img {
+    min-height: 380px !important;
+  }
+
+  .comitment-img img {
+    object-fit: contain;
+    object-position: top;
+  }
+
+  .comitment-img {
+    min-height: 230px !important;
+    margin-top: 50px;
+  }
+
+  .our-value {
+    padding-top: 30px;
+  }
+
+  html[lang="ar"][dir="rtl"] .nurturing-img {
+    min-height: 370px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .appstore_heading {
+    font-size: 24px;
+    line-height: 20px;
+    margin-top: 10px;
+  }
+
+  .font_25 {
+    font-size: 16px !important;
+    line-height: 24px !important;
+  }
+
+  .font_32 {
+    font-size: 16px !important;
+    line-height: 24px !important;
+  }
+
+  .book-you-button h5 {
+    font-size: 20px;
+    line-height: normal;
+    margin-bottom: 25px;
+  }
+
+  html[lang="ar"][dir="rtl"] .error_msg {
+    font-size: 16px !important;
+  }
+
+  .error_msg {
+    font-size: 12px !important;
+    line-height: 5px !important;
+    margin-top: 5px;
+  }
+
+  .site-banner .btn-wrap a {
+    font-size: 14px !important;
+    padding: 8px 20px;
+    line-height: 22px;
+  }
+
+  .static-img-wrap {
+    min-height: 160px !important;
+  }
+
+  .sign_in_page_inner {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 14px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .sign_in_page .btn-icon {
+    margin-right: 0;
+  }
+
+  .sign_in_page_inner {
+    padding: 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .sign_in_page input {
+    font-size: 20px;
+  }
+
+  html[lang="ar"][dir="rtl"] .MeditationConsultation-inner {
+    min-height: 590px;
+  }
+
+  .WhatWeOffer-content h5 {
+    line-height: normal;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .heading-box p {
+    font-size: 16px !important;
+    line-height: normal !important;
+  }
+
+  .WhatWeOffer-content {
+    padding: 10px 5px 10px 35px;
+  }
+
+  .WhatWeOffer-content p {
+    margin-top: 0;
+  }
+
+  .download_btn_wrap {
+    justify-content: center !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .form_control input,
+  html[lang="ar"][dir="rtl"] .form_control textarea {
+    font-size: 18px;
+  }
+
+  .form_wrap input {
+    min-height: 45px;
+  }
+
+  html[lang="ar"][dir="rtl"] .btn-icon button {
+    width: 60px;
+    height: 30px;
+  }
+
+  .country_select_dropdown {
+    min-height: 45px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .select_country button {
+    padding: 6px 5px;
+    font-size: 14px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .upload_icon {
+    position: relative;
+    height: 36px;
+    width: 60px;
+    right: 10px;
+  }
+
+  .upload_feild {
+    min-height: 45px !important;
+  }
+
+  .btn-wrap button {
+    font-size: 18px;
+  }
+
+  html[lang="ar"][dir="rtl"] .btn-icon button {
+    min-height: 35px !important;
+  }
+
+  .btn-icon button {
+    min-height: 35px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .sign_in_page input {
+    font-size: 22px;
+    min-height: 45px;
+  }
+
+  .btn-icon input {
+    min-height: 45px !important;
+  }
+
+  .MeditationConsultation-wrap .MeditationConsultation-inner {
+    min-height: 600px;
+  }
+
+  .Meditation-content-inner .book-you-button a {
+    margin-top: 0;
+  }
+
+  .WelcomeMessage h5 {
+    font-size: 14px;
+    line-height: normal;
+    margin-top: 0;
+  }
+
+  .sportive_content {
+    margin-bottom: 30px !important;
+  }
+
+  .userIconWrap {
+    width: 30px;
+    height: 30px;
+  }
+
+  .userIconWrap span img {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .WhatWeOffer-card .WhatWeOffer-img img {
+    height: 217px !important;
+  }
+
+  .yoga_img_wrapper {
+    min-height: 400px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner h1,
+  .site-banner h5 {
+    line-height: normal;
+    max-width: 300px;
+  }
+
+  html[lang="ar"][dir="rtl"] .site-banner {
+    min-height: 300px;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits_banner h5 {
+    font-size: 30px;
+    line-height: normal;
+    max-width: 400px;
+    margin-bottom: 5px;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits_banner p {
+    margin-top: 0px;
+  }
+
+  html[lang="ar"][dir="rtl"] .blog-card-content p {
+    font-size: 20px !important;
+    max-width: 700px;
+  }
+
+  html[lang="ar"][dir="rtl"] .btn-wrap button {
+    font-size: 18px;
+    padding: 4px 20px;
+  }
+
+  html[lang="ar"][dir="rtl"] .blog-card-content h4 {
+    font-size: 25px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .rtl\:text-\[30px\]:where([dir="rtl"], [dir="rtl"] *) {
+    font-size: 26px;
+  }
+
+  html[lang="ar"][dir="rtl"] .date-wrap {
+    font-size: 20px;
+    line-height: normal;
+    height: 60px;
+    width: 70px;
+  }
+
+  html[lang="ar"][dir="rtl"] .date-wrap h1 {
+    line-height: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .bg-shap-bg {
+    min-height: 30px;
+    margin: 10px 0;
+    max-width: 130px;
+    background-position: right;
+  }
+
+  html[lang="ar"][dir="rtl"] .contact-banner {
+    min-height: 320px;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-content p {
+    font-size: 16px;
+  }
+
+  .singnature-text p {
+    font-size: 16px;
+    line-height: 30px;
+  }
+
+  .btn-download img {
+    width: 100px !important;
+    height: 30px !important;
+  }
+
+  .btn-download a {
+    margin-top: 0 !important;
+  }
+
+  .moment_of_senetry {
+    padding-top: 30px;
+  }
+
+  .form_wrap {
+    margin-top: 15px;
+  }
+
+  .commitment-wrap {
+    padding-top: 30px;
+  }
+
+  .commitment-wrap .heading-box {
+    padding-bottom: 0;
+  }
+
+  .SubscribeUs-card input {
+    padding: 10px 40px 10px 10px;
+  }
+
+  /* .benefits-holistic .heading-box {
+    margin-top: 25px;
+  } */
+
+  .heading-box h2 {
+    line-height: 25px;
+  }
+
+  .custom-pagination span {
+    font-size: 14px;
+  }
+
+  .about-us {
+    padding: 40px 0;
+  }
+
+  .download_application .heading-box h2 {
+    line-height: 35px;
+    font-size: 26px !important;
+  }
+
+  .upload_icon {
+    position: relative;
+    height: 50px;
+    width: 80px;
+    top: 0px !important;
+    left: 5px;
+  }
+
+  .select_country button {
+    padding: 10px 0px;
+    font-size: 10px;
+    width: 70px;
+    right: 5px;
+    min-height: 50px;
+    top: 5px;
+  }
+
+  .upload_feild {
+    padding: 0 5px;
+  }
+
+  html[lang="ar"][dir="rtl"] .event-banner {
+    min-height: 250px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .commitment-content {
+    margin-bottom: 10px;
+    margin-top: 16px;
+  }
+
+  html[lang="ar"][dir="rtl"] .commitment-content p {
+    font-size: 16px !important;
+    max-width: 300px;
+    line-height: normal;
+    margin: auto;
+  }
+
+  /* html[lang="ar"][dir="rtl"] .Meditation-content-inner h5 {
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 10px;
+  } */
+
+  html[lang="ar"][dir="rtl"] .book-you-button a {
+    margin-left: 0;
+    padding: 5px 18px;
+    font-size: 16px;
+  }
+
+  html[lang="ar"][dir="rtl"] .book-you-button h5 {
+    font-size: 26px;
+    line-height: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .DownloadOurApp-content h5 {
+    font-size: 20px;
+    margin: 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .DownloadOurApp-content p {
+    font-size: 16px;
+    line-height: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .DownloadOurApp-content .QR-box {
+    margin-top: 15px;
+  }
+
+  html[lang="ar"][dir="rtl"] .QR img {
+    width: 80px;
+    height: 80px;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-holistic .heading-box {
+    padding-bottom: 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-content h5 {
+    font-size: 22px;
+    line-height: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-content p {
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .blog-wrap .heading-box h5 {
+    line-height: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .blog-wrap .heading-box h2 {
+    line-height: 0;
+    font-size: 32px;
+  }
+
+  html[lang="ar"][dir="rtl"] .card-content h4 {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+
+  html[lang="ar"][dir="rtl"] .card-content p {
+    font-size: 16px;
+    line-height: normal;
+    margin-bottom: 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .SubscribeUs-card h1 {
+    font-size: 22px;
+    line-height: normal;
+    margin-bottom: 10px;
+  }
+
+  html[lang="ar"][dir="rtl"] .follow-us h5 {
+    font-size: 18px;
+  }
+
+  html[lang="ar"][dir="rtl"] .custom_font {
+    font-size: 18px;
+    line-height: 26px;
+    margin-top: 10px;
+  }
+
+  html[lang="ar"][dir="rtl"] .font-brittany {
+    font-size: 20px;
+    padding: 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .WhatWeOffer-card {
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  /* html[lang="ar"][dir="rtl"] .WelcomeMessage h5 {
+    font-size: 30px !important;
+    line-height: 30px;
+    font-weight: bold;
+  } */
+
+  html[lang="ar"][dir="rtl"] .nurturing-img {
+    min-height: 270px;
+  }
+
+  html[lang="ar"][dir="rtl"] .btn-download img {
+    width: 100px !important;
+    height: 30px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .btn-download a>img:first-of-type {
+    margin-bottom: 10px;
+  }
+
+
+  html[lang="ar"][dir="rtl"] .WhatWeOffer {
+    padding-top: 30px;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-holistic h5 {
+    font-size: 30px;
+    line-height: 20px;
+  }
+
+  html[lang="ar"][dir="rtl"] .benefits-holistic .heading-box {
+    padding: 0px 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .what_we_offer span {
+    font-size: 26px;
+    line-height: 25px;
+    font-weight: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .what_we_offer p {
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: normal;
+  }
+
+  .profile_active_unActive button {
+    margin-left: 10px;
+    border: 1px solid gray;
+    padding: 5px 7px;
+    font-size: 15px;
+    outline: none;
+    border-radius: 50%;
+  }
+
+  html[lang="ar"][dir="rtl"] .blog-card .card-content h4 {
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  html[lang="ar"][dir="rtl"] .blog-card .card-content p {
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+
+
+  html[lang="ar"][dir="rtl"] .SubscribeUs-wrap .SubscribeUs-card h1 {
+    font-size: 30px;
+    line-height: 20px;
+  }
+
+  html[lang="ar"][dir="rtl"] .SubscribeUs-wrap .SubscribeUs-card .icon-wrap input {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  html[lang="ar"][dir="rtl"] .swiper_slider_btn button>img {
+    width: 30px;
+    height: 30px;
+  }
+
+  html[lang="ar"][dir="rtl"] .swiper_slider_btn .custom-prev {
+    bottom: 190px;
+  }
+
+  /* html[lang="ar"][dir="rtl"] .swiper_slider_btn .custom-next {
+    bottom: -100px;
+  } */
+
+  .social-icon a>img {
+    width: 12px;
+    height: 12px;
+  }
+
+  html[lang="ar"][dir="rtl"] .yoga_img_wrapper {
+    min-height: 414px !important;
+  }
+
+  .custom_footer nav>a {
+    margin-right: 10px;
+    font-size: 12px;
+  }
+
+  .SubscribeUs-card button {
+    font-size: 16px;
+    padding: 0;
+  }
+
+  .SubscribeUs-card .form-group .icon-wrap input {
+    font-size: 16px;
+    line-height: normal;
+  }
+
+  .site-banner .btn-wrap a {
+    font-size: 12px;
+  }
+
+  .site-banner .btn-wrap {
+    margin-top: 20px;
+  }
+
+  .contact-banner {
+    min-height: 300px !important;
+  }
+
+  .form_wrapper form {
+    padding: 15px;
+  }
+
+  .icon-wrap button {
+    top: 15px !important;
+  }
+
+  .heading-box h2 {
+    font-size: 18px;
+  }
+
+  .heading-box h5 {
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+
+  /* .DownloadOurApp-content h5 {
+    margin-bottom: 15px;
+  } */
+
+  .mediaContent p {
+    margin-right: 10px;
+    font-size: 14px !important;
+    line-height: 18px !important;
+  }
+
+  .commitment-wrap {
+    padding-top: 22px !important;
+  }
+
+  .heading-box {
+    margin-bottom: 15px;
+  }
+
+  .benefits-content h5 {
+    padding: 10px 0 5px;
+    font-size: 16px;
+  }
+
+  .benefits-content h5 {
+    padding: 10px 0 5px;
+    font-size: 14px;
+    line-height: normal;
+  }
+
+  .nurturing-img {
+    min-height: 270px;
+  }
+
+  .our-value-content-box .heading-box h2 {
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  .our_mission_custom_font {
+    font-size: 16px !important;
+    line-height: 24px;
+  }
+
+  .our-stories {
+    margin-top: 0;
+  }
+
+  .what_we_offer .heading-box h2 {
+    line-height: 25px;
+    max-width: 350px;
+    margin-bottom: 10px;
+  }
+
+  .contact_us p {
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+    padding: 0 10px;
+    margin-bottom: 10px;
+  }
+
+  .event_banner_content .heading-box {
+    margin-bottom: 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .commitment-wrap {
+    padding-top: 30px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .commitment-wrap .heading-box {
+    padding-bottom: 0;
+    margin-bottom: 10px;
+  }
+
+  .comitment_img img {
+    object-position: bottom;
+  }
+
+  html[lang="ar"][dir="rtl"] .Meditation-content-inner .heading-box {
+    margin-bottom: 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .arabic_heading_one {
+    font-size: 22px !important;
+    line-height: 30px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .arabic_heading_two {
+    font-size: 28px !important;
+    line-height: 25px !important;
+    padding-bottom: 10px;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_40 {
+    font-size: 24px !important;
+    line-height: normal !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .heading_48 {
+    font-size: 22px !important;
+    line-height: 20px !important;
+    margin-bottom: 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .book-you-button h5 {
+    font-size: 26px !important;
+    line-height: 25px;
+  }
+
+  html[lang="ar"][dir="rtl"] .our-value-content-box .heading-box {
+    margin-bottom: 0;
+    padding-top: 0px;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_25 {
+    font-size: 20px !important;
+    line-height: 20px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_25 {
+    font-size: 18px !important;
+    line-height: 20px !important;
+    padding-top: 10px;
+  }
+
+  html[lang="ar"][dir="rtl"] .our-stories .book-you-button {
+    margin-bottom: 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .what_we_offer {
+    margin-bottom: 0;
+  }
+
+  .form_wrap input {
+    font-size: 14px;
+    line-height: normal;
+  }
+
+  .moment_of_senetry .heading-box {
+    margin-bottom: 0;
+  }
+
+  .moment_of_senetry .heading-box p {
+    line-height: 24px !important;
+  }
+
+  .moment_of_senetry .heading-box h5,
+  .moment_of_senetry .heading-box h2 {
+    margin-bottom: 5px;
+    line-height: normal;
+  }
+
+  .event_banner_content {
+    padding: 0;
+  }
+
+  .date-wrap {
+    height: 70px;
+    width: 70px;
+  }
+
+  .date-wrap h1 {
+    font-size: 18px;
+  }
+
+  .custom-next-btn {
+    transform: rotate(178deg);
+    top: 44%;
+  }
+
+  html[lang="ar"][dir="rtl"] .custom-next-btn {
+    top: 50%;
+  }
+
+  html[lang="ar"][dir="rtl"] .logo a>img {
+    margin-left: 20px;
+  }
+
+  .nurturing-img {
+    min-height: 290px !important;
+  }
+
+  .comitment-img {
+    min-height: 170px !important;
+    margin-top: 30px;
+  }
+
+  html[lang="ar"][dir="rtl"] .nurturing-img {
+    min-height: 270px !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .appstore_heading {
+    font-size: 20px;
+    line-height: 18px;
+    margin-top: 10px;
+  }
+
+  html[lang="ar"][dir="rtl"] .font_32 {
+    font-size: 20px !important;
+    line-height: normal !important;
+    max-width: 100%;
+    margin-top: 0;
+    color: #0F0202;
+  }
+
+  html[lang="ar"][dir="rtl"] .bg-site-banner {
+    min-height: 500px !important;
+  }
+
+  .font_32 {
+    font-size: 16px !important;
+    line-height: 24px !important;
+  }
+
+  .benefits-content p {
+    margin-top: 0 !important;
+  }
+
+  .font_25 {
+    font-size: 16px !important;
+    line-height: 24px !important;
+  }
+
+  .DownloadOurApp {
+    margin-bottom: 35px;
+  }
+
+  .static-img-wrap {
+    min-height: 250px !important;
+  }
+
+  .static-img-wrap img {
+    object-fit: cover;
+    object-position: inherit;
+  }
+
+  .btn-download {
+    margin-top: 0 !important;
+  }
+
+  html[lang="ar"][dir="rtl"] .Toastify__toast-container.Toastify__toast-container--top-right {
+    right: 0;
+  }
+
+  html[lang="ar"][dir="rtl"] .upload_icon {
+    right: 4px;
+  }
+
+  .play_content_wrap h3 {
+    font-size: 18px;
+    max-width: 204px;
+    line-height: normal;
+  }
+
+  html[lang="ar"][dir="rtl"] .profile_active_unActive span {
+    font-size: 14px;
+    padding: 0px 0px;
+  }
+
+  .moment_of_senetry .book-you-button {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .sportive_content {
+    margin-bottom: 20px !important;
+  }
+
+  .download_app_btn a {
+    padding: 8px 9px;
+    font-size: 12px;
+  }
+
+  .custom_select {
+    padding: 3px 22px 3px 8px;
+    font-size: 12px !important;
+  }
+
+  .register_btn {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+
+  .form_control .input_wrapper input {
+    font-size: 16px !important;
+    line-height: normal;
+  }
+
+  input {
+    font-size: 16px !important;
+    -webkit-transform: none;
+    transform: none;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+  }
+
+  input:focus {
+    font-size: 16px !important;
+  }
+}

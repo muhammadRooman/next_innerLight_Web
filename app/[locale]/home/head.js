@@ -1,6 +1,5 @@
 "use client"
-
-import DefaultTags from "@/app/default-tags"; // Import DefaultTags component
+import DefaultTags from "@/app/default-tags";
 import { useEffect, useState } from "react";
 
 export default function Head() {
@@ -11,15 +10,14 @@ export default function Head() {
     setLng(items);
   }, []); 
 
-
   if (lng === null) {
-    return null; // Return null or a loading state until 'lng' is fetched
+    return null; 
   }
 
   return (
     <>
       <DefaultTags
-        title={lng === "en" ? "Home | InnerLight" : "الصفحة الرئيسية | ضوء داخلي"} // Dynamically set title based on language
+        title={lng === "en" ? "Home | InnerLight" : "الصفحة الرئيسية | ضوء داخلي"}
         description="InnerLight is one of the best course and meditation websites"
         keywords="online InnerLight keywords"
       />
