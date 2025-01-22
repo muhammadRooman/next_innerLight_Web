@@ -514,7 +514,7 @@ export default function SignUpNow() {
               >
                    <div className="flex items-center justify-center gap-2">
                   {loader && <FullPageLoader />}
-                  <span>Sign Up</span>
+                  <span>{t("sign_up")}</span>
                 </div>
               </button>
               }          
