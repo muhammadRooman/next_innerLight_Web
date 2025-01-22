@@ -45,7 +45,7 @@ export default function SignUpNow() {
   const cleanPhoneNumber = countryCode + remaining.trim();
   const [isOtpSent, setIsOtpSent] = useState(false);
   const [isOtpVerify, setIsOtpVerify] = useState(false);
-  const { authState, signIn, signOut } = useAuth();
+  const { authState, signIn,signup, signOut } = useAuth();
  
   useEffect(() => {
     const lang = currentPath.split("/")[1] || "en";
@@ -195,7 +195,7 @@ export default function SignUpNow() {
       );
       if (response?.data?.status === 1) {
         localStorage.setItem("authToken", response.data.token);
-        signIn()
+        signup(response.data.token)
         setSignUpData({ fullName: "", email: "" });
         setProfileImage(null);
         setProfileImagePreview(null)

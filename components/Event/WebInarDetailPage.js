@@ -43,7 +43,7 @@ const WebInarDeatilPage = () => {
       try {
         const response = await axios.post(
           `${process.env.NEXT_PUBLIC_BASE_API_FRONT}/webinars/join-webinar/${id}`,
-          {},
+          {language:language},
           {
             headers: {
               "Authorization": `Bearer ${token}`,
